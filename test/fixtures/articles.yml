@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  subcategory: MyString
+  URL: MyString
+  description: MyString
+  upvotes: 1
+  fake_news: 1
+  user: one
+
+two:
+  category: MyString
+  subcategory: MyString
+  URL: MyString
+  description: MyString
+  upvotes: 1
+  fake_news: 1
+  user: two
