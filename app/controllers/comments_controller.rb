@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
-    @comments = Comment.where(article_id: params[:article_id])
+    @comments = Comment.all
   end
 
   def new
