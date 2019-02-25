@@ -1,0 +1,7 @@
+<%=  simple_form_for([ @user, @article ]) do |f| %>
+  <%= f.input :category%>
+  <%= f.input :subcategory %>
+  <%= f.input :URL %>
+  <%= f.input :description%>
+  <%= f.button :submit %>
+<% end %>
