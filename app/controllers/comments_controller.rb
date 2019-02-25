@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @article = article.find(params[:article_id])
+    @article = Article.find(params[:article_id])
     @comment = Comment.new
   end
 
@@ -13,13 +13,17 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.article = Article.find(params[:article_id])
     @comment.user = current_user
-    @comment.save
+    if @comment.save
+      redirect_to article_comments_path(@comment)
+    else
+      render :new
+    end
   end
 
   private
 
   def comment_params
-    params.require(:comments).permit(:title, :text, :source, :upvotes, :date)
+    params.require(:comment).permit(:title, :text, :source, :upvotes, :date)
   end
 end
 
