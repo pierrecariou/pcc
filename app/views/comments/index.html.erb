@@ -1,1 +1,4 @@
-<%= @comments.title %>
+<% @comments.each do |comment| %>
+<%= comment.title %>
+<% end %>
+
