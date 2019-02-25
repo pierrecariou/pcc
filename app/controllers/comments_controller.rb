@@ -13,7 +13,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.article = Article.find(params[:article_id])
     @comment.user = current_user
-    @comment.save
+    if @comment.save
+      redirect_to article_comments_path(@comment)
+    else
+      render :new
+    end
   end
 
   private
