@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comments).permit(:title, :text, :source, :upvotes, :date)
+    params.require(:comment).permit(:title, :text, :source, :upvotes, :date)
   end
 end
 
