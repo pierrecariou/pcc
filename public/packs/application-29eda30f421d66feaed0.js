@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/packs/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10441,6 +10441,158 @@ return jQuery;
 
 /***/ }),
 /* 1 */
+/*!*************************************************!*\
+  !*** ./app/javascript/packs/select_category.js ***!
+  \*************************************************/
+/*! exports provided: selectCategory, selectSubcategory */
+/*! all exports used */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectCategory", function() { return selectCategory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectSubcategory", function() { return selectSubcategory; });
+// Selectionner la catégorie qui nous interesse
+// Changer sa classe pour qu'elle soit visible
+// Enregistrer la catégorie selectionnée soumis par simple_form
+
+// const toggleClass = () => {
+//   const categories = document.querySelectorAll('.select-category')
+//   categories.forEach( category => {
+//     let array = [];
+//     category.addEventListener( 'click', (event) => {
+//       // categories.forEach( category => {
+//       //   category.classList.remove('selected-element');
+//       // });
+//       event.currentTarget.classList.toggle('selected-element');
+//       const selectedCategories = document.querySelectorAll('.selected-element');
+//       selectedCategories.forEach( category => {
+//         array.push(category.dataset.category);
+//       });
+//       const input = document.getElementById("article_category");
+//       input.value = array;
+//     });
+//   });
+// };
+
+
+const selectCategory = () => {
+  const categories = document.querySelectorAll('.select-category');
+  categories.forEach(category => {
+    let array = [];
+    category.addEventListener('click', event => {
+      // categories.forEach( category => {
+      //   category.classList.remove('selected-element');
+      // });
+      event.currentTarget.classList.toggle('selected-element');
+      const selectedCategories = document.querySelectorAll('.selected-element');
+      selectedCategories.forEach(category => {
+        array.push(category.dataset.category);
+      });
+      const input = document.getElementById("article_category");
+      input.value = array;
+    });
+    array = [];
+  });
+  // categories.forEach( category => {
+  //   toggleClass(category);
+  //   // category.addEventListener( 'click', (event) => {
+  //   //   // categories.forEach( category => {
+  //   //   //   category.classList.remove('selected-element');
+  //   //   // });
+  //   //   event.currentTarget.classList.toggle('selected-element');
+  //   });
+  // const input = document.getElementById("article_category");
+  // input.value = event.currentTarget.dataset.category;
+  // console.log(input.value)
+};
+
+const selectSubcategory = () => {
+  const subcategories = document.querySelectorAll('.select-subcategory');
+  subcategories.forEach(subcategory => {
+    subcategory.addEventListener('click', event => {
+      // subcategories.forEach( subcategory => {
+      //   subcategory.classList.remove('selected-element');
+      // });
+      // console.log(event.currentTarget)
+      event.currentTarget.classList.toggle('selected-subcategory');
+      const input = document.getElementById("article_subcategory");
+      input.value = event.currentTarget.dataset.subcategory;
+    });
+  });
+};
+
+
+
+/***/ }),
+/* 2 */
+/*!**************************************!*\
+  !*** ./app/javascript/packs/tabs.js ***!
+  \**************************************/
+/*! exports provided: openTheme */
+/*! all exports used */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openTheme", function() { return openTheme; });
+function openTheme() {
+  // Declare all variables
+  // var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  // tabcontent = document.getElementsByClassName("tabcontent");
+  // for (i = 0; i < tabcontent.length; i++) {
+  //   tabcontent[i].style.display = "none";
+  // }
+
+  // // Get all elements with class="tablinks" and remove the class "active"
+  // tablinks = document.getElementsByClassName("tablinks");
+  // for (i = 0; i < tablinks.length; i++) {
+  //   tablinks[i].className = tablinks[i].className.replace("active", "");
+  // }
+
+  const tabs = document.querySelectorAll(".tablinks");
+  // let i = 0;
+  // for (i = 0; i < tabs.length; i++) {
+  //   tabs[i].className = tabs[i].className.replace("active", "");
+  // }
+  // const tabcontent = document.getElementsByClassName("tabcontent");
+  //   for (i = 0; i < tabcontent.length; i++) {
+  //     tabcontent[i].style.display = "none";
+  //   }
+  tabs.forEach(tab => {
+    tab.addEventListener('click', event => {
+
+      // On cache toutes les div
+      const tabcontents = document.querySelectorAll(".tabcontent");
+      tabcontents.forEach(element => {
+        element.classList.remove("tabcontent-active");
+      });
+
+      // On cache tous les onglets
+      tabs.forEach(tab => {
+        tab.classList.remove("active");
+      });
+
+      // On récupère le texte de l'onglet cliqué
+      const theme = event.currentTarget.innerText;
+      // On affiche la div
+      document.getElementById(theme).classList.add("tabcontent-active");
+      // On affiche l'onglet
+      event.currentTarget.classList.toggle("active");
+    });
+  });
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  // document.getElementById(theme).style.display = "block";
+  // evt.currentTarget.className += " active";
+};
+
+
+
+/***/ }),
+/* 3 */
 /*!*********************************************!*\
   !*** ./app/javascript/packs/application.js ***!
   \*********************************************/
@@ -10450,14 +10602,54 @@ return jQuery;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap__ = __webpack_require__(/*! bootstrap */ 2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap__ = __webpack_require__(/*! bootstrap */ 4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_bootstrap__);
-throw new Error("Cannot find module \"tabs.js\"");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__select_category__ = __webpack_require__(/*! ./select_category */ 1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_js__ = __webpack_require__(/*! ./tabs.js */ 2);
 
 
+
+
+Object(__WEBPACK_IMPORTED_MODULE_1__select_category__["selectCategory"])();
+
+
+
+Object(__WEBPACK_IMPORTED_MODULE_1__select_category__["selectSubcategory"])();
+
+
+
+Object(__WEBPACK_IMPORTED_MODULE_2__tabs_js__["openTheme"])();
+
+// function openTheme(evt, theme) {
+//   // Declare all variables
+//   var i, tabcontent, tablinks;
+
+//   // Get all elements with class="tabcontent" and hide them
+//   tabcontent = document.getElementsByClassName("tabcontent");
+//   for (i = 0; i < tabcontent.length; i++) {
+//     tabcontent[i].style.display = "none";
+//   }
+
+//   // Get all elements with class="tablinks" and remove the class "active"
+//   tablinks = document.getElementsByClassName("tablinks");
+//   for (i = 0; i < tablinks.length; i++) {
+//     tablinks[i].className = tablinks[i].className.replace(" active", "");
+//   }
+
+//   // Show the current tab, and add an "active" class to the button that opened the tab
+//   document.getElementById(theme).style.display = "block";
+//   console.log(theme);
+//   evt.currentTarget.className += " active";
+//   console.log(evt)
+// };
+
+// openTheme('click', 'Ecologie');
+// openTheme('click', 'Economie');
+// openTheme('click', 'Politique');
+// openTheme('click', 'Numérique');
 
 /***/ }),
-/* 2 */
+/* 4 */
 /*!***********************************************!*\
   !*** ./node_modules/bootstrap/dist/js/npm.js ***!
   \***********************************************/
@@ -10465,21 +10657,21 @@ throw new Error("Cannot find module \"tabs.js\"");
 /***/ (function(module, exports, __webpack_require__) {
 
 // This file is autogenerated via the `commonjs` Grunt task. You can require() this file in a CommonJS environment.
-__webpack_require__(/*! ../../js/transition.js */ 3)
-__webpack_require__(/*! ../../js/alert.js */ 4)
-__webpack_require__(/*! ../../js/button.js */ 5)
-__webpack_require__(/*! ../../js/carousel.js */ 6)
-__webpack_require__(/*! ../../js/collapse.js */ 7)
-__webpack_require__(/*! ../../js/dropdown.js */ 8)
-__webpack_require__(/*! ../../js/modal.js */ 9)
-__webpack_require__(/*! ../../js/tooltip.js */ 10)
-__webpack_require__(/*! ../../js/popover.js */ 11)
-__webpack_require__(/*! ../../js/scrollspy.js */ 12)
-__webpack_require__(/*! ../../js/tab.js */ 13)
-__webpack_require__(/*! ../../js/affix.js */ 14)
+__webpack_require__(/*! ../../js/transition.js */ 5)
+__webpack_require__(/*! ../../js/alert.js */ 6)
+__webpack_require__(/*! ../../js/button.js */ 7)
+__webpack_require__(/*! ../../js/carousel.js */ 8)
+__webpack_require__(/*! ../../js/collapse.js */ 9)
+__webpack_require__(/*! ../../js/dropdown.js */ 10)
+__webpack_require__(/*! ../../js/modal.js */ 11)
+__webpack_require__(/*! ../../js/tooltip.js */ 12)
+__webpack_require__(/*! ../../js/popover.js */ 13)
+__webpack_require__(/*! ../../js/scrollspy.js */ 14)
+__webpack_require__(/*! ../../js/tab.js */ 15)
+__webpack_require__(/*! ../../js/affix.js */ 16)
 
 /***/ }),
-/* 3 */
+/* 5 */
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap/js/transition.js ***!
   \*************************************************/
@@ -10550,7 +10742,7 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 4 */
+/* 6 */
 /*!********************************************!*\
   !*** ./node_modules/bootstrap/js/alert.js ***!
   \********************************************/
@@ -10657,7 +10849,7 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 5 */
+/* 7 */
 /*!*********************************************!*\
   !*** ./node_modules/bootstrap/js/button.js ***!
   \*********************************************/
@@ -10794,7 +10986,7 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 6 */
+/* 8 */
 /*!***********************************************!*\
   !*** ./node_modules/bootstrap/js/carousel.js ***!
   \***********************************************/
@@ -11052,7 +11244,7 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 7 */
+/* 9 */
 /*!***********************************************!*\
   !*** ./node_modules/bootstrap/js/collapse.js ***!
   \***********************************************/
@@ -11276,7 +11468,7 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 8 */
+/* 10 */
 /*!***********************************************!*\
   !*** ./node_modules/bootstrap/js/dropdown.js ***!
   \***********************************************/
@@ -11453,7 +11645,7 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 9 */
+/* 11 */
 /*!********************************************!*\
   !*** ./node_modules/bootstrap/js/modal.js ***!
   \********************************************/
@@ -11823,7 +12015,7 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 10 */
+/* 12 */
 /*!**********************************************!*\
   !*** ./node_modules/bootstrap/js/tooltip.js ***!
   \**********************************************/
@@ -12355,7 +12547,7 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 11 */
+/* 13 */
 /*!**********************************************!*\
   !*** ./node_modules/bootstrap/js/popover.js ***!
   \**********************************************/
@@ -12475,7 +12667,7 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 12 */
+/* 14 */
 /*!************************************************!*\
   !*** ./node_modules/bootstrap/js/scrollspy.js ***!
   \************************************************/
@@ -12659,7 +12851,7 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 13 */
+/* 15 */
 /*!******************************************!*\
   !*** ./node_modules/bootstrap/js/tab.js ***!
   \******************************************/
@@ -12826,7 +13018,7 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 14 */
+/* 16 */
 /*!********************************************!*\
   !*** ./node_modules/bootstrap/js/affix.js ***!
   \********************************************/
@@ -13003,4 +13195,4 @@ __webpack_require__(/*! ../../js/affix.js */ 14)
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=application-13c9503ee5d3148054b0.js.map
+//# sourceMappingURL=application-29eda30f421d66feaed0.js.map

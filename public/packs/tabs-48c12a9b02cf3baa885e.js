@@ -60,12 +60,12 @@
 /******/ 	__webpack_require__.p = "/packs/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */
+/******/ ({
+
+/***/ 2:
 /*!**************************************!*\
   !*** ./app/javascript/packs/tabs.js ***!
   \**************************************/
@@ -132,5 +132,6 @@ function openTheme() {
 
 
 /***/ })
-/******/ ]);
-//# sourceMappingURL=tabs-b64eaf821c39912d1d8a.js.map
+
+/******/ });
+//# sourceMappingURL=tabs-48c12a9b02cf3baa885e.js.map
