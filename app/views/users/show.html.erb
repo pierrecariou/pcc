@@ -1,18 +1,12 @@
-
-
 <div class="wrapper">
-  <div class="themes">
 
-  </div>
   <div class="container">
     <div class="left-side-info">
 
     </div>
     <div class="row">
-      <div class="top-feed">
-
-      </div>
-      <% @articles.each do |article| %>
+     <h1>Mes précédents partages</h1>
+      <% @user.articles.each do |article| %>
         <div class="card">
           <%= article.URL %>
         </div>
