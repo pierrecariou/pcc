@@ -10,14 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_141455) do
+ActiveRecord::Schema.define(version: 2019_02_26_163349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "article_sub_categories", force: :cascade do |t|
+    t.bigint "sub_category_id"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_sub_categories_on_article_id"
+    t.index ["sub_category_id"], name: "index_article_sub_categories_on_sub_category_id"
+  end
+
   create_table "articles", force: :cascade do |t|
-    t.string "category"
-    t.string "subcategory"
     t.string "URL"
     t.string "description"
     t.integer "upvotes"
@@ -25,7 +32,15 @@ ActiveRecord::Schema.define(version: 2019_02_26_141455) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -40,6 +55,14 @@ ActiveRecord::Schema.define(version: 2019_02_26_141455) do
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "name"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,7 +82,11 @@ ActiveRecord::Schema.define(version: 2019_02_26_141455) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "article_sub_categories", "articles"
+  add_foreign_key "article_sub_categories", "sub_categories"
+  add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
+  add_foreign_key "sub_categories", "categories"
 end
