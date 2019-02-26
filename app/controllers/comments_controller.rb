@@ -10,8 +10,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
     @comment.article = Article.find(params[:article_id])
+    @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
       redirect_to article_comments_path(@comment)
