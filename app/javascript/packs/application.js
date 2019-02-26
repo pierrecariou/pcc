@@ -1,6 +1,14 @@
 import "bootstrap";
-import { openTheme } from "./tabs.js";
 
+import { selectCategory } from "./select_category"
+
+selectCategory();
+
+import { selectSubcategory } from "./select_category"
+
+selectSubcategory();
+
+import { openTheme } from "./tabs.js";
 
 openTheme();
 
@@ -33,4 +41,5 @@ openTheme();
 // openTheme('click', 'Economie');
 // openTheme('click', 'Politique');
 // openTheme('click', 'Numérique');
+
 
