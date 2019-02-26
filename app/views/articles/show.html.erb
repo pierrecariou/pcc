@@ -14,7 +14,7 @@
     <div class="row">
       <h1>Débat</h1>
       <div class="card">
-        <%= @article.URL %>
+        <%=raw Onebox.preview(@article.URL) %>
       </div>
       <div class="comments">
       </div>
