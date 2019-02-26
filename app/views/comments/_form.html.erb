@@ -1,4 +1,4 @@
-<%= simple_form_for([ article, comment ]) do |form| %>
-  <%= form.input :text, as: :text %>
-  <%= form.button :submit %>
+<%= simple_form_for([article, comment], remote: true) do |form| %>
+  <%= form.input :text, label: :Contribution %>
+  <%= form.button :submit, "Participez" %>
 <% end %>

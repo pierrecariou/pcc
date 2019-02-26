@@ -1,17 +1,13 @@
- <h1> <%= @article.category %> </h1>
-
- <h2> <%= @article.subcategory %></h2>
-
 
 <div class="wrapper">
   <div class="themes">
 
   </div>
-  <div class="container">
+  <div class="all-content">
     <div class="left-side-info">
       <h1>Participants</h1>
     </div>
-    <div class="row">
+    <div class="main-content">
       <h1>Débat</h1>
       <div class="card">
         <%= @article.URL %>
@@ -19,7 +15,7 @@
         <h2>
           <%= pluralize @article.comments.size, "comment" %>
         </h2>
-      <div class="comments">
+      <div id="comments">
         <% if @article.comments.blank? %>
           Be the first to leave a comment for <%= @article.name %>
           <% else %>
@@ -27,8 +23,8 @@
             <%= render 'comments/show', comment: comment %>
             <% end %>
           <% end %>
-          <%= render 'comments/form', article: @article, comment: @comment %>
       </div>
+      <%= render 'comments/form', article: @article, comment: @comment %>
     </div>
 
   </div>

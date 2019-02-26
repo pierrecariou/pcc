@@ -1,24 +1,26 @@
-
 <div class="wrapper">
   <div class="themes">
 
   </div>
-  <div class="container">
+  <div class="all-content">
+
     <div class="left-side-info">
 
     </div>
-    <div class="row">
+
+    <div class="main-content">
       <div class="top-feed">
 
       </div>
-      <% @articles.each do |article| %>
-        <div class="card">
-          <%= article.URL %>
-        </div>
-      <% end %>
+        <% @articles.each do |article| %>
+          <div class="card">
+            <%= article.URL %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="footer">
+    <div class="footer">
 
+    </div>
   </div>
 </div>
