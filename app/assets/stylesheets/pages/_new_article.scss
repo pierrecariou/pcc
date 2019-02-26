@@ -1,0 +1,25 @@
+.category {
+  display: flex;
+  justify-content: space-around;
+}
+
+.select-category {
+  ul {
+    list-style: none;
+  }
+  h4 {
+    text-align: center;
+  }
+  li {
+    padding: 4px;
+  }
+}
+
+// Classes test
+.selected-element {
+  color: red;
+}
+
+.selected-subcategory {
+  color: green;
+}
