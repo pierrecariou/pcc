@@ -9,13 +9,13 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
+    @user = current_user
     @article = Article.new
   end
 
   def create
-    @article = article.new(article_params)
-    @article.user = User.find(params[:user_id])
+    @article = Article.new(article_params)
+    @article.user = current_user
     if @article.save
       redirect_to articles_path
     else
@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:user).permit(:category, :subcategory, :URL, :description, :upvotes, :fake_news)
+    params.require(:article).permit(:category, :subcategory, :URL, :description, :upvotes, :fake_news)
   end
 
 end
