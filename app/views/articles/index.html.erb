@@ -22,9 +22,26 @@
 <!--       <div class="top-feed">
       </div> -->
       <% @articles.each do |article| %>
-        <div class="card">
+        <div class="card listed-article">
+<div class="user-info">
+    <%= article.user.email %>
+  </div>
 
-          <%=raw Onebox.preview(article.URL) %>
+  <div class="article-comment">
+      <%= article.description %>
+  </div>
+
+  <div class="article-preview">
+    <%= raw Onebox.preview(article.URL) %>
+  </div>
+
+  <div class="footer-card">
+    <div class="footer-info">
+    </div>
+    <div class="footer-action">
+          DÉBAT UPVOTE
+    </div>
+  </div>
         </div>
       <% end %>
     </div>
