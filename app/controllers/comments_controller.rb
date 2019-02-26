@@ -10,10 +10,21 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @article = Article.find(params[:article_id])
     @comment = Comment.new(comment_params)
-    @comment.article = Article.find(params[:article_id])
+    @comment.article = @article
     @comment.user = current_user
-    @comment.save
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to article_path(@article) }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render :new }
+        format.js
+      end
+    end
   end
 
   private

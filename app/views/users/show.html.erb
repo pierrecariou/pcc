@@ -1,0 +1,20 @@
+<div class="wrapper">
+
+  <div class="container">
+    <div class="left-side-info">
+
+    </div>
+    <div class="row">
+     <h1>Mes précédents partages</h1>
+      <% @user.articles.each do |article| %>
+        <div class="card">
+          <%= article.URL %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="footer">
+
+  </div>
+</div>
+

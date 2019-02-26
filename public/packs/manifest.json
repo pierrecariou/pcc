@@ -1,6 +1,8 @@
 {
-  "application.js": "/packs/application-d827a33ad1a58c5b0a3b.js",
-  "application.js.map": "/packs/application-d827a33ad1a58c5b0a3b.js.map",
-  "select_category.js": "/packs/select_category-fe0b435e12bfb5adf946.js",
-  "select_category.js.map": "/packs/select_category-fe0b435e12bfb5adf946.js.map"
+
+  "application.js": "/packs/application-a5a722a354645d75a71e.js",
+  "application.js.map": "/packs/application-a5a722a354645d75a71e.js.map",
+  "tabs.js": "/packs/tabs-b64eaf821c39912d1d8a.js",
+  "tabs.js.map": "/packs/tabs-b64eaf821c39912d1d8a.js.map"
+
 }
