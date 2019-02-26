@@ -9,12 +9,14 @@ puts 'Cleaning database.....'
 Article.destroy_all
 Comment.destroy_all
 
-puts 'Creating articles...'
+puts 'Creating users...'
+User.create!(email: 'test@test.test', password: 'testtest')
 
-Article.create(URL: 'http://www.test.com', category: 'économie', description: 'this is the description', id: 1, upvotes: '3', user_id: 1)
-Article.create(URL: 'http://www.test2.com', category: 'politique', description: 'this is the 2nd description', id: 2, upvotes: '4', user_id: 1)
-Article.create(URL: 'http://www.test3.com', category: 'numérique', description: 'this is the 3rd description', id: 3, upvotes: '5', user_id: 1)
-Article.create(URL: 'http://www.test4.com', category: 'écologie', description: 'this is the 4th description', id: 4, upvotes: '6', user_id: 1)
+puts 'Creating articles...'
+Article.create!(URL: 'https://www.lemonde.fr/societe/article/2019/02/26/gilets-jaunes-le-conseil-de-l-europe-reclame-la-suspension-du-lbd_5428371_3224.html', category: 'économie', description: 'this is the description', upvotes: '3', user_id: 1)
+Article.create!(URL: 'https://www.youtube.com/watch?v=tRl9_q2ytI8', category: 'politique', description: 'this is the 2nd description', upvotes: '4', user_id: 1)
+Article.create!(URL: 'https://www.liberation.fr/depeches/2019/02/26/le-cardinal-australien-pell-numero-trois-du-vatican-reconnu-coupable-de-pedophilie_1711624', category: 'numérique', description: 'this is the 3rd description', upvotes: '5', user_id: 1)
+Article.create!(URL: 'https://www.dailymotion.com/video/x7316va?playlist=x6agxl', category: 'écologie', description: 'this is the 4th description', upvotes: '6', user_id: 1)
 
 commentaire = Comment.new(id: 1, user_id: 1, article_id: 1, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
 commentaire = Comment.new(id: 2, user_id: 1, article_id: 1, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')

@@ -1,4 +1,6 @@
 {
-  "application.js": "/packs/application-d110a5928ecb45651f1f.js",
-  "application.js.map": "/packs/application-d110a5928ecb45651f1f.js.map"
+  "application.js": "/packs/application-a5a722a354645d75a71e.js",
+  "application.js.map": "/packs/application-a5a722a354645d75a71e.js.map",
+  "tabs.js": "/packs/tabs-b64eaf821c39912d1d8a.js",
+  "tabs.js.map": "/packs/tabs-b64eaf821c39912d1d8a.js.map"
 }
