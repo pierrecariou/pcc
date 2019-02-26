@@ -16,7 +16,7 @@
       <% @articles.each do |article| %>
         <div class="card listed-article">
 <div class="user-info">
-    <%= article.user.email %>
+    <%= article.user.pseudo%>
   </div>
 
   <div class="article-comment">
@@ -26,6 +26,7 @@
   <div class="article-preview">
     <%= raw Onebox.preview(article.URL) %>
   </div>
+      <%end %>
 
   <div class="footer-card">
     <div class="footer-info">
