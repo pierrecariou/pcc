@@ -1,5 +1,3 @@
-
-
 <div class="tab">
   <button class="tablinks" >Ecologie</button>
   <button class="tablinks" >Politique</button>
@@ -7,39 +5,44 @@
   <button class="tablinks" >Numérique</button>
 </div>
 
-<% @articles.each do |article| %>
+
 
   <% articles = [] %>
 <div id="Ecologie" class="tabcontent">
   <h2>Ecologie</h2>
-  <%if article.category == 'écologie' %>
-    <% articles << article %>
-  <%articles.each do |artc| %>
-    <%= artc.URL %>
-  <%end %>
+  <%ecologie_articles = @articles.select { |article| article.category == 'écologie'} %>
+  <%ecologie_articles.each do |ecologie_article| %>
+    <%= ecologie_article.user.pseudo%>
+    <%= raw Onebox.preview(ecologie_article.URL) %>
   <%end %>
 </div>
 <div id="Politique" class="tabcontent">
   <h2>Politique</h2>
-  <%if article.category == 'politique' %>
-    <%= article.URL %>
+  <%politique_articles = @articles.select { |article| article.category == 'politique'} %>
+  <%politique_articles.each do |politique_article| %>
+    <%= politique_article.user.pseudo%>
+    <%= raw Onebox.preview(politique_article.URL) %>
   <%end %>
 </div>
 <div id="Economie" class="tabcontent">
   <h2>Economie</h2>
-  <%if article.category == 'économie' %>
-    <%= article.URL %>
+   <%economie_articles = @articles.select { |article| article.category == 'économie'} %>
+  <%economie_articles.each do |economie_article| %>
+    <%= economie_article.user.pseudo%>
+    <%= raw Onebox.preview(economie_article.URL) %>
   <%end %>
 </div>
 <div id="Numérique" class="tabcontent">
   <h2>Numérique</h2>
-  <%if article.category == 'numérique' %>
-    <%= article.URL %>
+   <%numerique_articles = @articles.select { |article| article.category == 'numérique'} %>
+  <%numerique_articles.each do |numerique_article| %>
+    <%= numerique_article.user.pseudo%>
+    <%= raw Onebox.preview(numerique_article.URL) %>
   <%end %>
 </div>
 
 
-<%end %>
+
 
 <div class="wrapper">
 <!--   <div class="themes">
@@ -53,7 +56,7 @@
       <% @articles.each do |article| %>
         <div class="card">
 
-          <%=raw Onebox.preview(article.URL) %>
+
         </div>
       <% end %>
     </div>
