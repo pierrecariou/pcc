@@ -16,8 +16,8 @@
         </h2>
       <div id="comments">
         <% if @article.comments.blank? %>
-          Be the first to leave a comment for <%= @article.name %>
-          <% else %>
+          Be the first to leave a comment for <%= @article.URL %>
+        <% else %>
           <% @article.comments.each do |comment| %>
             <%= render 'comments/show', comment: comment %>
             <% end %>

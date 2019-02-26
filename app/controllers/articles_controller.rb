@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:category, :subcategory, :URL, :description, :upvotes, :fake_news)
+    params.require(:article).permit(:URL, :description, :upvotes, :fake_news)
   end
 
 end
