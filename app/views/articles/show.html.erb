@@ -16,9 +16,20 @@
       <div class="card">
         <%= @article.URL %>
       </div>
+        <h2>
+          <%= pluralize @article.comments.size, "comment" %>
+        </h2>
       <div class="comments">
+        <% if @article.comments.blank? %>
+          Be the first to leave a comment for <%= @article.name %>
+          <% else %>
+          <% @article.comments.each do |comment| %>
+            <%= render 'comments/show', comment: comment %>
+            <% end %>
+          <% end %>
       </div>
     </div>
+
   </div>
   <div class="footer">
   </div>
