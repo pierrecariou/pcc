@@ -4,9 +4,9 @@ import { selectCategory } from "./select_category"
 
 selectCategory();
 
-import { selectSubcategory } from "./select_category"
+// import { selectSubcategory } from "./select_category"
 
-selectSubcategory();
+// selectSubcategory();
 
 import { openTheme } from "./tabs";
 
