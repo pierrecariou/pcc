@@ -2,6 +2,11 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    %w(Ecologie Politique Economie Numérique)
+    @ecologie_articles = Category.find_by(name: "Ecologie")&.articles
+    @economie_articles = Category.find_by(name: "Economie")&.articles
+    @politique_articles = Category.find_by(name: "Politique")&.articles
+    @numerique_articles = Category.find_by(name: "Numérique")&.articles
   end
 
   def show
