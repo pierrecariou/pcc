@@ -1,1 +1,46 @@
-// Specific CSS for your home-page
+
+// // Specific CSS for your home-page
+// .listed-article {
+//   .source {
+//   }
+// }
+
+.listed-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1200px;
+  .thumbnail {
+    width: 500px;
+  }
+}
+
+.user-info, .article-comment, .article-preview  {
+  flex: 1 1 auto;
+}
+
+.footer-card {
+  width: 100%;
+  border-style: solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 1 auto;
+}
+
+.footer-info {
+  background-color: yellow;
+  flex: 0 1 auto;
+}
+
+.footer-action {
+  background-color: #FFFF;
+  flex: 0 1 auto;
+}
+
+
+.all-content{
+  display: flex;
+}
+

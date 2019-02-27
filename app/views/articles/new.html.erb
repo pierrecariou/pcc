@@ -1,7 +1,60 @@
-<%=  simple_form_for([ @user, @article ]) do |f| %>
-  <%= f.input :category%>
-  <%= f.input :subcategory %>
+<div class="wrapper">
+
+<h1>Partager un article</h1>
+
+<%=  simple_form_for [ @article] do |f| %>
   <%= f.input :URL %>
-  <%= f.input :description%>
-  <%= f.button :submit %>
+  <%= f.input :description %>
+
+  <div class="category">
+    <%= f.input :category, :as => :hidden %>
+      <div class="select-category" data-category="economie">
+        <h4>Economie</h4>
+        <ul>
+          <%= f.input :subcategory, :as => :hidden %>
+          <li class="select-subcategory">Economie française</li>
+          <li class="select-subcategory">Economie mondiale</li>
+          <li class="select-subcategory">Emploi</li>
+          <li class="select-subcategory">Entreprises</li>
+        </ul>
+      </div>
+
+      <div class="select-category" data-category="politique" >
+        <h4>Politique</h4>
+        <ul>
+          <%= f.input :subcategory, :as => :hidden %>
+          <li class="select-subcategory">Politique nationale</li>
+          <li class="select-subcategory">Politique monétaire</li>
+          <li class="select-subcategory">Gouvernement</li>
+          <li class="select-subcategory">Union européenne</li>
+        </ul>
+      </div>
+
+      <div class="select-category" data-category="numerique">
+        <h4>Numerique</h4>
+        <ul>
+          <%= f.input :subcategory, :as => :hidden %>
+          <li class="select-subcategory">Politique nationale</li>
+          <li class="select-subcategory">Politique monétaire</li>
+          <li class="select-subcategory">Gouvernement</li>
+          <li class="select-subcategory">Union européenne</li>
+        </ul>
+      </div>
+
+      <div class="select-category" data-category="ecologie">
+        <h4>Ecologie</h4>
+        <ul>
+          <%= f.input :subcategory, :as => :hidden %>
+          <li class="select-subcategory">Politique nationale</li>
+          <li class="select-subcategory">Politique monétaire</li>
+          <li class="select-subcategory">Gouvernement</li>
+          <li class="select-subcategory">Union européenne</li>
+        </ul>
+      </div>
+
+  </div>
+
+  <%= f.submit "partager" %>
 <% end %>
+
+</div>

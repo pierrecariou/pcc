@@ -1,24 +1,103 @@
 
 <div class="wrapper">
-  <div class="themes">
-
+  <div class="tab">
+    <button class="tablinks" >Ecologie</button>
+    <button class="tablinks" >Politique</button>
+    <button class="tablinks">Economie</button>
+    <button class="tablinks" >Numérique</button>
   </div>
   <div class="container">
-    <div class="left-side-info">
-
-    </div>
+<!--     <div class="left-side-info">
+    </div> -->
     <div class="row">
-      <div class="top-feed">
 
-      </div>
+<!--       <div class="top-feed">
+      </div> -->
       <% @articles.each do |article| %>
-        <div class="card">
-          <%= article.URL %>
-        </div>
-      <% end %>
+        <div class="card listed-article">
+<div class="user-info">
+    <%= article.user.pseudo%>
+  </div>
+
+  <div class="article-comment">
+      <%= article.description %>
+  </div>
+
+  <div class="article-preview">
+    <%= raw Onebox.preview(article.URL) %>
+  </div>
+      <%end %>
+
+  <div class="footer-card">
+    <div class="footer-info">
+    </div>
+    <div class="footer-action">
+          DÉBAT UPVOTE
     </div>
   </div>
-  <div class="footer">
 
+        <div class="top-feed">
+          <h2>Meilleurs articles</h2>
+          <button class="tablinks" >Jour</button>
+          <button class="tablinks" >Mois</button>
+          <button class="tablinks">Année</button>
+        </div>
+        <div class="card">
+          <div id="Ecologie" class="tabcontent">
+            <h2>Ecologie</h2>
+            <%ecologie_articles = @articles.select { |article| article.category == 'écologie'} %>
+            <%ecologie_articles.each do |ecologie_article| %>
+              <%= ecologie_article.user.pseudo%>
+              <%= raw Onebox.preview(ecologie_article.URL) %>
+            <%end %>
+          </div>
+          <div id="Politique" class="tabcontent">
+            <h2>Politique</h2>
+            <%politique_articles = @articles.select { |article| article.category == 'politique'} %>
+            <%politique_articles.each do |politique_article| %>
+              <%= politique_article.user.pseudo%>
+              <%= raw Onebox.preview(politique_article.URL) %>
+            <%end %>
+          </div>
+          <div id="Economie" class="tabcontent">
+            <h2>Economie</h2>
+             <%economie_articles = @articles.select { |article| article.category == 'économie'} %>
+            <%economie_articles.each do |economie_article| %>
+              <%= economie_article.user.pseudo%>
+              <%= raw Onebox.preview(economie_article.URL) %>
+            <%end %>
+          </div>
+          <div id="Numérique" class="tabcontent">
+            <h2>Numérique</h2>
+             <%numerique_articles = @articles.select { |article| article.category == 'numérique'} %>
+            <%numerique_articles.each do |numerique_article| %>
+              <%= numerique_article.user.pseudo%>
+              <%= raw Onebox.preview(numerique_article.URL) %>
+            <%end %>
+          </div>
+
+        </div>
+      </div>
   </div>
+<!--   <div class="footer">
+  </div> -->
+
+
 </div>
+
+
+<!-- <script>
+  function openTheme(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script> -->
