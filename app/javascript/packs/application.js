@@ -8,11 +8,13 @@ import { selectSubcategory } from "./select_category"
 
 selectSubcategory();
 
-import { openTheme } from "./tabs.js";
+import { openTheme } from "./tabs";
 
 openTheme();
 
+import { openSubCategory } from "./tabs_sub_categories";
 
+openSubCategory();
 
 // function openTheme(evt, theme) {
 //   // Declare all variables
