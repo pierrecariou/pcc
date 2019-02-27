@@ -9,52 +9,89 @@
     </div>
   </div>
   <div class="all-content">
-    <div class="left-side-info">
-      <h2> Best of the day </h2>
-    </div>
-    <div class="main-content">
-      <div class="top-feed">
-        <h2>Meilleurs articles</h2>
-        <button class="tablinks" >Jour</button>
-        <button class="tablinks" >Mois</button>
-        <button class="tablinks">Année</button>
+    <div class="tabcontent" id="Ecologie">
+      <div class="left-side-info">
+        <button class="tablinks" >Energie</button>
+        <button class="tablinks" >Climat</button>
+        <button class="tablinks">Biodiversité</button>
+        <button class="tablinks" >Transition</button>
+        <button class="tablinks">Pollution</button>
+        <button class="tablinks" >Agriculture</button>
       </div>
-      <% @articles.each do |article| %>
+      <div class="main-content">
+        <h2>Ecologie</h2>
+        <%= @ecologie_articles.each do |article|%>
           <%= render "shared/card", article: article %>
-      <%end %>
-      <div class="card listed-article">
-        <div id="Ecologie" class="tabcontent">
-          <h2>Ecologie</h2>
-            <%=  @ecologie_articles.each do |article|%>
-            <%= article.user.pseudo%>
-            <%= raw Onebox.preview(article.URL) %>
-          <%end %>
-        </div>
-        <div id="Politique" class="tabcontent">
-          <h2>Politique</h2>
-            <%=  @politique_articles.each do |article|%>
-            <%= article.user.pseudo%>
-            <%= raw Onebox.preview(article.URL) %>
-          <%end %>
-        </div>
-        <div id="Economie" class="tabcontent">
-          <h2>Economie</h2>
-            <%=  @economie_articles.each do |article|%>
-            <%= article.user.pseudo%>
-            <%= raw Onebox.preview(article.URL) %>
-          <%end %>
-        </div>
-        <div id="Numérique" class="tabcontent">
+        <%end %>
+      </div>
+    </div>
+    <div class="tabcontent" id="Economie">
+      <div class="left-side-info">
+        <button class="tablinks" >Finance</button>
+        <button class="tablinks" >Business</button>
+        <button class="tablinks">Commerce International</button>
+        <button class="tablinks" >Inégalités</button>
+        <button class="tablinks">Economie politique</button>
+        <button class="tablinks" >Théorie</button>
+      </div>
+      <div class="main-content">
+        <h2>Economie</h2>
+        <%= @economie_articles.each do |article|%>
+          <%= render "shared/card", article: article %>
+        <%end %>
+      </div>
+    </div>
+    <div class="tabcontent" id="Politique">
+      <div class="left-side-info">
+      <button class="tablinks" >Politique Internationale</button>
+        <button class="tablinks" >Union européenne</button>
+        <button class="tablinks">Géopolitique</button>
+        <button class="tablinks" >Vie politique</button>
+        <button class="tablinks">Réformes</button>
+        <button class="tablinks" >Théorie</button>
+      </div>
+      <div class="main-content">
+        <h2>Politique</h2>
+        <%= @politique_articles.each do |article|%>
+          <%= render "shared/card", article: article %>
+        <%end %>
+      </div>
+    </div>
+    <div class="tabcontent" id="Numérique">
+        <div class="left-side-info">
+        <button class="tablinks" >Intelligence Artificielle</button>
+        <button class="tablinks" >GAFA/BATX</button>
+        <button class="tablinks">Startup</button>
+        <button class="tablinks" >Transhumanisme</button>
+        <button class="tablinks">Technologie</button>
+        <button class="tablinks" >Futurologie</button>
+      </div>
+      <div class="main-content">
           <h2>Numérique</h2>
-            <%=  @numerique_articles.each do |article|%>
-            <%= article.user.pseudo%>
-            <%= raw Onebox.preview(article.URL) %>
+          <%= @numerique_articles.each do |article|%>
+            <%= render "shared/card", article: article %>
+          <%end %>
+      </div>
+    </div>
+    <div id="bestof">
+      <div class="left-side-info">
+      </div>
+      <div class="main-content">
+        <div class="top-feed">
+          <button class="tablinks" >Jour</button>
+          <button class="tablinks" >Mois</button>
+          <button class="tablinks">Année</button>
+        </div>
+        <div>
+          <h2>Best of the day</h2>
+          <% @articles.each do |article| %>
+            <%= render "shared/card", article: article %>
           <%end %>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer">
+    <div class="footer">
+    </div>
   </div>
 </div>
 
