@@ -10,6 +10,7 @@
   </div>
   <div class="all-content">
     <div class="left-side-info">
+      <h2> Best of the day </h2>
     </div>
     <div class="main-content">
       <div class="top-feed">
@@ -18,8 +19,9 @@
         <button class="tablinks" >Mois</button>
         <button class="tablinks">Année</button>
       </div>
-
-      </div>
+      <% @articles.each do |article| %>
+          <%= render "shared/card", article: article %>
+      <%end %>
       <div class="card listed-article">
         <div id="Ecologie" class="tabcontent">
           <h2>Ecologie</h2>
