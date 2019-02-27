@@ -2,59 +2,73 @@
 
 <h1>Partager un article</h1>
 
-<%=  simple_form_for [ @article] do |f| %>
-  <%= f.input :URL %>
-  <%= f.input :description %>
+  <%= simple_form_for @article do |f| %>
+    <%= f.input :URL %>
+    <%= f.input :description %>
 
-  <div class="category">
-    <%= f.input :category, :as => :hidden %>
-      <div class="select-category" data-category="economie">
-        <h4>Economie</h4>
-        <ul>
-          <%= f.input :subcategory, :as => :hidden %>
-          <li class="select-subcategory">Economie française</li>
-          <li class="select-subcategory">Economie mondiale</li>
-          <li class="select-subcategory">Emploi</li>
-          <li class="select-subcategory">Entreprises</li>
-        </ul>
+<!-- comment rendre ça dynamique???? -->
+    <div class="categories-card">
+      <div class="row">
+          <% Category.all.each do |category| %>
+            <input class="category-choice hidden" type="checkbox" value="<%= category.id %>" name="article[category_id]" id="article_category_ids_<%= category.id %>" />
+            <label for="article_category_ids_<%= category.id %>">
+              <div class="col-xs-3" data-value="<%= category.id %>" value="<%= category.id %>" id="<%= category.name %>">
+                <%= image_tag "#{category.name}.jpg", alt: "Economie", width: 200, height: 133 %>
+                <h3><%= category.name %></h3>
+                <% SubCategory.all.each do |sub_category| %>
+                  <% if sub_category.category == category %>
+                    <div class="subcategory-choice hidden <%= category.name %>">
+                      <input class="form-check-input check_boxes optional" type="checkbox" value="<%= sub_category.id %>" name="article[sub_category_ids][]" id="article_sub_category_ids_<%= sub_category.id %>" />
+                      <label class="collection_check_boxes" for="article_sub_category_ids_<%= sub_category.id %>"><%= sub_category.name %></label>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            </label>
+          <% end %>
       </div>
+    </div>
 
-      <div class="select-category" data-category="politique" >
-        <h4>Politique</h4>
-        <ul>
-          <%= f.input :subcategory, :as => :hidden %>
-          <li class="select-subcategory">Politique nationale</li>
-          <li class="select-subcategory">Politique monétaire</li>
-          <li class="select-subcategory">Gouvernement</li>
-          <li class="select-subcategory">Union européenne</li>
-        </ul>
+    <!-- <fieldset class="form-group check_boxes required article_category form-group-invalid">
+
+      <legend class="col-form-label pt-0">Categories <abbr title="required">*</abbr>
+      </legend>
+
+
+      <div class="category-choice">
+        <input type="hidden" name="article[category_ids]" value="">
+
+        <#% Category.all.each do |category| %>
+          <div class="form-check">
+            <input class="form-check-input is-invalid check_boxes required" aria-invalid="true" type="checkbox" value="<%#= category.id %>" name="article[category_id]" id="article_category_id_<#%= category.id %>" />
+            <label class="collection_check_boxes" for="article_category_id_<%#= category.id %>"> <#%= category.name %> </label>
+          </div>
+        <#% end %>
+
+        <div class="invalid-feedback d-block">Category must exist</div>
       </div>
+    </fieldset> -->
 
-      <div class="select-category" data-category="numerique">
-        <h4>Numerique</h4>
-        <ul>
-          <%= f.input :subcategory, :as => :hidden %>
-          <li class="select-subcategory">Politique nationale</li>
-          <li class="select-subcategory">Politique monétaire</li>
-          <li class="select-subcategory">Gouvernement</li>
-          <li class="select-subcategory">Union européenne</li>
-        </ul>
-      </div>
-
-      <div class="select-category" data-category="ecologie">
-        <h4>Ecologie</h4>
-        <ul>
-          <%= f.input :subcategory, :as => :hidden %>
-          <li class="select-subcategory">Politique nationale</li>
-          <li class="select-subcategory">Politique monétaire</li>
-          <li class="select-subcategory">Gouvernement</li>
-          <li class="select-subcategory">Union européenne</li>
-        </ul>
-      </div>
-
-  </div>
-
-  <%= f.submit "partager" %>
-<% end %>
+    <%= f.button :submit, value: "partager" %>
+  <% end %>
 
 </div>
+
+
+<!-- <div class="form-group category">
+
+  <input type="hidden" name="article[category_ids][]" value="">
+
+  <div class="category-choices">
+    <#% Category.all.each do |category| %>
+
+      <input type="checkbox" class="hidden" value="<#%= category.id %>" name="article[category_id][]" id="article_category_id_<#%= category.id %>">
+
+      <label class="category-choice" for="article_category_id_<#%= category.id %>">
+        <#%= category.name %>
+      </label>
+
+    <#% end %>
+  </div> -->
+
+<!-- </div> -->
