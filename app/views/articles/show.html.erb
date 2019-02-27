@@ -12,7 +12,7 @@
         <%=raw Onebox.preview(@article.URL) %>
       </div>
         <h2>
-          <%= pluralize @article.comments.size, "comment" %>
+          <%= pluralize @article.comments.count, "comment" %>
         </h2>
       <div id="comments">
         <% if @article.comments.blank? %>
