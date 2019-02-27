@@ -1,16 +1,9 @@
-
-// // Specific CSS for your home-page
-// .listed-article {
-//   .source {
-//   }
-// }
-
-
 .listed-article {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  // width: 1200px;
   .thumbnail {
     width: 500px;
   }
@@ -21,7 +14,7 @@
 }
 
 .footer-card {
-  width: 100%;
+  width: 500px;
   border-style: solid;
   display: flex;
   justify-content: space-between;
@@ -39,9 +32,6 @@
   flex: 0 1 auto;
 }
 
-
-.all-content{
-  display: flex;
+.a[href*="https"] {
+  width: 500px;
 }
-
-
