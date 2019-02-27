@@ -4,15 +4,17 @@ import { selectCategory } from "./select_category"
 
 selectCategory();
 
-import { selectSubcategory } from "./select_category"
+// import { selectSubcategory } from "./select_category"
 
-selectSubcategory();
+// selectSubcategory();
 
-import { openTheme } from "./tabs.js";
+import { openTheme } from "./tabs";
 
 openTheme();
 
+import { openSubCategory } from "./tabs_sub_categories";
 
+openSubCategory();
 
 // function openTheme(evt, theme) {
 //   // Declare all variables

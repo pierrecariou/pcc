@@ -10,20 +10,25 @@
   <% @categories.each do |category| %>
     <div class="tabcontent" id="<%= category.name %>">
       <div class="left-side-info">
+
         <h2><%= category.name %></h2>
+
         <% category.sub_categories.each do |sub_category| %>
           <button class="tablink" ><%= sub_category.name %></button>
         <% end %>
       </div>
       <div class="main-content">
         <% category.articles.each do |article|%>
+
           <%= render "shared/card", article: article %>
         <%end %>
       </div>
     </div>
 
+
   <% end %>
     <div id="bestof" class="tabcontent-active">
+
       <div class="left-side-info">
       </div>
       <div class="main-content">
