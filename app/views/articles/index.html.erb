@@ -25,34 +25,30 @@
       <div class="card listed-article">
         <div id="Ecologie" class="tabcontent">
           <h2>Ecologie</h2>
-          <%ecologie_articles = @articles.select { |article| article.category == 'écologie'} %>
-          <%ecologie_articles.each do |ecologie_article| %>
-            <%= ecologie_article.user.pseudo%>
-            <%= raw Onebox.preview(ecologie_article.URL) %>
+            <%=  @ecologie_articles.each do |article|%>
+            <%= article.user.pseudo%>
+            <%= raw Onebox.preview(article.URL) %>
           <%end %>
         </div>
         <div id="Politique" class="tabcontent">
           <h2>Politique</h2>
-          <%politique_articles = @articles.select { |article| article.category == 'politique'} %>
-          <%politique_articles.each do |politique_article| %>
-            <%= politique_article.user.pseudo%>
-            <%= raw Onebox.preview(politique_article.URL) %>
+            <%=  @politique_articles.each do |article|%>
+            <%= article.user.pseudo%>
+            <%= raw Onebox.preview(article.URL) %>
           <%end %>
         </div>
         <div id="Economie" class="tabcontent">
           <h2>Economie</h2>
-           <%economie_articles = @articles.select { |article| article.category == 'économie'} %>
-          <%economie_articles.each do |economie_article| %>
-            <%= economie_article.user.pseudo%>
-            <%= raw Onebox.preview(economie_article.URL) %>
+            <%=  @economie_articles.each do |article|%>
+            <%= article.user.pseudo%>
+            <%= raw Onebox.preview(article.URL) %>
           <%end %>
         </div>
         <div id="Numérique" class="tabcontent">
           <h2>Numérique</h2>
-           <%numerique_articles = @articles.select { |article| article.category == 'numérique'} %>
-          <%numerique_articles.each do |numerique_article| %>
-            <%= numerique_article.user.pseudo%>
-            <%= raw Onebox.preview(numerique_article.URL) %>
+            <%=  @numerique_articles.each do |article|%>
+            <%= article.user.pseudo%>
+            <%= raw Onebox.preview(article.URL) %>
           <%end %>
         </div>
       </div>
