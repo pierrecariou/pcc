@@ -21,7 +21,7 @@
 }
 
 .footer-card {
-  width: 100%;
+  width: 500px;
   border-style: solid;
   display: flex;
   justify-content: space-between;
@@ -39,6 +39,9 @@
   flex: 0 1 auto;
 }
 
+.a[href*="https"] {
+  width: 500px;
+}
 
 .all-content{
   display: flex;
