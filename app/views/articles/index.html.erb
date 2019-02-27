@@ -10,6 +10,7 @@
   </div>
   <div class="all-content">
     <div class="left-side-info">
+      <h2> Best of the day </h2>
     </div>
     <div class="main-content">
       <div class="top-feed">
@@ -19,25 +20,8 @@
         <button class="tablinks">Année</button>
       </div>
       <% @articles.each do |article| %>
-      <div class="card listed-article">
-        <div class="user-info">
-          <%= article.user.pseudo%>
-        </div>
-        <div class="article-comment">
-          <%= article.description %>
-        </div>
-        <div class="article-preview">
-          <%= raw Onebox.preview(article.URL) %>
-        </div>
-        <div class="footer-card">
-          <div class="footer-info">
-          </div>
-          <div class="footer-action">
-            DÉBAT UPVOTE
-          </div>
-        </div>
-        <%end %>
-      </div>
+          <%= render "shared/card", article: article %>
+      <%end %>
       <div class="card listed-article">
         <div id="Ecologie" class="tabcontent">
           <h2>Ecologie</h2>
