@@ -2,95 +2,48 @@
 <div class="pcc-wrapper">
   <div class="thèmes">
     <div class="tab">
-      <button class="tablinks" >Ecologie</button>
-      <button class="tablinks" >Politique</button>
-      <button class="tablinks">Economie</button>
-      <button class="tablinks" >Numérique</button>
+      <% @categories.each do |category| %>
+        <button class="tablinks" ><%= category.name %></button>
+      <% end %>
     </div>
   </div>
-  <div class="all-content">
-    <div class="tabcontent" id="Ecologie">
+  <% @categories.each do |category| %>
+    <div class="tabcontent" id="<%= category.name %>">
       <div class="left-side-info">
-        <button class="tablink" >Energie</button>
-        <button class="tablink" >Climat</button>
-        <button class="tablink">Biodiversité</button>
-        <button class="tablink" >Transition</button>
-        <button class="tablink">Pollution</button>
-        <button class="tablink" >Agriculture</button>
+
+        <% category.sub_categories.each do |sub_category| %>
+          <button class="tablink" ><%= sub_category.name %></button>
+        <% end %>
       </div>
       <div class="main-content">
-        <h2>Ecologie</h2>
-        <% @ecologie_articles.each do |article|%>
+        <h2><%= category.name %></h2>
+        <% category.articles.each do |article|%>
+
           <%= render "shared/card", article: article %>
         <%end %>
       </div>
     </div>
-    <div class="tabcontent" id="Economie">
-      <div class="left-side-info">
-        <button class="tablink" >Finance</button>
-        <button class="tablink" >Business</button>
-        <button class="tablink">Commerce International</button>
-        <button class="tablink" >Inégalités</button>
-        <button class="tablink">Economie politique</button>
-        <button class="tablink" >Théorie</button>
-      </div>
-      <div class="main-content">
-        <h2>Economie</h2>
-        <% @economie_articles.each do |article|%>
-          <%= render "shared/card", article: article %>
-        <%end %>
-      </div>
-    </div>
-    <div class="tabcontent" id="Politique">
-      <div class="left-side-info">
-        <button class="tablink" >Politique Internationale</button>
-        <button class="tablink" >Union européenne</button>
-        <button class="tablink">Géopolitique</button>
-        <button class="tablink" >Vie politique</button>
-        <button class="tablink">Réformes</button>
-        <button class="tablink" >Théorie</button>
-      </div>
-      <div class="main-content">
-        <h2>Politique</h2>
-        <% @politique_articles.each do |article|%>
-          <%= render "shared/card", article: article %>
-        <%end %>
-      </div>
-    </div>
-    <div class="tabcontent" id="Numérique">
-        <div class="left-side-info">
-        <button class="tablink" >Intelligence Artificielle</button>
-        <button class="tablink" >GAFA/BATX</button>
-        <button class="tablink">Startup</button>
-        <button class="tablink" >Transhumanisme</button>
-        <button class="tablink">Technologie</button>
-        <button class="tablink" >Futurologie</button>
-      </div>
-      <div class="main-content">
-          <h2>Numérique</h2>
-          <% @numerique_articles.each do |article|%>
-            <%= render "shared/card", article: article %>
-          <%end %>
-      </div>
-    </div>
-    <div id="bestof">
+
+
+  <% end %>
+    <div id="bestof" class="tabcontent-active">
+
       <div class="left-side-info">
       </div>
       <div class="main-content">
         <div class="top-feed">
-          <button class="tablinks" >Jour</button>
-          <button class="tablinks" >Mois</button>
-          <button class="tablinks">Année</button>
+          <h2>Meilleurs articles</h2>
+          <div class="top-feed">
+            <button>Jour</button>
+            <button >Mois</button>
+            <button>Année</button>
+          </div>
+
         </div>
-        <div>
-          <h2>Best of the day</h2>
-          <% @articles.each do |article| %>
-            <%= render "shared/card", article: article %>
-          <%end %>
-        </div>
+        <% @articles.each do |article| %>
+          <%= render "shared/card", article: article %>
+        <%end %>
       </div>
-    </div>
-    <div class="footer">
     </div>
   </div>
 </div>
