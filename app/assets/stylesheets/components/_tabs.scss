@@ -30,14 +30,13 @@
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid #ccc;
   border-top: none;
+  margin-top: 60px;
 }
 
 .tabcontent-active {
   display: flex;
-  // display: block;
   padding: 6px 12px;
-  border: 1px solid #ccc;
   border-top: none;
+  margin-top: 60px;
 }
