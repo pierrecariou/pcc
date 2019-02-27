@@ -5,6 +5,9 @@
   <div class="all-content">
     <div class="left-side-info">
       <h1>Participants</h1>
+     <%@article.comments.each do |comment|  %>
+     <%= comment.user.pseudo %>
+     <%end %>
     </div>
     <div class="main-content">
       <h1>Débat</h1>
