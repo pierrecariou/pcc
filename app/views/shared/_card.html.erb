@@ -1,4 +1,4 @@
-<div class="card listed-article">
+<div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join %>">
   <div class="user-info">
     <%= article.user.pseudo%>
   </div>
