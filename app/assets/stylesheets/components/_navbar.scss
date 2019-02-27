@@ -37,9 +37,14 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  width: 180px;
+  height: 33px;
+  border: solid 1px #000000;
+  background-color: #000000;
   font-size: 14px;
+  color: #ffffff;
 }
+
 .navbar-wagon-link:hover {
   color: #da552f;
   text-decoration: none;
