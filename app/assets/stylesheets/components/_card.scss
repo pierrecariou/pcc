@@ -5,7 +5,8 @@
   align-items: flex-start;
   // width: 1200px;
   .thumbnail {
-    width: 500px;
+    width: 240px;
+    height: 135px;
   }
 }
 
@@ -34,13 +35,37 @@
 
 .source {
   position: relative;  // We can now move the element
-  top: 50px;         // 100px from top relative to its old position
-  left: 500px;        // 100px from left
+  top: 100px;         // 100px from top relative to its old position
+  left: 260px;
+  // width: 100px;
+  // height: 50px;
+  .site-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .a {
+    width: 50px;
+    font-size: 12px;
+  }       // 100px from left
 }
 
-// .onebox-body h3 {
-//   position: relative;  // We can now move the element
-//   bottom: 200px;         // 100px from top relative to its old position
-//   left: 500px;
-//   width: 300px;
-// }
+.onebox-body h3 {
+  position: relative;  // We can now move the element
+  bottom: 180px;         // 100px from top relative to its old position
+  left: 260px;
+  width: 200px;
+  height: 80px;
+  a {
+  width: 412.2px;
+  height: 23px;
+  font-family: SourceSansPro;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  }
+}
