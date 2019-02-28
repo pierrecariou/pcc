@@ -6,7 +6,7 @@ import "bootstrap";
 
 // import { selectSubcategory } from "./select_category"
 
-// selectSubcategory();
+selectSubcategory();
 
 import { openTheme } from "./tabs";
 
