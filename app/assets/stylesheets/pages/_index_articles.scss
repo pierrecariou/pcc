@@ -1,0 +1,59 @@
+h2 {
+  opacity: 0.5;
+  font-size: 24px;
+  font-weight: normal;
+  color: #000000;
+  margin-bottom: 31px;
+}
+
+.Politique {
+  &:hover, &.active {
+    color: #5E0606;
+    opacity: 1;
+  }
+  &.tablinks {
+    &:hover, &.active {
+      border-bottom: solid 1.5px #5E0606;
+    }
+  }
+}
+
+.Economie {
+  &:hover, &.active {
+    color: #070D59;
+    opacity: 1;
+  }
+  &.tablinks {
+  &:hover, &.active {
+    border-bottom: solid 1.5px #070D59;
+    }
+  }
+}
+
+.Ecologie {
+  &:hover, &.active {
+    color: #00541A;
+    opacity: 1;
+  }
+  &.tablinks {
+  &:hover, &.active {
+    border-bottom: solid 1.5px #00541A;
+    }
+  }
+}
+
+.Numérique {
+  &:hover, &.active {
+    color: #E0BB20;
+    opacity: 1;
+  }
+  &.tablinks {
+  &:hover, &.active {
+    border-bottom: solid 1.5px #E0BB20;
+    }
+  }
+}
+
+.liste-subcategory {
+  list-style: none;
+}

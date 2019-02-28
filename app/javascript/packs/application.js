@@ -10,6 +10,8 @@ import { openSubCategory } from "./tabs_sub_categories";
 
 openSubCategory();
 
+
+
 // function openTheme(evt, theme) {
 //   // Declare all variables
 //   var i, tabcontent, tablinks;
