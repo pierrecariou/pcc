@@ -1,7 +1,5 @@
 import "bootstrap";
-
 import "./select_category";
-
 import { openTheme } from "./tabs";
 
 openTheme();

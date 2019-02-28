@@ -1,16 +1,20 @@
 /* Main navbar */
 .navbar-wagon {
   background: white;
-  transition: all 0.3s ease;
   height: 80px;
   padding: 0px 130px;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
 }
 
-.navbar-pcc {
+.navbar-content {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   height: 80px;
+  width: 80vw;
+  margin: 0 auto;
 }
 
 /* Logo */
@@ -97,4 +101,6 @@
   color: #000000;
   display: inline-block;
 }
+
+
 
