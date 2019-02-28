@@ -11,6 +11,7 @@
     <div class="tabcontent" id="<%= category.name %>">
       <div class="left-side-info">
         <h2><%= category.name %></h2>
+        <div class="linebetween2"></div>
         <ul class="liste-subcategory">
         <% category.sub_categories.each do |sub_category| %>
           <li class="tablink <%= category.name %>" ><%= sub_category.name %></li>
