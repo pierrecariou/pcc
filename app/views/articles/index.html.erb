@@ -14,13 +14,16 @@
         <h2><%= category.name %></h2>
 
         <% category.sub_categories.each do |sub_category| %>
-          <button class="tablink" ><%= sub_category.name %></button>
+          <button class="tablink"><%= sub_category.name %></button>
         <% end %>
       </div>
       <div class="main-content">
         <% category.articles.each do |article|%>
 
+
+
           <%= render "shared/card", article: article %>
+
         <%end %>
       </div>
     </div>
@@ -42,6 +45,7 @@
 
         </div>
         <% @articles.each do |article| %>
+
           <%= render "shared/card", article: article %>
         <%end %>
       </div>

@@ -1,4 +1,4 @@
-<div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join %>">
+<div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join(" ") %>">
   <div class="user-info">
     <%= article.user.pseudo%>
   </div>
@@ -12,7 +12,7 @@
     <div class="footer-info">
     </div>
     <div class="footer-action">
-      DÉBAT UPVOTE
+      <%= link_to 'DÉBAT', article_path(article) %> UPVOTE
     </div>
   </div>
 </div>
