@@ -1,13 +1,18 @@
 // on veut sélectionner la catégorie
 // quand on clique sur la catégorie
 const categories = document.querySelectorAll(".col-xs-3");
+
 categories.forEach( category => {
+
   category.addEventListener("click", (event) => {
+
     const categoryId = event.currentTarget.id
-    console.log(categoryId);
     const subCategories = document.querySelectorAll(`.${categoryId}`)
+
     subCategories.forEach((subCategory) => {
+
       subCategory.classList.toggle("hidden");
+
     })
   // on fait apparaitre la div des sous-catégories
   // on veut sélectionner la div correspondante
