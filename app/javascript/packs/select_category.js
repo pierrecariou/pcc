@@ -8,3 +8,5 @@ categories.forEach(category => {
     subCategoryBox.classList.toggle('hidden')
   })
 })
+
+
