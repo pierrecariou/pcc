@@ -1,10 +1,11 @@
 function openTheme() {
+  console.log("salut");
 
   const tabs = document.querySelectorAll(".tablinks");
 
   tabs.forEach( (tab) => {
       tab.addEventListener('click', (event) => {
-
+        // console.log("salut");
         const bestof = document.getElementById("bestof");
         bestof.style.display = "none";
 
