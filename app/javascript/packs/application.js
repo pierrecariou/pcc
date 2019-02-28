@@ -1,8 +1,8 @@
 import "bootstrap";
 
-import { selectCategory } from "./select_category"
+// import { selectCategory } from "./select_category"
 
-selectCategory();
+// selectCategory();
 
 // import { selectSubcategory } from "./select_category"
 
@@ -15,6 +15,8 @@ openTheme();
 import { openSubCategory } from "./tabs_sub_categories";
 
 openSubCategory();
+
+
 
 // function openTheme(evt, theme) {
 //   // Declare all variables
