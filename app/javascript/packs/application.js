@@ -1,12 +1,12 @@
 import "bootstrap";
 
-import { selectCategory } from "./select_category"
+// import { selectCategory } from "./select_category"
 
-selectCategory();
+// selectCategory();
 
 // import { selectSubcategory } from "./select_category"
 
-// selectSubcategory();
+selectSubcategory();
 
 import { openTheme } from "./tabs";
 
