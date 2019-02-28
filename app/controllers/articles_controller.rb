@@ -7,6 +7,8 @@ class ArticlesController < ApplicationController
     @economie_articles = Category.find_by(name: "Economie")&.articles
     @politique_articles = Category.find_by(name: "Politique")&.articles
     @numerique_articles = Category.find_by(name: "Numérique")&.articles
+
+    @geopolitique_articles = SubCategory.find_by(name: "Géopolitique")&.articles
   end
 
   def show
