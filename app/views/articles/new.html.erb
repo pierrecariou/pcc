@@ -2,20 +2,16 @@
 
   <h1>Partager un article</h1>
 
+  <%= simple_form_for @article do |f| %>
+    <%= f.input :URL %>
+    <%= f.input :description %>
 
-  <div class="categories">
-    <div class="category-box">
-      <%= image_tag 'https://via.placeholder.com/250x150.png', class: 'category-image' %>
-      <div class="sub-categories hidden">
-        <% category = Category.first %>
-        <% category.sub_categories.each do |sub_category| %>
-          <div class="subcategory-choice">
-            <input class="form-check-input check_boxes optional" type="checkbox" value="<%= sub_category.id %>" name="article[sub_category_ids][]" id="article_sub_category_ids_<%= sub_category.id %>" />
-            <label class="collection_check_boxes" for="article_sub_category_ids_<%= sub_category.id %>"><%= sub_category.name %></label>
-          </div>
-        <% end %>
-      </div>
+    <div class="categories">
+      <% Category.all.each do |category| %>
+        <%= render 'categories/box', category: category, f: f %>
+      <% end %>
     </div>
-  </div>
 
+    <%= f.submit 'Partager' %>
+  <% end %>
 </div>
