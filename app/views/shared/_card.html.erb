@@ -6,7 +6,12 @@
     <%= article.description %>
   </div>
   <div class="article-preview">
-    <%= raw Onebox.preview(article.URL) %>
+    <%= raw Onebox.preview(article.URL) %> <%# a retirer %>
+    <%= article.title %>
+    <%= article.source %>
+    <%= article.site_description %>
+    <img src="<%= article.image %>" width="300" height="300" <%# tailles à modifier %> >
+
   </div>
   <div class="footer-card">
     <div class="footer-info">
