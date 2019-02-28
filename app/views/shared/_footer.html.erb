@@ -1,1 +1,13 @@
-Todo : coder le footer
+<div class="upperline"></div>
+<div class="footer">
+<%@categories.each do |category| %>
+<div>
+  <p class="link_cat"><%= link_to "#{category.name}", "#" %></p>
+  <ul class="Ulist">
+    <% category.sub_categories.each do |sub_category| %>
+    <li class="link_sub"><%= link_to "#{sub_category.name}" %></li>
+    <%end %>
+  </ul>
+</div>
+<%end %>
+</div>

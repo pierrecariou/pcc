@@ -30,6 +30,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'onebox', '~> 1.8', '>= 1.8.8'
+gem 'pg_search'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
