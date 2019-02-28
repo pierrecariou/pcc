@@ -9,7 +9,6 @@ function openSubCategory() {
         articles.forEach( (article) => {
           article.style.display = "none";
         });
-        // On récupère le texte de l'onglet cliqué
         const subCategoryButton = event.currentTarget.innerText;
         // On affiche la div
         // document.getElementById(sub_category).style.display = "block";
@@ -24,10 +23,12 @@ function openSubCategory() {
         });
 
 
-
-
-
-
+        /// on parcourt tabs pour supprimer sur chaque tab la .active
+        tabs.forEach((tab) => {
+          tab.classList.remove('active');
+        });
+        /// on ajoute la classe active au tab selectionne
+        event.currentTarget.classList.add('active');
       })
   });
 };
