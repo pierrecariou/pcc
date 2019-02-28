@@ -1,0 +1,51 @@
+.upperline {
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
+  opacity: 0.15;
+  margin-top: 33px;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin-top: 33px;
+}
+
+.link_cat a {
+  width: 58px;
+  height: 20px;
+  opacity: 0.5;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: left;
+  color: #000000;
+  text-decoration: none;
+  font-style: italic;
+}
+
+.link_cat a:hover {
+  opacity: 0.9;
+}
+
+.link_sub a {
+  width: 96px;
+  height: 15px;
+  opacity: 0.5;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: left;
+  color: #000000;
+  text-decoration: none;
+}
+
+.link_sub a:hover {
+  opacity: 0.9;
+}
+
+.link_sub {
+  list-style: none;
+}
+
+.Ulist {
+  padding: 0;
+}
