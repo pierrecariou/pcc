@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    @categories = Category.all
     @ecologie_articles = Category.find_by(name: "Ecologie")&.articles
     @economie_articles = Category.find_by(name: "Economie")&.articles
     @politique_articles = Category.find_by(name: "Politique")&.articles
