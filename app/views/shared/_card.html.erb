@@ -9,12 +9,12 @@
 
   <div class="article-preview">
     <div class="article-img">
-      <img src="<%= article.image %>" height="150">
+      <a href="<%= article.URL %>"><img src="<%= article.image %>" height="150">
     </div>
     <div class="article-info">
-      <h2 class="article-title"><%= article.title %></h2>
-      <p class="article-source"><%= article.source %></p>
-      <p class="article-site_description"><%= article.site_description %></p>
+      <h2 class="article-title"><a href="<%= article.URL %>"><%= article.title %></a></h2>
+      <p class="article-source"><a href="<%= article.URL %>"><%= article.source %></p>
+      <p class="article-site_description"><a href="<%= article.URL %>"><%= article.site_description %></p>
     </div>
   </div>
 
