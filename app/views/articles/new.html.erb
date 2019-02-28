@@ -1,25 +1,15 @@
-<div class="pcc-wrapper">
+<div class="container">
+  <h2>Partager un article</h2>
 
-  <div class="container">
-
-    <h1>Partager un article</h1>
-
-    <%= simple_form_for @article do |f| %>
-
-      <%= f.input :URL, label: 'Lien de l\'article' %>
-      <%= f.input :description, label: 'Commentaire' %>
-
-
+  <%= simple_form_for @article do |f| %>
+    <%= f.input :URL, label: 'Lien de l\'article' %>
+    <%= f.input :description, label: 'Commentaire' %>
     <div class="categories">
       <% Category.all.each do |category| %>
-        <%= render 'categories/box', category: category, f: f %>
+          <%= render 'categories/box', category: category, f: f %>
       <% end %>
     </div>
-
-    <%= f.submit 'Partager', class: "" %>
-
-    <% end %>
-
-  </div>
+    <%= f.submit 'Partager' %>
+  <% end %>
 
 </div>
