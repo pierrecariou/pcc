@@ -1,10 +1,8 @@
-
 .categories {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-
 
 // Classes test
 .selected-element {
@@ -15,10 +13,6 @@
   color: green;
 }
 
-
-.categories-card label {
-    display: block;
-}
 
 .btn-partager {
   background-color: black;
