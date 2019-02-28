@@ -1,10 +1,14 @@
 <div class="pcc-wrapper">
 
-  <h1>Partager un article</h1>
+  <div class="container">
 
-  <%= simple_form_for @article do |f| %>
-    <%= f.input :URL %>
-    <%= f.input :description %>
+    <h1>Partager un article</h1>
+
+    <%= simple_form_for @article do |f| %>
+
+      <%= f.input :URL, label: 'Lien de l\'article' %>
+      <%= f.input :description, label: 'Commentaire' %>
+
 
     <div class="categories">
       <% Category.all.each do |category| %>
@@ -12,6 +16,10 @@
       <% end %>
     </div>
 
-    <%= f.submit 'Partager' %>
-  <% end %>
+    <%= f.submit 'Partager', class: 'btn-partager' %>
+
+    <% end %>
+
+  </div>
+
 </div>
