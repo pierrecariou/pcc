@@ -1,21 +1,4 @@
-.category {
-  display: flex;
-  justify-content: space-around;
-}
-
-.select-category {
-  ul {
-    list-style: none;
-  }
-  h4 {
-    text-align: center;
-  }
-  li {
-    padding: 4px;
-  }
-}
-
-.category-choices {
+.categories {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -31,6 +14,7 @@
 }
 
 
-.categories-card label {
-    display: block;
+.btn-partager {
+  background-color: black;
+  color: white;
 }

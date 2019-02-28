@@ -22,6 +22,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user = current_user
+
     scrap(@article.URL)
 
     if @article.save
@@ -34,7 +35,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:URL, :description, :category_id)
+    params.require(:article).permit(:URL, :description, :category_id, sub_category_ids: [])
   end
 
   def scrap(url)
@@ -48,4 +49,5 @@ class ArticlesController < ApplicationController
     @article.image = image
     @article.source = URI.parse(url).host
   end
+
 end

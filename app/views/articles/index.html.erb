@@ -1,51 +1,48 @@
-
 <div class="pcc-wrapper">
   <div class="thèmes">
     <div class="tab">
       <% @categories.each do |category| %>
-        <button class="tablinks" ><%= category.name %></button>
+        <button class="tablinks <%= category.name %>" ><%= category.name %></button>
       <% end %>
+
     </div>
   </div>
   <% @categories.each do |category| %>
     <div class="tabcontent" id="<%= category.name %>">
       <div class="left-side-info">
-
         <h2><%= category.name %></h2>
-
+        <ul class="liste-subcategory">
         <% category.sub_categories.each do |sub_category| %>
-          <button class="tablink" ><%= sub_category.name %></button>
+          <li class="tablink <%= category.name %>" ><%= sub_category.name %></li>
         <% end %>
+        </ul>
       </div>
       <div class="main-content">
+        <h2>Meilleurs articles</h2>
         <% category.articles.each do |article|%>
-
           <%= render "shared/card", article: article %>
         <%end %>
       </div>
     </div>
-
-
   <% end %>
     <div id="bestof" class="tabcontent-active">
-
       <div class="left-side-info">
       </div>
       <div class="main-content">
         <div class="top-feed">
           <h2>Meilleurs articles</h2>
           <div class="top-feed">
-            <button>Jour</button>
-            <button >Mois</button>
-            <button>Année</button>
+            <!-- TODO -->
           </div>
-
         </div>
         <% @articles.each do |article| %>
           <%= render "shared/card", article: article %>
         <%end %>
       </div>
     </div>
+  <div class="foot">
+    <%= render "shared/footer"%>
+  </div>
   </div>
 </div>
 
