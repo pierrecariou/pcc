@@ -1,6 +1,15 @@
-.button {
-  width: 180px;
-  height: 33px;
+.button-black {
+  max-width: 320px;
+  padding: 6px 20px;
   border: solid 1px #000000;
   background-color: #000000;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: lighter;
+  margin-right: 25px;
+}
+
+.button-black:hover {
+  color: #ffffff;
 }
