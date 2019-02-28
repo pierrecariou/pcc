@@ -9,7 +9,7 @@
     <div class="main-content">
       <h1>Débat</h1>
       <div class="card listed-article">
-        <%=raw Onebox.preview(@article.URL) %>
+        <%= render "shared/card", article: @article %>
       </div>
         <h2>
           <%= pluralize @article.comments.count, "contribution" %>
