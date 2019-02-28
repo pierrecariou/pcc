@@ -8,6 +8,9 @@ import "bootstrap";
 
 // selectSubcategory();
 
+import "./select_category"
+
+
 import { openTheme } from "./tabs";
 
 openTheme();
