@@ -30,6 +30,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'onebox', '~> 1.8', '>= 1.8.8'
+gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
+gem 'rubysl-open-uri'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
