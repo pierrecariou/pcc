@@ -6,6 +6,15 @@ h2 {
   margin-bottom: 31px;
 }
 
+.tablink {
+  opacity: 0.5;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  padding: 8.5px;
+  cursor: pointer;
+}
+
 .Politique {
   &:hover, &.active {
     color: #5E0606;
@@ -56,6 +65,7 @@ h2 {
 
 .liste-subcategory {
   list-style: none;
+  padding-left: 0px;
 }
 
 .linebetween2 {

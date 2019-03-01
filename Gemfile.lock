@@ -162,6 +162,7 @@ GEM
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
+    rubysl-open-uri (2.0.0)
     sanitize (5.0.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.8.0)
@@ -224,6 +225,7 @@ DEPENDENCIES
   font-awesome-sass (~> 5.5.0)
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
+  nokogiri (~> 1.6, >= 1.6.6.2)
   onebox (~> 1.8, >= 1.8.8)
   pg (~> 0.21)
   pg_search
@@ -232,6 +234,7 @@ DEPENDENCIES
   puma
   rails (= 5.2.2)
   redis
+  rubysl-open-uri
   sassc-rails
   simple_form
   spring

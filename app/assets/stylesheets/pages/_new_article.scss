@@ -9,12 +9,24 @@
   color: red;
 }
 
-.selected-subcategory {
+.subcategory-choice {
   color: green;
 }
 
+.subcategory-choice.active {
+  color: red;
+}
 
-.btn-partager {
-  background-color: black;
-  color: white;
+.article-submit {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+.article-submit .button-black {
+  flex: 0 0 80vw;
+}
+
+.sub-categories label {
+  font-size: 15px;
 }
