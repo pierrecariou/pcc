@@ -15,10 +15,22 @@ h2 {
   cursor: pointer;
 }
 
+a.tablinks {
+  color: #000000;
+  opacity: 0.5;
+  font-weight: bold;
+  padding-top: 30px;
+  margin-right: 30px;
+  font-size: 16px;
+  &:hover {
+  text-decoration: none;
+  opacity: 1;
+  }
+}
+
 .Politique {
   &:hover, &.active {
     color: #5E0606;
-    opacity: 1;
   }
   &.tablinks {
     &:hover, &.active {
@@ -30,7 +42,6 @@ h2 {
 .Economie {
   &:hover, &.active {
     color: #070D59;
-    opacity: 1;
   }
   &.tablinks {
   &:hover, &.active {
@@ -42,7 +53,6 @@ h2 {
 .Ecologie {
   &:hover, &.active {
     color: #00541A;
-    opacity: 1;
   }
   &.tablinks {
   &:hover, &.active {
@@ -54,7 +64,6 @@ h2 {
 .Numérique {
   &:hover, &.active {
     color: #E0BB20;
-    opacity: 1;
   }
   &.tablinks {
   &:hover, &.active {
