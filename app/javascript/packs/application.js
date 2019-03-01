@@ -1,5 +1,6 @@
 import "bootstrap";
 
+
 import  { selectCategory } from "./select_category";
 
 selectCategory();
@@ -7,6 +8,7 @@ selectCategory();
 import  { selectSubcategory } from "./select_category";
 
 selectSubcategory();
+
 
 import { openTheme } from "./tabs";
 

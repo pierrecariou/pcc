@@ -1,4 +1,5 @@
 function openTheme() {
+
   const tabs = document.querySelectorAll(".tablinks");
 
   tabs.forEach( (tab) => {

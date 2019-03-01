@@ -1,13 +1,23 @@
 <div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join(" ") %>">
+
   <div class="user-info">
     <%= article.user.pseudo%>
   </div>
   <div class="article-comment">
     <%= article.description %>
   </div>
+
   <div class="article-preview">
-    <%= raw Onebox.preview(article.URL) %>
+    <div class="article-img">
+      <a href="<%= article.URL %>"><img src="<%= article.image %>" height="150">
+    </div>
+    <div class="article-info">
+      <h2 class="article-title"><a href="<%= article.URL %>"><%= article.title %></a></h2>
+      <p class="article-source"><a href="<%= article.URL %>"><%= article.source %></p>
+      <p class="article-site_description"><a href="<%= article.URL %>"><%= article.site_description %></p>
+    </div>
   </div>
+
   <div class="footer-card">
     <div class="footer-info">
     </div>
@@ -16,3 +26,4 @@
     </div>
   </div>
 </div>
+
