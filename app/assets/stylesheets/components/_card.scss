@@ -85,10 +85,12 @@
 .article-site_description {
  // width: 412px;
  // height: 68px;
- margin: 0;
- color: #000000;
- font-size: 14px;
- a {
+  margin: 0;
+  color: #000000;
+  font-size: 14px;
+  text-align: justify;
+  text-justify: inter-word;
+  a {
     color: #000000;
     text-decoration: none;
   }
