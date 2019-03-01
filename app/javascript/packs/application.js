@@ -4,7 +4,7 @@ import "./select_category";
 
 import { openTheme } from "./tabs";
 
-openTheme();
+// openTheme();
 
 import { openSubCategory } from "./tabs_sub_categories";
 

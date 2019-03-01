@@ -2,11 +2,41 @@
   <div class="thèmes">
     <div class="tab">
       <% @categories.each do |category| %>
-        <button class="tablinks <%= category.name %>" ><%= category.name %></button>
+        <%= link_to category.name, articles_path(query: { category_name: category.name }), class: 'tablinks' %>
       <% end %>
-
     </div>
   </div>
+
+  <div class="sub_categories">
+    <%= render 'sub_categories/index', sub_categories: category.sub_categories %>
+  </div>
+
+  <div class="articles-container">
+    <% @articles.each do |article| %>
+      <%= render "shared/card", article: article %>
+    <%end %>
+  </div>
+</div>
+
+<!--
+  <div class="left-side-info">
+    <h2><%= category.name %></h2>
+    <div class="linebetween2"></div>
+    <ul class="liste-subcategory">
+    <% category.sub_categories.each do |sub_category| %>
+      <li class="tablink <%= category.name %>" ><%= sub_category.name %></li>
+    <% end %>
+    </ul>
+  </div>
+  <div class="main-content">
+
+    <% @articles.each do |article| %>
+      <%= render "shared/card", article: article %>
+    <%end %>
+  </div>
+
+
+
   <% @categories.each do |category| %>
     <div class="tabcontent" id="<%= category.name %>">
       <div class="left-side-info">
@@ -41,25 +71,9 @@
         <%end %>
       </div>
     </div>
-  <div class="foot">
-    <%= render "shared/footer"%>
-  </div>
+    <div class="foot">
+      <%= render "shared/footer"%>
+    </div>
   </div>
 </div>
-
-
-<!-- <script>
-  function openTheme(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-</script> -->
+ -->

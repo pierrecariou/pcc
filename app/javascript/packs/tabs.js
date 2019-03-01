@@ -5,9 +5,6 @@ function openTheme() {
 
   tabs.forEach( (tab) => {
       tab.addEventListener('click', (event) => {
-        // console.log("salut");
-        const bestof = document.getElementById("bestof");
-        bestof.style.display = "none";
 
         // On cache toutes les div
         const tabcontents = document.querySelectorAll(".tabcontent");
