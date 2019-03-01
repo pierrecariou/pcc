@@ -10,11 +10,11 @@ import  { selectSubcategory } from "./select_category";
 selectSubcategory();
 
 
-import { openTheme } from "./tabs";
+// import { openTheme } from "./tabs";
 
-// openTheme();
+// // openTheme();
 
-import { openSubCategory } from "./tabs_sub_categories";
+import"./tabs_sub_categories";
 import { submitForm } from "./submit_form";
 
 submitForm()
