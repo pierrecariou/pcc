@@ -14,13 +14,15 @@ selectSubcategory();
 
 // // openTheme();
 
-import"./tabs_sub_categories";
+
+import { openSubCategory } from "./tabs_sub_categories";
 import { submitForm } from "./submit_form";
 
 submitForm()
 
-openSubCategory();
-
+if (document.querySelectorAll(".tab")) {
+  openSubCategory();
+}
 
 
 // function openTheme(evt, theme) {

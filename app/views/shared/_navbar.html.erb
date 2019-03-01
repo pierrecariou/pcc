@@ -14,7 +14,7 @@
         <%= link_to "Partager un article", new_article_path, class: "navbar-wagon-item button-black" %>
       <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
-          <div class="searchbar">
+        <!--   <div class="searchbar">
             <%= form_tag articles_path, method: :get do %>
               <%= text_field_tag :query,
               params[:query],
@@ -22,7 +22,7 @@
               placeholder: "Find an article"
               %>
             <% end %>
-          </div>
+          </div> -->
           <div class="dropdown">
             <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">

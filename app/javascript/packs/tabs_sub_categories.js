@@ -1,6 +1,5 @@
-// function openSubCategory() {
-
-const tabs = document.querySelectorAll(".tablink");
+function openSubCategory() {
+  const tabs = document.querySelectorAll(".tab");
 
   // tabs.forEach( (tab) => {
   //     tab.addEventListener('click', (event) => {
@@ -21,19 +20,17 @@ const tabs = document.querySelectorAll(".tablink");
   //           }
   //         });
   //       });
-
-
+// var urlParams = new URLSearchParams(window.location.search);
+// // console.log(urlParams.has('post')); // true
+// console.log(urlParams.get('action'));
 
      /// on parcourt tabs pour supprimer sur chaque tab la .active
-tabs.forEach((tab) => {
-  tab.classList.remove('active');
-
-  tab.addEventListener('click', (event) => {
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (event) => {
+      tab.classList.remove('active');
         /// on ajoute la classe active au tab selectionne
-    event.currentTarget.classList.add('active');
+      event.currentTarget.classList.add('active');
+    });
   });
-});
-//   });
-// };
-
-// export { openSubCategory };
+};
+export { openSubCategory };
