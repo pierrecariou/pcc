@@ -37,6 +37,8 @@ class ArticlesController < ApplicationController
     @article.user = current_user
 
     scrap(@article.URL)
+    cat = @article.sub_categories.map(&:category).first
+    @article.category = cat
 
     if @article.save
       redirect_to articles_path

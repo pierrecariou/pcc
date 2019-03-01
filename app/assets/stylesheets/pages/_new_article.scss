@@ -1,20 +1,17 @@
+.new-article-form h2 {
+  border-bottom: 1px solid #898989;
+  padding-bottom: 15px;
+}
+
 .categories {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-// Classes test
-.selected-element {
-  color: red;
-}
-
-.subcategory-choice {
-  color: green;
-}
 
 .subcategory-choice.active {
-  color: red;
+  color: #6AD1B9;
 }
 
 .article-submit {
