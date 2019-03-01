@@ -113,10 +113,10 @@ sub_category_futurologie = SubCategory.create!(name: 'Futurologie', category: ca
 #   user: user
 # )
 
-commentaire = Comment.new(user: user, article: article1, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
-commentaire = Comment.new(user: user, article: article2, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
-commentaire = Comment.new(user: user, article: article3, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
-commentaire = Comment.new(user: user, article: article4, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
+commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
+commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
+commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
+commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
 
 
 
