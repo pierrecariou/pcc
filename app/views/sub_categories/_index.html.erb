@@ -1,0 +1,8 @@
+<h2><%= @category.name %></h2>
+<ul class="liste-subcategory">
+  <% if sub_categories.present? %>
+    <%= simple_form_for :query, method: :get, html: {id: 'sub-categories-form'} do |f| %>
+      <%= f.input :sub_category_names, collection: sub_categories, as: :check_boxes, value_method: :name, checked: selected&.pluck(:name), input_html: {} %>
+    <% end %>
+  <% end %>
+</ul>

@@ -1,0 +1,5 @@
+<div class="tab">
+  <% categories.each do |category| %>
+    <%= link_to category.name, articles_path(query: { category_name: category.name }), class: 'tablinks' %>
+  <% end %>
+</div>
