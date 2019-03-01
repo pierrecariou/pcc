@@ -22,8 +22,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
 
-
     scrap(@article.URL)
+    cat = @article.sub_categories.map(&:category).first
+    @article.category = cat
 
     if @article.save
       redirect_to articles_path
