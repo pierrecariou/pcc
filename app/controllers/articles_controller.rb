@@ -19,7 +19,6 @@ class ArticlesController < ApplicationController
       @sub_categories = []
     end
     @categories = Category.all
-
   end
 
   def show

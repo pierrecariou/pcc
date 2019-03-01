@@ -1,5 +1,4 @@
 <div class="linebetween">
-
 </div>
 <div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join(" ") %>">
   <div class="user-display">
@@ -26,10 +25,12 @@
 
   <div class="footer-card">
     <div class="footer-info">
-      upvotes catégories
+      <% article.sub_categories.each do |sub_category| %>
+        <%= sub_category.name %>
+      <% end %>
     </div>
     <div class="footer-action">
-      <%= link_to 'DÉBAT', article_path(article) %> UPVOTE
+      <%= link_to 'DÉBAT', article_path(article) %>
     </div>
   </div>
 </div>

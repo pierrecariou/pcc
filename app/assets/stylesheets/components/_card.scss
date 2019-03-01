@@ -105,6 +105,7 @@
 
 .user-display {
   display: flex;
+  padding-bottom: 15px;
   .avatar {
     img {
   height: 35px;
@@ -121,11 +122,22 @@
 
 .footer-card {
   display: flex;
-  align-self: flex-end;
+  justify-content: space-between;
+  padding-top: 10px;
+  font-size: 16px;
 }
 
 .footer-action {
   display: flex;
+  a {
+    font-size : 14px !important;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+.footer-info {
+  font-weight: lighter;
 }
 
 
