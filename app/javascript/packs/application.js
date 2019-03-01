@@ -12,9 +12,12 @@ selectSubcategory();
 
 import { openTheme } from "./tabs";
 
-openTheme();
+// openTheme();
 
 import { openSubCategory } from "./tabs_sub_categories";
+import { submitForm } from "./submit_form";
+
+submitForm()
 
 openSubCategory();
 

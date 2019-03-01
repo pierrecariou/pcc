@@ -1,11 +1,25 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all
-    @ecologie_articles = Category.find_by(name: "Ecologie")&.articles
-    @economie_articles = Category.find_by(name: "Economie")&.articles
-    @politique_articles = Category.find_by(name: "Politique")&.articles
-    @numerique_articles = Category.find_by(name: "Numérique")&.articles
+
+    search = params[:query]
+    if search
+      if search[:category_name]
+        @articles = Article.from_category(search[:category_name])
+        @category = Category.find_by_name(search[:category_name])
+        @sub_categories = @category.sub_categories
+      elsif search[:sub_category_names]
+        @sub_categories_selected = SubCategory.where(name: search[:sub_category_names])
+        @category = @sub_categories_selected.last&.category
+        @articles = Article.from_sub_categories(search[:sub_category_names])
+        @sub_categories = @category&.sub_categories
+      end
+    else
+      @articles = Article.first(10)
+      @sub_categories = []
+    end
+    @categories = Category.all
+
   end
 
   def show

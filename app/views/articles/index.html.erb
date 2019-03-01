@@ -1,58 +1,18 @@
 <div class="pcc-wrapper">
-  <div class="themes">
-    <div class="tab">
-      <% @categories.each do |category| %>
-        <button class="tablinks <%= category.name %>" ><%= category.name %></button>
-      <% end %>
-    </div>
+
+  <div class="thèmes categories">
+    <%= render 'categories/index', categories: @categories %>
   </div>
-  <% @categories.each do |category| %>
-    <div class="tabcontent" id="<%= category.name %>">
-      <div class="left-side-info">
-        <h2><%= category.name %></h2>
-        <ul class="liste-subcategory">
-        <% category.sub_categories.each do |sub_category| %>
-          <li class="tablink <%= category.name %>" ><%= sub_category.name %></li>
-        <% end %>
-        </ul>
-      </div>
-      <div class="main-content">
-        <h2>Meilleurs articles</h2>
-        <% category.articles.each do |article|%>
-          <%= render "shared/card", article: article %>
-        <%end %>
-      </div>
-    </div>
-  <% end %>
-  <div id="bestof" class="tabcontent-active">
-    <div class="left-side-info"></div>
-    <div class="main-content">
-      <div class="top-feed">
-        <h2>Meilleurs articles</h2>
-        <div class="top-feed">
-          <!-- TODO -->
-        </div>
-      </div>
-      <% @articles.each do |article| %>
-        <%= render "shared/card", article: article %>
-      <% end %>
-    </div>
+
+  <div class="sub_categories">
+    <% if @category.present? %>
+      <%= render 'sub_categories/index', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected %>
+    <% end %>
+  </div>
+
+  <div class="articles">
+    <%= render 'articles/index', articles: @articles %>
+
   </div>
 </div>
 
-
-<!-- <script>
-  function openTheme(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-</script> -->
