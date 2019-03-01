@@ -1,18 +1,15 @@
-<div class="pcc-wrapper">
-
-  <div class="thèmes categories">
-    <%= render 'categories/index', categories: @categories %>
-  </div>
-
+<div class="themes categories">
+  <%= render 'categories/index', categories: @categories %>
+</div>
+<div class="all-content">
   <div class="sub_categories">
     <% if @category.present? %>
       <%= render 'sub_categories/index', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected %>
     <% end %>
   </div>
-
   <div class="articles">
     <%= render 'articles/index', articles: @articles %>
-
   </div>
 </div>
+
 
