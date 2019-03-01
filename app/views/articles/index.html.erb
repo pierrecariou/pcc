@@ -4,7 +4,6 @@
       <% @categories.each do |category| %>
         <button class="tablinks <%= category.name %>" ><%= category.name %></button>
       <% end %>
-
     </div>
   </div>
   <% @categories.each do |category| %>
@@ -25,24 +24,19 @@
       </div>
     </div>
   <% end %>
-    <div id="bestof" class="tabcontent-active">
-      <div class="left-side-info">
-      </div>
-      <div class="main-content">
+  <div id="bestof" class="tabcontent-active">
+    <div class="left-side-info"></div>
+    <div class="main-content">
+      <div class="top-feed">
+        <h2>Meilleurs articles</h2>
         <div class="top-feed">
-          <h2>Meilleurs articles</h2>
-          <div class="top-feed">
-            <!-- TODO -->
-          </div>
+          <!-- TODO -->
         </div>
-        <% @articles.each do |article| %>
-          <%= render "shared/card", article: article %>
-        <%end %>
       </div>
+      <% @articles.each do |article| %>
+        <%= render "shared/card", article: article %>
+      <% end %>
     </div>
-  <div class="foot">
-    <%= render "shared/footer"%>
-  </div>
   </div>
 </div>
 
