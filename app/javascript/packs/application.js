@@ -1,5 +1,15 @@
 import "bootstrap";
-import "./select_category";
+
+
+import  { selectCategory } from "./select_category";
+
+selectCategory();
+
+import  { selectSubcategory } from "./select_category";
+
+selectSubcategory();
+
+
 import { openTheme } from "./tabs";
 
 openTheme();

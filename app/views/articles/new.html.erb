@@ -9,7 +9,12 @@
           <%= render 'categories/box', category: category, f: f %>
       <% end %>
     </div>
-    <%= f.submit 'Partager' %>
+
+    <div class="article-submit">
+      <%= f.submit 'Partager', class: "button-black" %>
+    </div>
   <% end %>
 
 </div>
+
+

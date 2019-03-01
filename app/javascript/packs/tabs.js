@@ -1,5 +1,4 @@
 function openTheme() {
-  console.log("salut");
 
   const tabs = document.querySelectorAll(".tablinks");
 

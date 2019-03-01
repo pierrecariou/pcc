@@ -9,6 +9,7 @@ function openSubCategory() {
         articles.forEach( (article) => {
           article.style.display = "none";
         });
+
         const subCategoryButton = event.currentTarget.innerText;
         // On affiche la div
         // document.getElementById(sub_category).style.display = "block";
@@ -29,6 +30,7 @@ function openSubCategory() {
         });
         /// on ajoute la classe active au tab selectionne
         event.currentTarget.classList.add('active');
+
       })
   });
 };

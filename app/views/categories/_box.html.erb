@@ -1,7 +1,30 @@
 <div class="category-box">
-  <%= image_tag "#{category.name}.jpg", alt: category.name, width: 200, height: 133, class: 'category-image', data: { category_id: "category-#{category.id}"} %>
-  <%= f.input :category_id, input_html: {value: category.id}, as: :hidden %>
-  <div class="sub-categories hidden" id='category-<%= category.id %>'>
-    <%= f.input :sub_category_ids, collection: category.sub_categories, as: :check_boxes, label: category.name %>
-  </div>
+
+    <img alt=" <%= category.name %> " width="200" height="133" class="category-image" data-category-id="category-<%=category.id%>" src="/assets/<%= category.name %>.jpg">
+
+    <%= category.name %>
+
+    <div class="form-group hidden article_category_id">
+      <input class="form-control hidden" value="<%=category.id%>" type="hidden" name="article[category_id]" id="article_category_id">
+    </div>
+
+    <div class="sub-categories hidden" id="category-<%=category.id%>">
+
+      <fieldset class="form-group "><input type="hidden" name="article[sub_category_ids][]" value="">
+
+        <% category.sub_categories.each do |sub_category| %>
+          <div class="form-check">
+            <input class="form-check-input hidden" type="checkbox" value="<%= sub_category.id %>" name="article[sub_category_ids][]" id="article_sub_category_ids_<%= sub_category.id %>">
+            <label class="subcategory-choice" for="article_sub_category_ids_<%= sub_category.id %>"><%=sub_category.name%></label>
+          </div>
+        <% end %>
+
+      </fieldset>
+    </div>
+
 </div>
+
+
+
+
+
