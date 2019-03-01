@@ -9,6 +9,12 @@
   width: 100%;
 }
 
+.category-name {
+  font-size: 19px;
+  font-weight: 600 !important;
+  padding-bottom: 5px;
+}
+
 .subcategory-choice {
   font-weight: 400 !important;
 }
@@ -20,7 +26,7 @@
 .article-submit {
   display: flex;
   justify-content: center;
-  margin: 20px 0px;
+  margin: 10px 0px;
 }
 
 .article-submit .button-black {
@@ -29,4 +35,9 @@
 
 .sub-categories label {
   font-size: 15px;
+}
+
+.category-subcategories-box {
+  padding-left: 10px;
+  padding-top: 15px;
 }
