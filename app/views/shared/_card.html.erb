@@ -30,7 +30,10 @@
       <% end %>
     </div>
     <div class="footer-action">
+      <% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
       <div><%= link_to 'DÉBAT', article_path(article) %></div>
+      <%end %>
+
       <div><%= link_to 'UPVOTE', '#' %></div>
     </div>
   </div>
