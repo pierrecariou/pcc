@@ -1,42 +1,38 @@
 <div class="pcc-wrapper">
-    <div class="themes categories">
-      <%= render 'categories/index', categories: @categories %>
-    </div>
-    <div class="all-content">
-      <div class="sub_categories">
-        <div class="left-side-info">
-          <h2>Participants</h2>
-          <div class="linebetween">
-          </div>
-          <%@article.comments.each do |comment|  %>
-            <%= comment.user.pseudo %>
-          <%end %>
+  <div class="themes categories">
+    <%= render 'categories/index', categories: @categories %>
+  </div>
+  <div class="all-content">
+    <div class="sub_categories">
+      <div class="left-side-info">
+        <h2>Participants</h2>
+        <div class="linebetween">
         </div>
+        <%@article.comments.each do |comment|  %>
+          <%= comment.user.pseudo %>
+        <%end %>
       </div>
-      <div class="articles">
-      <div class="main-content">
-        <h2>Débat</h2>
-        <div class="card listed-article">
-          <%= render "shared/card", article: @article %>
-        </div>
-          <h2>
-            <%= pluralize @article.comments.count, "contribution" %>
-          </h2>
-        <div id="comments">
-          <% if @article.comments.blank? %>
-            Soyez le premier à contribuer au débat
-          <% else %>
-            <% @article.comments.each do |comment| %>
-              <%= render 'comments/show', comment: comment %>
-              <% end %>
+    </div>
+    <div class="main-content">
+      <h2>Débat</h2>
+      <div class="card listed-article">
+        <%= render "shared/card", article: @article %>
+      </div>
+      <h2>
+        <%= pluralize @article.comments.count, "contribution" %>
+      </h2>
+      <div id="comments">
+        <% if @article.comments.blank? %>
+          Soyez le premier à contribuer au débat
+        <% else %>
+          <% @article.comments.each do |comment| %>
+            <%= render 'comments/show', comment: comment %>
             <% end %>
-        </div>
+          <% end %>
         <%= render 'comments/form', article: @article, comment: @comment %>
       </div>
+    </div>
   </div>
-  </div>
-
-  <div class="footer">
-  </div>
+  <div class="footer"></div>
 </div>
 
