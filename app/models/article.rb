@@ -16,7 +16,7 @@ class Article < ApplicationRecord
   has_many :article_sub_categories
   has_many :sub_categories, through: :article_sub_categories
 
-  after_save :cache_vote_count
+  # after_save :cache_vote_count
 
   # scope :from_category, ->(category_selected) { where(category: category_selected) }
   scope :from_category, ->(category_name) { includes(:category).where(category: Category.where(name: category_name)) }
