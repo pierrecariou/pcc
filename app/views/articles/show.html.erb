@@ -8,9 +8,14 @@
         <h2>Participants</h2>
         <div class="linebetween">
         </div>
-        <%@article.comments.each do |comment|  %>
-          <%= comment.user.pseudo %>
-        <%end %>
+        <% array = [] %>
+        <% @article.comments.each do |comment| %>
+          <% array << comment.user.pseudo %>
+        <% end %>
+        <% new_array = array.uniq %>
+        <% new_array.each do |element| %>
+          <p><%=  element  %></p>
+        <% end %>
       </div>
     </div>
     <div class="main-content">
