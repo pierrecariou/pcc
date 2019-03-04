@@ -1,7 +1,5 @@
 class ArticlesController < ApplicationController
-
   def index
-
     search = params[:query]
     if search
       if search[:sub_category_names].reject(&:blank?).any?
@@ -46,6 +44,11 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    @article.increment!(:upvotes)
   end
 
   private

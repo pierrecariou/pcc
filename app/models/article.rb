@@ -19,5 +19,5 @@ class Article < ApplicationRecord
   # scope :from_category, ->(category_selected) { where(category: category_selected) }
   scope :from_category, ->(category_name) { includes(:category).where(category: Category.where(name: category_name)) }
   scope :from_sub_categories, ->(sub_category_names) { includes(:sub_categories).where(sub_categories: { name: sub_category_names }) }
-
+  default_scope { order(upvotes: :desc) }
 end
