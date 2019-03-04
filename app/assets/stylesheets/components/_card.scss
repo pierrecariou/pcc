@@ -142,10 +142,19 @@
 
 .footer-info {
   font-weight: lighter;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.upvotes {
+  padding-right: 10px;
   font-size: 14px;
   opacity: 0.7;
   color: black;
   font-style: italic;
+
 }
 
 

@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   def index
     search = params[:query]
     if search
@@ -7,6 +6,9 @@ class ArticlesController < ApplicationController
         @articles = Article.from_category(search[:category_name])
         @category = Category.find_by_name(search[:category_name])
         @sub_categories = @category.sub_categories
+      elsif search[:sub_category_names] == [""]
+        @articles = Article.first(10)
+        @sub_categories = []
       elsif search[:sub_category_names]
         @sub_categories_selected = SubCategory.where(name: search[:sub_category_names])
         @category = @sub_categories_selected.last&.category
@@ -45,6 +47,11 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    @article.increment!(:upvotes)
   end
 
   private
