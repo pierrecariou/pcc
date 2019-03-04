@@ -1,29 +1,31 @@
-/* Style the tab */
-.tab {
-  overflow: hidden;
-}
+// /* Style the tab */
+// .tab {
+//   overflow: hidden;
+// }
 
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 4px 10px;
-  opacity: 0.5;
-}
+// /* Style the buttons that are used to open the tab content */
+// .tab button {
+//   background-color: inherit;
+//   border: none;
+//   outline: none;
+//   cursor: pointer;
+//   padding: 4px 10px;
+//   opacity: 0.5;
+// }
 
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border-top: none;
-  margin-top: 60px;
-}
+// /* Style the tab content */
+// .tabcontent {
+//   display: none;
+//   padding: 6px 12px;
+//   border-top: none;
+//   margin-top: 60px;
+// }
 
-.tabcontent-active {
-  display: flex;
-  padding: 6px 12px;
-  border-top: none;
-  margin-top: 60px;
-}
+// .tabcontent:active {
+//   display: flex;
+//   padding: 6px 12px;
+//   border-top: none;
+//   margin-top: 60px;
+// }
+
+

@@ -13,18 +13,6 @@
 }
 
 .article-comment {
-//  width: 690px;
-//  height: 57px;
-//  opacity: 0.7;
-//  font-family: SourceSansPro;
-//  font-size: 14px;
-//  font-weight: normal;
-//  font-style: normal;
-//  font-stretch: normal;
-//  line-height: 1.29;
-//  letter-spacing: normal;
-//  text-align: left;
-//  color: #000000
  margin: 0;
  color: #000000;
  font-size: 14px;
@@ -52,9 +40,6 @@
 }
 
 .article-title, .article-source, .article-site_description {
- // width: 412.2px;
- // height: 23px;
- // font-family: SourceSansPro;
  color: #000000;
 }
 
@@ -70,8 +55,6 @@
   }
 }
 .article-source {
- // width: 65px;
- // height: 18px;
  margin: 0 0 10px;
  font-size: 14px;
  color: #000000;
@@ -83,8 +66,6 @@
 }
 
 .article-site_description {
- // width: 412px;
- // height: 68px;
   margin: 0;
   color: #000000;
   font-size: 14px;
@@ -101,7 +82,6 @@
   border-style: solid;
   border-width: 1px 0px 0px 0px;
   opacity: 0.15;
-  // margin-top: 15.5px;
   margin-bottom: 31px;
 }
 
@@ -142,6 +122,23 @@
 
 .footer-info {
   font-weight: lighter;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  opacity: 0.7;
+  color: black;
+  font-style: italic;
+}
+
+.upvotes {
+  padding-right: 10px;
+  font-size: 14px;
+  opacity: 0.7;
+  color: black;
+  font-style: italic;
+
 }
 
 

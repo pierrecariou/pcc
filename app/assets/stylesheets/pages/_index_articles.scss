@@ -7,7 +7,6 @@ h2 {
 }
 
 .tablink {
-  opacity: 0.5;
   font-size: 14px;
   font-weight: bold;
   color: #000000;
@@ -16,6 +15,7 @@ h2 {
 }
 
 .tablink label {
+  opacity: 0.5;
   margin-bottom: 14px;
   cursor: pointer;
 }
@@ -31,16 +31,25 @@ a.tablinks {
   text-decoration: none;
   opacity: 1;
   }
+  &:active {
+    text-decoration: none;
+    opacity: 1;
+  }
 }
 
 .Politique {
-  &:hover, &.active {
+  &:hover, &.active, {
     color: #5E0606;
   }
   &.tablinks {
     &:hover, &.active {
       border-bottom: solid 1.5px #5E0606;
+      opacity: 1;
     }
+  }
+  .form-check-input:checked + label {
+    color: #5E0606;
+    opacity: 1;
   }
 }
 
@@ -51,7 +60,12 @@ a.tablinks {
   &.tablinks {
   &:hover, &.active {
     border-bottom: solid 1.5px #070D59;
+    opacity: 1;
     }
+  }
+  .form-check-input:checked + label {
+    color: #070D59;
+    opacity: 1;
   }
 }
 
@@ -62,7 +76,12 @@ a.tablinks {
   &.tablinks {
   &:hover, &.active {
     border-bottom: solid 1.5px #00541A;
+    opacity: 1;
     }
+  }
+    .form-check-input:checked + label {
+    color: #00541A;
+    opacity: 1;
   }
 }
 
@@ -73,7 +92,12 @@ a.tablinks {
   &.tablinks {
   &:hover, &.active {
     border-bottom: solid 1.5px #E0BB20;
+    opacity: 1;
     }
+  }
+  .form-check-input:checked + label {
+    color: #E0BB20;
+    opacity: 1;
   }
 }
 
@@ -88,3 +112,4 @@ a.tablinks {
   opacity: 0.15;
   margin-bottom: 31px;
 }
+
