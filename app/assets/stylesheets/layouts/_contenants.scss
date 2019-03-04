@@ -8,6 +8,10 @@
   margin-top: 80px;
 }
 
+.themes {
+  padding: 30px 0px;
+}
+
 .all-content {
   margin: 10px 0 0;
   display: flex;
@@ -15,12 +19,19 @@
   margin-top: 60px;
 }
 
+.top-feed {
+  display: flex;
+  justify-content: space-between;
+}
 
 .main-content{
   flex: 0 0 60%;
-  width: 690px;
 }
 
+.container {
+  padding: 0px;
+  margin-top: 120px;
+}
 
 .left-side-info {
   flex: 0 0 33.33%;
@@ -30,11 +41,17 @@
   width: 240px;
 }
 
-.themes {
-  padding: 30px 0px;
+.left-side-info h2 {
+  margin-bottom: 15px;
 }
 
-.top-feed {
-  display: flex;
-  justify-content: space-between;
+
+.top-feed h2 {
+  margin-bottom: 15px;
 }
+
+.main-content h2 {
+  margin-bottom: 15px;
+}
+
+

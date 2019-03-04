@@ -1,6 +1,6 @@
 <div class="category-box">
 
-    <img alt=" <%= category.name %> " width="180" height="100" class="category-image" data-category-id="category-<%=category.id%>" src="/assets/<%= category.name %>.jpg">
+    <%= image_tag "#{category.name}.jpg", width:"180", height:"100", class:"category-image", data: {category_id: "category-#{category.id}"} %>
 
   <div class="category-subcategories-box">
 

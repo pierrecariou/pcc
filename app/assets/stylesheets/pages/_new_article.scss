@@ -46,10 +46,23 @@
 
 .sub-categories label {
   font-size: 15px;
+  cursor: pointer;
 }
 
 .category-subcategories-box {
   padding-left: 10px;
   padding-top: 15px;
 }
+
+
+.category-box img {
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  padding-left: none;
+  padding-right: none;
+}
+
 

@@ -131,10 +131,12 @@
 
 .footer-action {
   display: flex;
+  justify-content: space-between;
   a {
-    font-size : 14px !important;
+    font-size : 16px !important;
     color: black;
     font-weight: bold;
+    padding: 15px;
   }
 }
 
