@@ -18,7 +18,6 @@ user = User.create!(email: 'test4@test.test', password: 'azerty', first_name: 'H
 user = User.create!(email: 'test5@test.test', password: 'azerty', first_name: 'Alexandre', last_name: 'Le Grand', pseudo: 'conquérant', age: 24, activity: 'dev')
 
 puts 'Creating categories...'
-category_top = Category.create!(name: 'Top')
 category_ecologie = Category.create!(name: 'Ecologie')
 category_politique = Category.create!(name: 'Politique')
 category_economie = Category.create!(name: 'Economie')

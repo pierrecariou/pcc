@@ -30,9 +30,9 @@
         <i class="fas fa-star"></i><%= article.upvotes %>
       </div>
       <div>
-        <% article.sub_categories.each do |sub_category| %>
-        <%= sub_category.name %>
-      <% end %>
+        <% article.article_sub_categories.each do |article_sub_category| %>
+            <%= article_sub_category.sub_category.name %>
+          <% end %>
       </div>
 
     </div>
