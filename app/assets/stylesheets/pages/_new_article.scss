@@ -16,11 +16,22 @@
 }
 
 .subcategory-choice {
-  font-weight: 400 !important;
+  font-weight: 500 !important;
 }
 
 .subcategory-choice.active {
-  color: #6AD1B9;
+  &.Ecologie{
+    color: #00541A;
+  }
+  &.Economie {
+    color: #070D59;
+  }
+  &.Politique {
+    color: #5E0606;
+  }
+  &.Numérique {
+    color: #E0BB20;
+  }
 }
 
 .subcategory-choice.active {
@@ -57,6 +68,7 @@
   padding-left: 10px;
   padding-top: 15px;
 }
+
 
 .category-box img {
   cursor: pointer;
