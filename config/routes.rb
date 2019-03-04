@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments, only: [:new, :create]
   end
+  resources :articles do
+    member do
+      put "like", to: "articles#upvote"
+    end
+  end
 end
