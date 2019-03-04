@@ -24,6 +24,9 @@ if (document.querySelectorAll(".tab")) {
   openSubCategory();
 }
 
+// import { turnTabIntoActive } from "./turnTabIntoActive"
+
+// turnTabIntoActive();
 
 // function openTheme(evt, theme) {
 //   // Declare all variables
