@@ -26,25 +26,27 @@
   <div class="footer-card">
     <div class="footer-info">
 
-      <div class="upvotes">
-        
 
-      <div>
-        <% article.article_sub_categories.each do |article_sub_category| %>
+      <div class="sub_categories_infos">
+
+
+        <div>
+          <% article.article_sub_categories.each do |article_sub_category| %>
             <%= article_sub_category.sub_category.name %>
           <% end %>
+        </div>
       </div>
-
     </div>
-
     <div class="footer-action">
       <% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
       <div><%= link_to 'DISCUTER', article_path(article) %></div>
       <%end %>
-
-      <div><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
+      <%if article.voted_up_by? current_user %>
+        <div><%= link_to '<i class="fas fa-sort-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
+      <%else %>
+        <div><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
+      <%end %>
       <div><%= article.get_upvotes.size %></div>
-      </div>
     </div>
   </div>
 </div>
