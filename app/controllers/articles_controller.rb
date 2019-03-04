@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
         @category = @sub_categories_selected.last&.category
         @articles = Article.from_sub_categories(search[:sub_category_names])
         @sub_categories = @category&.sub_categories
+
       end
     else
       @articles = Article.first(10)

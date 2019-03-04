@@ -25,6 +25,7 @@
 
   <div class="footer-card">
     <div class="footer-info">
+
       <div class="upvotes">
         <i class="fas fa-star"></i><%= article.upvotes %>
       </div>
@@ -33,6 +34,7 @@
         <%= sub_category.name %>
       <% end %>
       </div>
+
     </div>
     <div class="footer-action">
       <% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
@@ -43,4 +45,6 @@
     </div>
   </div>
 </div>
-
+<!-- @articles[each] = article
+article.sub_categories.each
+sub_category.name -->
