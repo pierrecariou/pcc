@@ -21,6 +21,7 @@ class Article < ApplicationRecord
 
 
   validates :URL, presence: true
+  # validates :URL, uniqueness: true
   validates :category, presence: true
 
 
