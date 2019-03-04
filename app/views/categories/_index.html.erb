@@ -1,8 +1,17 @@
 <div class="tab">
   <% categories.each do |category| %>
-    <%= link_to category.name, articles_path(query: { category_name: category.name }), class: "tablinks #{category.name}"   %>
+    <% if @category.nil? %>
+      <%= link_to category.name, articles_path(query: { category_name: category.name }), class: "tablinks #{category.name} "   %>
+    <% else %>
+      <% if @category.name == category.name %>
+        <%= link_to category.name, articles_path(query: { category_name: category.name }), class: "tablinks #{category.name} active"   %>
+         <% else %>
+        <%= link_to category.name, articles_path(query: { category_name: category.name }), class: "tablinks #{category.name} "   %>
+      <% end %>
+    <% end  %>
   <% end %>
 </div>
+
 
 
 
