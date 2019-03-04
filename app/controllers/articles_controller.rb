@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   def index
     search = params[:query]
     if search
-      if search[:sub_category_names].reject(&:blank?).any?
+      if search[:sub_category_names] && search[:sub_category_names].reject(&:blank?).any?
         @sub_categories_selected = SubCategory.where(name: search[:sub_category_names])
         @category = @sub_categories_selected.last&.category
         @articles = Article.from_sub_categories(search[:sub_category_names])
