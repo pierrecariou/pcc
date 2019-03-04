@@ -19,7 +19,7 @@
         <% category.sub_categories.each do |sub_category| %>
           <div class="form-check">
             <input class="form-check-input hidden" type="checkbox" value="<%= sub_category.id %>" name="article[sub_category_ids][]" id="article_sub_category_ids_<%= sub_category.id %>">
-            <label class="subcategory-choice" for="article_sub_category_ids_<%= sub_category.id %>"><%=sub_category.name%></label>
+            <label class="subcategory-choice <%= category.name %>" for="article_sub_category_ids_<%= sub_category.id %>"><%=sub_category.name%></label>
           </div>
         <% end %>
 
