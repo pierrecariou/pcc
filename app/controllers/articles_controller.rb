@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+
   def index
     search = params[:query]
     if search
@@ -46,9 +47,26 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def update
+
+  # def update
+  #   @article = Article.find(params[:id])
+  #   @article.increment!(:upvotes)
+  #   if @article.save
+  #     respond_to do |format|
+  #     format.html { redirect_to request.referrer }
+  #     format.js
+  #     end
+  #   end
+  # end
+
+  def upvote
     @article = Article.find(params[:id])
-    @article.increment!(:upvotes)
+    @article.upvote_by current_user
+    @article.upvotes = @article.get_upvotes.size
+    respond_to do |format|
+      format.html { redirect_to request.referrer }
+      format.js
+    end
   end
 
   private
@@ -68,5 +86,4 @@ class ArticlesController < ApplicationController
     @article.image = image
     @article.source = URI.parse(url).host
   end
-
 end

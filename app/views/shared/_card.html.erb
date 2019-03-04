@@ -27,8 +27,8 @@
     <div class="footer-info">
 
       <div class="upvotes">
-        <i class="fas fa-star"></i><%= article.upvotes %>
-      </div>
+        
+
       <div>
         <% article.article_sub_categories.each do |article_sub_category| %>
             <%= article_sub_category.sub_category.name %>
@@ -36,12 +36,15 @@
       </div>
 
     </div>
+
     <div class="footer-action">
       <% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
       <div><%= link_to 'DISCUTER', article_path(article) %></div>
       <%end %>
 
-      <div><%= link_to 'UPVOTE', article_path(article), method: :patch %></div>
+      <div><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
+      <div><%= article.get_upvotes.size %></div>
+      </div>
     </div>
   </div>
 </div>
