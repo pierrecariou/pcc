@@ -142,6 +142,13 @@
 
 .footer-info {
   font-weight: lighter;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.upvotes {
+  padding-right: 10px;
 }
 
 
