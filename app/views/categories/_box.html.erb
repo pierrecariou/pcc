@@ -9,12 +9,12 @@
     </div>
 
     <div class="form-group hidden article_category_id">
-      <input class="form-control hidden" value="<%=category.id%>" type="hidden" name="article[category_id]" id="article_category_id">
+      <input class="form-control hidden" value="<%=category.id%>" type="hidden" name="article[category_id]" id="article_category_id" >
     </div>
 
     <div class="sub-categories hidden" id="category-<%=category.id%>">
 
-      <fieldset class="form-group "><input type="hidden" name="article[sub_category_ids][]" value="">
+      <fieldset class="form-group "><input type="hidden" name="article[sub_category_ids][]" value="" >
 
         <% category.sub_categories.each do |sub_category| %>
           <div class="form-check">

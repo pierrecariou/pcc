@@ -29,6 +29,7 @@
                     <%= simple_form_for Article.new do |f| %>
                       <%= f.input :URL, label: 'Lien de l\'article' %>
                       <%= f.input :description, label: 'Commentaire' %>
+
                       <div class="categories">
                         <% Category.all.each do |category| %>
                             <%= render 'categories/box', category: category, f: f %>
@@ -40,7 +41,6 @@
                     <% end %>
 
                   </div>
-
               </div>
             </div>
           </div>
