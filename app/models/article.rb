@@ -9,7 +9,6 @@ class Article < ApplicationRecord
   #     tsearch: { prefix: true } # <-- now `superman batm` will return something!
   #   }
 
-
   belongs_to :user
   belongs_to :category
   has_many :comments
@@ -19,5 +18,8 @@ class Article < ApplicationRecord
   # scope :from_category, ->(category_selected) { where(category: category_selected) }
   scope :from_category, ->(category_name) { includes(:category).where(category: Category.where(name: category_name)) }
   scope :from_sub_categories, ->(sub_category_names) { includes(:sub_categories).where(sub_categories: { name: sub_category_names }) }
+
+  validates :URL, presence: true
+  validates :category, presence: true
 
 end
