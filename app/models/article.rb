@@ -20,6 +20,7 @@ class Article < ApplicationRecord
   scope :from_sub_categories, ->(sub_category_names) { includes(:sub_categories).where(sub_categories: { name: sub_category_names }) }
 
   validates :URL, presence: true
+  # validates :URL, uniqueness: true
   validates :category, presence: true
 
 end
