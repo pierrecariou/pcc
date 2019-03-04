@@ -1,0 +1,40 @@
+.comment_form {
+    top: 55px;
+  }
+
+.user-comment-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  img {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  }
+}
+
+.titre {
+  font-size: 24px;
+  opacity: 0.7;
+}
+
+.text {
+  font-size: 14px;
+}
+
+.source {
+  font-size: 14px;
+  a {
+    color: #000000;
+    font-style: bold;
+    opacity: 0.6;
+  }
+}
+
+.user-comment-name {
+  display: flex;
+}
+
+
