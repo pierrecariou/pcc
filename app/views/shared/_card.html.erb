@@ -38,7 +38,7 @@
     </div>
     <div class="footer-action">
       <% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
-      <div><%= link_to 'DÉBAT', article_path(article) %></div>
+      <div><%= link_to 'DISCUTER', article_path(article) %></div>
       <%end %>
 
       <div><%= link_to 'UPVOTE', article_path(article), method: :patch %></div>
