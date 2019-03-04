@@ -34,6 +34,21 @@
   }
 }
 
+.subcategory-choice.active {
+  &.Ecologie {
+    color: #00541A;
+  }
+  &.Economie {
+    color: #070D59;
+  }
+  &.Numérique {
+    color: #E0BB20;
+  }
+  &.Politique {
+    color: #5E0606;
+  }
+}
+
 .article-submit {
   display: flex;
   justify-content: center;

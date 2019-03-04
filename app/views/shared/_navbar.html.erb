@@ -11,7 +11,40 @@
     <div class="navbar-wagon-right hidden-xs hidden-sm">
       <% if user_signed_in? %>
         <!-- Links when logged in -->
-        <%= link_to "Partager un article", new_article_path, class: "navbar-wagon-item button-black" %>
+        <%#= link_to "Partager un article", new_article_path, class: "navbar-wagon-item button-black" %>
+        <!-- Button trigger modal -->
+          <button type="button" class="navbar-wagon-item button-black" data-toggle="modal" data-target=".bs-example-modal-lg">
+            Partager un article
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+
+                  <div class="new-article-form">
+
+                    <h2>Partager un article</h2>
+
+                    <%= simple_form_for Article.new do |f| %>
+                      <%= f.input :URL, label: 'Lien de l\'article' %>
+                      <%= f.input :description, label: 'Commentaire' %>
+                      <div class="categories">
+                        <% Category.all.each do |category| %>
+                            <%= render 'categories/box', category: category, f: f %>
+                        <% end %>
+                      </div>
+                      <div class="article-submit">
+                        <%= f.submit 'Partager', class: "button-black" %>
+                      </div>
+                    <% end %>
+
+                  </div>
+
+              </div>
+            </div>
+          </div>
+
       <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
         <!--   <div class="searchbar">
