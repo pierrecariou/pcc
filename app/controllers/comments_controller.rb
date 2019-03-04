@@ -27,6 +27,17 @@ class CommentsController < ApplicationController
     end
   end
 
+  # def participants
+  #   array = []
+  #     @article.comments.each do |comment|
+  #       array << comment.user.pseudo
+  #     end
+  #     new_array = array.uniq
+  #     new_array.each do |element|
+  #       element
+  #     end
+  # end
+
   private
 
   def comment_params

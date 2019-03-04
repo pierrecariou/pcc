@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_140239) do
     t.string "title"
     t.text "text"
     t.text "source"
-    t.integer "upvotes"
+    t.integer "upvotes", default: 0
     t.date "date"
     t.bigint "user_id"
     t.bigint "article_id"

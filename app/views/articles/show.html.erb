@@ -8,13 +8,18 @@
         <h2>Participants</h2>
         <div class="linebetween">
         </div>
-        <%@article.comments.each do |comment|  %>
-          <%= comment.user.pseudo %>
-        <%end %>
+        <% array = [] %>
+        <% @article.comments.each do |comment| %>
+          <% array << comment.user.pseudo %>
+        <% end %>
+        <% new_array = array.uniq %>
+        <% new_array.each do |element| %>
+          <p><%=  element  %></p>
+        <% end %>
       </div>
     </div>
     <div class="main-content">
-      <h2>Débat</h2>
+      <h2>Discussion</h2>
       <div class="card listed-article">
         <%= render "shared/card", article: @article %>
       </div>
@@ -23,7 +28,7 @@
       </h2>
       <div id="comments">
         <% if @article.comments.blank? %>
-          Soyez le premier à contribuer au débat
+          Soyez le premier à contribuer
         <% else %>
           <% @article.comments.each do |comment| %>
             <%= render 'comments/show', comment: comment %>

@@ -3,23 +3,20 @@ class ArticlesController < ApplicationController
   def index
     search = params[:query]
     if search
-      if search[:category_name]
-        @articles = Article.from_category(search[:category_name])
-        @category = Category.find_by_name(search[:category_name])
-        @sub_categories = @category.sub_categories
-      elsif search[:sub_category_names] == [""]
-        @articles = Article.first(10)
-        @sub_categories = []
-      elsif search[:sub_category_names]
+      if search[:sub_category_names] && search[:sub_category_names].reject(&:blank?).any?
         @sub_categories_selected = SubCategory.where(name: search[:sub_category_names])
         @category = @sub_categories_selected.last&.category
         @articles = Article.from_sub_categories(search[:sub_category_names])
         @sub_categories = @category&.sub_categories
-
+      elsif search[:category_name]
+        @articles = Article.from_category(search[:category_name])
+        @category = Category.find_by_name(search[:category_name])
+        @sub_categories = @category.sub_categories
       end
     else
       @articles = Article.first(10)
       @sub_categories = []
+      @category = Category.find_by_name("top")
     end
     @categories = Category.all
   end
@@ -44,7 +41,7 @@ class ArticlesController < ApplicationController
     @article.category = cat
 
     if @article.save
-      redirect_to articles_path
+      redirect_to articles_path(query: { category_name: @article.category.name })
     else
       render :new
     end

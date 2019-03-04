@@ -9,7 +9,6 @@ class Article < ApplicationRecord
   #     tsearch: { prefix: true } # <-- now `superman batm` will return something!
   #   }
 
-
   belongs_to :user
   acts_as_votable
   belongs_to :category
@@ -22,6 +21,13 @@ class Article < ApplicationRecord
   # scope :from_category, ->(category_selected) { where(category: category_selected) }
   scope :from_category, ->(category_name) { includes(:category).where(category: Category.where(name: category_name)) }
   scope :from_sub_categories, ->(sub_category_names) { includes(:sub_categories).where(sub_categories: { name: sub_category_names }) }
+
+
+  validates :URL, presence: true
+  # validates :URL, uniqueness: true
+  validates :category, presence: true
+
+
   default_scope { order(upvotes: :desc) }
-  # Article.order(article.get_upvotes.size => :desc)
+
 end

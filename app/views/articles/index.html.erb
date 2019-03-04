@@ -2,7 +2,7 @@
   <%= render 'categories/index', categories: @categories %>
 </div>
 <div class="all-content">
-  <div class="sub_categories">
+  <div class="sub_categories <%= @category&.name %>">
     <% if @category.present? %>
       <%= render 'sub_categories/index', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected %>
     <% end %>
