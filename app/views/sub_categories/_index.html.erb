@@ -1,12 +1,12 @@
-<div class="left-side-info">
-<h2><%= @category.name %></h2>
-<div class="linebetween"></div>
-<ul class="liste-subcategory tablink">
-  <% if sub_categories.present? %>
-    <%= simple_form_for :query, method: :get, html: {id: 'sub-categories-form'} do |f| %>
-      <%= f.input :sub_category_names, collection: sub_categories, as: :check_boxes, value_method: :name, checked: selected&.pluck(:name), input_html: {} %>
-      <%= f.input :category_name, as: :hidden, input_html: { value: params.dig(:query, :category_name)} %>
+<div class="left-side-info left-side-info-index">
+  <h2><%= @category.name %></h2>
+  <div class="linebetween"></div>
+  <ul class="liste-subcategory tablink">
+    <% if sub_categories.present? %>
+      <%= simple_form_for :query, method: :get, html: {id: 'sub-categories-form'} do |f| %>
+        <%= f.input :sub_category_names, collection: sub_categories, as: :check_boxes, value_method: :name, checked: selected&.pluck(:name), input_html: {} %>
+        <%= f.input :category_name, as: :hidden, input_html: { value: params.dig(:query, :category_name)} %>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 </div>
