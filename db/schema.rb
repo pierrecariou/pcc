@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_151517) do
+ActiveRecord::Schema.define(version: 2019_03_04_121306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_151517) do
   create_table "articles", force: :cascade do |t|
     t.string "URL"
     t.string "description"
-    t.integer "upvotes"
+    t.integer "upvotes", default: 0
     t.integer "fake_news"
     t.bigint "user_id"
     t.datetime "created_at", null: false

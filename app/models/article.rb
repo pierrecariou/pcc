@@ -19,7 +19,11 @@ class Article < ApplicationRecord
   scope :from_category, ->(category_name) { includes(:category).where(category: Category.where(name: category_name)) }
   scope :from_sub_categories, ->(sub_category_names) { includes(:sub_categories).where(sub_categories: { name: sub_category_names }) }
 
+
   validates :URL, presence: true
   validates :category, presence: true
+
+
+  default_scope { order(upvotes: :desc) }
 
 end
