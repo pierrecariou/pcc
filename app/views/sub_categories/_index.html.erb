@@ -9,14 +9,30 @@
       <% end %>
     <% end %>
 
-  <% end %>
+
 </ul>
 <h2>Les plus actifs</h2>
 <div class="linebetween"></div>
  <%@articles.first(5).each do |article| %>
 <div class="user">
-  <%=article.user.email %>
+  <div class="photo">
+    <%=image_tag article.user.photo_url, class: "avatar_sidebar" %>
+  </div>
+  <div class="infos_user">
+    <ul>
+      <li class="user_name"><%=article.user.first_name %> <%=article.user.last_name  %> </li>
+      <li class="info"><%=article.user.activity%></li>
+      <li class="info"><%=article.user.articles.count%>
+        <% if article.user.articles.count == 1 %>
+          partage
+        <%else %>
+          partages
+        <%end %>
+      </li>
+    </ul>
+  </div>
 </div>
  <%end %>
+
 
 </div>
