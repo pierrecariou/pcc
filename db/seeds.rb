@@ -12,11 +12,16 @@ User.destroy_all
 
 puts 'Creating users...'
 
-user = User.create!(email: 'test@test.test', password: 'azerty', first_name: 'Pierre', last_name: 'Cariou', pseudo: 'superdev75', age: 24, activity: 'dev', photo_url: 'patrick.png')
-user = User.create!(email: 'test2@test.test', password: 'azerty', first_name: 'Caroline', last_name: 'Petit', pseudo: '@Journaliste', age: 24, activity: 'dev', photo_url: 'user.png')
-user = User.create!(email: 'test3@test.test', password: 'azerty', first_name: 'Théodore', last_name: 'Brossollet', pseudo: 'monster', age: 24, activity: 'dev', photo_url: 'user.png')
-user = User.create!(email: 'test4@test.test', password: 'azerty', first_name: 'Hamza', last_name: 'Amor', pseudo: 'lécolo', age: 24, activity: 'dev', photo_url: 'patrick.png')
-user = User.create!(email: 'test5@test.test', password: 'azerty', first_name: 'Alexandre', last_name: 'Le Grand', pseudo: 'conquérant', age: 24, activity: 'dev', photo_url: 'patrick.png')
+user = User.create!(email: 'test@test.test', password: 'azerty', first_name: 'Thomas', last_name: 'Piketty', pseudo: 'T-Pikkety', age: 44, activity: 'Economiste', photo_url: 'Piketty.jpg')
+user = User.create!(email: 'test2@test.test', password: 'azerty', first_name: 'Noam', last_name: 'Chomsky', pseudo: 'N-Chomasky', age: 74, activity: 'Chercheur', photo_url: 'chomsky.png')
+user = User.create!(email: 'test3@test.test', password: 'azerty', first_name: 'Frederic', last_name: 'Rouvillois', pseudo: 'F-Rouvillois', age: 54, activity: 'Professeur', photo_url: 'Rouvillois.jpg')
+user = User.create!(email: 'test4@test.test', password: 'azerty', first_name: 'Hamza', last_name: 'Amor', pseudo: 'H-Amor', age: 25, activity: 'Etudiant', photo_url: 'hamza.png')
+user = User.create!(email: 'test5@test.test', password: 'azerty', first_name: 'Julia', last_name: 'Brouard', pseudo: 'J-Brouard', age: 24, activity: 'Etudiante', photo_url: 'julia.jpeg')
+user = User.create!(email: 'test6@test.test', password: 'azerty', first_name: 'Emily', last_name: 'Betham', pseudo: 'E-Betham', age: 23, activity: 'Etudiante', photo_url: 'emily.jpeg')
+user = User.create!(email: 'test7@test.test', password: 'azerty', first_name: 'Germain', last_name: 'Loret', pseudo: 'G-loret', age: 32, activity: 'Devellopeur', photo_url: 'germain.jpg')
+user = User.create!(email: 'test8@test.test', password: 'azerty', first_name: 'Luc', last_name: 'Brossollet', pseudo: 'L-Brossollet', age: 58, activity: 'Avocat', photo_url: 'Brossollet.jpg')
+user = User.create!(email: 'test9@test.test', password: 'azerty', first_name: 'Michel', last_name: 'Cymes', pseudo: 'M-Cymes', age: 44, activity: 'Medecin', photo_url: 'Cymes.jpg')
+user = User.create!(email: 'test10@test.test', password: 'azerty', first_name: 'Loïc', last_name: 'Massy', pseudo: 'L-Massy', age: 24, activity: 'Agriculteur', photo_url: 'loic.jpg')
 
 
 puts 'Creating categories...'
@@ -115,10 +120,10 @@ sub_category_futurologie = SubCategory.create!(name: 'Futurologie', category: ca
 #   user: user
 # )
 
-commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
-commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
-commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
-commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
+# commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
+# commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
+# commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
+# commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
 
 
 
