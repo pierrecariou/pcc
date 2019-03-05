@@ -55,5 +55,55 @@
 
 .user {
   text-decoration: none;
+  display: flex;
+  align-items: start;
+  margin-bottom: 8px;
 }
+
+ .avatar_sidebar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.infos_user li {
+  list-style:none;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.infos_user ul {
+  padding: inherit;
+  margin-left: 10px;
+}
+
+
+.user_name {
+     width: 94px;
+  height: 18px;
+  opacity: 0.7;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.29;
+  text-align: left;
+  color: #000000;
+}
+
+.info {
+    width: 75px;
+  height: 18px;
+  opacity: 0.7;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+
+
+
 

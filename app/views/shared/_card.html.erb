@@ -3,7 +3,10 @@
 <div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join(" ") %>">
   <div class="user-display">
     <div class="avatar">
+
+
       <%= link_to image_tag("user.png"), user_path(article.user) %>
+
     </div>
     <div class="user-input">
       <div class="user-info">
