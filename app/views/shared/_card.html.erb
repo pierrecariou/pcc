@@ -10,7 +10,9 @@
     </div>
     <div class="user-input">
       <div class="user-info">
-        <%= article.user.first_name%> <%= article.user.last_name%>, <%= article.user.activity %>
+        <%= link_to user_path(article.user) do %>
+          <%= article.user.first_name%> <%= article.user.last_name%>, <%= article.user.activity %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -42,7 +44,7 @@
     </div>
     <div class="footer-action">
       <% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
-      <div><%= link_to 'DISCUTER', article_path(article) %></div>
+      <div><%= link_to 'DEBATTRE', article_path(article) %></div>
       <%end %>
       <%if article.voted_up_by? current_user %>
         <div class="upvoted"><%= link_to '<i class="fas fa-sort-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
