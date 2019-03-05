@@ -39,6 +39,8 @@
   display: flex;
   flex-direction: column;
   width: 240px;
+  position: sticky !important;
+  top: 80px !important;
 }
 
 .left-side-info h2 {
