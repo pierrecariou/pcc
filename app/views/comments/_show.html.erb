@@ -2,12 +2,12 @@
  <div class="user-comment-name">
   <div class="avatar"><%= image_tag "user.png" %> <%# A REMPLACER PAR LA PHOTO DU USER %>
     </div>
-    <p><%= comment.user.pseudo %></p>
+    <p class="pseudo"><%= comment.user.pseudo %></p>
 
   </div>
   <div class="user-comment-data">
-    <p class="Titre"> Titre : <%= comment.title %></p>
-    <p class="text"> Avis : <%= comment.text %></p>
+    <p class="Titre"> <%= comment.title %></p>
+    <p class="text"> <%= comment.text %></p>
     <p class="source"> Source : <a href="<%= comment.source %>"><% comment_source = URI.parse( "comment.source" ) %>
     <% comment_source = URI.parse(comment.source).host %>
       <%= comment_source %></a>

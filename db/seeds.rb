@@ -6,15 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # puts 'Cleaning database.....'
-# Comment.destroy_all
-# Article.destroy_all
-# User.destroy_all
+Comment.destroy_all
+Article.destroy_all
+User.destroy_all
 
 puts 'Creating users...'
-user = User.create!(email: 'test@test.test', password: 'azerty', first_name: 'Pierre', last_name: 'Cariou', pseudo: 'superdev75', age: 24, activity: 'dev')
-user = User.create!(email: 'test2@test.test', password: 'azerty', first_name: 'Caroline', last_name: 'Petit', pseudo: '@Journaliste', age: 24, activity: 'dev')
-user = User.create!(email: 'test3@test.test', password: 'azerty', first_name: 'Théodore', last_name: 'Brossollet', pseudo: 'monster', age: 24, activity: 'dev')
-user = User.create!(email: 'test4@test.test', password: 'azerty', first_name: 'Hamza', last_name: 'Amor', pseudo: 'lécolo', age: 24, activity: 'dev', photo: 'hamza.png')
+
+user = User.create!(email: 'test@test.test', password: 'azerty', first_name: 'Pierre', last_name: 'Cariou', pseudo: 'superdev75', age: 24, activity: 'dev', photo_url: 'patrick.png')
+user = User.create!(email: 'test2@test.test', password: 'azerty', first_name: 'Caroline', last_name: 'Petit', pseudo: '@Journaliste', age: 24, activity: 'dev', photo_url: 'user.png')
+user = User.create!(email: 'test3@test.test', password: 'azerty', first_name: 'Théodore', last_name: 'Brossollet', pseudo: 'monster', age: 24, activity: 'dev', photo_url: 'user.png')
+user = User.create!(email: 'test4@test.test', password: 'azerty', first_name: 'Hamza', last_name: 'Amor', pseudo: 'lécolo', age: 24, activity: 'dev', photo_url: 'patrick.png')
+user = User.create!(email: 'test5@test.test', password: 'azerty', first_name: 'Alexandre', last_name: 'Le Grand', pseudo: 'conquérant', age: 24, activity: 'dev', photo_url: 'patrick.png')
 
 
 puts 'Creating categories...'

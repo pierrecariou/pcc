@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    # raise
     @comment = Comment.new
     @categories = Category.all
   end
