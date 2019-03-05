@@ -42,7 +42,7 @@ class ArticlesController < ApplicationController
     @article.category = cat
 
     if @article.save
-      redirect_to articles_path(query: { category_name: @article.category.name })
+      redirect_to articles_path(query: { category_name: @article.category.name }, anchor: 'new-article-anchor')
     else
       render :new
     end

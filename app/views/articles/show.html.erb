@@ -35,9 +35,37 @@
             <% end %>
           <% end %>
       </div>
-      <%= render 'comments/form', article: @article, comment: @comment %>
+
+      <button type="button" class="navbar-wagon-item button-black" data-toggle="modal" data-target=".modal_new_comment">
+              Débattre
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade modal_new_comment" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content comment_form">
+
+                    <div class="new-comment">
+
+                      <h2>Ajoutez un commentaire</h2>
+
+                      <%= render 'comments/form', article: @article, comment: @comment %>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+
     </div>
   </div>
   <div class="footer"></div>
 </div>
 
+<!-- participants = Hash.new
+participants["#{comment.user.pseudo}"] = #{comment.user.pseudo.count}
+participants.sort_by {|_key, value| value}.to_h
+participants.uniq! {|e| e[:"#{comment.user.pseudo}"] }-->
