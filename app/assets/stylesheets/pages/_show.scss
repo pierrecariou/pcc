@@ -14,18 +14,28 @@
   border-radius: 50%;
   }
 }
-
+.pseudo {
+  position: relative;
+  left: 10px;
+}
 .titre {
   font-size: 24px;
   opacity: 0.7;
+  margin:5px;
+}
+.Titre {
+  padding-bottom: 10px;
 }
 
 .text {
   font-size: 14px;
+  margin-top: 15px;
+  padding-bottom: 10px;
 }
 
 .source {
   font-size: 14px;
+  margin-top: 15px;
   a {
     color: #000000;
     font-style: bold;
@@ -35,6 +45,8 @@
 
 .user-comment-name {
   display: flex;
+  padding: 5px;
+  border-top: 1px solid rgba(238, 238, 238, 1);
 }
 
 .modal-footer {
@@ -51,4 +63,9 @@
 
 #comment_source {
   height: 29px;
+}
+
+button.navbar-wagon-item {
+  position: relative;
+  left: 500px;
 }
