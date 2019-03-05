@@ -32,7 +32,11 @@
         <%= render "shared/card", article: @article %>
       </div>
       <h2>
+        <% if @article.comments.count == 0 %>
+        <%= "Pas de contribution" %>
+          <% else  %>
         <%= pluralize @article.comments.count, "contribution" %>
+        <% end %>
       </h2>
       <div id="comments">
         <% if @article.comments.blank? %>
