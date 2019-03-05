@@ -1,0 +1,28 @@
+.profile-avatar img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: solid 1px rgba(0,0,0,0.1);
+}
+
+.profile-user-name h4 {
+  font-weight: bold;
+  font-size: 32px;
+  color: black;
+}
+
+.profile-left-side-info p {
+  font-size: 14px;
+}
+
+.profile-left-side-info a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  opacity: 0.5;
+  margin-bottom: 30px;
+}
+
+.profile-stat h4 {
+  font-size: 24px;
+}

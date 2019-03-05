@@ -10,4 +10,7 @@ Rails.application.routes.draw do
       put "like", to: "articles#upvote"
     end
   end
+
+  resources :users, only: [ :show ]
+
 end
