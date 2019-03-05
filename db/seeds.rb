@@ -80,11 +80,55 @@ article1 = Article.new(
    category: category_numerique,
    sub_categories: [ sub_category_gafa ],
    description: 'Un long article sur les différents impacts de Facebook sur  le fonctionnement de la démocratie américaine.',
-   upvotes: '36',
+   upvotes: 36,
    user: user7
  )
 scrap(article1.URL, article1)
 article1.save
+
+article2 = Article.new(
+   URL: 'https://www.theatlantic.com/ideas/archive/2018/05/the-undemocratic-spread-of-big-brother/560999/?fbclid=IwAR28xVddaCpW7Kjpv4PNYgi5uKNQ2pAJQC9c4_GC9Grlfl7XOv_eqlkBIL8',
+   category: category_numerique,
+   sub_categories: [ sub_category_gafa ],
+   description: 'Quand Amazon vend une solution de reconnaissance faciale aux autorités américaines qui les implantent sans demander le consentement des populations locales.',
+   upvotes: 23,
+   user: user4
+ )
+scrap(article2.URL, article2)
+article2.save
+
+article3 = Article.new(
+   URL: 'https://www.forbes.fr/entrepreneurs/xavier-niel-faire-de-paris-la-capitale-mondiale-des-start-up/?fbclid=IwAR0MOmZhdtIxfIH36KYelPlMJtH694W2KRhmeMy5RxQXNIWwow5jiril1sE',
+   category: category_numerique,
+   sub_categories: [ sub_category_startup ],
+   description: 'Plaidoyer optimiste de Xavier Niel quand aux possibilités offert par le numérique à la France.',
+   upvotes: 39,
+   user: user1
+ )
+scrap(article3.URL, article3)
+article3.save
+
+article4 = Article.new(
+   URL: 'https://blog.serenacapital.com/is-your-company-worth-5-or-22m-both-40e2ef8f3fb1',
+   category: category_numerique,
+   sub_categories: [ sub_category_startup ],
+   description: 'Étude ludique et pragmatique sur les principaux raisonnements de valorisation utilisés par les VC. #venturecapital #startup #levéedefonds',
+   upvotes: 7,
+   user: user3
+ )
+scrap(article4.URL, article4)
+article4.save
+
+article5 = Article.new(
+   URL: 'https://www.monde-diplomatique.fr/2013/11/MALET/49762',
+   category: category_numerique,
+   sub_categories: [ sub_category_gafa ],
+   description: "Retour sur les conditions de travaille dans les entrepôts d'Amazon.",
+   upvotes: 12,
+   user: user8
+ )
+scrap(article5.URL, article5)
+article5.save
 
 # article1 = Article.create!(
 #   URL: 'https://www.lemonde.fr/economie/article/2019/02/27/automobile-alliances-en-serie-pour-la-voiture-du-futur_5428894_3234.html',
