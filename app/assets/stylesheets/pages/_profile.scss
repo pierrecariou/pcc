@@ -11,6 +11,11 @@
   color: black;
 }
 
+.profile-left-side-info {
+  position: sticky !important;
+  top: 0 !important;
+}
+
 .profile-left-side-info p {
   font-size: 14px;
 }
