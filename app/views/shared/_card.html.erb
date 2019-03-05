@@ -10,13 +10,13 @@
     </div>
     <div class="user-input">
       <div class="user-info">
-        <%=  link_to article.user.pseudo, user_path(article.user) %>
-      </div>
-      <div class="article-comment">
-       <%= article.description %>
+        <%= article.user.first_name%> <%= article.user.last_name%>, <%= article.user.activity %>
       </div>
     </div>
   </div>
+      <div class="article-comment">
+       <%= article.description %>
+      </div>
   <div class="article-preview">
     <div class="article-img"><a href="<%= article.URL %>" target="_blank"><img src="<%= article.image %>" height="150"></a></div>
     <div class="article-info">
