@@ -50,9 +50,9 @@
       <%if article.voted_up_by? current_user %>
         <div class="upvoted"><%= link_to '<i class="fas fa-sort-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
       <%else %>
-        <div><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
+        <div><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
       <%end %>
-      <div><%= article.get_upvotes.size %></div>
+      <div data-article="<%= article.id %>"><%= article.get_upvotes.size %></div>
     </div>
   </div>
 </div>
