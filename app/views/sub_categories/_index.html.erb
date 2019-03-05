@@ -11,7 +11,9 @@
 </ul>
 <h2>Les plus actifs</h2>
 <div class="linebetween"></div>
-<div>
-
+ <%@articles.first(5).each do |article| %>
+<div class="user">
+  <%=article.user.email %>
 </div>
+ <%end %>
 </div>

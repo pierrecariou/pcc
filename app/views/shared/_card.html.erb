@@ -15,11 +15,11 @@
     </div>
   </div>
   <div class="article-preview">
-    <div class="article-img"><a href="<%= article.URL %>"><img src="<%= article.image %>" height="150"></a></div>
+    <div class="article-img"><a href="<%= article.URL %>" target="_blank"><img src="<%= article.image %>" height="150"></a></div>
     <div class="article-info">
-      <h2 class="article-title"><a href="<%= article.URL %>"><%= article.title %></a></h2>
-      <p class="article-source"><a href="<%= article.URL %>"><%= article.source %></a></p>
-      <p class="article-site_description"><a href="<%= article.URL %>"><%= article.site_description %></a></p>
+      <h2 class="article-title"><a href="<%= article.URL %>"target="_blank"><%= article.title %></a></h2>
+      <p class="article-source"><a href="<%= article.URL %>"target="_blank"><%= article.source %></a></p>
+      <p class="article-site_description"><a href="<%= article.URL %>"target="_blank"><%= article.site_description %></a></p>
     </div>
   </div>
 
@@ -42,7 +42,7 @@
       <div><%= link_to 'DISCUTER', article_path(article) %></div>
       <%end %>
       <%if article.voted_up_by? current_user %>
-        <div><%= link_to '<i class="fas fa-sort-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
+        <div class="upvoted"><%= link_to '<i class="fas fa-sort-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
       <%else %>
         <div><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
       <%end %>
