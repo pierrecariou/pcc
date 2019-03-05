@@ -10,21 +10,19 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <%= favicon_link_tag 'logopcc.jpg' %>
   </head>
+  
   <body>
-    <% unless params[:action] == "home" %>
-      <%= render 'shared/navbar' %>
-      <div class="pcc-wrapper" >
-    <% end %>
-    <%= render 'shared/flashes' %>
-    <div class="content-layout">
-      <%= yield %>
+    <div class="pcc-wrapper">
+      <% unless params[:action] == "home" %>
+        <%= render 'shared/navbar' %>
+      <% end %>
+      <%= render 'shared/flashes' %>
+      <div class="content-layout">
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' unless params[:action] == "home" %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
     </div>
-    <%= render 'shared/footer' unless params[:action] == "home" %>
-
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
-    <% unless params[:action] == "home" %>
-    </div>
-    <% end %>
   </body>
 </html>
