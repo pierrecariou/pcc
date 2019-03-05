@@ -6,6 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # puts 'Cleaning database.....'
+
+def scrap(url, article)
+  html_file = open(url).read
+  html_doc = Nokogiri::HTML(html_file)
+  article.title = html_doc.css('html > head > title').text
+  article.site_description = html_doc.xpath('/html/head/meta[@name="description"]/@content').to_s
+  head_image = html_doc.xpath('/html/head/meta[@property="og:image"]/@content').to_s
+  first_body_image = html_doc.search('img').first.attribute('src').value if !html_doc.search('img').first.attribute('src').nil?
+  image = head_image.empty? ? first_body_image : head_image
+  article.image = image
+  article.source = URI.parse(url).host
+end
+
 Comment.destroy_all
 Article.destroy_all
 User.destroy_all
@@ -62,7 +75,7 @@ sub_category_futurologie = SubCategory.create!(name: 'Futurologie', category: ca
 
 puts 'Creating articles...'
 
-article1 = Article.create!(
+article1 = Article.new(
    URL: 'https://www.theatlantic.com/amp/article/542502/',
    category: category_numerique,
    sub_categories: [ sub_category_gafa ],
@@ -70,6 +83,8 @@ article1 = Article.create!(
    upvotes: '36',
    user: user7
  )
+scrap(article1.URL, article1)
+article1.save
 
 # article1 = Article.create!(
 #   URL: 'https://www.lemonde.fr/economie/article/2019/02/27/automobile-alliances-en-serie-pour-la-voiture-du-futur_5428894_3234.html',
