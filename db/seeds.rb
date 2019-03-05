@@ -60,65 +60,65 @@ sub_category_technologie = SubCategory.create!(name: 'Technologie', category: ca
 sub_category_futurologie = SubCategory.create!(name: 'Futurologie', category: category_numerique)
 
 
-# puts 'Creating articles...'
-# article1 = Article.create!(
-#   URL: 'https://www.lemonde.fr/societe/article/2019/02/26/gilets-jaunes-le-conseil-de-l-europe-reclame-la-suspension-du-lbd_5428371_3224.html',
-#   category: category_economie,
-#   sub_categories: [sub_category_business, sub_category_inegalites],
-#   description: 'this is the description',
-#   upvotes: '3',
-#   user: user
-# )
-# article1 = Article.create!(
-#   URL: 'https://www.lemonde.fr/economie/article/2019/02/27/automobile-alliances-en-serie-pour-la-voiture-du-futur_5428894_3234.html',
-#   category: category_economie,
-#   sub_categories: [sub_category_commerce_international],
-#   description: 'this is the description',
-#   upvotes: '3',
-#   user: user
-# )
-# article2 = Article.create!(URL: 'https://www.youtube.com/watch?v=tRl9_q2ytI8',
-#   category: category_politique,
-#   sub_categories: [sub_category_geopolitique],
-#   description: 'this is the 2nd description',
-#   upvotes: '4',
-#   user: user
-# )
-# article3 = Article.create!(URL: 'https://www.liberation.fr/france/2019/02/27/municipales-a-paris-lrem-teste-griveaux-et-froisse-les-autres-candidats_1711892',
-#   category: category_politique,
-#   sub_categories: [sub_category_reformes],
-#   description: 'this is the 2nd description',
-#   upvotes: '4',
-#   user: user
-# )
-# article4 = Article.create!(URL: 'https://www.liberation.fr/depeches/2019/02/26/le-cardinal-australien-pell-numero-trois-du-vatican-reconnu-coupable-de-pedophilie_1711624',
-#   category: category_numerique,
-#   sub_categories: [sub_category_transhumanisme],
-#   description: 'this is the 3rd description',
-#   upvotes: '5',
-#   user: user
-# )
-# article5 = Article.create!(URL: 'https://www.lemonde.fr/pixels/article/2015/02/19/snapchat-serait-valorisee-entre-16-et-19-milliards-de-dollars_4579139_4408996.html',
-#   category: category_numerique,
-#   sub_categories: [sub_category_futurologie],
-#   description: 'this is the 3rd description',
-#   upvotes: '5',
-#   user: user
-# )
-# article6 = Article.create!(URL: 'https://www.dailymotion.com/video/x7316va?playlist=x6agxl',
-#   category: category_ecologie,
-#   sub_categories: [sub_category_pollution],
-#   description: 'this is the 4th description',
-#   upvotes: '6',
-#   user: user
-# )
-# article7 = Article.create!(URL: 'https://www.lemonde.fr/m-perso/article/2019/02/22/l-avion-plaisir-coupable-de-l-ecolo-voyageur_5426851_4497916.html',
-#   category: category_ecologie,
-#   sub_categories: [sub_category_climat],
-#   description: 'this is the 4th description',
-#   upvotes: '6',
-#   user: user
-# )
+puts 'Creating articles...'
+article1 = Article.create!(
+  URL: 'https://www.lemonde.fr/societe/article/2019/02/26/gilets-jaunes-le-conseil-de-l-europe-reclame-la-suspension-du-lbd_5428371_3224.html',
+  category: category_economie,
+  sub_categories: [sub_category_business, sub_category_inegalites],
+  description: 'this is the description',
+  upvotes: '3',
+  user: user
+)
+article1 = Article.create!(
+  URL: 'https://www.lemonde.fr/economie/article/2019/02/27/automobile-alliances-en-serie-pour-la-voiture-du-futur_5428894_3234.html',
+  category: category_economie,
+  sub_categories: [sub_category_commerce_international],
+  description: 'this is the description',
+  upvotes: '3',
+  user: user
+)
+article2 = Article.create!(URL: 'https://www.youtube.com/watch?v=tRl9_q2ytI8',
+  category: category_politique,
+  sub_categories: [sub_category_geopolitique],
+  description: 'this is the 2nd description',
+  upvotes: '4',
+  user: user
+)
+article3 = Article.create!(URL: 'https://www.liberation.fr/france/2019/02/27/municipales-a-paris-lrem-teste-griveaux-et-froisse-les-autres-candidats_1711892',
+  category: category_politique,
+  sub_categories: [sub_category_reformes],
+  description: 'this is the 2nd description',
+  upvotes: '4',
+  user: user
+)
+article4 = Article.create!(URL: 'https://www.liberation.fr/depeches/2019/02/26/le-cardinal-australien-pell-numero-trois-du-vatican-reconnu-coupable-de-pedophilie_1711624',
+  category: category_numerique,
+  sub_categories: [sub_category_transhumanisme],
+  description: 'this is the 3rd description',
+  upvotes: '5',
+  user: user
+)
+article5 = Article.create!(URL: 'https://www.lemonde.fr/pixels/article/2015/02/19/snapchat-serait-valorisee-entre-16-et-19-milliards-de-dollars_4579139_4408996.html',
+  category: category_numerique,
+  sub_categories: [sub_category_futurologie],
+  description: 'this is the 3rd description',
+  upvotes: '5',
+  user: user
+)
+article6 = Article.create!(URL: 'https://www.dailymotion.com/video/x7316va?playlist=x6agxl',
+  category: category_ecologie,
+  sub_categories: [sub_category_pollution],
+  description: 'this is the 4th description',
+  upvotes: '6',
+  user: user
+)
+article7 = Article.create!(URL: 'https://www.lemonde.fr/m-perso/article/2019/02/22/l-avion-plaisir-coupable-de-l-ecolo-voyageur_5426851_4497916.html',
+  category: category_ecologie,
+  sub_categories: [sub_category_climat],
+  description: 'this is the 4th description',
+  upvotes: '6',
+  user: user
+)
 
 # commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
 # commentaire = Comment.new(user: user, title: 'This is a comment', text: 'Best comment ever', source: 'wikipedia', date: '2019-02-25')
@@ -128,6 +128,6 @@ sub_category_futurologie = SubCategory.create!(name: 'Futurologie', category: ca
 
 
 
-commentaire.save
+#commentaire.save
 
 puts 'Finished!'
