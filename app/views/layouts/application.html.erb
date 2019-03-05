@@ -11,16 +11,15 @@
     <%= favicon_link_tag 'logopcc.jpg' %>
   </head>
   <body>
-    <%= render 'shared/navbar' unless params[:action] == "home" %>
     <div class="pcc-wrapper">
-    <%= render 'shared/flashes' %>
-    <div class="content-layout">
-      <%= yield %>
-    </div>
-    <%= render 'shared/footer' unless params[:action] == "home" %>
-
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
+      <%= render 'shared/navbar' unless params[:action] == "home" %>
+      <%= render 'shared/flashes' %>
+      <div class="content-layout">
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' unless params[:action] == "home" %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
     </div>
   </body>
 </html>

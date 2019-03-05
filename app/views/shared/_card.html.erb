@@ -5,7 +5,7 @@
     <div class="avatar">
 
 
-      <%= link_to image_tag("user.png"), user_path(article.user) %>
+      <%= link_to image_tag(article.user.photo_url), user_path(article.user) %>
 
     </div>
     <div class="user-input">

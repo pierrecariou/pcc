@@ -11,9 +11,10 @@
   color: black;
 }
 
-.profile-left-side-info {
+.left-side-info.profile-left-side-info {
   position: sticky !important;
   top: 0 !important;
+  padding-right: 80px;
 }
 
 .profile-left-side-info p {
@@ -30,4 +31,8 @@
 
 .profile-stat h4 {
   font-size: 24px;
+}
+
+.all-content-profile {
+  padding-top: 50px;
 }
