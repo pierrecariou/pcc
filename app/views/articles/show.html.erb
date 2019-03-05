@@ -31,47 +31,42 @@
       <div class="card listed-article">
         <%= render "shared/card", article: @article %>
       </div>
-      <h2>
-        <% if @article.comments.count == 0 %>
-        <%= "Pas de contribution" %>
-          <% else  %>
-        <%= pluralize @article.comments.count, "contribution" %>
+
+      <div class="comment-section">
+        <div class="current_user_info">
+          <div class="current_user_img">
+            <%=image_tag current_user.photo_url, class: "avatar_sidebar" %>
+          </div>
+          <div class="user-names">
+
+            <%= current_user.first_name %>
+            <%= current_user.last_name %>,
+            <%= current_user.activity %>
+
+          </div>
+        </div>
+        <% if @article.comments.blank? %>
+          <div class="bar-button">
+            <button type="button" class="user-comment-button" data-toggle="modal" data-target=".modal_new_comment">Créer un nouveau débat</button>
+          </div>
         <% end %>
-      </h2>
+      </div>
+
       <div id="comments">
         <% if @article.comments.blank? %>
           Soyez le premier à contribuer
+          <%= render 'shared/comment_modal', title: "Créer un nouveau débat", article: @article, comment: @comment %>
         <% else %>
           <% @article.comments.each do |comment| %>
             <%= render 'comments/show', comment: comment %>
-            <% end %>
           <% end %>
+          <button type="button" class="navbar-wagon-item-comment button-black" data-toggle="modal" data-target=".modal_new_comment" id="teest">
+            Publier une réponse
+          </button>
+          <%= render 'shared/comment_modal', title: "Ajouter une réponse", article: @article, comment: @comment %>
+        <% end %>
+        <!-- Modal -->
       </div>
-
-      <button type="button" class="navbar-wagon-item-comment button-black" data-toggle="modal" data-target=".modal_new_comment">
-              Débattre
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade modal_new_comment" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-              <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content comment_form">
-
-                    <div class="new-comment">
-
-                      <h2>Ajoutez un commentaire</h2>
-
-                      <%= render 'comments/form', article: @article, comment: @comment %>
-
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    </div>
-                </div>
-              </div>
-            </div>
-
-
     </div>
   </div>
   <div class="footer"></div>
