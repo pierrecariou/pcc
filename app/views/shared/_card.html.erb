@@ -7,7 +7,7 @@
     </div>
     <div class="user-input">
       <div class="user-info">
-        <%= article.user.pseudo%>
+        <%=  link_to article.user.pseudo, user_path(article.user) %>
       </div>
       <div class="article-comment">
        <%= article.description %>
