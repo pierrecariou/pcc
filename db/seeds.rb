@@ -12,16 +12,16 @@ User.destroy_all
 
 puts 'Creating users...'
 
-user = User.create!(email: 'test@test.test', password: 'azerty', first_name: 'Thomas', last_name: 'Piketty', pseudo: 'T-Pikkety', age: 44, activity: 'Economiste', photo_url: 'Piketty.jpg')
-user = User.create!(email: 'test2@test.test', password: 'azerty', first_name: 'Noam', last_name: 'Chomsky', pseudo: 'N-Chomasky', age: 74, activity: 'Chercheur', photo_url: 'chomsky.png')
-user = User.create!(email: 'test3@test.test', password: 'azerty', first_name: 'Frederic', last_name: 'Rouvillois', pseudo: 'F-Rouvillois', age: 54, activity: 'Professeur', photo_url: 'Rouvillois.jpg')
-user = User.create!(email: 'test4@test.test', password: 'azerty', first_name: 'Hamza', last_name: 'Amor', pseudo: 'H-Amor', age: 25, activity: 'Etudiant', photo_url: 'hamza.png')
-user = User.create!(email: 'test5@test.test', password: 'azerty', first_name: 'Julia', last_name: 'Brouard', pseudo: 'J-Brouard', age: 24, activity: 'Etudiante', photo_url: 'julia.jpeg')
-user = User.create!(email: 'test6@test.test', password: 'azerty', first_name: 'Emily', last_name: 'Betham', pseudo: 'E-Betham', age: 23, activity: 'Etudiante', photo_url: 'emily.jpeg')
-user = User.create!(email: 'test7@test.test', password: 'azerty', first_name: 'Germain', last_name: 'Loret', pseudo: 'G-loret', age: 32, activity: 'Devellopeur', photo_url: 'germain.jpg')
-user = User.create!(email: 'test8@test.test', password: 'azerty', first_name: 'Luc', last_name: 'Brossollet', pseudo: 'L-Brossollet', age: 58, activity: 'Avocat', photo_url: 'Brossollet.jpg')
-user = User.create!(email: 'test9@test.test', password: 'azerty', first_name: 'Michel', last_name: 'Cymes', pseudo: 'M-Cymes', age: 44, activity: 'Medecin', photo_url: 'Cymes.jpg')
-user = User.create!(email: 'test10@test.test', password: 'azerty', first_name: 'Loïc', last_name: 'Massy', pseudo: 'L-Massy', age: 24, activity: 'Agriculteur', photo_url: 'loic.jpg')
+user1 = User.create!(email: 'test@test.test', password: 'azerty', first_name: 'Thomas', last_name: 'Piketty', pseudo: 'T-Pikkety', age: 44, activity: 'Economiste', photo_url: 'Piketty.jpg')
+user2 = User.create!(email: 'test2@test.test', password: 'azerty', first_name: 'Noam', last_name: 'Chomsky', pseudo: 'N-Chomasky', age: 74, activity: 'Chercheur', photo_url: 'chomsky.png')
+user3 = User.create!(email: 'test3@test.test', password: 'azerty', first_name: 'Frederic', last_name: 'Rouvillois', pseudo: 'F-Rouvillois', age: 54, activity: 'Professeur', photo_url: 'Rouvillois.jpg')
+user4 = User.create!(email: 'test4@test.test', password: 'azerty', first_name: 'Hamza', last_name: 'Amor', pseudo: 'H-Amor', age: 25, activity: 'Etudiant', photo_url: 'hamza.png')
+user5 = User.create!(email: 'test5@test.test', password: 'azerty', first_name: 'Julia', last_name: 'Brouard', pseudo: 'J-Brouard', age: 24, activity: 'Etudiante', photo_url: 'julia.jpeg')
+user6 = User.create!(email: 'test6@test.test', password: 'azerty', first_name: 'Emily', last_name: 'Betham', pseudo: 'E-Betham', age: 23, activity: 'Etudiante', photo_url: 'emily.jpeg')
+user7 = User.create!(email: 'test7@test.test', password: 'azerty', first_name: 'Germain', last_name: 'Loret', pseudo: 'G-loret', age: 32, activity: 'Devellopeur', photo_url: 'germain.jpg')
+user8 = User.create!(email: 'test8@test.test', password: 'azerty', first_name: 'Luc', last_name: 'Brossollet', pseudo: 'L-Brossollet', age: 58, activity: 'Avocat', photo_url: 'Brossollet.jpg')
+user9 = User.create!(email: 'test9@test.test', password: 'azerty', first_name: 'Michel', last_name: 'Cymes', pseudo: 'M-Cymes', age: 44, activity: 'Medecin', photo_url: 'Cymes.jpg')
+user10 = User.create!(email: 'test10@test.test', password: 'azerty', first_name: 'Loïc', last_name: 'Massy', pseudo: 'L-Massy', age: 24, activity: 'Agriculteur', photo_url: 'loic.jpg')
 
 
 puts 'Creating categories...'
@@ -60,15 +60,17 @@ sub_category_technologie = SubCategory.create!(name: 'Technologie', category: ca
 sub_category_futurologie = SubCategory.create!(name: 'Futurologie', category: category_numerique)
 
 
-# puts 'Creating articles...'
-# article1 = Article.create!(
-#   URL: 'https://www.lemonde.fr/societe/article/2019/02/26/gilets-jaunes-le-conseil-de-l-europe-reclame-la-suspension-du-lbd_5428371_3224.html',
-#   category: category_economie,
-#   sub_categories: [sub_category_business, sub_category_inegalites],
-#   description: 'this is the description',
-#   upvotes: '3',
-#   user: user
-# )
+puts 'Creating articles...'
+
+article1 = Article.create!(
+   URL: 'https://www.theatlantic.com/amp/article/542502/',
+   category: category_numerique,
+   sub_categories: [ sub_category_gafa ],
+   description: 'Un long article sur les différents impacts de Facebook sur  le fonctionnement de la démocratie américaine.',
+   upvotes: '36',
+   user: user7
+ )
+
 # article1 = Article.create!(
 #   URL: 'https://www.lemonde.fr/economie/article/2019/02/27/automobile-alliances-en-serie-pour-la-voiture-du-futur_5428894_3234.html',
 #   category: category_economie,
@@ -128,6 +130,6 @@ sub_category_futurologie = SubCategory.create!(name: 'Futurologie', category: ca
 
 
 
-commentaire.save
+# commentaire.save
 
 puts 'Finished!'
