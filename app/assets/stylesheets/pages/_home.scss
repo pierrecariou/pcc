@@ -1,0 +1,124 @@
+.home-banner {
+  background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1483736762161-1d107f3c78e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2534&q=80');
+  background-size: cover;
+  height: 100vh;
+  color: #eee;
+  text-align: center;
+  padding-top: 40vh;
+  //background : linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));
+}
+
+.home-banner h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.home-banner h3 {
+  color: white;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.home-wrapper {
+  background-color: #ffffff;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.parole-auteur {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.profil-home {
+  margin: 30px;
+  border: solid 1px rgba(0,0,0,0.1);
+  height: 150px;
+  width: 150px;
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  text-align: center;
+  img {
+    vertical-align: middle;
+  }
+}
+
+.speech-bubble {
+  background: #f5f5f5;
+  border-radius: .4em;
+  height: 110px;
+  padding: 20px 25px;
+  position:relative;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #f5f5f5;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -14px;
+    margin-bottom: -20px;
+    transform: rotateY(185deg);
+  }
+  h3 {
+    vertical-align: middle;
+    margin: 0;
+  }
+}
+
+#hanna-quote {
+  background: #f5f5f5;
+  border-radius: .4em;
+  height: 110px;
+  padding: 20px 25px;
+  position:relative;
+&:after {
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #f5f5f5;
+    border-bottom: 0;
+    border-left: 0;
+    margin-right: -14px;
+    margin-bottom: -20px;
+   transform: rotateY(15deg);
+  }
+  h3 {
+    vertical-align: middle;
+    margin: 0;
+  }
+}
+
+// .speech-bubble:after {
+//   content: 'looooooool';
+//   position: absolute;
+//   bottom: 0;
+//   left: 50%;
+//   width: 0;
+//   height: 0;
+//   border: 20px solid transparent;
+//   border-top-color: #00aabb;
+//   border-bottom: 0;
+//   border-left: 0;
+//   margin-left: -10px;
+//   margin-bottom: -20px;
+// }
+
+
+.home-second-part {
+text-align: center;
+}
