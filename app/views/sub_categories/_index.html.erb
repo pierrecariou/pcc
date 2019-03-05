@@ -8,7 +8,15 @@
         <%= f.input :category_name, as: :hidden, input_html: { value: params.dig(:query, :category_name)} %>
       <% end %>
     <% end %>
-  </ul>
-  <h2>Les plus actifs</h2>
-  <div class="linebetween"></div>
+
+  <% end %>
+</ul>
+<h2>Les plus actifs</h2>
+<div class="linebetween"></div>
+ <%@articles.first(5).each do |article| %>
+<div class="user">
+  <%=article.user.email %>
+</div>
+ <%end %>
+
 </div>
