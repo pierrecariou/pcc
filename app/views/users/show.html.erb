@@ -1,7 +1,12 @@
 <div class="all-content">
+
     <div class="left-side-info profile-left-side-info">
 
-      <h2>Mes infos</h2>
+      <% if @user == current_user %>
+        <h2>Mes infos</h2>
+      <% else %>
+        <h2>Infos de <%= @user.pseudo %> </h2>
+      <% end %>
       <div class="linebetween"></div>
       <div class="profile-avatar">
         <%= image_tag @user.photo_url %>
@@ -11,10 +16,13 @@
       </div>
       <p> <%= @user.pseudo %> </p>
       <p><%= @user.activity %></p>
-      <%= link_to 'Modifier mes infos',  edit_user_registration_path %>
+      <% if @user == current_user  %>
+        <%= link_to 'Modifier mes infos',  edit_user_registration_path %>
+      <% end %>
       <div class="linebetween"></div>
 
       <div class="profile-stat">
+
         <div class="profile-stat-partages">
           <% if @user.articles.size <= 1  %>
             <h4><%= @user.articles.size %></h4> <p>Partage</p>
@@ -34,14 +42,16 @@
           <% end %>
         </div>
 
-
       </div>
-
 
     </div>
 
     <div class="main-content">
-        <h2>Mes précédents partages</h2>
+        <% if @user == current_user  %>
+          <h2>Mes précédents partages</h2>
+        <% else %>
+          <h2> Ses précédents partages</h2>
+        <% end %>
 
         <div class="card listed-article">
           <% @user.articles.each do |article| %>

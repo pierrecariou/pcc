@@ -6,15 +6,23 @@
     <div class="sub_categories">
       <div class="left-side-info">
         <h2>Participants</h2>
-        <div class="linebetween">
-        </div>
-        <% array = [] %>
+        <div class="linebetween"></div>
+        <% users = [] %>
         <% @article.comments.each do |comment| %>
-          <% array << comment.user.pseudo %>
+          <% users << comment.user %>
         <% end %>
-        <% new_array = array.uniq %>
-        <% new_array.each do |element| %>
-          <p><%=  element  %></p>
+        <% users.uniq.last(5).each do |user| %>
+          <div class="user">
+            <div class="photo">
+              <%=image_tag user.photo_url, class: "avatar_sidebar" %>
+            </div>
+            <div class="infos_user">
+              <ul>
+                <li class="user_name"><%=user.first_name %> <%=user.last_name  %> </li>
+                <li class="info"><%=user.activity%></li>
+              </ul>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
@@ -36,7 +44,7 @@
           <% end %>
       </div>
 
-      <button type="button" class="navbar-wagon-item button-black" data-toggle="modal" data-target=".modal_new_comment">
+      <button type="button" class="navbar-wagon-item-comment button-black" data-toggle="modal" data-target=".modal_new_comment">
               Débattre
             </button>
 
@@ -64,7 +72,6 @@
   </div>
   <div class="footer"></div>
 </div>
-
 <!-- participants = Hash.new
 participants["#{comment.user.pseudo}"] = #{comment.user.pseudo.count}
 participants.sort_by {|_key, value| value}.to_h

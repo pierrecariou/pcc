@@ -64,6 +64,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.upvote_by current_user
     @article.upvotes = @article.get_upvotes.size
+    @article.save
     respond_to do |format|
       format.html { redirect_to request.referrer }
       format.js

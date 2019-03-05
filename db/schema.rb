@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 2019_03_05_102143) do
     t.string "pseudo"
     t.integer "age"
     t.string "activity"
-    t.string "photo"
     t.string "photo_url"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
