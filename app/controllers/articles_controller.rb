@@ -62,12 +62,12 @@ class ArticlesController < ApplicationController
   def upvote
     @article = Article.find(params[:id])
     @article.upvote_by current_user
-
     @article.upvotes += 1
-    @article.save
+    if @article.save
     respond_to do |format|
       format.html { redirect_to request.referrer }
       format.js
+    end
     end
   end
 
