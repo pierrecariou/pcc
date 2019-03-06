@@ -154,18 +154,18 @@ article8 = Article.new(
 scrap(article8.URL, article8)
 article8.save
 
-article9 = Article.new(
-   URL: 'http://discovery.economist.com/getstarted/million-dollar-babies-2925960?kw=all&csid=socialpr&ref=getstarted&aid=5305879142',
-   category: category_numerique,
-   sub_categories: [ sub_category_intelligence_artificielle ],
-   description: "
-   L'article met en avant une comparaison entre la concentration de scientifiques sur le projet Manhattan et un monopole de la recherche sur l'ia de Google
-.",
-   upvotes: 39,
-   user: user2
- )
-scrap(article9.URL, article9)
-article9.save
+# article9 = Article.new(
+#    URL: 'http://discovery.economist.com/getstarted/million-dollar-babies-2925960?kw=all&csid=socialpr&ref=getstarted&aid=5305879142',
+#    category: category_numerique,
+#    sub_categories: [ sub_category_intelligence_artificielle ],
+#    description: "
+#    L'article met en avant une comparaison entre la concentration de scientifiques sur le projet Manhattan et un monopole de la recherche sur l'ia de Google
+# .",
+#    upvotes: 39,
+#    user: user2
+#  )
+# scrap(article9.URL, article9)
+# article9.save
 
 article10 = Article.new(
    URL: 'https://www.monde-diplomatique.fr/2013/11/MALET/49762',
@@ -314,16 +314,16 @@ article23 = Article.new(
 scrap(article23.URL, article23)
 article23.save
 
-article24 = Article.new(
-   URL: 'https://www.rtbf.be/info/societe/detail_le-cri-d-alarme-d-hubert-reeves-la-disparition-des-vers-de-terre-aussi-grave-que-le-rechauffement-climatique?id=9850098',
-   category: category_ecologie,
-   sub_categories: [ sub_category_biodiversite ],
-   description: "Si j’avais su j’en aurais tué un peu moins étant enfant … ",
-   upvotes: 42,
-   user: user9
- )
-scrap(article24.URL, article24)
-article24.save
+# article24 = Article.new(
+#    URL: 'https://www.rtbf.be/info/societe/detail_le-cri-d-alarme-d-hubert-reeves-la-disparition-des-vers-de-terre-aussi-grave-que-le-rechauffement-climatique?id=9850098',
+#    category: category_ecologie,
+#    sub_categories: [ sub_category_biodiversite ],
+#    description: "Si j’avais su j’en aurais tué un peu moins étant enfant … ",
+#    upvotes: 42,
+#    user: user9
+#  )
+# scrap(article24.URL, article24)
+# article24.save
 
 article25 = Article.new(
    URL: 'https://www.nationalgeographic.fr/animaux/les-oiseaux-disparaissent-des-campagnes-francaises-un-rythme-alarmant',
@@ -447,16 +447,16 @@ article34.save
 # scrap(article35.URL, article35)
 # article35.save
 
-article36 = Article.new(
-   URL: 'https://www.facebook.com/download/1741324049309750/Maniere_de_voir-141.pdf?hash=AcoM1wymLlRQpnKE',
-   category: category_economie,
-   sub_categories: [ sub_category_commerce_international ],
-   description: "Sur les différents traités de libre échange",
-   upvotes: 52,
-   user: user5
- )
-scrap(article36.URL, article36)
-article36.save
+# article36 = Article.new(
+#    URL: 'https://www.facebook.com/download/1741324049309750/Maniere_de_voir-141.pdf?hash=AcoM1wymLlRQpnKE',
+#    category: category_economie,
+#    sub_categories: [ sub_category_commerce_international ],
+#    description: "Sur les différents traités de libre échange",
+#    upvotes: 52,
+#    user: user5
+#  )
+# scrap(article36.URL, article36)
+# article36.save
 
 article37 = Article.new(
    URL: 'https://www.franceculture.fr/emissions/linvite-des-matins/pauvrete-mondiale-panser-repenser-depasser',
