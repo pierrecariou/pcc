@@ -6,8 +6,28 @@
 .categories {
   display: flex;
   justify-content: space-between;
-  width: 100%;
 }
+
+.category-box {
+  flex: 0 0 25%;
+}
+
+.category-box.not-active {
+  opacity: 0.2;
+}
+
+
+.category-image {
+  position: relative;
+  width: 180px;
+  height: 100px;
+  background-size: cover;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 
 .category-name {
   font-size: 19px;
@@ -17,35 +37,53 @@
 
 .subcategory-choice {
   font-weight: 500 !important;
+  padding: 5px 0px 5px 5px;
+  width: 100%;
 }
 
-.subcategory-choice.active {
+.category-box .subcategory-choice:hover {
+  color: white;
   &.Ecologie{
-    color: #00541A;
+    background-color: rgba(40, 85, 27, 0.5);
   }
   &.Economie {
-    color: #070D59;
+    background-color: #070D59;
   }
   &.Politique {
-    color: #5E0606;
+    background-color: #5E0606;
   }
   &.Numérique {
-    color: #E0BB20;
+    background-color: #E0BB20;
   }
 }
 
-.subcategory-choice.active {
-  &.Ecologie {
-    color: #00541A;
+.category-box .form-check-input:checked + .subcategory-choice {
+  color: white;
+  position: relative;
+  &:before {
+    content: '\f14a';
+    font-family: "Font Awesome 5 Free";
+    color: white;
+    padding-right: 10px;
+  }
+  .Ecologie {
+    background-color: rgba(40, 85, 27, 1);
+  }
+
+}
+
+.category-box .subcategory-choice.active {
+  &.Ecologie{
+    background-color: #00541A;
   }
   &.Economie {
-    color: #070D59;
-  }
-  &.Numérique {
-    color: #E0BB20;
+    background-color: #070D59;
   }
   &.Politique {
-    color: #5E0606;
+    background-color: #5E0606;
+  }
+  &.Numérique {
+    background-color: #E0BB20;
   }
 }
 
