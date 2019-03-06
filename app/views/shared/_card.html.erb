@@ -46,13 +46,13 @@
     <div class="footer-action">
       <% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
       <div><%= link_to 'DEBATTRE', article_path(article) %></div>
-      <%end %>
-      <%if article.voted_up_by? current_user %>
-        <div class="upvoted"><%= link_to '<i class="fas fa-sort-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
-      <%else %>
-        <div><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
-      <%end %>
-      <div data-article="<%= article.id %>"><%= article.get_upvotes.size %></div>
+      <% end %>
+      <% if article.voted_up_by? current_user %>
+        <i class="fas fa-sort-up upvoted"></i>
+      <% else %>
+        <div><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put %></div>
+      <% end %>
+      <div><%= article.upvotes %></div>
     </div>
   </div>
 </div>

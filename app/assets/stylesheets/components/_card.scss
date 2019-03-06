@@ -119,6 +119,7 @@
 .footer-action {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   a {
     font-size : 16px !important;
     color: black;
@@ -148,6 +149,8 @@
 
 }
 
-.upvoted i {
+i.upvoted {
   color: green;
+  padding-right: 10px;
+  padding-top: 5px;
 }
