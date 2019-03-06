@@ -22,6 +22,8 @@ end
 Comment.destroy_all
 Article.destroy_all
 User.destroy_all
+Category.destroy_all
+SubCategory.destroy_all
 
 puts 'Creating users...'
 
