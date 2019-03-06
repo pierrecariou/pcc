@@ -9,6 +9,23 @@
   width: 100%;
 }
 
+.category-box.not-active {
+  opacity: 0.2;
+}
+
+
+.category-image {
+  position: relative;
+  width: 180px;
+  height: 100px;
+  background-size: cover;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
 .category-name {
   font-size: 19px;
   font-weight: 600 !important;
