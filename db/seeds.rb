@@ -434,16 +434,16 @@ article34 = Article.new(
 scrap(article34.URL, article34)
 article34.save
 
-article35 = Article.new(
-   URL: 'https://www.lesechos.fr/idees-debats/editos-analyses/0301436611400-les-economistes-decouvrent-les-degats-du-libre-echange-2162256.php#formulaire_enrichi::bouton_facebook_inscription_article',
-   category: category_economie,
-   sub_categories: [ sub_category_business ],
-   description: "Sur la prise de conscience des économistes que le libre échange peut engendrer des situations gagnants-perdants ",
-   upvotes: 42,
-   user: user4
- )
-scrap(article35.URL, article35)
-article35.save
+# article35 = Article.new(
+#    URL: 'https://www.lesechos.fr/idees-debats/editos-analyses/0301436611400-les-economistes-decouvrent-les-degats-du-libre-echange-2162256.php#formulaire_enrichi::bouton_facebook_inscription_article',
+#    category: category_economie,
+#    sub_categories: [ sub_category_business ],
+#    description: "Sur la prise de conscience des économistes que le libre échange peut engendrer des situations gagnants-perdants ",
+#    upvotes: 42,
+#    user: user4
+#  )
+# scrap(article35.URL, article35)
+# article35.save
 
 article36 = Article.new(
    URL: 'https://www.facebook.com/download/1741324049309750/Maniere_de_voir-141.pdf?hash=AcoM1wymLlRQpnKE',
