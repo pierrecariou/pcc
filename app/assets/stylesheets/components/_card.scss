@@ -1,21 +1,27 @@
 .user-info {
  width: 173px;
  height: 18px;
- font-family: SourceSansPro;
  font-size: 14px;
  font-weight: bold;
- font-style: normal;
- font-stretch: normal;
  line-height: 1.29;
- letter-spacing: normal;
  text-align: left;
  color: #000000;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
 }
 
 .article-comment {
- margin: 0;
- color: #000000;
- font-size: 14px;
+  opacity: 0.7;
+  font-size: 14px;
+  line-height: 1.29;
+  text-align: left;
+  color: #000000;
+  margin-bottom:10px;
+  text-align: justify;
 }
 
 .article-preview {
@@ -90,8 +96,8 @@
   padding-bottom: 15px;
   .avatar {
     img {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
     }
   }
@@ -99,7 +105,7 @@
 
 .user-input {
   position: relative;
-  left : 30px;
+  left : 14px;
 }
 
 .footer-card {
@@ -112,6 +118,7 @@
 .footer-action {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   a {
     font-size : 16px !important;
     color: black;
@@ -141,6 +148,8 @@
 
 }
 
-.upvoted i {
+i.upvoted {
   color: green;
+  padding-right: 10px;
+  padding-top: 5px;
 }

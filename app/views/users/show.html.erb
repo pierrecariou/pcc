@@ -1,47 +1,59 @@
-<div class="all-content">
-    <div class="left-side-info profile-left-side-info">
+<div class="all-content all-content-profile">
 
-      <h2>Mes infos</h2>
-      <div class="linebetween"></div>
-      <div class="profile-avatar">
-        <%= image_tag @user.photo %>
-      </div>
-      <div class="profile-user-name">
-        <h4><%= @user.first_name %> <%= @user.last_name %></h4>
-      </div>
-      <p> <%= @user.pseudo %> </p>
-      <p><%= @user.activity %></p>
-      <%= link_to 'Modifier mes infos',  edit_user_registration_path %>
-      <div class="linebetween"></div>
+    <div class="left-side-info">
+      <div class="profile-left-side-info">
 
-      <div class="profile-stat">
-        <div class="profile-stat-partages">
-          <% if @user.articles.size <= 1  %>
-            <h4><%= @user.articles.size %></h4> <p>Partage</p>
-          <% else %>
-            <h4><%= @user.articles.size %></h4> <p>Partages</p>
-          <% end %>
+        <% if @user == current_user %>
+          <h2>Mes infos</h2>
+        <% else %>
+          <h2>Infos de <%= @user.pseudo %> </h2>
+        <% end %>
+        <div class="linebetween"></div>
+        <div class="profile-avatar">
+          <%= image_tag @user.photo_url %>
         </div>
-
-        <div class="profile-stat-upvotes">
-          <% upvotes = @user.articles.map do |article| %>
-            <% article.upvotes %>
-          <% end %>
-          <% if upvotes.sum <= 1  %>
-            <h4><%= upvotes.sum %></h4> <p>Upvote</p>
-          <% else %>
-            <h4><%= upvotes.sum %></h4> <p>Upvotes</p>
-          <% end %>
+        <div class="profile-user-name">
+          <h4><%= @user.first_name %> <%= @user.last_name %></h4>
         </div>
+        <p> <%= @user.pseudo %> </p>
+        <p><%= @user.activity %></p>
+        <% if @user == current_user  %>
+          <%= link_to 'Modifier mes infos',  edit_user_registration_path %>
+        <% end %>
+        <div class="linebetween"></div>
 
+        <div class="profile-stat">
 
+          <div class="profile-stat-partages">
+            <% if @user.articles.size <= 1  %>
+              <h4><%= @user.articles.size %></h4> <p>Partage</p>
+            <% else %>
+              <h4><%= @user.articles.size %></h4> <p>Partages</p>
+            <% end %>
+          </div>
+
+          <div class="profile-stat-upvotes">
+            <% upvotes = @user.articles.map do |article| %>
+              <% article.upvotes %>
+            <% end %>
+            <% if upvotes.sum <= 1  %>
+              <h4><%= upvotes.sum %></h4> <p>Upvote</p>
+            <% else %>
+              <h4><%= upvotes.sum %></h4> <p>Upvotes</p>
+            <% end %>
+          </div>
+
+        </div>
       </div>
-
 
     </div>
 
     <div class="main-content">
-        <h2>Mes précédents partages</h2>
+        <% if @user == current_user  %>
+          <h2>Mes précédents partages</h2>
+        <% else %>
+          <h2> Ses précédents partages</h2>
+        <% end %>
 
         <div class="card listed-article">
           <% @user.articles.each do |article| %>
@@ -53,9 +65,9 @@
         </div>
     </div>
 
-    </div>
-
 </div>
+
+
 
 
 

@@ -23,14 +23,26 @@
   opacity: 0.7;
   margin:5px;
 }
-.Titre {
+.title-comment {
   padding-bottom: 10px;
+  width: 312px;
+  height: 31px;
+  font-size: 24px;
+  line-height: 1.29;
+  text-align: left;
+  opacity: 0.7;
+  color: #000000;
 }
 
-.text {
-  font-size: 14px;
+.text-comment {
   margin-top: 15px;
   padding-bottom: 10px;
+  width: 690px;
+  opacity: 0.7;
+  font-size: 14px;
+  line-height: 1.29;
+  text-align: left;
+  color: #000000;
 }
 
 .source {
@@ -67,5 +79,48 @@
 
 button.navbar-wagon-item-comment {
   position: relative;
-  left: 500px;
+  left: 550px;
 }
+
+.comment-section {
+  border-top: 1px solid rgba(238, 238, 238, 1);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(238, 238, 238, 1);
+  padding: 15px;
+}
+
+.user-names {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: relative;
+  left: 10px;
+}
+
+.bar-button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.user-comment-button {
+  max-width: 320px;
+  padding: 6px 20px;
+  border: solid 1px #000000;
+  background-color: #000000;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: lighter;
+  margin-right: 25px;
+}
+
+.current_user_info {
+  display: flex;
+}
+
+.user-names {
+  position: relative;
+  left: 10px;
+}
+
+

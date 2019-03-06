@@ -12,7 +12,11 @@
   </div>
   <div class="infos_user">
     <ul>
-      <li class="user_name"><%=user.first_name %> <%=user.last_name  %> </li>
+      <li class="user_name">
+        <%= link_to user_path(user) do %>
+          <%=user.first_name %> <%=user.last_name  %>
+        <% end %>
+      </li>
       <li class="info"><%=user.activity%></li>
       <li class="info"><%=user.articles.count%>
         <% if user.articles.count == 1 %>

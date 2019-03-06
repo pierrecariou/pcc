@@ -5,11 +5,10 @@
   <div class="sub_categories <%= @category&.name %>">
     <% if @category.present? %>
       <%= render 'sub_categories/index', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected %>
-      <%else %>
-      <%=  render 'users/index', articles: @articles%>
+      <% else %>
+      <%=  render 'users/index', articles: @articles %>
     <% end %>
   </div>
     <%= render 'articles/index', articles: @articles %>
 </div>
-
 

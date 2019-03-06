@@ -1,0 +1,8 @@
+function updateUpvotes(newCount) {
+  const upvotes = document.querySelector("[data-article='<%= @article.id %>']")
+  const upArrow = document.querySelector("[data-article-arrow='<%= @article.id %>'] > a");
+  upvotes.innerHTML = newCount
+  upArrow.style.color = "green";
+}
+
+updateUpvotes('<%= @article.upvotes %>')

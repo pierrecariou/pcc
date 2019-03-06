@@ -23,7 +23,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    # raise
     @comment = Comment.new
     @categories = Category.all
   end
@@ -63,10 +62,12 @@ class ArticlesController < ApplicationController
   def upvote
     @article = Article.find(params[:id])
     @article.upvote_by current_user
-    @article.upvotes = @article.get_upvotes.size
+    @article.upvotes += 1
+    if @article.save
     respond_to do |format|
       format.html { redirect_to request.referrer }
       format.js
+    end
     end
   end
 

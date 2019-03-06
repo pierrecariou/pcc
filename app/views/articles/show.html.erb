@@ -6,36 +6,66 @@
     <div class="sub_categories">
       <div class="left-side-info">
         <h2>Participants</h2>
-        <div class="linebetween">
-        </div>
-        <% array = [] %>
+        <div class="linebetween"></div>
+        <% users = [] %>
         <% @article.comments.each do |comment| %>
-          <% array << comment.user.pseudo %>
+          <% users << comment.user %>
         <% end %>
-        <% new_array = array.uniq %>
-        <% new_array.each do |element| %>
-          <p><%=  element  %></p>
+        <% users.uniq.last(5).each do |user| %>
+          <div class="user">
+            <div class="photo">
+              <%=image_tag user.photo_url, class: "avatar_sidebar" %>
+            </div>
+            <div class="infos_user">
+              <ul>
+                <li class="user_name"><%=user.first_name %> <%=user.last_name  %> </li>
+                <li class="info"><%=user.activity%></li>
+              </ul>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
     <div class="main-content">
-      <h2>Discussion</h2>
+      <h2>Débat</h2>
       <div class="card listed-article">
         <%= render "shared/card", article: @article %>
       </div>
-      <h2>
-        <%= pluralize @article.comments.count, "contribution" %>
-      </h2>
+
+      <div class="comment-section">
+        <div class="current_user_info">
+          <div class="current_user_img">
+            <%=image_tag current_user.photo_url, class: "avatar_sidebar" %>
+          </div>
+          <div class="user-names">
+
+            <%= current_user.first_name %>
+            <%= current_user.last_name %>,
+            <%= current_user.activity %>
+
+          </div>
+        </div>
+        <% if @article.comments.blank? %>
+          <div class="bar-button">
+            <button type="button" class="user-comment-button" data-toggle="modal" data-target=".modal_new_comment">Créer un nouveau débat</button>
+          </div>
+        <% end %>
+      </div>
+
       <div id="comments">
         <% if @article.comments.blank? %>
-          Soyez le premier à contribuer
+          <%= render 'shared/comment_modal', title: "Créer un nouveau débat", article: @article, comment: @comment %>
         <% else %>
           <% @article.comments.each do |comment| %>
             <%= render 'comments/show', comment: comment %>
-            <% end %>
           <% end %>
+          <button type="button" class="navbar-wagon-item-comment button-black" data-toggle="modal" data-target=".modal_new_comment" id="teest">
+            Publier une réponse
+          </button>
+          <%= render 'shared/comment_modal', title: "Ajouter une réponse", article: @article, comment: @comment %>
+        <% end %>
+        <!-- Modal -->
       </div>
-
       <button type="button" class="navbar-wagon-item-comment button-black" data-toggle="modal" data-target=".modal_new_comment">
               Débattre
             </button>
@@ -58,13 +88,10 @@
                 </div>
               </div>
             </div>
-
-
     </div>
   </div>
   <div class="footer"></div>
 </div>
-
 <!-- participants = Hash.new
 participants["#{comment.user.pseudo}"] = #{comment.user.pseudo.count}
 participants.sort_by {|_key, value| value}.to_h

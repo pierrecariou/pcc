@@ -2,7 +2,6 @@
 .navbar-wagon {
   background: white;
   height: 80px;
-  padding: 0px 128px;
   position: fixed;
   top: 0;
   z-index: 9999;
@@ -100,7 +99,11 @@
   text-align: left;
   color: #000000;
   display: inline-block;
+  margin-left: 10px;
 }
 
-
+.description-new-article input {
+  height: 80px;
+  background-color: red;
+}
 
