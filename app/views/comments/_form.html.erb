@@ -1,10 +1,11 @@
+<div class="comments-form">
 <%= simple_form_for([article, comment], remote: true) do |form| %>
   <%= form.input :title, label: :Titre %>
   <%= form.input :text, label: :Contribution %>
   <%= form.input :source, label: :Source, placeholder: "Collez ici le lien de votre source" %>
-
   <div class="comment-submit">
     <%= form.button :submit, "Participez", class: "button-black" %>
   </div>
+</div>
 <% end %>
 
