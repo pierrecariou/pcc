@@ -1,5 +1,4 @@
 .user-info {
- height: 18px;
  font-size: 14px;
  font-weight: bold;
  line-height: 1.29;
@@ -13,14 +12,41 @@
 
 }
 
+.article-preview {
+  margin-top: 20px;
+}
+
 .article-comment {
+  font-style: italic;
   opacity: 0.7;
   font-size: 14px;
   line-height: 1.29;
   text-align: left;
   color: #000000;
-  margin-bottom:10px;
+  margin-bottom:1Opx;
   text-align: justify;
+}
+.article-comment {
+  display: inline;
+  position: relative;
+  background: #f1f1f1;
+  border-radius: .4em;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.article-comment:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-bottom-color: #f1f1f1;
+  border-top: 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  margin-left: 28px;
+  margin-top: -12px;
 }
 
 .article-preview {
