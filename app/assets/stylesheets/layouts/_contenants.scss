@@ -119,7 +119,7 @@
   line-height: 1.29;
   letter-spacing: normal;
   text-align: left;
-  color: #000000;
+  // color: #000000;
 }
 
 .form-control:focus {
@@ -129,5 +129,8 @@
   outline: none !important;
 }
 
+.count {
+  color: #000000;
+}
 
 
