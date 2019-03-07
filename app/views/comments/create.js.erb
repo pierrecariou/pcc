@@ -18,5 +18,7 @@ function closeModal() {
   addComment('<%= j render "comments/show", comment: @comment %>');
   refreshForm('<%= j render "comments/form", article: @article, comment: Comment.new %>');
   closeModal();
+  window.location.reload();
+
 <% end %>
 
