@@ -168,12 +168,11 @@ article8.save
 # article9.save
 
 article10 = Article.new(
-   URL: 'https://www.monde-diplomatique.fr/2013/11/MALET/49762',
+   URL: 'https://www.latribune.fr/technos-medias/internet/eric-sadin-la-guerre-economique-se-joue-sur-la-conquete-du-comportemental-801520.html
+',
    category: category_numerique,
    sub_categories: [ sub_category_intelligence_artificielle ],
-   description: "
-https://www.latribune.fr/technos-medias/internet/eric-sadin-la-guerre-economique-se-joue-sur-la-conquete-du-comportemental-801520.html
-",
+   description: "D'après Eric Sadin, l'industrie du numérique ambitionne de nous influencer en permanence. ",
    upvotes: 29,
    user: user2
  )
@@ -191,16 +190,16 @@ article11 = Article.new(
 scrap(article11.URL, article11)
 article11.save
 
-article12 = Article.new(
-   URL: 'https://iatranshumanisme.com/2017/12/20/articles-plus-lus-2017/',
-   category: category_numerique,
-   sub_categories: [ sub_category_transhumanisme ],
-   description: "Une mine d’or pour tous ceux qui s'intéressent au transhumanisme",
-   upvotes: 52,
-   user: user3
- )
-scrap(article12.URL, article12)
-article12.save
+# article12 = Article.new(
+#    URL: 'https://iatranshumanisme.com/2017/12/20/articles-plus-lus-2017/',
+#    category: category_numerique,
+#    sub_categories: [ sub_category_transhumanisme ],
+#    description: "Une mine d’or pour tous ceux qui s'intéressent au transhumanisme",
+#    upvotes: 52,
+#    user: user3
+#  )
+# scrap(article12.URL, article12)
+# article12.save
 
 article13 = Article.new(
    URL: 'https://usbeketrica.com/article/le-transhumanisme-vide-de-sa-substance-etat-nation?fbclid=IwAR1xJld7lgfa_nNz8nnLJoCAePrFFKDvvDwGtYK7cRql91_Q1KGpene44Ag',
@@ -228,7 +227,7 @@ article15 = Article.new(
    URL: 'https://medium.com/@theodorebrossollet/pcc-talk-1-comment-la-blockchain-pourrait-elle-changer-le-monde-4eb2aa347aeb',
    category: category_numerique,
    sub_categories: [ sub_category_technologie ],
-   description: "la Bckchain et sur les implications de cette technologie",
+   description: "La blockchain et sur les implications de cette technologie",
    upvotes: 92,
    user: user5
  )
@@ -473,7 +472,7 @@ article38 = Article.new(
    URL: 'https://www.courrierinternational.com/article/croissance-selon-le-fmi-il-faut-taxer-plus-fortement-les-riches?utm_campaign=Echobox&utm_medium=Social&utm_source=Facebook#link_time=1507816225',
    category: category_economie,
    sub_categories: [ sub_category_inegalites ],
-   description: "USur l’impacte des inégalités économique sur la croissance selon le FMI",
+   description: "Sur l’impacte des inégalités économique sur la croissance selon le FMI",
    upvotes: 79,
    user: user6
  )
