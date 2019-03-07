@@ -28,7 +28,7 @@ SubCategory.destroy_all
 puts 'Creating users...'
 
 user1 = User.create!(email: 'test@test.test', password: 'azerty', first_name: 'Thomas', last_name: 'Piketty', pseudo: 'T-Pikkety', age: 44, activity: 'Economiste', photo_url: 'Piketty.jpg')
-user2 = User.create!(email: 'test2@test.test', password: 'azerty', first_name: 'Noam', last_name: 'Chomsky', pseudo: 'N-Chomasky', age: 74, activity: 'Chercheur', photo_url: 'chomsky.jpg')
+user2 = User.create!(email: 'test2@test.test', password: 'azerty', first_name: 'Noam', last_name: 'Chomsky', pseudo: 'N-Chomasky', age: 74, activity: 'Chercheur', photo_url: 'chomsky.png')
 user3 = User.create!(email: 'test3@test.test', password: 'azerty', first_name: 'Frederic', last_name: 'Rouvillois', pseudo: 'F-Rouvillois', age: 54, activity: 'Professeur', photo_url: 'Rouvillois.jpg')
 user4 = User.create!(email: 'test4@test.test', password: 'azerty', first_name: 'Hamza', last_name: 'Amor', pseudo: 'H-Amor', age: 25, activity: 'Etudiant', photo_url: 'hamza.png')
 user5 = User.create!(email: 'test5@test.test', password: 'azerty', first_name: 'Julia', last_name: 'Brouard', pseudo: 'J-Brouard', age: 24, activity: 'Etudiante', photo_url: 'julia.jpg')
