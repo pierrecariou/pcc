@@ -123,7 +123,12 @@
   color: #000000;
 }
 
-
+.form-control:focus {
+  border-color: rgba(0, 0, 0, 0.5);
+  // border-color: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
 
 
 
