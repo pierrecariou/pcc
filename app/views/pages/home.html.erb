@@ -11,20 +11,28 @@
     <div class=profil-home >
       <%= image_tag "Camus.jpg", height: 170%>
     </div>
-    <div class="citation speech-bubble">
-      <h3>
-        "Le goût de la vérité n'empêche pas de prendre parti." - Albert Camus
-      </h3>
-    </div>
+    <!-- <div class="citation speech-bubble"> -->
+      <!-- <h3> -->
+        <blockquote class="right speech-bubble camus" id="bubble-camus">
+        Le goût de la vérité n'empêche pas de prendre parti.
+        </blockquote>
+      <!-- </h3> -->
+    <!-- </div> -->
   </div>
+        <p class="pull-left text-grey">Albert Camus</p>
 
   <div class="parole-auteur">
-    <div class="citation" id="hanna-quote">
-      <h3>
-        "La liberté d'opinion est une farce si l'information sur les faits n'est pas garantie." - Hanna Arendt
-      </h3>
-    </div>
-    <div class="profil-home">
+    <!-- <div class="citation" id="hanna-quote"> -->
+      <!-- <h3> -->
+      <div>
+        <blockquote class="left" id="hanna-quote">
+          La liberté d'opinion est une farce si l'information sur les faits n'est pas garantie.
+        </blockquote>
+        <!-- </h3> -->
+        <p class="pull-right text-grey">Hanna Arendt</p>
+      </div>
+    <!-- </div> -->
+    <div class="profil-home" id="Hanna-A">
       <%= image_tag "Arendt.jpg", height: 170%>
     </div>
   </div>
@@ -33,12 +41,13 @@
     <div class="profil-home">
       <%= image_tag "Orwell.jpg", height: 170%>
     </div>
-    <div class="citation speech-bubble">
-      <h3>
-        "A une époque de supercherie universelle, dire la vérité est un acte révolutionnaire." - G.Orwell
-      </h3>
-    </div>
+    <blockquote class="right citation speech-bubble" id="bubble-camus">
+      <!-- <h3> -->
+        A une époque de supercherie universelle, dire la vérité est un acte révolutionnaire.
+      <!-- </h3> -->
+    </blockquote>
   </div>
+  <p class="pull-left text-grey">George Orwell</p>
 
   <div class="home-second-part">
     <h1>Penser c'est Chouette</h1>

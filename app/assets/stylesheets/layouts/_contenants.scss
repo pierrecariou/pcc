@@ -27,6 +27,12 @@
 
 .main-content{
   flex: 0 0 70%;
+  position: relative;
+  top: -50px
+}
+
+.sub_categories {
+  margin-top: -50px;
 }
 
 .container {

@@ -3,7 +3,12 @@
 
 // Define fonts for body and headers
 $body-font: "SourceSansPro", sans-serif;
-$headers-font: "SourceSansPro", sans-serif;
+$headers-font: "Georgia", sans-serif;
+
+h1,h2,h3,h4,h5,h5 {
+  font-weight: normal;
+  font-style: italic;
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
