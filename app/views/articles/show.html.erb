@@ -61,7 +61,9 @@
           </div>
         <% end %>
       </div>
-
+      <%if @article.comments.count == 0 %>
+      <div class="linebetween3"></div>
+      <%end %>
       <div id="comments">
         <% if @article.comments.blank? %>
           <%= render 'shared/comment_modal', title: "Créer un nouveau débat", article: @article, comment: @comment %>
