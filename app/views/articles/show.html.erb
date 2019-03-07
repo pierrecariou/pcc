@@ -8,7 +8,7 @@
         <h2>Participants</h2>
         <div class="linebetween"></div>
         <% if @article.comments.blank? %>
-        <%= "Soyez le premier à participer" %>
+        <p> <%= "Soyez le premier à participer" %> </p>
         <% else  %>
         <% users = [] %>
         <% @article.comments.each do |comment| %>
