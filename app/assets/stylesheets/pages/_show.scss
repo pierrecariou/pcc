@@ -66,7 +66,7 @@
 }
 
 #comment_text {
-  height: 90px;
+  height: 200px;
 }
 
 #comment_title {
@@ -75,6 +75,23 @@
 
 #comment_source {
   height: 29px;
+  padding: 0;
+}
+
+::placeholder {
+  padding-left: 10px;
+}
+
+.comment-submit {
+  margin-left: 300px;
+}
+
+.comment-submit .btn {
+  margin-top: 35px;
+}
+
+.modal-footer .btn{
+  display: none;
 }
 
 button.navbar-wagon-item-comment {
@@ -83,10 +100,10 @@ button.navbar-wagon-item-comment {
 }
 
 .comment-section {
-  border-top: 1px solid rgba(238, 238, 238, 1);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(238, 238, 238, 1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   padding: 15px;
 }
 
