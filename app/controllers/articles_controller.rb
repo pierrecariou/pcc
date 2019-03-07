@@ -78,7 +78,7 @@ class ArticlesController < ApplicationController
   end
 
   def scrap(url)
-    html_file = open(url).read
+    html_file = open(url.strip).read
     html_doc = Nokogiri::HTML(html_file)
     @article.title = html_doc.css('html > head > title').text
     @article.site_description = html_doc.xpath('/html/head/meta[@name="description"]/@content').to_s
@@ -86,6 +86,6 @@ class ArticlesController < ApplicationController
     first_body_image = html_doc.search('img').first.attribute('src').value if !html_doc.search('img').first.attribute('src').nil?
     image = head_image.empty? ? first_body_image : head_image
     @article.image = image
-    @article.source = URI.parse(url).host
+    @article.source = URI.parse(url.strip).host
   end
 end
