@@ -6,7 +6,7 @@
         <% if @user == current_user %>
           <h2>Mes infos</h2>
         <% else %>
-          <h2>Infos de <%= @user.pseudo %> </h2>
+          <h2> Infos </h2>
         <% end %>
         <div class="linebetween"></div>
         <div class="profile-avatar">
@@ -67,6 +67,7 @@
 
 </div>
 
+<%= render "shared/new_modal", article: @article %>
 
 
 

@@ -82,6 +82,12 @@ button.navbar-wagon-item-comment {
   left: 550px;
 }
 
+.modal-button-new-comment {
+  border-color: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 .comment-section {
   border-top: 1px solid rgba(238, 238, 238, 1);
   display: flex;
@@ -95,6 +101,10 @@ button.navbar-wagon-item-comment {
   margin-bottom: 5px;
   display: relative;
   left: 10px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .bar-button {

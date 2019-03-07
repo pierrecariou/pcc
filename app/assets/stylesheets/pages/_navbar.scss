@@ -11,3 +11,10 @@
 .modal-content {
   padding: 20px 70px;
 }
+
+.modal-button-new-article:focus {
+  border-color: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+
+}

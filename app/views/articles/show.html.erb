@@ -21,7 +21,11 @@
             </div>
             <div class="infos_user">
               <ul>
-                <li class="user_name"><%=user.first_name %> <%=user.last_name  %> </li>
+                <li class="user_name">
+                  <%= link_to user_path(user) do %>
+                    <%=user.first_name %> <%=user.last_name  %>
+                  <% end %>
+                </li>
                 <li class="info"><%=user.activity%></li>
               </ul>
             </div>
@@ -39,14 +43,16 @@
       <div class="comment-section">
         <div class="current_user_info">
           <div class="current_user_img">
-            <%=image_tag current_user.photo_url, class: "avatar_sidebar" %>
+            <%= link_to user_path(current_user) do %>
+              <%=image_tag current_user.photo_url, class: "avatar_sidebar" %>
+            <% end %>
           </div>
           <div class="user-names">
-
-            <%= current_user.first_name %>
-            <%= current_user.last_name %>,
-            <%= current_user.activity %>
-
+            <%= link_to user_path(current_user) do %>
+              <%= current_user.first_name %>
+              <%= current_user.last_name %>,
+              <%= current_user.activity %>
+            <% end %>
           </div>
         </div>
         <% if @article.comments.blank? %>
@@ -63,7 +69,7 @@
           <% @article.comments.each do |comment| %>
             <%= render 'comments/show', comment: comment %>
           <% end %>
-          <button type="button" class="navbar-wagon-item-comment button-black" data-toggle="modal" data-target=".modal_new_comment" id="teest">
+          <button type="button" class="navbar-wagon-item-comment button-black modal-button-new-comment" data-toggle="modal" data-target=".modal_new_comment" id="teest">
             Publier une réponse
           </button>
           <%= render 'shared/comment_modal', title: "Ajouter une réponse", article: @article, comment: @comment %>
@@ -78,3 +84,10 @@
 participants["#{comment.user.pseudo}"] = #{comment.user.pseudo.count}
 participants.sort_by {|_key, value| value}.to_h
 participants.uniq! {|e| e[:"#{comment.user.pseudo}"] }-->
+
+
+<%= render "shared/new_modal", article: @article %>
+
+
+
+

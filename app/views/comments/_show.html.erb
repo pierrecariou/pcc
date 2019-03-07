@@ -2,11 +2,15 @@
 <div class="user-comment-card">
   <div class="user-display">
     <div class="avatar">
-      <%=image_tag(comment.user.photo_url) %>
+      <%= link_to user_path(comment.user) do %>
+        <%=image_tag(comment.user.photo_url) %>
+      <% end %>
     </div>
     <div class="user-input">
       <div class="user-info">
-        <%= comment.user.first_name%> <%= comment.user.last_name%>, <%= comment.user.activity %>
+        <%= link_to user_path(comment.user) do %>
+          <%= comment.user.first_name%> <%= comment.user.last_name%>, <%= comment.user.activity %>
+        <% end %>
       </div>
     </div>
   </div>
