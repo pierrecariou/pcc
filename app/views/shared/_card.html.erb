@@ -12,7 +12,8 @@
     <div class="user-input">
       <div class="user-info">
         <%= link_to user_path(article.user) do %>
-          <%= article.user.first_name%> <%= article.user.last_name%>, <%= article.user.activity %>
+          <p><%= article.user.first_name%> <%= article.user.last_name%></p>
+          <p class="activity"><%= article.user.activity %></p>
         <% end %>
       </div>
     </div>

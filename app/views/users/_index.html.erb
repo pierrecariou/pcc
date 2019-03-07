@@ -17,8 +17,8 @@
           <%=user.first_name %> <%=user.last_name  %>
         <% end %>
       </li>
-      <li class="info"><%=user.activity%></li>
-      <li class="info"><%=user.articles.count%>
+      <li class="info act"><%=user.activity%></li>
+      <li class="info count"><%=user.articles.count%>
         <% if user.articles.count == 1 %>
           partage
         <%else %>
