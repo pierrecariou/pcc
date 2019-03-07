@@ -169,8 +169,7 @@ article8.save
 # article9.save
 
 article10 = Article.new(
-   URL: 'https://www.latribune.fr/technos-medias/internet/eric-sadin-la-guerre-economique-se-joue-sur-la-conquete-du-comportemental-801520.html
-',
+   URL: 'https://www.latribune.fr/technos-medias/internet/eric-sadin-la-guerre-economique-se-joue-sur-la-conquete-du-comportemental-801520.html',
    category: category_numerique,
    sub_categories: [ sub_category_intelligence_artificielle ],
    description: "D'après Eric Sadin, l'industrie du numérique ambitionne de nous influencer en permanence. ",
