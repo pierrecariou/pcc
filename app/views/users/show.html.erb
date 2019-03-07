@@ -50,9 +50,13 @@
 
     <div class="main-content">
         <% if @user == current_user  %>
+        <div class="u-partages">
           <h2>Mes précédents partages</h2>
+          </div>
         <% else %>
+        <div class="u-partages">
           <h2> Ses précédents partages</h2>
+          </div>
         <% end %>
 
         <div class="card listed-article">
