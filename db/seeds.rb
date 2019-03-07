@@ -590,16 +590,16 @@ article48 = Article.new(
 scrap(article48.URL, article48)
 article48.save
 
-article49 = Article.new(
-   URL: 'https://bibliobs.nouvelobs.com/idees/20160331.OBS7480/la-strategie-de-la-mouche-pourquoi-le-terrorisme-est-il-efficace.html',
-   category: category_politique,
-   sub_categories: [ sub_category_geopolitique ],
-   description: "Sur la stratégie de la mouche utilisée par les terroristes.",
-   upvotes: 89,
-   user: user9
- )
-scrap(article49.URL, article49)
-article49.save
+# article49 = Article.new(
+#    URL: 'https://bibliobs.nouvelobs.com/idees/20160331.OBS7480/la-strategie-de-la-mouche-pourquoi-le-terrorisme-est-il-efficace.html',
+#    category: category_politique,
+#    sub_categories: [ sub_category_geopolitique ],
+#    description: "Sur la stratégie de la mouche utilisée par les terroristes.",
+#    upvotes: 89,
+#    user: user9
+#  )
+# scrap(article49.URL, article49)
+# article49.save
 
 article50 = Article.new(
    URL: 'http://www.ifrap.org/emploi-et-politiques-sociales/protection-sociale-faire-baisser-les-42-milliards-de-couts-de-gestion?utm_content=buffer7dbd2&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer',
