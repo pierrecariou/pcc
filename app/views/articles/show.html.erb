@@ -7,6 +7,9 @@
       <div class="left-side-info">
         <h2>Participants</h2>
         <div class="linebetween"></div>
+        <% if @article.comments.blank? %>
+        <%= "Soyez le premier à participer" %>
+        <% else  %>
         <% users = [] %>
         <% @article.comments.each do |comment| %>
           <% users << comment.user %>
@@ -23,6 +26,7 @@
               </ul>
             </div>
           </div>
+        <% end %>
         <% end %>
       </div>
     </div>
@@ -47,7 +51,7 @@
         </div>
         <% if @article.comments.blank? %>
           <div class="bar-button">
-            <button type="button" class="user-comment-button" data-toggle="modal" data-target=".modal_new_comment">Créer un nouveau débat</button>
+            <button type="button" class="user-comment-button" data-toggle="modal" data-target=".modal_new_comment">Lancer un nouveau débat</button>
           </div>
         <% end %>
       </div>
@@ -66,28 +70,6 @@
         <% end %>
         <!-- Modal -->
       </div>
-      <button type="button" class="navbar-wagon-item-comment button-black" data-toggle="modal" data-target=".modal_new_comment">
-              Débattre
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade modal_new_comment" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-              <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content comment_form">
-
-                    <div class="new-comment">
-
-                      <h2>Ajoutez un commentaire</h2>
-
-                      <%= render 'comments/form', article: @article, comment: @comment %>
-
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    </div>
-                </div>
-              </div>
-            </div>
     </div>
   </div>
   <div class="footer"></div>
