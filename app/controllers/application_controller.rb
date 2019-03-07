@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   def set_categories
     @categories = Category.all
   end
+
+  def default_url_options
+  { host: ENV["HOST"] || "pensercestchouette" }
+  end
 end
