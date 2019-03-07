@@ -104,7 +104,7 @@ article3 = Article.new(
    URL: 'https://www.forbes.fr/entrepreneurs/xavier-niel-faire-de-paris-la-capitale-mondiale-des-start-up/?fbclid=IwAR0MOmZhdtIxfIH36KYelPlMJtH694W2KRhmeMy5RxQXNIWwow5jiril1sE',
    category: category_numerique,
    sub_categories: [ sub_category_startup ],
-   description: 'Plaidoyer optimiste de Xavier Niel quand aux possibilités offert par le numérique à la France.',
+   description: 'Plaidoyer optimiste de Xavier Niel quant aux possibilités offertent par le numérique à la France.',
    upvotes: 39,
    user: user1
  )
@@ -126,7 +126,7 @@ article6 = Article.new(
    URL: 'https://www.monde-diplomatique.fr/2013/11/MALET/49762',
    category: category_numerique,
    sub_categories: [ sub_category_gafa ],
-   description: "Retour sur les conditions de travaille dans les entrepôts d'Amazon.",
+   description: "Retour sur les conditions de travail dans les entrepôts d'Amazon.",
    upvotes: 12,
    user: user8
  )
@@ -137,7 +137,7 @@ article7 = Article.new(
    URL: 'https://www.latribune.fr/opinions/tribunes/et-si-google-etait-un-service-public-754419.html#link_time=1508332981',
    category: category_numerique,
    sub_categories: [ sub_category_gafa ],
-   description: "Google nous est si utile, peut on concevoir qu’il devienne un service public ?",
+   description: "Google nous est si utile, peut-on concevoir qu’il devienne un service public ?",
    upvotes: 18,
    user: user1
  )
@@ -148,7 +148,7 @@ article8 = Article.new(
    URL: 'https://www.monde-diplomatique.fr/2013/11/MALET/49762',
    category: category_numerique,
    sub_categories: [ sub_category_gafa ],
-   description: "Retour sur les conditions de travaille dans les entrepôts d'Amazon.",
+   description: "Retour sur les conditions de travail dans les entrepôts d'Amazon.",
    upvotes: 12,
    user: user1
  )
@@ -183,7 +183,7 @@ article11 = Article.new(
    URL: 'https://www.lesechos.fr/idees-debats/sciences-prospective/030858673522-laurent-alexandre-leurope-a-completement-perdu-la-bataille-de-lia-2131052.php',
    category: category_numerique,
    sub_categories: [ sub_category_intelligence_artificielle ],
-   description: "Retour sur les conditions de travaille dans les entrepôts d'Amazon.",
+   description: "Retour sur les conditions de travail dans les entrepôts d'Amazon.",
    upvotes: 12,
    user: user3
  )
@@ -216,7 +216,7 @@ article14 = Article.new(
    URL: 'https://usbeketrica.com/article/le-transhumanisme-est-un-eugenisme-relooke',
    category: category_numerique,
    sub_categories: [ sub_category_transhumanisme ],
-   description: "Le transhumanisme un eugénisme relooké",
+   description: "Le transhumanisme, un eugénisme relooké",
    upvotes: 12,
    user: user4
  )
@@ -572,7 +572,7 @@ article47 = Article.new(
    URL: 'https://www.vox.com/policy-and-politics/2018/9/13/17823488/hungary-democracy-authoritarianism-trump?fbclid=IwAR0QRi2DI_Um4zOKgwrkciCyMSuCk01XJYtKbZy5rDWU-2StCsEHu8z2ebo',
    category: category_politique,
    sub_categories: [ sub_category_union_europeenne ],
-   description: "Excellent article sur le soft- fascisme qui voit le jour en Hongrie ",
+   description: "Excellent article sur le soft-fascisme qui voit le jour en Hongrie ",
    upvotes: 52,
    user: user10
  )
@@ -594,7 +594,7 @@ article49 = Article.new(
    URL: 'https://bibliobs.nouvelobs.com/idees/20160331.OBS7480/la-strategie-de-la-mouche-pourquoi-le-terrorisme-est-il-efficace.html',
    category: category_politique,
    sub_categories: [ sub_category_geopolitique ],
-   description: "Sur la stratégie de la mouche utilisé par les terroristes.",
+   description: "Sur la stratégie de la mouche utilisée par les terroristes.",
    upvotes: 89,
    user: user9
  )
