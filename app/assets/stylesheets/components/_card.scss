@@ -20,14 +20,13 @@
   font-style: italic;
   opacity: 0.7;
   font-size: 14px;
-  line-height: 1.29;
   text-align: left;
   color: #000000;
   margin-bottom:1Opx;
   text-align: justify;
 }
 .article-comment {
-  display: inline;
+  width: fit-content;
   position: relative;
   background: #f1f1f1;
   border-radius: .4em;
