@@ -47,13 +47,13 @@
     background-color: rgba(40, 85, 27, 0.5);
   }
   &.Economie {
-    background-color: #070D59;
+    background-color: rgba(9, 20, 89, 0.5);
   }
   &.Politique {
-    background-color: #5E0606;
+    background-color: rgba(95, 20, 15, 0.5);
   }
   &.Numérique {
-    background-color: #E0BB20;
+    background-color: rgba(224, 187, 44, 0.7);
   }
 }
 
@@ -66,10 +66,18 @@
     color: white;
     padding-right: 10px;
   }
-  .Ecologie {
+  &.Ecologie {
     background-color: rgba(40, 85, 27, 1);
   }
-
+  &.Politique {
+    background-color: rgba(95, 20, 15, 1)
+  }
+  &.Economie {
+    background-color: rgba(9, 20, 89, 1);
+  }
+  &.Numérique {
+    background-color: rgba(224, 187, 44, 1);
+  }
 }
 
 .category-box .subcategory-choice.active {
