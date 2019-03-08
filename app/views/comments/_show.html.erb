@@ -18,12 +18,12 @@
     <p class="title-comment"> <%= comment.title %></p>
     <p class="text-comment"> <%= comment.text %></p>
     <p class="source">
-    <%if comment.source.present? %>
-      Source :
-    <%end %>
-     <a href="<%= comment.source %>"><% comment_source = URI.parse( "comment.source" ) %>
-    <% comment_source = URI.parse(comment.source).host %>
-      <%= comment_source %></a>
+      <%if comment.source.present? %>
+          Source :
+        <a href="<%= comment.source %>">
+          <%= URI.parse(comment.source.strip).host %>
+        </a>
+      <%end %>
     </p>
   </div>
 </div>
