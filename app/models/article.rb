@@ -10,11 +10,11 @@ class Article < ApplicationRecord
   #   }
 
   belongs_to :user
-  acts_as_votable
   belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :article_sub_categories, dependent: :destroy
   has_many :sub_categories, through: :article_sub_categories
+  has_many :by_user_upvotes
 
   # after_save :cache_vote_count
 

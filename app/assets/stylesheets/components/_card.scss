@@ -179,9 +179,17 @@ i.upvoted {
   padding-top: 5px;
 }
 
-.activity {
-  opacity: 0.7;
-  position: relative;
-  bottom: 9px;
-  font-weight:normal;
+.user-name {
+  margin-bottom: 5px;
+}
+
+.date {
+  opacity: 0.5;
+  font-size: 14px;
+  color: #000000;
+  font-style: italic;
+}
+
+.up-arrow a {
+  color: green;
 }
