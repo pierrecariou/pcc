@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_102143) do
+ActiveRecord::Schema.define(version: 2019_03_12_152840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,17 @@ ActiveRecord::Schema.define(version: 2019_03_05_102143) do
     t.string "title"
     t.string "source"
     t.text "site_description"
+    t.string "date"
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "by_user_upvotes", force: :cascade do |t|
+    t.string "user_first_name"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_by_user_upvotes_on_article_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -115,6 +124,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_102143) do
   add_foreign_key "article_sub_categories", "sub_categories"
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users"
+  add_foreign_key "by_user_upvotes", "articles"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "sub_categories", "categories"

@@ -12,10 +12,10 @@
     <div class="user-input">
       <div class="user-info">
         <%= link_to user_path(article.user) do %>
-          <p><%= article.user.first_name%> <%= article.user.last_name%></p>
-          <p class="activity"><%= article.user.activity %></p>
+          <p class="user-name"><%= article.user.first_name%> <%= article.user.last_name%>, <%= article.user.activity %></p>
         <% end %>
       </div>
+        <p class="date">publié le <%=article.date %></p>
     </div>
   </div>
       <div class="article-comment">
@@ -48,7 +48,11 @@
       <% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
       <div><%= link_to 'DEBATTRE', article_path(article) %></div>
       <% end %>
+      <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
+      <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
+      <% else %>
         <div data-article-arrow="<%= article.id %>"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
+      <%end %>
       <div  data-article="<%= article.id %>"><%= article.upvotes %></div>
     </div>
   </div>

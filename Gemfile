@@ -35,7 +35,6 @@ gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
 gem 'rubysl-open-uri'
 
 gem 'pg_search'
-gem 'acts_as_votable', '~> 0.12.0'
 
 
 group :development do
