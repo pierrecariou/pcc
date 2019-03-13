@@ -1,5 +1,5 @@
-<div class="linebetween"></div>
 <div class="user-comment-card">
+<div class="linebetween"></div>
   <div class="user-display">
     <div class="avatar">
       <%= link_to user_path(comment.user) do %>
@@ -10,8 +10,10 @@
       <div class="user-info">
         <%= link_to user_path(comment.user) do %>
           <%= comment.user.first_name%> <%= comment.user.last_name%>, <%= comment.user.activity %>
+
         <% end %>
       </div>
+          <p class="comment-date">Partagé le <%=comment.date %></p>
     </div>
   </div>
   <div class="user-comment-data">

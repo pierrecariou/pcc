@@ -57,15 +57,20 @@
             <% end %>
           </div>
         </div>
-        <% if @article.comments.blank? %>
+
           <div class="bar-button">
             <button type="button" class="user-comment-button" data-toggle="modal" data-target=".modal_new_comment">Lancer un nouveau débat</button>
           </div>
-        <% end %>
+
       </div>
-      <%if @article.comments.count == 0 %>
+
       <div class="linebetween3"></div>
-      <%end %>
+
+      <div class="all-debats">
+        <%@article.comments.first(6).each do |comment| %>
+          <p class="title-comment"> <%= comment.title %></p>
+        <%end %>
+      </div>
       <div id="comments">
         <% if @article.comments.blank? %>
           <%= render 'shared/comment_modal', title: "Créer un nouveau débat", article: @article, comment: @comment %>

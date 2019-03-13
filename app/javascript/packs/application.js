@@ -9,6 +9,10 @@ import  { selectSubcategory } from "./select_category";
 
 selectSubcategory();
 
+import  { hideOtherDebates } from "./debat";
+
+hideOtherDebates();
+
 
 // import { openTheme } from "./tabs";
 

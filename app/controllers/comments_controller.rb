@@ -14,6 +14,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.article = @article
     @comment.user = current_user
+    months = ["nil", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre" "décembre"]
+    @comment.date = Time.now.to_s.split()[0].split("-")[2] + " " + months[Time.now.to_s.split()[0].split("-")[1].to_i] + " " + Time.now.to_s.split()[0].split("-")[0]
     if @comment.save
       respond_to do |format|
         format.html { redirect_to article_path(@article) }

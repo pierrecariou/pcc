@@ -8,14 +8,14 @@
   <%users.uniq.first(5).each do |user| %>
     <div class="user">
       <div class="photo">
-        <%=image_tag user.photo_url, class: "avatar_sidebar" %>
+        <%= link_to user_path(user) do %>
+          <%=image_tag user.photo_url, class: "avatar_sidebar" %>
       </div>
       <div class="infos_user">
         <ul>
           <li class="user_name">
-            <%= link_to user_path(user) do %>
               <%=user.first_name %> <%=user.last_name  %>
-            <% end %>
+        <% end %>
           </li>
           <li class="info act"><%=user.activity%></li>
           <li class="info count"><%=user.articles.count%>
