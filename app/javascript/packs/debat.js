@@ -4,12 +4,14 @@ const debats = document.querySelectorAll('.user-comment-card');
 
 function hideOtherDebates() {
   const debatTitle = document.querySelector('.title-comment');
-  debatTitle.classList.add('active');
+  if (debatTitle) {
+    debatTitle.classList.add('active');
+  }
   debats.forEach((debat) => {
-     if (debat.querySelector('.title-comment').innerText.trim() != debatTitle.innerText.trim()) {
-          debat.style.display = "none";
-        }
-});
+    if (debat.querySelector('.title-comment').innerText.trim() != debatTitle.innerText.trim()) {
+      debat.style.display = "none";
+    }
+  });
 
 
   debatTitles.forEach((title) => {
@@ -25,7 +27,6 @@ function hideOtherDebates() {
           debat.style.display = "block";
         }
       });
-
     });
   });
 };
