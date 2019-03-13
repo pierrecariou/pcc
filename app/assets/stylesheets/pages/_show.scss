@@ -23,6 +23,15 @@
   opacity: 0.7;
   margin:5px;
 }
+
+.comment-date {
+  opacity: 0.5;
+  font-size: 14px;
+  color: #000000;
+  font-style: italic;
+  margin-top: 5px;
+}
+
 .title-comment {
   padding-bottom: 10px;
   width: 312px;
@@ -32,6 +41,8 @@
   text-align: left;
   opacity: 0.7;
   color: #000000;
+  margin-top: 16px;
+  cursor: pointer;
 }
 
 .text-comment {
@@ -163,4 +174,10 @@ button.navbar-wagon-item-comment {
   position: sticky;
   top: 80px;
 
+}
+
+.all-debats .active {
+  color: #b21818;
+  font-weight: bold;
+  opacity: 1;
 }
