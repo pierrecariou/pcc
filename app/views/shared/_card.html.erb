@@ -24,7 +24,7 @@
   <div class="article-preview">
     <div class="article-img"><a href="<%= article.URL %>" target="_blank"><img src="<%= article.image %>" height="150"></a></div>
     <div class="article-info">
-      <h2 class="article-title"><a href="<%= article.URL %>"target="_blank"><%= article.title %></a></h2>
+      <h2 class="article-title <%= article.category.name %>"><a href="<%= article.URL %>"target="_blank"><%= article.title %></a></h2>
       <p class="article-source"><a href="<%= article.URL %>"target="_blank"><%= article.source %></a></p>
       <p class="article-site_description"><a href="<%= article.URL %>"target="_blank"><%= article.site_description %></a></p>
     </div>
@@ -46,7 +46,7 @@
     </div>
     <div class="footer-action">
       <% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
-      <div><%= link_to 'DEBATTRE', article_path(article) %></div>
+      <div class="debat-button"><%= link_to 'DEBATTRE', article_path(article) %></div>
       <% end %>
       <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
       <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>

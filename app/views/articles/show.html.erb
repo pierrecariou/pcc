@@ -78,9 +78,30 @@
           <% @article.comments.each do |comment| %>
             <%= render 'comments/show', comment: comment %>
           <% end %>
-          <button type="button" class="navbar-wagon-item-comment button-black modal-button-new-comment" data-toggle="modal" data-target=".modal_new_comment" id="teest">
-            Publier une réponse
-          </button>
+          <div class="answers">
+             <div class="comment-section">
+        <div class="current_user_info">
+          <div class="current_user_img">
+            <%= link_to user_path(current_user) do %>
+              <%=image_tag current_user.photo_url, class: "avatar_sidebar" %>
+            <% end %>
+          </div>
+          <div class="user-names">
+            <%= link_to user_path(current_user) do %>
+              <%= current_user.first_name %>
+              <%= current_user.last_name %>,
+              <%= current_user.activity %>
+            <% end %>
+          </div>
+        </div>
+
+          <div class="bar-button">
+            <button type="button" class="user-comment-button" data-toggle="modal" data-target=".modal_new_comment">Répondre</button>
+          </div>
+
+      </div>
+      <div class="linebetween3"></div>
+      </div>
           <%= render 'shared/comment_modal', title: "Ajouter une réponse", article: @article, comment: @comment %>
         <% end %>
         <!-- Modal -->

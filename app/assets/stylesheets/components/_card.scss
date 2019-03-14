@@ -69,6 +69,34 @@
   justify-content: center;
 }
 
+.article-preview:hover .Ecologie a {
+  transition-duration: 0.4s;
+  color: #00541A;
+}
+
+.article-preview:hover .Politique a {
+  transition-duration: 0.4s;
+  color: #5E0606;
+}
+
+.article-preview:hover .Economie a {
+  transition-duration: 0.4s;
+  color: #070D59;
+}
+
+.article-preview:hover .Numérique a {
+  transition-duration: 0.4s;
+  color: #E0BB20;
+}
+
+.debat-button {
+  opacity: 0.9;
+  &:hover {
+    opacity: 1;
+  }
+
+}
+
 .article-title, .article-source, .article-site_description {
  color: #000000;
 }
@@ -181,6 +209,9 @@ i.upvoted {
 
 .user-name {
   margin-bottom: 5px;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .date {
