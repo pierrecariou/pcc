@@ -2,28 +2,28 @@
 <div class="linebetween"></div>
   <div class="user-display">
     <div class="avatar">
-      <%= link_to user_path(comment.user) do %>
-        <%=image_tag(comment.user.photo_url) %>
+      <%= link_to user_path(comment_selected.user) do %>
+        <%=image_tag(comment_selected.user.photo_url) %>
       <% end %>
     </div>
     <div class="user-input">
       <div class="user-info">
-        <%= link_to user_path(comment.user) do %>
-          <%= comment.user.first_name%> <%= comment.user.last_name%>, <%= comment.user.activity %>
+        <%= link_to user_path(comment_selected.user) do %>
+          <%= comment_selected.user.first_name%> <%= comment_selected.user.last_name%>, <%= comment_selected.user.activity %>
 
         <% end %>
       </div>
-          <p class="comment-date">Partagé le <%=comment.date %></p>
+          <p class="comment-date">Partagé le <%=comment_selected.date %></p>
     </div>
   </div>
   <div class="user-comment-data">
-    <p class="title-comment"> <%= comment.title %></p>
-    <p class="text-comment"> <%= comment.text %></p>
+    <p class="title-comment"> <%= comment_selected.title %></p>
+    <p class="text-comment"> <%= comment_selected.text %></p>
     <p class="source">
-      <%if comment.source.present? %>
+      <%if comment_selected.source.present? %>
           Source :
-        <a href="<%= comment.source %>">
-          <%= URI.parse(comment.source.strip).host %>
+        <a href="<%= comment_selected.source %>">
+          <%= URI.parse(comment_selected.source.strip).host %>
         </a>
       <%end %>
     </p>

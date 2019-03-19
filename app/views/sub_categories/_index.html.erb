@@ -1,5 +1,8 @@
 <div class="left-side-info left-side-info-index">
-  <h2><%= @category.name %></h2>
+  <div class="flex-cat-img">
+    <div class="category-image" style="background-image:url(<%= image_path "#{@category.name}.jpg" %>)" ></div>
+    <h2><%= @category.name %></h2>
+  </div>
   <div class="linebetween"></div>
   <ul class="liste-subcategory tablink">
     <% if sub_categories.present? %>

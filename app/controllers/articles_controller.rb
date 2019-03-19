@@ -22,9 +22,30 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
-    @comment = Comment.new
-    @categories = Category.all
+    search = params[:query]
+    if search
+      if search[:debat_title]
+        @categories = Category.all
+        @comment_selected = Comment.find_by_title(search[:debat_title])
+        @article = Article.find(params[:id])
+        @sub_comments = @comment_selected.sub_comments
+        @sub_comment = SubComment.new
+        @comment = Comment.new
+      end
+    else
+      @categories = Category.all
+      @article = Article.find(params[:id])
+      @comment_selected = @article.comments.first
+      @sub_comments = @comment_selected.sub_comments
+      @sub_comment = SubComment.new
+      @comment = Comment.new
+    end
+      if @comment_selected
+        respond_to do |format|
+          format.html
+          format.js
+        end
+      end
   end
 
   def new

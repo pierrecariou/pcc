@@ -38,11 +38,11 @@
       <div class="title-debate">
       <h2>Débat</h2>
       </div>
-      <div class="card listed-article">
+      <div class="card listed-article" >
         <%= render "shared/card", article: @article %>
       </div>
 
-      <div class="comment-section">
+      <div class="comment-section" >
         <div class="current_user_info">
           <div class="current_user_img">
             <%= link_to user_path(current_user) do %>
@@ -64,20 +64,22 @@
 
       </div>
 
+
       <div class="linebetween3"></div>
 
       <div class="all-debats">
-        <%@article.comments.first(6).each do |comment| %>
-          <p class="title-comment"> <%= comment.title %></p>
+        <%@article.comments.each do |comment| %>
+          <%if comment.title == @comment_selected.title %>
+            <p class="title-comment active"> <%=link_to comment.title, article_path(@article, query: { debat_title: comment.title }, anchor: 'comment-section-anchor') %></p>
+          <%else %>
+            <p class="title-comment"> <%=link_to comment.title, article_path(@article, query: { debat_title: comment.title }, anchor: 'comment-section-anchor') %></p>
+          <%end %>
         <%end %>
       </div>
       <div id="comments">
-        <% if @article.comments.blank? %>
-          <%= render 'shared/comment_modal', title: "Créer un nouveau débat", article: @article, comment: @comment %>
-        <% else %>
-          <% @article.comments.each do |comment| %>
-            <%= render 'comments/show', comment: comment %>
-          <% end %>
+
+            <%= render 'comments/show', comment_selected: @comment_selected %>
+
           <div class="answers">
              <div class="comment-section">
         <div class="current_user_info">
@@ -96,14 +98,21 @@
         </div>
 
           <div class="bar-button">
-            <button type="button" class="user-comment-button" data-toggle="modal" data-target=".modal_new_comment">Répondre</button>
+            <button type="button" class="user-sub-comment-button" data-toggle="modal" data-target=".modal_new_sub_comment">Répondre</button>
           </div>
+      </div>
+      <div id="sub-comments">
+
+          <%@sub_comments.each do |sub_comment| %>
+            <%= render 'sub_comments/show', sub_comment: sub_comment  %>
+          <%end %>
 
       </div>
-      <div class="linebetween3"></div>
+      <div class="linebetween4"></div>
       </div>
-          <%= render 'shared/comment_modal', title: "Ajouter une réponse", article: @article, comment: @comment %>
-        <% end %>
+          <%= render 'shared/comment_modal', title: "Nouveau débat", article: @article, comment: @comment %>
+
+          <%= render 'shared/sub_comment_modal', title: "Ajouter une réponse", article: @article, comment: @comment, sub_comment: @sub_comment %>
         <!-- Modal -->
       </div>
     </div>

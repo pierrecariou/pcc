@@ -1,0 +1,17 @@
+<div class="modal fade modal_new_sub_comment" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content sub_comment_form">
+
+        <div class="new-comment">
+
+          <h2><%= title %></h2>
+
+          <%= render 'sub_comments/form', article: article, comment: @comment_selected, sub_comment: sub_comment %>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        </div>
+    </div>
+  </div>
+</div>

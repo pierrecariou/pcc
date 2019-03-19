@@ -22,6 +22,8 @@ class Article < ApplicationRecord
   scope :from_category, ->(category_name) { includes(:category).where(category: Category.where(name: category_name)) }
   scope :from_sub_categories, ->(sub_category_names) { includes(:sub_categories).where(sub_categories: { name: sub_category_names }) }
 
+  scope :debat, ->(debat_title) { includes(:comments).where(comments: { title: debat_title }) }
+
 
   validates :URL, presence: true
   # validates :URL, uniqueness: true

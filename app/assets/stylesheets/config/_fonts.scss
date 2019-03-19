@@ -3,11 +3,10 @@
 
 // Define fonts for body and headers
 $body-font: "SourceSansPro", sans-serif;
-$headers-font: "Georgia", sans-serif;
+$headers-font: "SourceSansPro", sans-serif;
 
 h1,h3,h4,h5 {
   font-weight: normal;
-  font-style: italic;
 }
 
 // To use a font file (.woff) uncomment following lines
@@ -19,9 +18,6 @@ h1,h3,h4,h5 {
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
-.article-title {
-  font-style: italic;
-}
 
 .left-side-info {
   h2 {
