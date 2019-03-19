@@ -1,32 +1,33 @@
-<div class="user-comment-card">
-<div class="linebetween"></div>
-  <div class="user-display">
-    <div class="avatar">
-      <%= link_to user_path(comment_selected.user) do %>
-        <%=image_tag(comment_selected.user.photo_url) %>
-      <% end %>
-    </div>
-    <div class="user-input">
-      <div class="user-info">
-        <%= link_to user_path(comment_selected.user) do %>
-          <%= comment_selected.user.first_name%> <%= comment_selected.user.last_name%>, <%= comment_selected.user.activity %>
 
+  <div class="user-comment-card">
+  <div class="linebetween"></div>
+    <div class="user-display">
+      <div class="avatar">
+        <%= link_to user_path(comment_selected.user) do %>
+          <%=image_tag(comment_selected.user.photo_url) %>
         <% end %>
       </div>
-          <p class="comment-date">Partagé le <%=comment_selected.date %></p>
+      <div class="user-input">
+        <div class="user-info">
+          <%= link_to user_path(comment_selected.user) do %>
+            <%= comment_selected.user.first_name%> <%= comment_selected.user.last_name%>, <%= comment_selected.user.activity %>
+
+          <% end %>
+        </div>
+            <p class="comment-date">Partagé le <%=comment_selected.date %></p>
+      </div>
+    </div>
+    <div class="user-comment-data">
+      <p class="title-comment"> <%= comment_selected.title %></p>
+      <p class="text-comment"> <%= comment_selected.text %></p>
+      <p class="source">
+        <%if comment_selected.source.present? %>
+            Source :
+          <a href="<%= comment_selected.source %>">
+            <%= URI.parse(comment_selected.source.strip).host %>
+          </a>
+        <%end %>
+      </p>
     </div>
   </div>
-  <div class="user-comment-data">
-    <p class="title-comment"> <%= comment_selected.title %></p>
-    <p class="text-comment"> <%= comment_selected.text %></p>
-    <p class="source">
-      <%if comment_selected.source.present? %>
-          Source :
-        <a href="<%= comment_selected.source %>">
-          <%= URI.parse(comment_selected.source.strip).host %>
-        </a>
-      <%end %>
-    </p>
-  </div>
-</div>
 
