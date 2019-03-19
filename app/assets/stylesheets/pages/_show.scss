@@ -208,3 +208,18 @@ button.navbar-wagon-item-comment {
   padding-left: 30px;
   border-left: 1px solid rgba(1, 0, 0, 0.15);
 }
+
+.flex-title-comment {
+  display: flex;
+  i {
+  margin-left: 15px;
+  margin-top: 10px;
+  opacity: 0.5;
+  }
+}
+
+.flex-title-comment .up {
+  margin-left: 6px;
+  margin-top: 5px;
+  opacity: 0.5;
+}

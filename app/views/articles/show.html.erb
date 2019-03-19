@@ -70,9 +70,17 @@
       <div class="all-debats">
         <%@article.comments.each do |comment| %>
           <%if comment.title == @comment_selected.title %>
+          <div class="flex-title-comment">
             <p class="title-comment active"> <%=link_to comment.title, article_path(@article, query: { debat_title: comment.title }, anchor: 'comment-section-anchor') %></p>
+             <%=  '<i class="fas fa-caret-up"></i>'.html_safe%>
+            <p class="up"><%= comment.upvotes %></p>
+          </div>
           <%else %>
+          <div class="flex-title-comment">
             <p class="title-comment"> <%=link_to comment.title, article_path(@article, query: { debat_title: comment.title }, anchor: 'comment-section-anchor') %></p>
+            <%=  '<i class="fas fa-caret-up"></i>'.html_safe%>
+            <p class="up"><%= comment.upvotes %></p>
+            </div>
           <%end %>
         <%end %>
       </div>
