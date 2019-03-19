@@ -36,7 +36,9 @@ class ArticlesController < ApplicationController
       @categories = Category.all
       @article = Article.find(params[:id])
       @comment_selected = @article.comments.first
-      @sub_comments = @comment_selected.sub_comments
+      if @comment_selected
+        @sub_comments = @comment_selected.sub_comments
+      end
       @sub_comment = SubComment.new
       @comment = Comment.new
     end

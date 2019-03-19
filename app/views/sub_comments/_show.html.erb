@@ -1,4 +1,4 @@
-<%if @comment_selected.sub_comments.last == sub_comment %>
+<%if @comment_selected.sub_comments.last.id - 1 == sub_comment.id %>
   <div id="anchor-sub-com"></div>
 <%end %>
 <div class="user-sub-comment-card">

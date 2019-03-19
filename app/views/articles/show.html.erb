@@ -77,42 +77,49 @@
         <%end %>
       </div>
       <div id="comments">
-
+            <%if @article.comments.any? %>
             <%= render 'comments/show', comment_selected: @comment_selected %>
+            <%end %>
 
           <div class="answers">
-             <div class="comment-section">
-        <div class="current_user_info">
-          <div class="current_user_img">
-            <%= link_to user_path(current_user) do %>
-              <%=image_tag current_user.photo_url, class: "avatar_sidebar" %>
-            <% end %>
+             <%if @article.comments.any? %>
+               <div class="comment-section">
+          <div class="current_user_info">
+            <div class="current_user_img">
+              <%= link_to user_path(current_user) do %>
+                <%=image_tag current_user.photo_url, class: "avatar_sidebar" %>
+              <% end %>
+            </div>
+            <div class="user-names">
+              <%= link_to user_path(current_user) do %>
+                <%= current_user.first_name %>
+                <%= current_user.last_name %>,
+                <%= current_user.activity %>
+              <% end %>
+            </div>
           </div>
-          <div class="user-names">
-            <%= link_to user_path(current_user) do %>
-              <%= current_user.first_name %>
-              <%= current_user.last_name %>,
-              <%= current_user.activity %>
-            <% end %>
-          </div>
+
+            <div class="bar-button">
+              <button type="button" class="user-sub-comment-button" data-toggle="modal" data-target=".modal_new_sub_comment">Répondre</button>
+            </div>
         </div>
-
-          <div class="bar-button">
-            <button type="button" class="user-sub-comment-button" data-toggle="modal" data-target=".modal_new_sub_comment">Répondre</button>
-          </div>
-      </div>
-      <div id="sub-comments">
-
-          <%@sub_comments.each do |sub_comment| %>
-            <%= render 'sub_comments/show', sub_comment: sub_comment  %>
+        <%end %>
+        <div id="sub-comments">
+            <%if @sub_comments %>
+            <%@sub_comments.each do |sub_comment| %>
+              <%= render 'sub_comments/show', sub_comment: sub_comment  %>
+            <%end %>
           <%end %>
 
       </div>
-      <div class="linebetween4"></div>
+      <%if @article.comments.any? %>
+        <div class="linebetween4"></div>
+      <%end %>
       </div>
           <%= render 'shared/comment_modal', title: "Nouveau débat", article: @article, comment: @comment %>
-
-          <%= render 'shared/sub_comment_modal', title: "Ajouter une réponse", article: @article, comment: @comment, sub_comment: @sub_comment %>
+          <%if @article.comments.any? %>
+            <%= render 'shared/sub_comment_modal', title: "Ajouter une réponse", article: @article, comment: @comment, sub_comment: @sub_comment %>
+          <%end %>
         <!-- Modal -->
       </div>
     </div>
