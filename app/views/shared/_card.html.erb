@@ -52,7 +52,7 @@
       <% else %>
         <div data-article-arrow="<%= article.id %>"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
       <%end %>
-      <div  data-article="<%= article.id %>"><%= article.upvotes %> </div>
+      <div  class="card-up" data-article="<%= article.id %>"><%= article.upvotes %> </div>
     </div>
   </div>
 </div>
