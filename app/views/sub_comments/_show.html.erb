@@ -1,0 +1,34 @@
+<%if @comment_selected.sub_comments.last == sub_comment %>
+  <div id="anchor-sub-com"></div>
+<%end %>
+<div class="user-sub-comment-card">
+<div class="linebetween"></div>
+  <div class="user-display">
+    <div class="avatar">
+      <%= link_to user_path(sub_comment.user) do %>
+        <%=image_tag(sub_comment.user.photo_url) %>
+      <% end %>
+    </div>
+    <div class="user-input">
+      <div class="user-info">
+        <%= link_to user_path(sub_comment.user) do %>
+          <%= sub_comment.user.first_name%> <%= sub_comment.user.last_name%>, <%= sub_comment.user.activity %>
+
+        <% end %>
+      </div>
+          <p class="comment-date">Partagé le <%=sub_comment.date %></p>
+    </div>
+  </div>
+  <div class="user-comment-data">
+    <p class="title-comment"> <%= sub_comment.title %></p>
+    <p class="text-comment"> <%= sub_comment.text %></p>
+    <p class="source">
+      <%if sub_comment.source.present? %>
+          Source :
+        <a href="<%= sub_comment.source %>">
+          <%= URI.parse(sub_comment.source.strip).host %>
+        </a>
+      <%end %>
+    </p>
+  </div>
+</div>

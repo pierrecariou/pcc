@@ -23,40 +23,40 @@
       </div>
   <div class="article-preview">
     <div class="article-img"><a href="<%= article.URL %>" target="_blank"><img src="<%= article.image %>" height="150"></a></div>
-    <div class="article-info">
+    <div class="article-info" >
       <h2 class="article-title <%= article.category.name %>"><a href="<%= article.URL %>"target="_blank"><%= article.title %></a></h2>
       <p class="article-source"><a href="<%= article.URL %>"target="_blank"><%= article.source %></a></p>
-      <p class="article-site_description"><a href="<%= article.URL %>"target="_blank"><%= article.site_description %></a></p>
+      <p class="article-site_description" id="comment-section-anchor"><a href="<%= article.URL %>"target="_blank"><%= article.site_description %></a></p>
     </div>
   </div>
-
-  <div class="footer-card">
+  <div class="footer-card" >
     <div class="footer-info">
 
 
-      <div class="sub_categories_infos">
+      <div class="sub_categories_infos" >
 
 
-        <div>
+        <div >
           <% article.article_sub_categories.each do |article_sub_category| %>
             <%= article_sub_category.sub_category.name %>
           <% end %>
         </div>
       </div>
     </div>
-    <div class="footer-action">
+    <div class="footer-action" >
       <% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
-      <div class="debat-button"><%= link_to 'DEBATTRE', article_path(article) %></div>
+      <div class="debat-button" ><%= link_to 'DEBATTRE', article_path(article) %></div>
       <% end %>
       <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
       <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
       <% else %>
         <div data-article-arrow="<%= article.id %>"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
       <%end %>
-      <div  data-article="<%= article.id %>"><%= article.upvotes %></div>
+      <div  data-article="<%= article.id %>"><%= article.upvotes %> </div>
     </div>
   </div>
 </div>
+
 <!-- @articles[each] = article
 article.sub_categories.each
 sub_category.name -->

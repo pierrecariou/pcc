@@ -1,0 +1,23 @@
+function refreshForm(innerHTML) {
+  const newSubCommentForm = document.getElementById('new_sub_comment');
+  newSubCommentForm.innerHTML = innerHTML;
+}
+
+function addSubComment(subCommentHTML) {
+  const sub_comments = document.getElementById('sub-comments');
+  sub_comments.insertAdjacentHTML('beforeend', subCommentHTML);
+}
+
+function closeModal() {
+  document.querySelector('.modal_new_sub_comment .modal-footer button').click();
+}
+
+<% if @sub_comment.errors.any? %>
+  refreshForm('<%= j render "sub_comments/form", article: @article, comment: @comment_selected, sub_comment: @sub_comment%>');
+<% else %>
+  addSubComment('<%= j render "sub_comments/show", sub_comment: @sub_comment %>');
+  refreshForm('<%= j render "sub_comments/form", article: @article, comment: @comment_selected, sub_comment: SubComment.new %>');
+  closeModal();
+  window.location.reload();
+
+<% end %>

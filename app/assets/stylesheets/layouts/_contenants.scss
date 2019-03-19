@@ -66,6 +66,18 @@
   margin-bottom: 15px;
 }
 
+.flex-cat-img {
+  display: flex;
+  .category-image {
+    width: 61.1px;
+    height: 61.1px;
+    margin-top: 5px;
+  }
+}
+
+.flex-cat-img h2 {
+  margin-left: 14.9px;
+}
 
 .top-feed h2 {
   margin-bottom: 15px;

@@ -1,0 +1,6 @@
+<%= simple_form_for [@comment, @sub_comment] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :text %>
+  <%= f.input :source %>
+  <%= f.submit "partager", class: "btn btn-primary" %>
+<% end %>
