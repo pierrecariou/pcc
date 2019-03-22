@@ -26,6 +26,19 @@ class SubCommentsController < ApplicationController
     end
   end
 
+   def upvote
+    @sub_comment = SubComment.find(params[:id])
+    @sub_comment.increment!(:stars)
+    @comment = @sub_comment.comment
+    @comment.increment!(:upvotes)
+    if @sub_comment.save && @comment.save
+      respond_to do |format|
+        format.html { redirect_to request.referrer }
+        format.js
+      end
+    end
+  end
+
   private
 
   def sub_comment_params

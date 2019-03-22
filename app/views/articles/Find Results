@@ -1,0 +1,1161 @@
+Searching 218 files for "collection_check_boxes"
+
+0 matches
+
+Searching 218 files for "form-check"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/components/_check-box.scss:
+    1  #sub-categories-form
+    2: .form-check-input, .col-form-label {
+    3    display: none;
+    4  }
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_index_articles.scss:
+   52      }
+   53    }
+   54:   .form-check-input:checked + label {
+   55      color: #5E0606;
+   56      opacity: 1;
+   ..
+   68      }
+   69    }
+   70:   .form-check-input:checked + label {
+   71      color: #070D59;
+   72      opacity: 1;
+   ..
+   84      }
+   85    }
+   86:   .form-check-input:checked + label {
+   87      color: #00541A;
+   88      opacity: 1;
+   ..
+  100      }
+  101    }
+  102:   .form-check-input:checked + label {
+  103      color: #E0BB20;
+  104      opacity: 1;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_new_article.scss:
+   58  }
+   59
+   60: .category-box .form-check-input:checked + .subcategory-choice {
+   61    color: white;
+   62    position: relative;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/categories/_box.html.erb:
+   16          <div id="sub_categories_inputs">
+   17            <% category.sub_categories.each do |sub_category| %>
+   18:             <div class="form-check">
+   19:               <input class="form-check-input hidden" type="checkbox" value="<%= sub_category.id %>" name="article[sub_category_ids][]" id="article_sub_category_ids_<%= sub_category.id %>">
+   20                <label class="subcategory-choice <%= category.name %>" for="article_sub_category_ids_<%= sub_category.id %>"><%=sub_category.name%></label>
+   21              </div>
+
+/Users/pierrecariou/code/MattMonta/PCC/config/initializers/simple_form_bootstrap.rb:
+   19
+   20    # Define the default class of the input wrapper of the boolean input.
+   21:   config.boolean_label_class = 'form-check-label'
+   22
+   23    # How the label text should be generated altogether with the required text.
+   ..
+   68      b.use :html5
+   69      b.optional :readonly
+   70:     b.wrapper :form_check_wrapper, tag: 'div', class: 'form-check' do |bb|
+   71:       bb.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
+   72:       bb.use :label, class: 'form-check-label'
+   73        bb.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
+   74        bb.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+   ..
+   77
+   78    # vertical input for radio buttons and check boxes
+   79:   config.wrappers :vertical_collection, item_wrapper_class: 'form-check', tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+   80      b.use :html5
+   81      b.optional :readonly
+   ..
+   83        ba.use :label_text
+   84      end
+   85:     b.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
+   86      b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
+   87      b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+   ..
+   89
+   90    # vertical input for inline radio buttons and check boxes
+   91:   config.wrappers :vertical_collection_inline, item_wrapper_class: 'form-check form-check-inline', tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+   92      b.use :html5
+   93      b.optional :readonly
+   ..
+   95        ba.use :label_text
+   96      end
+   97:     b.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
+   98      b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
+   99      b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+  ...
+  165      end
+  166      b.wrapper :grid_wrapper, tag: 'div', class: 'col-sm-9' do |wr|
+  167:       wr.wrapper :form_check_wrapper, tag: 'div', class: 'form-check' do |bb|
+  168:         bb.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
+  169:         bb.use :label, class: 'form-check-label'
+  170          bb.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
+  171          bb.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+  ...
+  175
+  176    # horizontal input for radio buttons and check boxes
+  177:   config.wrappers :horizontal_collection, item_wrapper_class: 'form-check', tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  178      b.use :html5
+  179      b.optional :readonly
+  180      b.use :label, class: 'col-sm-3 form-control-label'
+  181      b.wrapper :grid_wrapper, tag: 'div', class: 'col-sm-9' do |ba|
+  182:       ba.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
+  183        ba.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
+  184        ba.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+  ...
+  187
+  188    # horizontal input for inline radio buttons and check boxes
+  189:   config.wrappers :horizontal_collection_inline, item_wrapper_class: 'form-check form-check-inline', tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  190      b.use :html5
+  191      b.optional :readonly
+  192      b.use :label, class: 'col-sm-3 form-control-label'
+  193      b.wrapper :grid_wrapper, tag: 'div', class: 'col-sm-9' do |ba|
+  194:       ba.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
+  195        ba.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
+  196        ba.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+  ...
+  261
+  262    # inline input for boolean
+  263:   config.wrappers :inline_boolean, tag: 'span', class: 'form-check flex-wrap justify-content-start mr-sm-2', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  264      b.use :html5
+  265      b.optional :readonly
+  266:     b.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
+  267:     b.use :label, class: 'form-check-label'
+  268      b.use :error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
+  269      b.optional :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+
+28 matches across 5 files
+
+
+Searching 218 files for "main-content"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/layouts/_contenants.scss:
+   27
+   28
+   29: .main-content{
+   30    flex: 0 0 70%;
+   31    position: relative;
+   ..
+   38
+   39  .all-content-profile {
+   40:   .main-content {
+   41      top: -1px;
+   42    }
+   ..
+   84  }
+   85
+   86: .main-content h2 {
+   87    margin-bottom: 15px;
+   88  }
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_profile.scss:
+   43  }
+   44
+   45: // .all-content-profile .main-content {
+   46  //   top: -20px;
+   47  // }
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/articles/_index.html.erb:
+    1: <div class="main-content">
+    2    <div class="top-feed">
+    3      <h2>Meilleurs articles</h2>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/articles/show.html.erb:
+   35        </div>
+   36      </div>
+   37:     <div class="main-content">
+   38        <div class="title-debate">
+   39        <h2>Débat</h2>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/users/show.html.erb:
+   49      </div>
+   50
+   51:     <div class="main-content">
+   52          <% if @user == current_user  %>
+   53          <div class="u-partages">
+
+7 matches across 5 files
+
+
+Searching 218 files for "line-between"
+
+0 matches
+
+Searching 218 files for "line_between"
+
+0 matches
+
+Searching 218 files for "linebetween"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/components/_card.scss:
+  137
+  138
+  139: .linebetween {
+  140    border-style: solid;
+  141    border-width: 1px 0px 0px 0px;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_index_articles.scss:
+  111  }
+  112
+  113: .linebetween2 {
+  114    border-style: solid;
+  115    border-width: 1px 0px 0px 0px;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_show.scss:
+    8  }
+    9
+   10: .user-comment-card .linebetween {
+   11    margin-top: 20px;
+   12  }
+   ..
+  127  }
+  128
+  129: .linebetween3 {
+  130    border-style: solid;
+  131    border-width: 1px 0px 0px 0px;
+  ...
+  134  }
+  135
+  136: .linebetween4 {
+  137    border-style: solid;
+  138    border-width: 1px 0px 0px 0px;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/articles/show.html.erb:
+    7        <div class="left-side-info left-side-info-show">
+    8          <h2>Participants</h2>
+    9:         <div class="linebetween"></div>
+   10          <% if @article.comments.blank? %>
+   11          <p> <%= "Soyez le premier à participer" %> </p>
+   ..
+   66
+   67
+   68:       <div class="linebetween3" id="anchor-comment" ></div>
+   69
+   70        <div class="all-debats">
+   ..
+  122        </div>
+  123        <%if @article.comments.any? %>
+  124:         <div class="linebetween4"></div>
+  125        <%end %>
+  126        </div>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/comments/_show.html.erb:
+    1
+    2    <div class="user-comment-card">
+    3:   <div class="linebetween"></div>
+    4      <div class="user-display">
+    5        <div class="avatar">
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/shared/_card.html.erb:
+    1: <div class="linebetween">
+    2  </div>
+    3  <div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join(" ") %>">
+    4  <!--   <div class="user-display">
+    5:   <div class="linebetween"></div>
+    6      <div class="avatar">
+    7
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/sub_categories/_index.html.erb:
+    4      <h2><%= @category.name %></h2>
+    5    </div>
+    6:   <div class="linebetween"></div>
+    7    <ul class="liste-subcategory tablink">
+    8      <% if sub_categories.present? %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/sub_comments/_show.html.erb:
+    3  <%end %>
+    4  <div class="user-sub-comment-card">
+    5: <div class="linebetween"></div>
+    6    <div class="user-display">
+    7      <div class="avatar">
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/users/_index.html.erb:
+    1  <div class="left-side-info les-plus-actifs">
+    2    <h2>Les plus actifs</h2>
+    3:   <div class="linebetween"></div>
+    4    <%users = [] %>
+    5    <%@articles.first(15).each do |article| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/users/show.html.erb:
+    9            <h2> Infos </h2>
+   10          <% end %>
+   11:         <div class="linebetween"></div>
+   12          <div class="profile-avatar">
+   13            <%= image_tag @user.photo_url %>
+   ..
+   21            <%= link_to 'Modifier mes infos',  edit_user_registration_path %>
+   22          <% end %>
+   23:         <div class="linebetween"></div>
+   24
+   25          <div class="profile-stat">
+   ..
+   66              </div>
+   67            <% end %>
+   68:           <div class="linebetween"></div>
+   69          </div>
+   70      </div>
+
+17 matches across 10 files
+
+
+Searching 218 files for "top-feed"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/config/_fonts.scss:
+   26  }
+   27
+   28: .top-feed {
+   29    h2 {
+   30      font-family: "SourceSansPro", sans-serif;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/layouts/_contenants.scss:
+   21  }
+   22
+   23: .top-feed {
+   24    display: flex;
+   25    justify-content: space-between;
+   ..
+   80  }
+   81
+   82: .top-feed h2 {
+   83    margin-bottom: 15px;
+   84  }
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/articles/_index.html.erb:
+    1  <div class="main-content">
+    2:   <div class="top-feed">
+    3      <h2>Meilleurs articles</h2>
+    4    </div>
+
+4 matches across 3 files
+
+
+Searching 218 files for "top-feed"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/config/_fonts.scss:
+   26  }
+   27
+   28: .top-feed {
+   29    h2 {
+   30      font-family: "SourceSansPro", sans-serif;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/layouts/_contenants.scss:
+   21  }
+   22
+   23: .top-feed {
+   24    display: flex;
+   25    justify-content: space-between;
+   ..
+   80  }
+   81
+   82: .top-feed h2 {
+   83    margin-bottom: 15px;
+   84  }
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/articles/_index.html.erb:
+    1  <div class="main-content">
+    2:   <div class="top-feed">
+    3      <h2>Meilleurs articles</h2>
+    4    </div>
+
+4 matches across 3 files
+
+
+Searching 218 files for "left-side-info h2"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/layouts/_contenants.scss:
+   63  }
+   64
+   65: .left-side-info h2 {
+   66    margin-bottom: 15px;
+   67  }
+
+1 match in 1 file
+
+
+Searching 218 files for "category-im"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/layouts/_contenants.scss:
+   69  .flex-cat-img {
+   70    display: flex;
+   71:   .category-image {
+   72      width: 61.1px;
+   73      height: 61.1px;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_new_article.scss:
+   18
+   19
+   20: .category-image {
+   21    position: relative;
+   22    width: 180px;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/javascript/packs/select_category.js:
+    1: const categories = document.querySelectorAll('.category-image')
+    2  const categoryBoxes = document.querySelectorAll('.sub-categories')
+    3  const subcategories = document.querySelectorAll('.subcategory-choice');
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/categories/_box.html.erb:
+    1  <div class="category-box">
+    2
+    3:   <div class="category-image" style="background-image:url(<%= image_path "#{category.name}.jpg" %>)" data-category-id="category-<%= category.id %>"></div>
+    4
+    5
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/sub_categories/_index.html.erb:
+    1  <div class="left-side-info left-side-info-index">
+    2    <div class="flex-cat-img">
+    3:     <div class="category-image" style="background-image:url(<%= image_path "#{@category.name}.jpg" %>)" ></div>
+    4      <h2><%= @category.name %></h2>
+    5    </div>
+
+5 matches across 5 files
+
+
+Searching 218 files for "liste-subcategory"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_index_articles.scss:
+  106  }
+  107
+  108: .liste-subcategory {
+  109    list-style: none;
+  110    padding-left: 0px;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/sub_categories/_index.html.erb:
+    5    </div>
+    6    <div class="linebetween"></div>
+    7:   <ul class="liste-subcategory tablink">
+    8      <% if sub_categories.present? %>
+    9        <%= simple_form_for :query, method: :get, html: {id: 'sub-categories-form'} do |f| %>
+
+2 matches across 2 files
+
+
+Searching 218 files for "tablink"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_index_articles.scss:
+   11  }
+   12
+   13: .tablink {
+   14    font-size: 14px;
+   15    font-weight: bold;
+   ..
+   19  }
+   20
+   21: .tablink label {
+   22    opacity: 0.5;
+   23    margin-bottom: 14px;
+   ..
+   25  }
+   26
+   27: a.tablinks {
+   28    color: #000000;
+   29    opacity: 0.5;
+   ..
+   46      color: #5E0606;
+   47    }
+   48:   &.tablinks {
+   49      &:hover, &.active {
+   50        border-bottom: solid 1.5px #5E0606;
+   ..
+   62      color: #070D59;
+   63    }
+   64:   &.tablinks {
+   65    &:hover, &.active {
+   66      border-bottom: solid 1.5px #070D59;
+   ..
+   78      color: #00541A;
+   79    }
+   80:   &.tablinks {
+   81    &:hover, &.active {
+   82      border-bottom: solid 1.5px #00541A;
+   ..
+   94      color: #E0BB20;
+   95    }
+   96:   &.tablinks {
+   97    &:hover, &.active {
+   98      border-bottom: solid 1.5px #E0BB20;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/javascript/packs/application.js:
+   35  // function openTheme(evt, theme) {
+   36  //   // Declare all variables
+   37: //   var i, tabcontent, tablinks;
+   38
+   39  //   // Get all elements with class="tabcontent" and hide them
+   ..
+   43  //   }
+   44
+   45: //   // Get all elements with class="tablinks" and remove the class "active"
+   46: //   tablinks = document.getElementsByClassName("tablinks");
+   47: //   for (i = 0; i < tablinks.length; i++) {
+   48: //     tablinks[i].className = tablinks[i].className.replace(" active", "");
+   49  //   }
+   50
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/categories/_index.html.erb:
+    2    <% categories.each do |category| %>
+    3      <% if @category.nil? %>
+    4:       <%= link_to category.name, articles_path(query: { category_name: category.name }), class: "tablinks #{category.name} "   %>
+    5      <% else %>
+    6        <% if @category.name == category.name %>
+    7:         <%= link_to category.name, articles_path(query: { category_name: category.name }), class: "tablinks #{category.name} active"   %>
+    8           <% else %>
+    9:         <%= link_to category.name, articles_path(query: { category_name: category.name }), class: "tablinks #{category.name} "   %>
+   10        <% end %>
+   11      <% end  %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/sub_categories/_index.html.erb:
+    5    </div>
+    6    <div class="linebetween"></div>
+    7:   <ul class="liste-subcategory tablink">
+    8      <% if sub_categories.present? %>
+    9        <%= simple_form_for :query, method: :get, html: {id: 'sub-categories-form'} do |f| %>
+
+18 matches across 4 files
+
+
+Searching 218 files for "linebetween"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/components/_card.scss:
+  137
+  138
+  139: .linebetween {
+  140    border-style: solid;
+  141    border-width: 1px 0px 0px 0px;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_index_articles.scss:
+  110  }
+  111
+  112: .linebetween2 {
+  113    border-style: solid;
+  114    border-width: 1px 0px 0px 0px;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_show.scss:
+    8  }
+    9
+   10: .user-comment-card .linebetween {
+   11    margin-top: 20px;
+   12  }
+   ..
+  127  }
+  128
+  129: .linebetween3 {
+  130    border-style: solid;
+  131    border-width: 1px 0px 0px 0px;
+  ...
+  134  }
+  135
+  136: .linebetween4 {
+  137    border-style: solid;
+  138    border-width: 1px 0px 0px 0px;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/articles/show.html.erb:
+    7        <div class="left-side-info left-side-info-show">
+    8          <h2>Participants</h2>
+    9:         <div class="linebetween"></div>
+   10          <% if @article.comments.blank? %>
+   11          <p> <%= "Soyez le premier à participer" %> </p>
+   ..
+   66
+   67
+   68:       <div class="linebetween3" id="anchor-comment" ></div>
+   69
+   70        <div class="all-debats">
+   ..
+  122        </div>
+  123        <%if @article.comments.any? %>
+  124:         <div class="linebetween4"></div>
+  125        <%end %>
+  126        </div>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/comments/_show.html.erb:
+    1
+    2    <div class="user-comment-card">
+    3:   <div class="linebetween"></div>
+    4      <div class="user-display">
+    5        <div class="avatar">
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/shared/_card.html.erb:
+    1: <div class="linebetween">
+    2  </div>
+    3  <div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join(" ") %>">
+    4  <!--   <div class="user-display">
+    5:   <div class="linebetween"></div>
+    6      <div class="avatar">
+    7
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/sub_categories/_index.html.erb:
+    4      <h2><%= @category.name %></h2>
+    5    </div>
+    6:   <div class="linebetween"></div>
+    7    <ul class="liste-subcategory tablink">
+    8      <% if sub_categories.present? %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/sub_comments/_show.html.erb:
+    3  <%end %>
+    4  <div class="user-sub-comment-card">
+    5: <div class="linebetween"></div>
+    6    <div class="user-display">
+    7      <div class="avatar">
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/users/_index.html.erb:
+    1  <div class="left-side-info les-plus-actifs">
+    2    <h2>Les plus actifs</h2>
+    3:   <div class="linebetween"></div>
+    4    <%users = [] %>
+    5    <%@articles.first(15).each do |article| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/users/show.html.erb:
+    9            <h2> Infos </h2>
+   10          <% end %>
+   11:         <div class="linebetween"></div>
+   12          <div class="profile-avatar">
+   13            <%= image_tag @user.photo_url %>
+   ..
+   21            <%= link_to 'Modifier mes infos',  edit_user_registration_path %>
+   22          <% end %>
+   23:         <div class="linebetween"></div>
+   24
+   25          <div class="profile-stat">
+   ..
+   66              </div>
+   67            <% end %>
+   68:           <div class="linebetween"></div>
+   69          </div>
+   70      </div>
+
+17 matches across 10 files
+
+
+Searching 218 files for "h2"
+
+/Users/pierrecariou/code/MattMonta/PCC/yarn.lock:
+  151    version "1.1.5"
+  152    resolved "https://registry.yarnpkg.com/are-we-there-yet/-/are-we-there-yet-1.1.5.tgz#4b35c2944f062a8bfcda66410760350fe9ddfc21"
+  153:   integrity sha512-5hYdAkZlcG8tOLujVDTgCT+uPX0VnpAH28gWsLfzpXYm7wP6mp5Q/gYyR7YQ0cKVJcXJnl3j2kpBan13PtQf6w==
+  154    dependencies:
+  155      delegates "^1.0.0"
+  ...
+  546    version "6.24.1"
+  547    resolved "https://registry.yarnpkg.com/babel-plugin-transform-async-to-generator/-/babel-plugin-transform-async-to-generator-6.24.1.tgz#6536e378aff6cb1d5517ac0e40eb3e9fc8d08761"
+  548:   integrity sha1-ZTbjeK/2yx1VF6wOQOs+n8jQh2E=
+  549    dependencies:
+  550      babel-helper-remap-async-to-generator "^6.24.1"
+  ...
+  613    version "6.23.0"
+  614    resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-destructuring/-/babel-plugin-transform-es2015-destructuring-6.23.0.tgz#997bb1f1ab967f682d2b0876fe358d60e765c56d"
+  615:   integrity sha1-mXux8auWf2gtKwh2/jWNYOdlxW0=
+  616    dependencies:
+  617      babel-runtime "^6.22.0"
+  ...
+  708    version "6.24.1"
+  709    resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-shorthand-properties/-/babel-plugin-transform-es2015-shorthand-properties-6.24.1.tgz#24f875d6721c87661bbd99a4622e51f14de38aa0"
+  710:   integrity sha1-JPh11nIch2YbvZmkYi5R8U3jiqA=
+  711    dependencies:
+  712      babel-runtime "^6.22.0"
+  ...
+  732    version "6.22.0"
+  733    resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-template-literals/-/babel-plugin-transform-es2015-template-literals-6.22.0.tgz#a84b3450f7e9f8f1f6839d6d687da84bb1236d8d"
+  734:   integrity sha1-qEs0UPfp+PH2g51taH2oS7EjbY0=
+  735    dependencies:
+  736      babel-runtime "^6.22.0"
+  ...
+  999    version "1.1.11"
+ 1000    resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
+ 1001:   integrity sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==
+ 1002    dependencies:
+ 1003      balanced-match "^1.0.0"
+ ....
+ 1907    version "1.0.0"
+ 1908    resolved "https://registry.yarnpkg.com/des.js/-/des.js-1.0.0.tgz#c074d2e2aa6a8a9a07dbd61f9a15c2cd83ec8ecc"
+ 1909:   integrity sha1-wHTS4qpqipoH29YfmhXCzYPsjsw=
+ 1910    dependencies:
+ 1911      inherits "^2.0.1"
+ ....
+ 2193    version "3.1.0"
+ 2194    resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.0.tgz#090b4d6cdbd645ed10bf750d4b5407942d7ba163"
+ 2195:   integrity sha512-ivIvhpq/Y0uSjcHDcOIccjmYjGLcP09MFGE7ysAwkAvkXfpZlC985pH2/ui64DKazbTW/4kN3yqozUxlXzI6cA==
+ 2196
+ 2197  events@^3.0.0:
+ ....
+ 3065    version "0.1.6"
+ 3066    resolved "https://registry.yarnpkg.com/is-accessor-descriptor/-/is-accessor-descriptor-0.1.6.tgz#a9e12cb3ae8d876727eeef3843f8a0897b5c98d6"
+ 3067:   integrity sha1-qeEss66Nh2cn7u84Q/igiXtcmNY=
+ 3068    dependencies:
+ 3069      kind-of "^3.0.2"
+ ....
+ 3696    version "1.0.4"
+ 3697    resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.4.tgz#5dd6943c938548267016d4e34f057583080c514c"
+ 3698:   integrity sha512-rUxjysqif/BZQH2yhd5Aaq7vXMSx9NdEsQcyA07uEzIvxgI7zIr33gGsh+RU0/XjmQpCW7RsVof1vlkvQVCK5A==
+ 3699
+ 3700  md5.js@^1.3.4:
+ ....
+ 3882      pumpify "^1.3.3"
+ 3883      stream-each "^1.1.0"
+ 3884:     through2 "^2.0.0"
+ 3885
+ 3886  mixin-deep@^1.2.0:
+ ....
+ 3967    version "2.2.4"
+ 3968    resolved "https://registry.yarnpkg.com/needle/-/needle-2.2.4.tgz#51931bff82533b1928b7d1d69e01f1b00ffd2a4e"
+ 3969:   integrity sha512-HyoqEb4wr/rsoaIDfTH2aVL9nWtQqba2/HvMv+++m8u0dz808MaagKILxtfeSN7QU7nvbQ79zk3vYOJp9zsNEA==
+ 3970    dependencies:
+ 3971      debug "^2.1.2"
+ ....
+ 4176    version "0.9.0"
+ 4177    resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
+ 4178:   integrity sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==
+ 4179
+ 4180  object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
+ ....
+ 4258    version "3.2.0"
+ 4259    resolved "https://registry.yarnpkg.com/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-3.2.0.tgz#09a40c4cefde1dd0142444a873c56aa29eb18e6f"
+ 4260:   integrity sha512-Fjn7wyyadPAriuH2DHamDQw5B8GohEWbroBkKoPeP+vSF2PIAPI7WDihi8WieMRb/At4q7Ea7zTKaMDuSoIAAg==
+ 4261    dependencies:
+ 4262      cssnano "^3.4.0"
+ ....
+ 4775    version "3.0.0"
+ 4776    resolved "https://registry.yarnpkg.com/postcss-font-family-system-ui/-/postcss-font-family-system-ui-3.0.0.tgz#675fe7a9e029669f05f8dba2e44c2225ede80623"
+ 4777:   integrity sha512-58G/hTxMSSKlIRpcPUjlyo6hV2MEzvcVO2m4L/T7Bb2fJTG4DYYfQjQeRvuimKQh1V1sOzCIz99g+H2aFNtlQw==
+ 4778    dependencies:
+ 4779      postcss "^6.0"
+ ....
+ 5171    version "4.0.3"
+ 5172    resolved "https://registry.yarnpkg.com/public-encrypt/-/public-encrypt-4.0.3.tgz#4fcc9d77a07e48ba7527e7cbe0de33d0701331e0"
+ 5173:   integrity sha512-zVpa8oKZSz5bTMTFClc1fQOnyyEzpl5ozpi1B5YcvBrdohMjH2rfsBtyXcuNuwjsDIXmBYlF2N5FlJYhR29t8Q==
+ 5174    dependencies:
+ 5175      bn.js "^4.1.0"
+ ....
+ 5928    version "3.0.0"
+ 5929    resolved "https://registry.yarnpkg.com/spdx-expression-parse/-/spdx-expression-parse-3.0.0.tgz#99e119b7a5da00e05491c9fa338b7904823b41d0"
+ 5930:   integrity sha512-Yg6D3XpRD4kkOmTpdgbUiEJFKghJH03fiC1OPll5h/0sO6neh2jqRDVHOQ4o/LMea0tgCkbMgea5ip/e+MkWyg==
+ 5931    dependencies:
+ 5932      spdx-exceptions "^2.1.0"
+ ....
+ 6214      yallist "^3.0.2"
+ 6215
+ 6216: through2@^2.0.0:
+ 6217    version "2.0.5"
+ 6218:   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
+ 6219    integrity sha512-/mrRod8xqpA+IHSLyGCQ2s8SPHiCDEeQJSep1jqLYeEUClOFG2Qsh+4FU6G9VeqpZnGW/Su8LQGc4YKni5rYSQ==
+ 6220    dependencies:
+ ....
+ 6225    version "1.0.3"
+ 6226    resolved "https://registry.yarnpkg.com/thunky/-/thunky-1.0.3.tgz#f5df732453407b09191dae73e2a8cc73f381a826"
+ 6227:   integrity sha512-YwT8pjmNcAXBZqrubu22P4FYsh2D4dxRmnWBOL8Jk8bUcRUtc5326kx32tuTmFDAZtLOGEVNl8POAR8j896Iow==
+ 6228
+ 6229  time-stamp@^2.0.0:
+ ....
+ 6277    version "2.4.3"
+ 6278    resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.4.3.tgz#53f36da3f47783b0925afa06ff9f3b165280f781"
+ 6279:   integrity sha512-Q5srk/4vDM54WJsJio3XNn6K2sCG+CQ8G5Wz6bZhRZoAe/+TxjWB/GlFAnYEbkYVlON9FMk/fE3h2RLpPXo4lQ==
+ 6280    dependencies:
+ 6281      psl "^1.1.24"
+ ....
+ 6500    version "3.0.4"
+ 6501    resolved "https://registry.yarnpkg.com/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz#fc91f6b9c7ba15c857f4cb2c5defeec39d4f410a"
+ 6502:   integrity sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==
+ 6503    dependencies:
+ 6504      spdx-correct "^3.0.0"
+ ....
+ 6651    version "0.1.3"
+ 6652    resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
+ 6653:   integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
+ 6654
+ 6655  whet.extend@~0.9.9:
+ ....
+ 6695    version "1.6.0"
+ 6696    resolved "https://registry.yarnpkg.com/worker-farm/-/worker-farm-1.6.0.tgz#aecc405976fab5a95526180846f0dba288f3a4a0"
+ 6697:   integrity sha512-6w+3tHbM87WnSWnENBUvA2pxJPLhQUg5LKwUQHq3r+XPhIM+Gh2R5ycbwPCyuGbNg+lPgdcnQUhuC02kJCvffQ==
+ 6698    dependencies:
+ 6699      errno "~0.1.7"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/config/_fonts.scss:
+   21
+   22  .left-side-info {
+   23:   h2 {
+   24      font-family: "SourceSansPro", sans-serif;
+   25    }
+   ..
+   27
+   28  .top-feed {
+   29:   h2 {
+   30      font-family: "SourceSansPro", sans-serif;
+   31    }
+   ..
+   33
+   34  .profile-left-side-info {
+   35:   h2 {
+   36      font-family: "SourceSansPro", sans-serif;
+   37    }
+   ..
+   39
+   40  .u-partages {
+   41:   h2 {
+   42     font-family: "SourceSansPro", sans-serif;
+   43    }
+   ..
+   45
+   46  .title-debate {
+   47:   h2 {
+   48      font-family: "SourceSansPro", sans-serif;
+   49    }
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/layouts/_contenants.scss:
+   63  }
+   64
+   65: .left-side-info h2 {
+   66    margin-bottom: 8px;
+   67  }
+   ..
+   76  }
+   77
+   78: .flex-cat-img h2 {
+   79    margin-left: 14.9px;
+   80  }
+   81
+   82: .top-feed h2 {
+   83    margin-bottom: 15px;
+   84  }
+   85
+   86: .main-content h2 {
+   87    margin-bottom: 8px;
+   88  }
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_index_articles.scss:
+    1: h2 {
+    2    opacity: 0.5;
+    3    font-size: 24px;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/assets/stylesheets/pages/_new_article.scss:
+    1: .new-article-form h2 {
+    2    border-bottom: 1px solid #898989;
+    3    padding-bottom: 15px;
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/articles/_index.html.erb:
+    1  <div class="main-content">
+    2    <div class="top-feed">
+    3:     <h2>Meilleurs articles</h2>
+    4    </div>
+    5    <% articles.each do |article| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/articles/new.html.erb:
+    2    <div class="container new-article-form">
+    3
+    4:     <h2>Partager un article</h2>
+    5
+    6      <%= simple_form_for @article do |f| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/articles/show.html.erb:
+    6      <div class="sub_categories">
+    7        <div class="left-side-info left-side-info-show">
+    8:         <h2>Participants</h2>
+    9          <div class="linebetween"></div>
+   10          <% if @article.comments.blank? %>
+   ..
+   37      <div class="main-content">
+   38        <div class="title-debate">
+   39:       <h2>Débat</h2>
+   40        </div>
+   41        <div class="card listed-article" >
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/devise/confirmations/new.html.erb:
+    1: <h2>Resend confirmation instructions</h2>
+    2
+    3  <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/devise/passwords/edit.html.erb:
+    1: <h2>Change your password</h2>
+    2
+    3  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/devise/passwords/new.html.erb:
+    1: <h2>Forgot your password?</h2>
+    2
+    3  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/devise/registrations/edit.html.erb:
+    1: <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    2
+    3  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/devise/registrations/new.html.erb:
+    1: <h2>Inscription</h2>
+    2
+    3  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/devise/sessions/new.html.erb:
+    1: <h2 class="connexion">Connexion</h2>
+    2
+    3  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/devise/shared/_error_messages.html.erb:
+    1  <% if resource.errors.any? %>
+    2    <div id="error_explanation">
+    3:     <h2>
+    4        <%= I18n.t("errors.messages.not_saved",
+    5                   count: resource.errors.count,
+    6                   resource: resource.class.model_name.human.downcase)
+    7         %>
+    8:     </h2>
+    9      <ul>
+   10        <% resource.errors.full_messages.each do |message| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/devise/unlocks/new.html.erb:
+    1: <h2>Resend unlock instructions</h2>
+    2
+    3  <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/shared/_card.html.erb:
+   25      <div class="article-img"><a href="<%= article.URL %>" target="_blank"><img src="<%= article.image %>" height="150"></a></div>
+   26      <div class="article-info" >
+   27:       <h2 class="article-title <%= article.category.name %>"><a href="<%= article.URL %>"target="_blank"><%= article.title %></a></h2>
+   28        <p class="article-source"><a href="<%= article.URL %>"target="_blank"><%= article.source %></a></p>
+   29        <p class="article-site_description" id="comment-section-anchor"><a href="<%= article.URL %>"target="_blank"><%= article.site_description %></a></p>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/shared/_comment_modal.html.erb:
+    5          <div class="new-comment">
+    6
+    7:           <h2><%= title %></h2>
+    8
+    9            <%= render 'comments/form', article: article, comment: comment %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/shared/_new_modal.html.erb:
+    5            <div class="new-article-form">
+    6
+    7:             <h2>Partager un article</h2>
+    8
+    9              <%= simple_form_for Article.new do |f| %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/shared/_sub_comment_modal.html.erb:
+    5          <div class="new-comment">
+    6
+    7:           <h2><%= title %></h2>
+    8
+    9            <%= render 'sub_comments/form', article: article, comment: @comment_selected, sub_comment: sub_comment %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/sub_categories/_index.html.erb:
+    2    <div class="flex-cat-img">
+    3      <div class="category-image" style="background-image:url(<%= image_path "#{@category.name}.jpg" %>)" ></div>
+    4:     <h2><%= @category.name %></h2>
+    5    </div>
+    6    <div class="linebetween"></div>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/users/_index.html.erb:
+    1  <div class="left-side-info les-plus-actifs">
+    2:   <h2>Les plus actifs</h2>
+    3    <div class="linebetween"></div>
+    4    <%users = [] %>
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/users/show.html.erb:
+    5
+    6          <% if @user == current_user %>
+    7:           <h2>Mes infos</h2>
+    8          <% else %>
+    9:           <h2> Infos </h2>
+   10          <% end %>
+   11          <div class="linebetween"></div>
+   ..
+   52          <% if @user == current_user  %>
+   53          <div class="u-partages">
+   54:           <h2>Mes précédents partages</h2>
+   55            </div>
+   56          <% else %>
+   57          <div class="u-partages">
+   58:           <h2> Ses précédents partages</h2>
+   59            </div>
+   60          <% end %>
+
+/Users/pierrecariou/code/MattMonta/PCC/config/credentials.yml.enc:
+    1: bRHDEsXCO5nLA64qX82w1JOPyn9rbrpGYUwifGGwVDlr0Mz+tKJUBx5ygtzfnveLRkV6pOkHAmw6DdILvenWghGLMtjwLoBMx0LFs91A/M4cPodgit1GieKIKZImMzASIyEzTiYlLRijGiWpzG4aoDQLJMsT5iZ6rKkKyqiAyBWdVxb8L4KhpMOJVZl6qaQyQgruv7sImKzaxrA70ZTsvXq3cuDThzMbMIjZ2BdqocrErzKSlTNT4G/rnswVldMW3vuUNjjB2Y/v51R4Phs+dYU/szlKs+5Wdxs8JU+0/EIPEGyFxAHGepIdKsJrpWWgeDj6MLVRI1zcoRYYAFRdYSH6IgYjH2rAUu22YmQKpdAKZ4tjooU4TEtpmZF6wL1YTkOZO/nUQJvjaQL/u72Fdl/i+qFtN+1KCJJG--j885WHIWa5W6DlQ6--BrX3Xq5dB8llVyuaB3lFxw==
+
+82 matches across 24 files
+
+
+Searching 218 files for "form-group"
+
+/Users/pierrecariou/code/MattMonta/PCC/app/views/categories/_box.html.erb:
+    8      <div class="category-name"><%= category.name %></div>
+    9
+   10:     <div class="form-group hidden article_category_id"><input class="form-control hidden" value="<%= category.id %>" type="hidden" name="article[category_id]" id="article_category_id" ></div>
+   11
+   12      <div class="sub-categories hidden" id="category-<%=category.id%>">
+   13
+   14:       <fieldset class="form-group ">
+   15          <input type="hidden" name="article[sub_category_ids][]" value="">
+   16          <div id="sub_categories_inputs">
+
+/Users/pierrecariou/code/MattMonta/PCC/config/initializers/simple_form_bootstrap.rb:
+   50    #
+   51    # vertical default_wrapper
+   52:   config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+   53      b.use :html5
+   54      b.use :placeholder
+   ..
+   65
+   66    # vertical input for boolean
+   67:   config.wrappers :vertical_boolean, tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+   68      b.use :html5
+   69      b.optional :readonly
+   ..
+   77
+   78    # vertical input for radio buttons and check boxes
+   79:   config.wrappers :vertical_collection, item_wrapper_class: 'form-check', tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+   80      b.use :html5
+   81      b.optional :readonly
+   ..
+   89
+   90    # vertical input for inline radio buttons and check boxes
+   91:   config.wrappers :vertical_collection_inline, item_wrapper_class: 'form-check form-check-inline', tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+   92      b.use :html5
+   93      b.optional :readonly
+   ..
+  101
+  102    # vertical file input
+  103:   config.wrappers :vertical_file, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  104      b.use :html5
+  105      b.use :placeholder
+  ...
+  114
+  115    # vertical multi select
+  116:   config.wrappers :vertical_multi_select, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  117      b.use :html5
+  118      b.optional :readonly
+  ...
+  126
+  127    # vertical range input
+  128:   config.wrappers :vertical_range, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  129      b.use :html5
+  130      b.use :placeholder
+  ...
+  141    #
+  142    # horizontal default_wrapper
+  143:   config.wrappers :horizontal_form, tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  144      b.use :html5
+  145      b.use :placeholder
+  ...
+  158
+  159    # horizontal input for boolean
+  160:   config.wrappers :horizontal_boolean, tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  161      b.use :html5
+  162      b.optional :readonly
+  ...
+  175
+  176    # horizontal input for radio buttons and check boxes
+  177:   config.wrappers :horizontal_collection, item_wrapper_class: 'form-check', tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  178      b.use :html5
+  179      b.optional :readonly
+  ...
+  187
+  188    # horizontal input for inline radio buttons and check boxes
+  189:   config.wrappers :horizontal_collection_inline, item_wrapper_class: 'form-check form-check-inline', tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  190      b.use :html5
+  191      b.optional :readonly
+  ...
+  199
+  200    # horizontal file input
+  201:   config.wrappers :horizontal_file, tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  202      b.use :html5
+  203      b.use :placeholder
+  ...
+  214
+  215    # horizontal multi select
+  216:   config.wrappers :horizontal_multi_select, tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  217      b.use :html5
+  218      b.optional :readonly
+  ...
+  228
+  229    # horizontal range input
+  230:   config.wrappers :horizontal_range, tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  231      b.use :html5
+  232      b.use :placeholder
+  ...
+  245    #
+  246    # inline default_wrapper
+  247:   config.wrappers :inline_form, tag: 'span', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  248      b.use :html5
+  249      b.use :placeholder
+  ...
+  261
+  262    # inline input for boolean
+  263:   config.wrappers :inline_boolean, tag: 'span', class: 'form-check flex-wrap justify-content-start mr-sm-2', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  264      b.use :html5
+  265      b.optional :readonly
+  ...
+  274    #
+  275    # custom input for boolean
+  276:   config.wrappers :custom_boolean, tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  277      b.use :html5
+  278      b.optional :readonly
+  ...
+  285    end
+  286
+  287:   config.wrappers :custom_boolean_switch, tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  288      b.use :html5
+  289      b.optional :readonly
+  ...
+  297
+  298    # custom input for radio buttons and check boxes
+  299:   config.wrappers :custom_collection, item_wrapper_class: 'custom-control', tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  300      b.use :html5
+  301      b.optional :readonly
+  ...
+  309
+  310    # custom input for inline radio buttons and check boxes
+  311:   config.wrappers :custom_collection_inline, item_wrapper_class: 'custom-control custom-control-inline', tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  312      b.use :html5
+  313      b.optional :readonly
+  ...
+  321
+  322    # custom file input
+  323:   config.wrappers :custom_file, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  324      b.use :html5
+  325      b.use :placeholder
+  ...
+  337
+  338    # custom multi select
+  339:   config.wrappers :custom_multi_select, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  340      b.use :html5
+  341      b.optional :readonly
+  ...
+  349
+  350    # custom range input
+  351:   config.wrappers :custom_range, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  352      b.use :html5
+  353      b.use :placeholder
+  ...
+  363    # Input Group - custom component
+  364    # see example app and config at https://github.com/rafaelfranca/simple_form-bootstrap
+  365:   # config.wrappers :input_group, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  366    #   b.use :html5
+  367    #   b.use :placeholder
+  ...
+  385    #
+  386    # floating labels default_wrapper
+  387:   config.wrappers :floating_labels_form, tag: 'div', class: 'form-label-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  388      b.use :html5
+  389      b.use :placeholder
+  ...
+  400
+  401    # custom multi select
+  402:   config.wrappers :floating_labels_select, tag: 'div', class: 'form-label-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  403      b.use :html5
+  404      b.optional :readonly
+
+76 matches across 2 files
+
+
+Searching 218 files for ".form-group"
+
+0 matches
+
+Searching 218 files for ".form-group"
+
+0 matches
+
+Searching 218 files for "check-boxes"
+
+0 matches

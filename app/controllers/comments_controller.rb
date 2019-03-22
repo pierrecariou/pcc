@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @comment.date = Time.now.to_s.split()[0].split("-")[2] + " " + months[Time.now.to_s.split()[0].split("-")[1].to_i] + " " + Time.now.to_s.split()[0].split("-")[0]
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to article_path(@article) }
+        format.html { redirect_to article_path(@article, query: { debat_title: @comment.title }, anchor: 'anchor-comment') }
         format.js
       end
     else
