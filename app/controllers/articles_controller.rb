@@ -42,12 +42,6 @@ class ArticlesController < ApplicationController
       @sub_comment = SubComment.new
       @comment = Comment.new
     end
-      if @comment_selected
-        respond_to do |format|
-          format.html
-          format.js
-        end
-      end
   end
 
   def new

@@ -30,5 +30,9 @@
         </a>
       <%end %>
     </p>
+    <div class="flex-title-comment">
+     <div data-sub-comment-arrow="<%= sub_comment.id %>"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_sub_comment_path(sub_comment), method: :put, remote: :true%></div>
+     <div><%= sub_comment.stars %></div>
+     </div>
   </div>
 </div>
