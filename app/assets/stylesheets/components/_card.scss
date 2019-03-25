@@ -13,7 +13,7 @@
 }
 
 .article-preview {
-  margin-top: 28px;
+  // margin-top: 28px;
 }
 
 .article-comment {
@@ -140,7 +140,7 @@
   border-style: solid;
   border-width: 1px 0px 0px 0px;
   opacity: 0.15;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   color: black;
 }
 
@@ -221,10 +221,47 @@ i.upvoted {
   font-style: italic;
 }
 
+.footer-action a {
+  padding: 0px;
+}
+
+.user-first-last  {
+  opacity: 0.5;
+  font-size: 14px;
+  color: #000000;
+  font-style: italic;
+  font-weight: normal;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .up-arrow a {
   color: green;
 }
 
+.inactive-arrow a {
+  color: black;
+}
+
 .card-up {
   opacity: 0.5;
+}
+
+.upvote {
+vertical-align: middle;
+text-align: center;
+margin-right: 10px
+}
+
+.flex-upvote {
+  display: flex;
+  vertical-align: middle;
+}
+
+.up-with-style {
+
+margin-top: 40px;
+
+
 }
