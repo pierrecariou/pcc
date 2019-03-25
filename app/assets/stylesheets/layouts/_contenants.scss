@@ -9,10 +9,6 @@
   min-height: calc(100vh -280px);
 }
 
-.themes {
-  padding: 30px 0px;
-}
-
 .all-content {
   margin: 10px 0 0;
   display: flex;
@@ -54,7 +50,6 @@
   flex: 0 0 29%;
   display: flex;
   flex-direction: column;
-  width: 200px;
   // position: sticky !important;
   // top: 80px !important;
   p {
@@ -107,7 +102,6 @@
 .infos_user li {
   list-style:none;
   text-align: left;
-  margin-bottom: 5px;
 }
 
 .infos_user ul {
@@ -130,17 +124,9 @@
 }
 
 .info {
-  width: 75px;
-  height: 18px;
   opacity: 0.7;
-  font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
+  font-size: 12px;
   line-height: 1.29;
-  letter-spacing: normal;
-  text-align: left;
-  // color: #000000;
 }
 
 .form-control:focus {

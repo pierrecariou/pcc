@@ -23,13 +23,14 @@ h2 {
   cursor: pointer;
 }
 
+
 a.tablinks {
   color: #000000;
   opacity: 0.5;
   font-weight: bold;
   padding-top: 30px;
   margin-right: 30px;
-  font-size: 17px;
+  font-size: 16px;
   &:hover {
   text-decoration: none;
   opacity: 1;
@@ -50,6 +51,10 @@ a.tablinks {
       opacity: 1;
     }
   }
+  .collection_check_boxes:hover {
+    color: #5E0606;
+    opacity: 0.7;
+  }
   .form-check-input:checked + label {
     color: #5E0606;
     opacity: 1;
@@ -66,6 +71,10 @@ a.tablinks {
     opacity: 1;
     }
   }
+  .collection_check_boxes:hover {
+    color: #070D59;
+    opacity: 0.7;
+  }
   .form-check-input:checked + label {
     color: #070D59;
     opacity: 1;
@@ -81,6 +90,10 @@ a.tablinks {
     border-bottom: solid 1.5px #00541A;
     opacity: 1;
     }
+    }
+  .collection_check_boxes:hover {
+    color: #00541A;
+    opacity: 0.7;
   }
   .form-check-input:checked + label {
     color: #00541A;
@@ -97,6 +110,10 @@ a.tablinks {
     border-bottom: solid 1.5px #E0BB20;
     opacity: 1;
     }
+  }
+  .collection_check_boxes:hover {
+    color: #E0BB20;
+    opacity: 0.7;
   }
   .form-check-input:checked + label {
     color: #E0BB20;
