@@ -1,5 +1,16 @@
 <div class="linebetween">
 </div>
+<div class="flex-upvote">
+<div class="upvote">
+  <div class="up-with-style">
+   <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
+      <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
+      <% else %>
+        <div data-article-arrow="<%= article.id %>" class="inactive-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
+      <%end %>
+      <div  class="card-up" data-article="<%= article.id %>"><%= article.upvotes %> </div>
+    </div>
+</div>
 <div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join(" ") %>">
 <!--   <div class="user-display">
   <div class="linebetween"></div>
@@ -35,7 +46,6 @@
 
       <div class="sub_categories_infos" >
 
-
         <div >
           <% article.article_sub_categories.each do |article_sub_category| %>
             <%= article_sub_category.sub_category.name %>
@@ -44,18 +54,19 @@
       </div>
     </div>
     <div class="footer-action" >
-      <% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
-      <div class="debat-button" ><%= link_to 'DEBATTRE', article_path(article) %></div>
-      <% end %>
-      <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
-      <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
-      <% else %>
-        <div data-article-arrow="<%= article.id %>"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
-      <%end %>
-      <div  class="card-up" data-article="<%= article.id %>"><%= article.upvotes %> </div>
+
+
+      <p class="date">Partagé le <%=article.date %>, par  &nbsp;</p>
+        <%= link_to user_path(article.user) do %>
+        <p class="user-first-last"> <%= article.user.first_name%> <%= article.user.last_name%></p>
+        <% end %>
+
+
     </div>
   </div>
 </div>
+</div>
+
 
 <!-- @articles[each] = article
 article.sub_categories.each

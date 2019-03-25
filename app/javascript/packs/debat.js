@@ -32,3 +32,14 @@
 // };
 
 // export { hideOtherDebates };
+
+
+<% if !current_page?(:controller => 'articles', :action => 'show', :id => article.id) %>
+      <div class="debat-button" ><%= link_to 'DEBATTRE', article_path(article) %></div>
+      <% end %>
+      <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
+      <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
+      <% else %>
+        <div data-article-arrow="<%= article.id %>"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
+      <%end %>
+      <div  class="card-up" data-article="<%= article.id %>"><%= article.upvotes %> </div>
