@@ -78,6 +78,17 @@
             <%=  link_to 'Année', articles_path(query: { date_from: -365.days.from_now }), :class => 'année'%>
           <%end %>
         <%end %>
+      <%else %>
+
+
+       <%=  link_to 'Jour', articles_path(query: { date_from: -1.days.from_now }), :class => 'jour'%>
+
+        &nbsp;
+        <%=  link_to 'Semaine', articles_path(query: { date_from: -7.days.from_now })%>
+        &nbsp;
+        <%=  link_to 'Mois', articles_path(query: { date_from: -30.days.from_now })%>
+        &nbsp;
+        <%=  link_to 'Année', articles_path(query: { date_from: -365.days.from_now })%>
       <%end %>
     </div>
   </div>
