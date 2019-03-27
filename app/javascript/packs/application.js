@@ -18,6 +18,11 @@ selectSubcategory();
 
 // // openTheme();
 
+import { selectDate } from "./select_date";
+
+
+selectDate();
+
 
 import { openSubCategory } from "./tabs_sub_categories";
 import { submitForm } from "./submit_form";
@@ -27,6 +32,8 @@ submitForm()
 if (document.querySelectorAll(".tab")) {
   openSubCategory();
 }
+
+
 
 // import { turnTabIntoActive } from "./turnTabIntoActive"
 

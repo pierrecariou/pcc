@@ -154,3 +154,27 @@ a.tablinks {
 .user_name a:hover {
   text-decoration: underline;
 }
+
+.flex-dates-filter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dates {
+  margin-top: 25px;
+  a {
+
+  opacity: 0.5;
+  font-size: 16px;
+  color: #000000;
+  &:hover {
+    font-weight: bold;
+    opacity: 1;
+  }
+  }
+}
+
+.dates .active {
+  font-weight: bold;
+  opacity: 1;
+}
