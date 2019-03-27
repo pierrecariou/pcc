@@ -24,6 +24,7 @@ class Article < ApplicationRecord
 
   scope :debat, ->(debat_title) { includes(:comments).where(comments: { title: debat_title }) }
 
+  scope :from_date, ->(date_from) { where("precise_date >= ?", date_from)}
 
   validates :URL, presence: true
   # validates :URL, uniqueness: true
