@@ -84,7 +84,7 @@
        <%=  link_to 'Jour', articles_path(query: { date_from: -1.days.from_now }), :class => 'jour'%>
 
         &nbsp;
-        <%=  link_to 'Semaine', articles_path(query: { date_from: -7.days.from_now })%>
+        <%=  link_to 'Semaine', articles_path(query: { date_from: -7.days.from_now }), :class => 'semaine' %>
         &nbsp;
         <%=  link_to 'Mois', articles_path(query: { date_from: -30.days.from_now })%>
         &nbsp;

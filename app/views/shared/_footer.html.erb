@@ -3,10 +3,10 @@
 <div class="footer">
 <%@categories.each do |category| %>
 <div>
-  <p class="link_cat"><%= link_to "#{category.name}", articles_path(query: { category_name: category.name }) %></p>
+  <p class="link_cat"><%= link_to "#{category.name}", articles_path(query: { category_name: category.name, date_from: params.dig(:query, :date_from) }) %></p>
   <ul class="Ulist">
     <% category.sub_categories.each do |sub_category| %>
-    <li class="link_sub"><%= link_to "#{sub_category.name}", articles_path(query: { sub_category_names: [sub_category.name] }) %></li>
+    <li class="link_sub"><%= link_to "#{sub_category.name}", articles_path(query: { sub_category_names: [sub_category.name], category_name: category.name, date_from: params.dig(:query, :date_from) }) %></li>
     <%end %>
   </ul>
 </div>
