@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
   def index
+    @articles = policy_scope(Article).order(created_at: :desc)
     search = params[:query]
     if search
       if search[:sub_category_names] && search[:sub_category_names].reject(&:blank?).any?
@@ -47,6 +48,7 @@ class ArticlesController < ApplicationController
   def new
     @user = current_user
     @article = Article.new
+    authorize @article
   end
 
   def create
@@ -57,6 +59,7 @@ class ArticlesController < ApplicationController
     scrap(@article.URL)
     cat = @article.sub_categories.map(&:category).first
     @article.category = cat
+    authorize @article
 
     if @article.save
       redirect_to articles_path(query: { category_name: @article.category.name }, anchor: 'new-article-anchor')
@@ -80,6 +83,10 @@ class ArticlesController < ApplicationController
         end
       end
     end
+  end
+
+  def update
+    authorize @article
   end
 
   private

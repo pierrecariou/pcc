@@ -13,7 +13,7 @@ ruby '2.5.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 
-
+gem 'pundit'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
