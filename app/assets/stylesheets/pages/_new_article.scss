@@ -10,7 +10,6 @@
 }
 
 .category-box {
-  flex: 0 0 25%;
 }
 
 .category-box.not-active {
@@ -56,6 +55,9 @@
   &.Numérique {
     background-color: rgba(224, 187, 44, 0.7);
   }
+  &.Humanités {
+    background-color: rgba(72, 61, 139, 0.7);
+  }
 }
 
 .category-box .form-check-input:checked + .subcategory-choice {
@@ -79,6 +81,9 @@
   &.Numérique {
     background-color: rgba(224, 187, 44, 1);
   }
+  &.Humanités {
+    background-color: rgba(72, 61, 139, 1);
+  }
 }
 
 .category-box .subcategory-choice.active {
@@ -93,6 +98,9 @@
   }
   &.Numérique {
     background-color: #E0BB20;
+  }
+  &.Humanités {
+    background-color: #483D8B;
   }
 }
 
@@ -132,3 +140,6 @@
   height: 90px;
 }
 
+.modal-lg {
+  width: 1122px;
+}

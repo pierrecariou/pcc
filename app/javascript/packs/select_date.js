@@ -1,13 +1,12 @@
 const dates = document.querySelectorAll('.dates');
 
 function selectDate() {
-  const semaine = document.querySelector('.semaine');
+  const semaine = document.querySelector('.root');
   // jours.forEach((jour1) => {
-  if (window.location.pathname === '/') {
-    semaine.click();
-  }
+  if (semaine) {
 
-  // });
+  semaine.click();
+  }
 };
 
 export { selectDate };

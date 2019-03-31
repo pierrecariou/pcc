@@ -121,6 +121,26 @@ a.tablinks {
   }
 }
 
+.Humanités {
+  &:hover, &.active {
+    color: #483D8B;
+  }
+  &.tablinks {
+  &:hover, &.active {
+    border-bottom: solid 1.5px #483D8B;
+    opacity: 1;
+    }
+  }
+  .collection_check_boxes:hover {
+    color: #483D8B;
+    opacity: 0.7;
+  }
+  .form-check-input:checked + label {
+    color: #483D8B;
+    opacity: 1;
+  }
+}
+
 .liste-subcategory {
   list-style: none;
   padding-left: 0px;
@@ -138,6 +158,15 @@ a.tablinks {
   top: 80px;
 }
 
+// .back-yellow {
+//   background-color: rgba(251, 249, 224, 1)
+
+// }
+
+// .back-grey {
+//   background-color: rgba(250, 250, 250, 1)
+// }
+
 .act {
   color: #000000;
 }
@@ -148,7 +177,7 @@ a.tablinks {
 }
 
 .fa-chevron-up {
-  color: #00541A;;
+  color: black;
 }
 
 .user_name a:hover {
