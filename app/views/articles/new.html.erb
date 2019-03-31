@@ -1,11 +1,10 @@
-<div class="pcc-wrapper">
+<!-- <div class="pcc-wrapper">
   <div class="container new-article-form">
 
     <h2>Partager un article</h2>
 
     <%= simple_form_for @article do |f| %>
       <%= f.input :URL, label: 'Lien de l\'article' %>
-      <%= f.input :description, label: 'Commentaire' %>
       <div class="categories">
         <% Category.all.each do |category| %>
             <%= render 'categories/box', category: category, f: f %>
@@ -18,7 +17,7 @@
     <% end %>
 
   </div>
-</div>
+</div> -->
 
 
 

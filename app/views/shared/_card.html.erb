@@ -55,11 +55,12 @@
     </div>
     <div class="footer-action" >
 
-
-      <p class="date">Partagé le <%=article.date %>, par  &nbsp;</p>
+        <p class="date">Partagé par</p>
+        &nbsp;
         <%= link_to user_path(article.user) do %>
         <p class="user-first-last"> <%= article.user.first_name%> <%= article.user.last_name%></p>
         <% end %>
+        <p class="date">, le <%=article.date %></p>
 
 
     </div>

@@ -89,6 +89,11 @@
   color: #E0BB20;
 }
 
+.article-preview:hover .Humanités a {
+  transition-duration: 0.4s;
+  color: #483D8B;
+}
+
 .debat-button {
   opacity: 0.9;
   &:hover {

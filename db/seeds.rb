@@ -45,6 +45,7 @@ category_ecologie = Category.create!(name: 'Ecologie')
 category_politique = Category.create!(name: 'Politique')
 category_economie = Category.create!(name: 'Economie')
 category_numerique = Category.create!(name: 'Numérique')
+category_humanites = Category.create!(name: 'Humanités')
 
 puts 'creating sub_categories'
 sub_category_energie = SubCategory.create!(name: 'Energie', category: category_ecologie)
@@ -57,7 +58,7 @@ sub_category_agriculture = SubCategory.create!(name: 'Agriculture', category: ca
 sub_category_finance = SubCategory.create!(name: 'Finance', category: category_economie)
 sub_category_business = SubCategory.create!(name: 'Business', category: category_economie)
 sub_category_commerce_international = SubCategory.create!(name: 'Commerce International', category: category_economie)
-sub_category_inegalites = SubCategory.create!(name: 'Inégalités', category: category_economie)
+sub_category_inegalites = SubCategory.create!(name: 'Rapports sociaux', category: category_economie)
 sub_category_economie_politique = SubCategory.create!(name: 'Economie politique', category: category_economie)
 sub_category_theorie = SubCategory.create!(name: 'Théories', category: category_economie)
 
@@ -75,6 +76,12 @@ sub_category_transhumanisme = SubCategory.create!(name: 'Transhumanisme', catego
 sub_category_technologie = SubCategory.create!(name: 'Technologie', category: category_numerique)
 sub_category_futurologie = SubCategory.create!(name: 'Futurologie', category: category_numerique)
 
+sub_category_philosophie = SubCategory.create!(name: 'Philosophie', category: category_humanites)
+sub_category_histoire = SubCategory.create!(name: 'Histoire', category: category_humanites)
+sub_category_art = SubCategory.create!(name: 'Art', category: category_humanites)
+sub_category_societe = SubCategory.create!(name: 'Société', category: category_humanites)
+sub_category_psychologie = SubCategory.create!(name: 'Psychologie', category: category_humanites)
+sub_category_science = SubCategory.create!(name: 'Science', category: category_humanites)
 
 puts 'Creating articles...'
 
@@ -85,7 +92,8 @@ article1 = Article.new(
    description: 'Un long article sur les différents impacts de Facebook sur  le fonctionnement de la démocratie américaine.',
    upvotes: 36,
    user: user7,
-   date: "02 mars 2019"
+   date: "02 mars 2019",
+   precise_date: -20.days.from_now
  )
 scrap(article1.URL, article1)
 article1.save
@@ -97,7 +105,8 @@ article2 = Article.new(
    description: 'Quand Amazon vend une solution de reconnaissance faciale aux autorités américaines qui les implantent sans demander le consentement des populations locales.',
    upvotes: 23,
    user: user4,
-   date: "09 février 2019"
+   date: "09 février 2019",
+   precise_date: -50.days.from_now
  )
 scrap(article2.URL, article2)
 article2.save
@@ -109,7 +118,8 @@ article3 = Article.new(
    description: 'Plaidoyer optimiste de Xavier Niel quant aux possibilités offertent par le numérique à la France.',
    upvotes: 39,
    user: user1,
-   date: "12 mars 2019"
+   date: "12 mars 2019",
+   precise_date: -20.days.from_now
  )
 scrap(article3.URL, article3)
 article3.save
@@ -121,7 +131,8 @@ article4 = Article.new(
    description: 'Étude ludique et pragmatique sur les principaux raisonnements de valorisation utilisés par les VC. #venturecapital #startup #levéedefonds',
    upvotes: 7,
    user: user3,
-   date: "13 mars 2019"
+   date: "13 mars 2019",
+   precise_date: -20.days.from_now
  )
 scrap(article4.URL, article4)
 article4.save
@@ -133,7 +144,8 @@ article6 = Article.new(
    description: "Retour sur les conditions de travail dans les entrepôts d'Amazon.",
    upvotes: 12,
    user: user8,
-   date: "10 mars 2019"
+   date: "10 mars 2019",
+   precise_date: -20.days.from_now
  )
 scrap(article6.URL, article6)
 article6.save
@@ -145,7 +157,8 @@ article7 = Article.new(
    description: "Google nous est si utile, peut-on concevoir qu’il devienne un service public ?",
    upvotes: 18,
    user: user1,
-   date: "18 mars 2019"
+   date: "18 mars 2019",
+   precise_date: -15.days.from_now
  )
 scrap(article7.URL, article7)
 article7.save
@@ -157,7 +170,8 @@ article8 = Article.new(
    description: "Retour sur les conditions de travail dans les entrepôts d'Amazon.",
    upvotes: 12,
    user: user1,
-   date: "16 mars 2019"
+   date: "16 mars 2019",
+   precise_date: -15.days.from_now
  )
 scrap(article8.URL, article8)
 article8.save
@@ -182,7 +196,8 @@ article10 = Article.new(
    description: "D'après Eric Sadin, l'industrie du numérique ambitionne de nous influencer en permanence. ",
    upvotes: 29,
    user: user2,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -300.days.from_now
  )
 scrap(article10.URL, article10)
 article10.save
@@ -194,7 +209,8 @@ article11 = Article.new(
    description: "Retour sur les conditions de travail dans les entrepôts d'Amazon.",
    upvotes: 12,
    user: user3,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -300.days.from_now
  )
 scrap(article11.URL, article11)
 article11.save
@@ -217,7 +233,8 @@ article13 = Article.new(
    description: "Le transhumanisme ressemble à s’y méprendre à un totalitarisme",
    upvotes: 34,
    user: user4,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -300.days.from_now
  )
 scrap(article13.URL, article13)
 article13.save
@@ -229,7 +246,8 @@ article14 = Article.new(
    description: "Le transhumanisme, un eugénisme relooké",
    upvotes: 12,
    user: user4,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -300.days.from_now
  )
 scrap(article14.URL, article14)
 article14.save
@@ -241,7 +259,8 @@ article15 = Article.new(
    description: "La blockchain et sur les implications de cette technologie",
    upvotes: 92,
    user: user5,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -300.days.from_now
  )
 scrap(article15.URL, article15)
 article15.save
@@ -266,7 +285,8 @@ article17 = Article.new(
    description: "Un article qui questionne la capacité de la Silicon Valley à reprendre le contrôle",
    upvotes: 32,
    user: user6,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article17.URL, article17)
 article17.save
@@ -278,7 +298,8 @@ article19 = Article.new(
    description: "Un article pour nous aider à penser le futur",
    upvotes: 40,
    user: user6,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article19.URL, article19)
 article19.save
@@ -290,7 +311,8 @@ article20 = Article.new(
    description: "Alors crédible ou non ?",
    upvotes: 19,
    user: user7,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article20.URL, article20)
 article20.save
@@ -302,7 +324,8 @@ article21 = Article.new(
    description: "Un article intéressant sur les conséquences d’un baril à 100 dollars",
    upvotes: 22,
    user: user7,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article21.URL, article21)
 article21.save
@@ -314,7 +337,8 @@ article22 = Article.new(
    description: "Donald a réellement décidé de tous nous faire cramer",
    upvotes: 52,
    user: user8,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article22.URL, article22)
 article22.save
@@ -326,7 +350,8 @@ article23 = Article.new(
    description: "Prix Nobel mérité ou absurde ? That’s the question dude",
    upvotes: 12,
    user: user8,
-   date: "13 mars 2018"
+   date: "13 mars 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article23.URL, article23)
 article23.save
@@ -349,7 +374,8 @@ article25 = Article.new(
    description: "Cuicui cuicui",
    upvotes: 54,
    user: user9,
-   date: "12 mars 2019"
+   date: "12 mars 2019",
+   precise_date: -20.days.from_now
  )
 scrap(article25.URL, article25)
 article25.save
@@ -361,7 +387,8 @@ article26 = Article.new(
    description: "Allo ? allo ? Désolé ca a coupé ",
    upvotes: 4,
    user: user10,
-   date: "22 octobre 2018"
+   date: "22 octobre 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article26.URL, article26)
 article26.save
@@ -373,7 +400,8 @@ article27 = Article.new(
    description: "Alternative searching ",
    upvotes: 32,
    user: user10,
-   date: "14 février 2019"
+   date: "14 février 2019",
+   precise_date: -50.days.from_now
  )
 scrap(article27.URL, article27)
 article27.save
@@ -385,7 +413,8 @@ article28 = Article.new(
    description: "Crédible ou pute à clic ?",
    upvotes: 2,
    user: user1,
-   date: "11 mars 2019"
+   date: "11 mars 2019",
+   precise_date: -20.days.from_now
  )
 scrap(article28.URL, article28)
 article28.save
@@ -397,7 +426,8 @@ article29 = Article.new(
    description: "VIVE L’EUROPE ECOLO",
    upvotes: 55,
    user: user1,
-   date: "06 janvier 2019"
+   date: "06 janvier 2019",
+   precise_date: -50.days.from_now
  )
 scrap(article29.URL, article29)
 article29.save
@@ -420,7 +450,8 @@ article31 = Article.new(
    description: "Toujours les mêmes",
    upvotes: 42,
    user: user2,
-   date: "30 juin 2018"
+   date: "30 juin 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article31.URL, article31)
 article31.save
@@ -432,7 +463,8 @@ article32 = Article.new(
    description: "On parle pas de savon la",
    upvotes: 42,
    user: user3,
-   date: "07 mars 2019"
+   date: "07 mars 2019",
+   precise_date: -20.days.from_now
  )
 scrap(article32.URL, article32)
 article32.save
@@ -445,7 +477,8 @@ article33 = Article.new(
    description: "Rien ne change ou tout s’empire ? Question de perspective Watson",
    upvotes: 18,
    user: user3,
-   date: "19 mars 2019"
+   date: "19 mars 2019",
+   precise_date: -20.days.from_now
  )
 scrap(article33.URL, article33)
 article33.save
@@ -457,7 +490,8 @@ article34 = Article.new(
    description: "",
    upvotes: 3,
    user: user4,
-   date: "20 janvier 2019"
+   date: "20 janvier 2019",
+   precise_date: -50.days.from_now
  )
 scrap(article34.URL, article34)
 article34.save
@@ -491,7 +525,8 @@ article37 = Article.new(
    description: "Sur la gestion de la pauvreté dans le monde en temps de crise économique",
    upvotes: 72,
    user: user5,
-   date: "12 septembre 2018"
+   date: "12 septembre 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article37.URL, article37)
 article37.save
@@ -503,7 +538,8 @@ article38 = Article.new(
    description: "Sur l’impacte des inégalités économique sur la croissance selon le FMI",
    upvotes: 79,
    user: user6,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article38.URL, article38)
 article38.save
@@ -515,7 +551,8 @@ article39 = Article.new(
    description: "Article sur la prise en compte dans la théorie marxiste de la crise environnementale comme cause de la chute du système capitaliste.",
    upvotes: 14,
    user: user6,
-   date: "10 mars 2019"
+   date: "10 mars 2019",
+   precise_date: -20.days.from_now
  )
 scrap(article39.URL, article39)
 article39.save
@@ -539,7 +576,8 @@ article41 = Article.new(
    description: "Qui appel à repenser les théories économiques qui sous tendent les mesures prisent pour lutter contre le chômage",
    upvotes: 23,
    user: user7,
-   date: "11 mars 2019"
+   date: "11 mars 2019",
+   precise_date: -20.days.from_now
  )
 scrap(article41.URL, article41)
 article41.save
@@ -551,7 +589,8 @@ article42 = Article.new(
    description: "Sur le sens du néolibéralisme",
    upvotes: 6,
    user: user8,
-   date: "12 avril 2018"
+   date: "12 avril 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article42.URL, article42)
 article42.save
@@ -574,7 +613,8 @@ article44 = Article.new(
    description: "Le nouvel ordre mondial, fausse bonne idée ?",
    upvotes: 9,
    user: user9,
-   date: "24 mars 2019"
+   date: "24 mars 2019",
+   precise_date: -10.days.from_now
  )
 scrap(article44.URL, article44)
 article44.save
@@ -586,7 +626,8 @@ article45 = Article.new(
    description: "Sur la catastrophe politique qu’est Donald Trump",
    upvotes: 52,
    user: user9,
-   date: "07 juin 2018"
+   date: "07 juin 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article45.URL, article45)
 article45.save
@@ -598,7 +639,8 @@ article46 = Article.new(
    description: "Depuis l’élection de Trump, l’alliance US UE remise en question",
    upvotes: 19,
    user: user10,
-   date: "15 mars 2018"
+   date: "15 mars 2018",
+   precise_date: -100.days.from_now
  )
 scrap(article46.URL, article46)
 article46.save
@@ -610,7 +652,8 @@ article47 = Article.new(
    description: "Excellent article sur le soft-fascisme qui voit le jour en Hongrie ",
    upvotes: 52,
    user: user10,
-   date: "12 janvier 2019"
+   date: "12 janvier 2019",
+   precise_date: -50.days.from_now
  )
 scrap(article47.URL, article47)
 article47.save
@@ -622,7 +665,8 @@ article48 = Article.new(
    description: "Sur la perte d’influence de l’Occident",
    upvotes: 67,
    user: user9,
-   date: "25 février 2019"
+   date: "25 février 2019",
+   precise_date: -25.days.from_now
  )
 scrap(article48.URL, article48)
 article48.save
@@ -645,7 +689,8 @@ article50 = Article.new(
    description: "Sur les moyens de faire baisser les coûts de fonctionnement de régime de protection sociale",
    upvotes: 45,
    user: user8,
-   date: "12 mars 2018"
+   date: "12 mars 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article50.URL, article50)
 article50.save
@@ -680,7 +725,8 @@ article53 = Article.new(
    description: "La réforme des indépendants dangereuse pour notre modèle sociale",
    upvotes: 12,
    user: user7,
-   date: "02 juillet 2018"
+   date: "02 juillet 2018",
+   precise_date: -200.days.from_now
  )
 scrap(article53.URL, article53)
 article53.save
