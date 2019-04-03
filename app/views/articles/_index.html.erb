@@ -1,7 +1,12 @@
 <div class="main-content">
   <div class="flex-dates-filter">
     <div class="top-feed">
-      <h2>Meilleurs articles</h2>
+      <%= link_to articles_path do  %>
+      <h2>Articles</h2>
+      <%end %>
+
+      <h2>Débats</h2>
+
     </div>
     <div class="dates">
       <%if params[:query] %>

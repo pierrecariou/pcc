@@ -3,11 +3,8 @@
 </div>
 <div class="all-content">
   <div class="sub_categories <%= @category&.name %>">
-    <% if @category.present? %>
-      <%= render 'sub_categories/index', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected %>
-      <% else %>
-      <%=  render 'users/index', articles: @articles %>
-    <% end %>
+
+      <%= render 'sub_categories/index', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected, categories: @categories %>
   </div>
     <%= render 'articles/index', articles: @articles %>
 </div>
