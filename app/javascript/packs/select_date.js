@@ -1,13 +1,12 @@
 const dates = document.querySelectorAll('.dates');
 
 function selectDate() {
-  const jour = document.querySelector('.jour');
+  const semaine = document.querySelector('.root');
   // jours.forEach((jour1) => {
-    // jour.click();
-    jour.addEventListener('click', (event) => {
-      jour.classList.add('active');
-    });
-  // });
+  if (semaine) {
+
+  semaine.click();
+  }
 };
 
 export { selectDate };
