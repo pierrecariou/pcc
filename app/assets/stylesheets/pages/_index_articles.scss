@@ -19,17 +19,14 @@ h2 {
 
 .tablink label {
   opacity: 0.5;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
 
 a.tablinks {
   color: #000000;
-  opacity: 0.5;
   font-weight: bold;
-  padding-top: 30px;
-  margin-right: 30px;
   font-size: 16px;
   &:hover {
   text-decoration: none;
@@ -45,12 +42,7 @@ a.tablinks {
   &:hover, &.active, {
     color: #5E0606;
   }
-  &.tablinks {
-    &:hover, &.active {
-      border-bottom: solid 1.5px #5E0606;
-      opacity: 1;
-    }
-  }
+
   .collection_check_boxes:hover {
     color: #5E0606;
     opacity: 0.7;
@@ -65,12 +57,7 @@ a.tablinks {
   &:hover, &.active {
     color: #070D59;
   }
-  &.tablinks {
-  &:hover, &.active {
-    border-bottom: solid 1.5px #070D59;
-    opacity: 1;
-    }
-  }
+
   .collection_check_boxes:hover {
     color: #070D59;
     opacity: 0.7;
@@ -85,12 +72,7 @@ a.tablinks {
   &:hover, &.active {
     color: #00541A;
   }
-  &.tablinks {
-  &:hover, &.active {
-    border-bottom: solid 1.5px #00541A;
-    opacity: 1;
-    }
-    }
+
   .collection_check_boxes:hover {
     color: #00541A;
     opacity: 0.7;
@@ -105,12 +87,7 @@ a.tablinks {
   &:hover, &.active {
     color: #E0BB20;
   }
-  &.tablinks {
-  &:hover, &.active {
-    border-bottom: solid 1.5px #E0BB20;
-    opacity: 1;
-    }
-  }
+
   .collection_check_boxes:hover {
     color: #E0BB20;
     opacity: 0.7;
@@ -125,12 +102,7 @@ a.tablinks {
   &:hover, &.active {
     color: #483D8B;
   }
-  &.tablinks {
-  &:hover, &.active {
-    border-bottom: solid 1.5px #483D8B;
-    opacity: 1;
-    }
-  }
+
   .collection_check_boxes:hover {
     color: #483D8B;
     opacity: 0.7;
@@ -190,7 +162,6 @@ a.tablinks {
 }
 
 .dates {
-  margin-top: 25px;
   a {
 
   opacity: 0.5;
