@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_153504) do
+ActiveRecord::Schema.define(version: 2019_04_05_090652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 2019_04_03_153504) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comment_sub_categories", force: :cascade do |t|
+    t.bigint "sub_category_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_sub_categories_on_comment_id"
+    t.index ["sub_category_id"], name: "index_comment_sub_categories_on_sub_category_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string "title"
     t.text "text"
@@ -66,6 +75,9 @@ ActiveRecord::Schema.define(version: 2019_04_03_153504) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "date"
+    t.date "precise_date"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_comments_on_category_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -124,6 +136,9 @@ ActiveRecord::Schema.define(version: 2019_04_03_153504) do
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users"
   add_foreign_key "by_user_upvotes", "articles"
+  add_foreign_key "comment_sub_categories", "comments"
+  add_foreign_key "comment_sub_categories", "sub_categories"
+  add_foreign_key "comments", "categories"
   add_foreign_key "comments", "users"
   add_foreign_key "sub_categories", "categories"
   add_foreign_key "sub_comments", "comments"

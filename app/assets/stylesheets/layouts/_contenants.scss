@@ -40,7 +40,7 @@
 .sub_categories {
   margin-top: -50px;
   .tab {
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
   }
 }
 
@@ -66,6 +66,10 @@
 
 .left-side-info h2 {
   margin-bottom: 8px;
+}
+
+.left-side-info a {
+  font-weight: 24px
 }
 
 .flex-cat-img {

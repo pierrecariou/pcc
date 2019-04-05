@@ -2,12 +2,12 @@
   <div class="flex-dates-filter">
     <div class="top-feed">
       <%= link_to articles_path(query: { date_from: params.dig(:query, :date_from) }) do  %>
-      <div class="active_debat_comment">
       <h2>Articles</h2>
-      </div>
       <%end %>
-      <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from) }) do %>
+      <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from) }) do  %>
+      <div class="active_debat_comment">
       <h2>Débats</h2>
+      </div>
       <%end %>
     </div>
     <div class="dates">
@@ -97,8 +97,8 @@
       <%end %>
     </div>
   </div>
-  <% articles.each do |article| %>
-    <%= render "shared/card", article: article %>
+  <% comments.each do |comment| %>
+    <%= render "shared/card_comment", comment: comment %>
   <%end %>
   <div  id="new-article-anchor">
   </div>

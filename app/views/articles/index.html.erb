@@ -3,7 +3,7 @@
 </div>
 <div class="all-content">
   <div class="sub_categories <%= @category&.name %>">
-    <%= render 'sub_categories/index', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected, categories: @categories %>
+    <%= render 'sub_categories/index_articles', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected, categories: @categories %>
   </div>
     <%= render 'articles/index', articles: @articles %>
 </div>
