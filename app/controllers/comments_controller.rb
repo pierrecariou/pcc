@@ -1,7 +1,30 @@
 class CommentsController < ApplicationController
 
   def index
-    @comments = Comment.all
+    search = params[:query]
+    if search
+      if search[:date_from] && search[:category_name] && search[:sub_category_names] && search[:sub_category_names].reject(&:blank?).any?
+        @comments = Comment.from_date(search[:date_from]) & Comment.from_sub_categories(search[:sub_category_names])
+        # @articles = policy_scope(Article)
+        @sub_categories_selected = SubCategory.where(name: search[:sub_category_names])
+        @category = @sub_categories_selected.last&.category
+        @sub_categories = @category&.sub_categories
+      elsif search[:date_from] && search[:category_name]
+        @comments = Comment.from_date(search[:date_from]) & Comment.from_category(search[:category_name])
+        # @articles = policy_scope(Article)
+        @category = Category.find_by_name(search[:category_name])
+        @sub_categories = @category.sub_categories
+      elsif search[:date_from]
+        @comments = Comment.from_date(search[:date_from])
+        # @articles = policy_scope(Article)
+      end
+    else
+      @comments = Comment.all
+      # @articles = policy_scope(Article)
+      @sub_categories = []
+      @category = Category.find_by_name("top")
+    end
+    @categories = Category.all
   end
 
   def new

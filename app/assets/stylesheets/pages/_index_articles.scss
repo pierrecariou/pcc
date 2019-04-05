@@ -27,7 +27,7 @@ h2 {
 a.tablinks {
   color: #000000;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 24px;
   &:hover {
   text-decoration: none;
   opacity: 1;
@@ -175,6 +175,11 @@ a.tablinks {
 }
 
 .dates .active {
+  font-weight: bold;
+  opacity: 1;
+}
+
+.active_debat_comment h2 {
   font-weight: bold;
   opacity: 1;
 }

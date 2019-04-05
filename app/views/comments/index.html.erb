@@ -1,5 +1,15 @@
-<% @comments.each do |comment| %>
-<%= comment.title %>
-<% end %>
+<div class="categories">
+  <%= render 'categories/index', categories: @categories %>
+</div>
+<div class="all-content">
+  <div class="sub_categories <%= @category&.name %>">
+    <%= render 'sub_categories/index_comments', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected, categories: @categories %>
+  </div>
+    <%= render 'comments/index', comments: @comments %>
+</div>
+
+
+
+ <!--  <%= render "shared/new_modal", article: @article %> -->
 
 
