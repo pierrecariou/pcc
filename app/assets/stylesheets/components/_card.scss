@@ -50,7 +50,6 @@
 
 .article-preview {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
 }
@@ -59,6 +58,7 @@
   overflow: hidden;
   width: 240px;
   height: 135px;
+  margin-right: 30px;
   img {
   width: 240px;
   height: 135px;
