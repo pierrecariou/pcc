@@ -1,7 +1,7 @@
 <div class="linebetween">
 </div>
 <div class="flex-upvote">
-<div class="upvote">
+<!-- <div class="upvote">
   <div class="up-with-style">
    <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
       <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
@@ -10,7 +10,7 @@
       <%end %>
       <div  class="card-up" data-article="<%= article.id %>"><%= article.upvotes %> </div>
     </div>
-</div>
+</div> -->
 <div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join(" ") %>">
 <!--   <div class="user-display">
   <div class="linebetween"></div>
@@ -38,21 +38,22 @@
       <h2 class="article-title <%= article.category.name %>"><a href="<%= article.URL %>"target="_blank"><%= article.title %></a></h2>
       <p class="article-source"><a href="<%= article.URL %>"target="_blank"><%= article.source %></a></p>
       <p class="article-site_description" id="comment-section-anchor"><a href="<%= article.URL %>"target="_blank"><%= article.site_description %></a></p>
-    </div>
-  </div>
-  <div class="footer-card" >
-    <div class="footer-info">
-
-
       <div class="sub_categories_infos" >
-
-        <div >
+        <div class="cat-info <%= article.category.name %>">
+        <%= article.category.name %>
+        </div>
           <% article.article_sub_categories.each do |article_sub_category| %>
             <%=link_to "#{article_sub_category.sub_category.name}", articles_path(query: { sub_category_names: [article_sub_category.sub_category.name], category_name: article_sub_category.sub_category.category.name, date_from: params.dig(:query, :date_from) }) %>
 
           <% end %>
-        </div>
+
       </div>
+    </div>
+  </div>
+<!--   <div class="footer-card" >
+    <div class="footer-info">
+
+
     </div>
     <div class="footer-action" >
 
@@ -65,7 +66,7 @@
 
 
     </div>
-  </div>
+  </div> -->
 </div>
 </div>
 

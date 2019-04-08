@@ -21,13 +21,15 @@ h2 {
   opacity: 0.5;
   margin-bottom: 10px;
   cursor: pointer;
+  margin-left: 21px;
 }
 
 
 a.tablinks {
-  color: #000000;
-  font-weight: bold;
   font-size: 24px;
+  font-weight: bold;
+  line-height: 1.29;
+  color: #000000;
   &:hover {
   text-decoration: none;
   opacity: 1;

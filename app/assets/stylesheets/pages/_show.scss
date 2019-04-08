@@ -140,10 +140,7 @@ button.navbar-wagon-item-comment {
 }
 
 .linebetween5 {
-  border-style: solid;
-  border-width: 1px 0px 0px 0px;
-  opacity: 0.15;
-  margin-bottom: 10px;
+  margin-bottom: 13px;
 }
 
 .user-names {
@@ -160,15 +157,16 @@ button.navbar-wagon-item-comment {
   margin-bottom: 5px;
 }
 
-.user-comment-button {
-  padding: 6px 20px;
-  border: solid 1px #000000;
-  background-color: #000000;
-  color: white;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: lighter;
-  margin-right: -15px;
+.user-comment-button button {
+  margin-right: 10px;
+    font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 }
 
 .user-sub-comment-button {

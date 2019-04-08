@@ -13,7 +13,7 @@
 }
 
 .article-preview {
-  // margin-top: 28px;
+  // margin-bottom: 3Opx;
 }
 
 .article-comment {
@@ -52,12 +52,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .article-img {
-  flex: 0 0 33%;
   overflow: hidden;
+  width: 240px;
+  height: 135px;
   img {
+  width: 240px;
+  height: 135px;
   }
 }
 
@@ -93,6 +97,7 @@
   transition-duration: 0.4s;
   color: #483D8B;
 }
+
 
 .debat-button {
   opacity: 0.9;
@@ -145,7 +150,7 @@
   border-style: solid;
   border-width: 1px 0px 0px 0px;
   opacity: 0.15;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   color: black;
 }
 
@@ -197,15 +202,49 @@
   font-style: italic;
 }
 
-.sub_categories_infos {
+.sub_categories_infos a {
   padding-right: 10px;
   font-size: 14px;
   opacity: 0.7;
   color: black;
   font-style: italic;
 
+
+
+
 }
 
+.sub_categories_infos {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+  color: black;
+  font-style: italic;
+  margin-top: 10px;
+  opacity: 0.7;
+
+}
+
+.cat-info {
+  margin-right: 30px;
+  &.Politique {
+    color: #5E0606;
+  }
+  &.Ecologie {
+    color: #00541A;
+  }
+  &.Economie {
+    color: #070D59;
+  }
+  &.Numérique {
+    color: #E0BB20;
+  }
+  &.Humanités {
+    color: #483D8B;
+  }
+}
 i.upvoted {
   color: green;
   padding-right: 10px;

@@ -9,6 +9,14 @@ import  { selectSubcategory } from "./select_category";
 
 selectSubcategory();
 
+import  { selectCategoryComment } from "./select_category_comment";
+
+selectCategoryComment();
+
+import  { selectSubcategoryComment } from "./select_category_comment";
+
+selectSubcategoryComment();
+
 // import  { hideOtherDebates } from "./debat";
 
 // hideOtherDebates();
