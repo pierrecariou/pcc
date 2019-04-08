@@ -1,5 +1,5 @@
 <div class="comments-form">
-<%= simple_form_for([article, comment]) do |form| %>
+<%= simple_form_for comment do |form| %>
   <%= form.input :title, label: :Titre %>
   <%= form.input :text, label: :Contribution %>
   <%= form.input :source, label: :Source, placeholder: "Collez ici le lien de votre source" %>

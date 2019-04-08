@@ -28,29 +28,32 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @article = Article.find(params[:article_id])
+    @user = current_user
     @comment = Comment.new
+    authorize @comment
   end
 
   def create
-    @article = Article.find(params[:article_id])
     @comment = Comment.new(comment_params)
-    @comment.article = @article
+    authorize @comment
     @comment.user = current_user
     months = ["nil", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre" "décembre"]
     @comment.date = Time.now.to_s.split()[0].split("-")[2] + " " + months[Time.now.to_s.split()[0].split("-")[1].to_i] + " " + Time.now.to_s.split()[0].split("-")[0]
-    if @comment.save
-      respond_to do |format|
-        format.html { redirect_to article_path(@article, query: { debat_title: @comment.title }, anchor: 'anchor-comment') }
-        format.js
-      end
-    else
-      respond_to do |format|
-        format.html { render :new }
-        format.js
-      end
-    end
+    @comment.precise_date = DateTime.now
+    cat = @comment.sub_categories.map(&:category).first
+    @comment.category = cat
+    @comment.save
   end
+
+    def show
+      @categories = Category.all
+      @comment_selected = Comment.find(params[:id])
+      @sub_comments = @comment_selected.sub_comments
+      authorize @comment
+      @sub_comment = SubComment.new
+      @comment = Comment.new
+    end
+
 
   # def participants
   #   array = []

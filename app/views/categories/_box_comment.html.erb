@@ -1,0 +1,28 @@
+<div class="category-box-comment">
+
+  <div class="category-image-comment" style="background-image:url(<%= image_path "#{category.name}.jpg" %>)" data-category-id="category-<%= category.id %>"></div>
+
+
+  <div class="category-subcategories-box">
+
+    <div class="category-name"><%= category.name %></div>
+
+    <div class="form-group hidden article_category_id"><input class="form-control hidden" value="<%= category.id %>" type="hidden" name="article[category_id]" id="article_category_id" ></div>
+
+    <div class="sub-categories-comment hidden" id="category-<%=category.id%>comment">
+
+      <fieldset class="form-group ">
+        <input type="hidden" name="article[sub_category_ids][]" value="">
+        <div id="sub_categories_inputs">
+          <% category.sub_categories.each do |sub_category| %>
+            <div class="form-check">
+              <input class="form-check-input-comment hidden" type="checkbox" value="<%= sub_category.id %>" name="article[sub_category_ids][]" id="article_sub_category_ids_<%= sub_category.id %>">
+              <label class="subcategory-choice-comment <%= category.name %>" for="article_sub_category_ids_<%= sub_category.id %>"><%=sub_category.name%></label>
+            </div>
+          <% end %>
+        </div>
+
+      </fieldset>
+    </div>
+  </div>
+</div>

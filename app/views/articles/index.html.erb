@@ -1,5 +1,4 @@
 <div class="categories">
-  <%= render 'categories/index', categories: @categories %>
 </div>
 <div class="all-content">
   <div class="sub_categories <%= @category&.name %>">
@@ -11,3 +10,4 @@
 
 
   <%= render "shared/new_modal", article: @article %>
+  <%= render "shared/comment_modal", comment: @comment %>

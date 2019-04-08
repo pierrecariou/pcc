@@ -16,8 +16,22 @@
   opacity: 0.2;
 }
 
+.category-box-comment.not-active {
+  opacity: 0.2;
+}
 
 .category-image {
+  position: relative;
+  width: 180px;
+  height: 100px;
+  background-size: cover;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.category-image-comment {
   position: relative;
   width: 180px;
   height: 100px;
@@ -41,7 +55,32 @@
   width: 100%;
 }
 
+.subcategory-choice-comment {
+  font-weight: 500 !important;
+  padding: 5px 0px 5px 5px;
+  width: 100%;
+}
+
 .category-box .subcategory-choice:hover {
+  color: white;
+  &.Ecologie{
+    background-color: rgba(40, 85, 27, 0.5);
+  }
+  &.Economie {
+    background-color: rgba(9, 20, 89, 0.5);
+  }
+  &.Politique {
+    background-color: rgba(95, 20, 15, 0.5);
+  }
+  &.Numérique {
+    background-color: rgba(224, 187, 44, 0.7);
+  }
+  &.Humanités {
+    background-color: rgba(72, 61, 139, 0.7);
+  }
+}
+
+.category-box-comment .subcategory-choice-comment:hover {
   color: white;
   &.Ecologie{
     background-color: rgba(40, 85, 27, 0.5);
@@ -86,6 +125,32 @@
   }
 }
 
+.category-box-comment .form-check-input-comment:checked + .subcategory-choice-comment {
+  color: white;
+  position: relative;
+  &:before {
+    content: '\f14a';
+    font-family: "Font Awesome 5 Free";
+    color: white;
+    padding-right: 10px;
+  }
+  &.Ecologie {
+    background-color: rgba(40, 85, 27, 1);
+  }
+  &.Politique {
+    background-color: rgba(95, 20, 15, 1)
+  }
+  &.Economie {
+    background-color: rgba(9, 20, 89, 1);
+  }
+  &.Numérique {
+    background-color: rgba(224, 187, 44, 1);
+  }
+  &.Humanités {
+    background-color: rgba(72, 61, 139, 1);
+  }
+}
+
 .category-box .subcategory-choice.active {
   &.Ecologie{
     background-color: #00541A;
@@ -104,6 +169,25 @@
   }
 }
 
+
+
+.category-box-comment .subcategory-choice-comment.active {
+  &.Ecologie{
+    background-color: #00541A;
+  }
+  &.Economie {
+    background-color: #070D59;
+  }
+  &.Politique {
+    background-color: #5E0606;
+  }
+  &.Numérique {
+    background-color: #E0BB20;
+  }
+  &.Humanités {
+    background-color: #483D8B;
+  }
+}
 .article-submit {
   display: flex;
   justify-content: center;
@@ -119,6 +203,11 @@
   cursor: pointer;
 }
 
+.sub-categories-comment label {
+  font-size: 15px;
+  cursor: pointer;
+}
+
 .category-subcategories-box {
   padding-left: 10px;
   padding-top: 15px;
@@ -126,6 +215,10 @@
 
 
 .category-box img {
+  cursor: pointer;
+}
+
+.category-box-comment img {
   cursor: pointer;
 }
 
