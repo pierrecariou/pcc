@@ -16,8 +16,8 @@
         <div id="sub_categories_inputs">
           <% category.sub_categories.each do |sub_category| %>
             <div class="form-check">
-              <input class="form-check-input-comment hidden" type="checkbox" value="<%= sub_category.id %>" name="article[sub_category_ids][]" id="article_sub_category_ids_<%= sub_category.id %>">
-              <label class="subcategory-choice-comment <%= category.name %>" for="article_sub_category_ids_<%= sub_category.id %>"><%=sub_category.name%></label>
+              <input class="form-check-input-comment hidden" type="checkbox" value="comment<%= sub_category.id %>" name="comment[sub_category_ids][]" id="comment_sub_category_ids_<%= sub_category.id %>">
+              <label class="subcategory-choice-comment <%= category.name %>" for="comment_sub_category_ids_<%= sub_category.id %>"><%=sub_category.name%></label>
             </div>
           <% end %>
         </div>

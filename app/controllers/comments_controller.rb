@@ -43,6 +43,11 @@ class CommentsController < ApplicationController
     cat = @comment.sub_categories.map(&:category).first
     @comment.category = cat
     @comment.save
+      if @comment.save
+      redirect_to articles_path(query: { category_name: @comment.category.name, date_from: -1.days.from_now },)
+    else
+      render :new
+    end
   end
 
     def show
