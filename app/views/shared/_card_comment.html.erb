@@ -1,35 +1,85 @@
-  <div class="user-comment-card">
+<div class="linebetween">
+</div>
+<div class="comment-flex">
+<div class=comment-upvote>
+
+</div>
+<div class="comment-inner-text">
+  <div class="comment-title">
+    <%= comment.title %>
+  </div>
+    <div class="photo-user-article">
+        <%= link_to user_path(comment.user) do %>
+          <%=image_tag comment.user.photo_url, class: "avatar-article" %>
+          <%end %>
+      </div>
+      <div class="user-infos-comment">
+         Partagé par
+        <%= link_to user_path(comment.user) do %>
+         <%= comment.user.first_name%> <%= comment.user.last_name%>
+        <% end %>
+        , le <%=comment.date %>
+      </div>
+  </div>
+  <div class="text-comment">
+    <%= comment.text %>
+  </div>
+   <div class="sub_categories_infos" >
+        <div class="cat-info <%= comment.category.name %>">
+        <%= comment.category.name %>
+        </div>
+          <% comment.comment_sub_categories.each do |comment_sub_category| %>
+            <%=link_to "#{comment_sub_category.sub_category.name}", comments_path(query: { sub_category_names: [comment_sub_category.sub_category.name], category_name: comment_sub_category.sub_category.category.name, date_from: params.dig(:query, :date_from) }) %>
+
+          <% end %>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--   <div class="user-comment-card">
   <div class="linebetween"></div>
     <div class="user-display">
       <div class="avatar">
-        <%= link_to user_path(comment_selected.user) do %>
-          <%=image_tag(comment_selected.user.photo_url) %>
+        <%= link_to user_path(comment.user) do %>
+          <%=image_tag(comment.user.photo_url) %>
         <% end %>
       </div>
       <div class="user-input">
         <div class="user-info">
-          <%= link_to user_path(comment_selected.user) do %>
-            <%= comment_selected.user.first_name%> <%= comment_selected.user.last_name%>, <%= comment_selected.user.activity %>
+          <%= link_to user_path(comment.user) do %>
+            <%= comment.user.first_name%> <%= comment.user.last_name%>, <%= comment.user.activity %>
 
           <% end %>
         </div>
-            <p class="comment-date">Partagé le <%=comment_selected.date %></p>
+            <p class="comment-date">Partagé le <%=comment.date %></p>
       </div>
     </div>
     <div class="user-comment-data">
-      <p class="title-comment"> <%= comment_selected.title %></p>
-      <p class="text-comment"> <%= comment_selected.text %></p>
+      <p class="title-comment"> <%= comment.title %></p>
+      <p class="text-comment"> <%= comment.text %></p>
       <p class="source">
-        <%if comment_selected.source.present? %>
+        <%if comment.source.present? %>
             Source :
           <a href="<%= comment_selected.source %>">
-            <%= URI.parse(comment_selected.source.strip).host %>
+            <%= URI.parse(comment.source.strip).host %>
           </a>
         <%end %>
       </p>
       <div class="flex-title-comment">
       <div><%= '<i class="fas fa-caret-up"></i>'.html_safe %></div>
-     <div><%= comment_selected.upvotes %></div>
+     <div><%= comment.upvotes %></div>
      </div>
     </div>
-  </div>
+  </div> -->
