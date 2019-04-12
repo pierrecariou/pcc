@@ -66,7 +66,6 @@ class ArticlesController < ApplicationController
     scrap(@article.URL)
     cat = @article.sub_categories.map(&:category).first
     @article.category = cat
-
     if @article.save
       redirect_to articles_path(query: { category_name: @article.category.name, date_from: -1.days.from_now }, anchor: 'new-article-anchor')
     else

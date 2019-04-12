@@ -42,9 +42,8 @@ class CommentsController < ApplicationController
     @comment.precise_date = DateTime.now
     cat = @comment.sub_categories.map(&:category).first
     @comment.category = cat
-    @comment.save
-      if @comment.save
-      redirect_to articles_path(query: { category_name: @comment.category.name, date_from: -1.days.from_now },)
+    if @comment.save
+      redirect_to articles_path(query: { category_name: @comment.category.name, date_from: -1.days.from_now })
     else
       render :new
     end
@@ -74,7 +73,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:title, :text, :source, :upvotes, :date)
+    params.require(:comment).permit(:title, :text, :source, :upvotes, :category_id, :date, sub_category_ids: [])
   end
 end
 
