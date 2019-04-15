@@ -51,11 +51,10 @@ class CommentsController < ApplicationController
 
     def show
       @categories = Category.all
-      @comment_selected = Comment.find(params[:id])
-      @sub_comments = @comment_selected.sub_comments
+      @comment = Comment.find(params[:id])
       authorize @comment
+      @sub_comments = @comment.sub_comments
       @sub_comment = SubComment.new
-      @comment = Comment.new
     end
 
 

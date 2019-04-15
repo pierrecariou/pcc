@@ -36,8 +36,8 @@
     <div class="article-img">
       <div class="upvote-carre <%= article.category.name %>">
          <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
-      <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
-      <div  class="card-up active" data-article="<%= article.id %>"><%= article.upvotes %> </div>
+        <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
+        <div  class="card-up active" data-article="<%= article.id %>"><%= article.upvotes %> </div>
       <% else %>
            <div data-article-arrow="<%= article.id %>" class="inactive-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
            <div  class="card-up" data-article="<%= article.id %>"><%= article.upvotes %> </div>

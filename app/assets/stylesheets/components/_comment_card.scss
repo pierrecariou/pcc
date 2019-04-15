@@ -1,3 +1,35 @@
+.comment-all {
+  margin-bottom: 30px;
+}
+
+.comment-flex {
+  display: flex;
+}
+
+.comment-upvote {
+  width: 81px;
+}
+
+.upvote-carre-comment {
+    height: 50px;
+  width: 50px;
+  &.Politique {
+    background-color: #5E0606;
+  }
+  &.Ecologie {
+    background-color: #00541A;
+  }
+  &.Economie {
+    background-color: #070D59;
+  }
+  &.Numérique {
+    background-color: #E0BB20;
+  }
+  &.Humanités {
+    background-color: #483D8B;
+  }
+}
+
 .comment-title {
   font-size: 24px;
   font-weight: bold;
@@ -5,3 +37,50 @@
   text-align: left;
   color: #000000;
 }
+
+.flex-photo-info {
+  display: flex;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.flex-photo-info {
+.user-infos-comment {
+    opacity: 0.7;
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 5px;
+  a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+}
+}
+
+.text-comment {
+  font-size: 14px;
+  line-height: 1.29;
+  color: #000000;
+  display: flex;
+  margin-top: 18px;
+  padding-bottom: 5px;
+  .text-left {
+    width: 338.5px;
+ text-align: left
+
+  }
+  .text-right {
+    width: 338.5px;
+     text-align: left
+   }
+
+ .space-in-between {
+  width: 22px;
+ }
+
+
+}
+
+
