@@ -12,9 +12,28 @@
   padding: 20px 70px;
 }
 
-.modal-button-new-article:focus {
-  border-color: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-
+.modal-button-new-article {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.29;
+  color: #000000;
+    &:hover {
+    color: black
+  }
 }
+.modal-button-new-article a{
+  text-decoration: none;
+}
+
+
+.user-comment-button {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.29;
+  color: #000000;
+  &:hover {
+    color: black
+  }
+}
+
+

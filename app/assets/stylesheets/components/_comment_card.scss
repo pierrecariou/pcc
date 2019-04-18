@@ -13,6 +13,8 @@
 .upvote-carre-comment {
     height: 50px;
   width: 50px;
+    float: left;
+  position: absolute;
   &.Politique {
     background-color: #5E0606;
   }
@@ -82,5 +84,19 @@
 
 
 }
+
+
+  .card-up-comment {
+  font-family: Georgia;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.1;
+  text-align: center;
+  color: #ffffff;
+  margin-top: -7px;
+    &.active {
+      margin-top: 13px;
+    }
+  }
 
 
