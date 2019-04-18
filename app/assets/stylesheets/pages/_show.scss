@@ -228,3 +228,13 @@ button.navbar-wagon-item-comment {
   margin-top: 5px;
   opacity: 0.5;
 }
+
+.title-debate {
+  display: flex;
+  .upvote-carre-comment {
+    margin-top: -9px;
+  }
+  .comment-title {
+    padding-bottom: 10px;
+  }
+}

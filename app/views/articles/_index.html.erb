@@ -97,8 +97,16 @@
       <%end %>
     </div>
   </div>
+  <%if !articles.empty? %>
   <% articles.each do |article| %>
     <%= render "shared/card", article: article %>
+  <%end %>
+  <%else %>
+    <div class="linebetween">
+    </div>
+    <div>
+      Aucun article partagé pour le moment
+    </div>
   <%end %>
   <div  id="new-article-anchor">
   </div>
