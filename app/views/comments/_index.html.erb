@@ -97,9 +97,17 @@
       <%end %>
     </div>
   </div>
+   <%if !comments.empty? %>
   <% comments.each do |comment| %>
-    <%= render "shared/card_comment", comment: comment %>
+    <%= render "shared/card_comment", comment: comment%>
   <%end %>
+  <%else %>
+    <div class="linebetween">
+    </div>
+    <div>
+      Aucun débat proposé pour le moment
+    </div>
+    <%end %>
   <div  id="new-article-anchor">
   </div>
 </div>

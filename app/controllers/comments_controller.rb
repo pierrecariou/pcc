@@ -57,7 +57,7 @@ class CommentsController < ApplicationController
     # article_comment.image = image
     # article_comment.source = URI.parse(article_comment.URL.strip).host
     if @comment.save
-      redirect_to articles_path(query: { category_name: @comment.category.name, date_from: -1.days.from_now })
+      redirect_to comments_path(query: { category_name: @comment.category.name, date_from: -1.days.from_now })
     else
       render :new
     end
