@@ -3,8 +3,13 @@
 <div class="comment-flex">
 <div class=comment-upvote>
   <div class="upvote-carre-comment <%= comment.category.name %>">
-    <div data-comment-arrow="<%= comment.id %>" class="inactive-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe%></div>
-        <div  class="card-up" data-article="<%= comment.id %>"><%= comment.upvotes %> </div>
+    <% if comment.by_user_comment_upvotes.any? {|by_user_comment_upvote| by_user_comment_upvote.user_id == current_user.id}%>
+        <div data-comment-arrow="<%= comment.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_comment_path(comment), method: :put, remote: true %></div>
+        <div  class="card-up-comment active" data-comment="<%= comment.id %>"><%= comment.upvotes %> </div>
+      <% else %>
+           <div data-comment-arrow="<%= comment.id %>" class="inactive-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_comment_path(comment), method: :put, remote: true %></div>
+           <div  class="card-up-comment" data-comment="<%= comment.id %>"><%= comment.upvotes %> </div>
+           <%end %>
   </div>
 </div>
 <div class="comment-all">
@@ -70,38 +75,4 @@
 
 
 
-<!--   <div class="user-comment-card">
-  <div class="linebetween"></div>
-    <div class="user-display">
-      <div class="avatar">
-        <%= link_to user_path(comment.user) do %>
-          <%=image_tag(comment.user.photo_url) %>
-        <% end %>
-      </div>
-      <div class="user-input">
-        <div class="user-info">
-          <%= link_to user_path(comment.user) do %>
-            <%= comment.user.first_name%> <%= comment.user.last_name%>, <%= comment.user.activity %>
 
-          <% end %>
-        </div>
-            <p class="comment-date">Partagé le <%=comment.date %></p>
-      </div>
-    </div>
-    <div class="user-comment-data">
-      <p class="title-comment"> <%= comment.title %></p>
-      <p class="text-comment"> <%= comment.text %></p>
-      <p class="source">
-        <%if comment.source.present? %>
-            Source :
-          <a href="<%= comment_selected.source %>">
-            <%= URI.parse(comment.source.strip).host %>
-          </a>
-        <%end %>
-      </p>
-      <div class="flex-title-comment">
-      <div><%= '<i class="fas fa-caret-up"></i>'.html_safe %></div>
-     <div><%= comment.upvotes %></div>
-     </div>
-    </div>
-  </div> -->

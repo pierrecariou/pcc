@@ -4,6 +4,7 @@ class Comment < ApplicationRecord
   belongs_to :category
   has_many :comment_sub_categories, dependent: :destroy
   has_many :sub_categories, through: :comment_sub_categories
+  has_many :by_user_comment_upvotes
 
 
   scope :from_category, ->(category_name) { includes(:category).where(category: Category.where(name: category_name)) }

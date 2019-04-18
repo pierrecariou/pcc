@@ -16,6 +16,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :comments do
+    member do
+      put "like", to: "comments#upvote"
+    end
+  end
+
   resources :sub_comments do
     member do
       put "like", to: "sub_comments#upvote"
