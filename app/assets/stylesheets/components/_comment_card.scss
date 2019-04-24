@@ -70,12 +70,14 @@
   padding-bottom: 5px;
   .text-left {
     width: 338.5px;
- text-align: left
+
+ text-align: justify;
 
   }
   .text-right {
     width: 338.5px;
-     text-align: left
+
+     text-align: justify;
    }
 
  .space-in-between {
@@ -97,6 +99,15 @@
     &.active {
       margin-top: 13px;
     }
+  }
+
+  .associated-articles-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 3px;
+  margin-bottom: 12px;
+  color: black;
+
   }
 
 

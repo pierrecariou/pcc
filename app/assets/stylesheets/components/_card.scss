@@ -225,6 +225,14 @@
   font-size: 14px;
   color: black;
   font-style: italic;
+    display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+
+  color: black;
+  font-style: italic;
+  margin-top: 10px;
   a {
   font-size: 14px;
   opacity: 0.7;
@@ -236,7 +244,13 @@
   }
 }
 
-.sub_categories_infos {
+
+
+.sub_categories_infos_comment  {
+  padding-right: 10px;
+  font-size: 14px;
+  color: black;
+  font-style: italic;
   display: flex;
   align-items: center;
   text-align: center;
@@ -244,10 +258,19 @@
 
   color: black;
   font-style: italic;
-  margin-top: 10px;
-
-
+  margin-left: 33px;
+  a {
+  font-size: 14px;
+  opacity: 0.7;
+  color: black;
+  font-style: italic;
+  }
+  .user-infos {
+    opacity: 0.7;
+  }
 }
+
+
 
 .cat-info {
   margin-right: 30px;

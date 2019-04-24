@@ -1,0 +1,53 @@
+.arrow-sub-comment {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  margin-right: 5px;
+  &.Politique {
+    background-color: #5E0606;
+  }
+  &.Ecologie {
+    background-color: #00541A;
+  }
+  &.Economie {
+    background-color: #070D59;
+  }
+  &.Numérique {
+    background-color: #E0BB20;
+  }
+  &.Humanités {
+    background-color: #483D8B;
+  }
+  i {
+    color: white;
+  }
+}
+
+.text-sub-comment {
+  font-size: 14px;
+  line-height: 1.29;
+  color: #000000;
+  display: flex;
+  margin-top: 13px;
+  padding-bottom: 10px;
+  text-align: justify;
+
+}
+
+.footer-sub-comment {
+  display: flex;
+}
+
+.linebetween6 {
+ margin-top: 10px;
+ margin-bottom: 30px;
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
+  opacity: 0.15;
+  color: black;
+}
+
+.sub-comment-submit .btn {
+  width: 100%;
+  max-width: 100%;
+}
