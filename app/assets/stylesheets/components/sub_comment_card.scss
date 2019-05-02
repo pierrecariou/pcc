@@ -36,6 +36,52 @@
 
 .footer-sub-comment {
   display: flex;
+    &.Politique {
+    color: #5E0606;
+    &.background {
+    background-color: rgba(95, 20, 15, 0.1);
+    }
+    i {
+      color: #5E0606;
+    }
+  }
+  &.Ecologie {
+    color: #00541A;
+    &.background {
+    background-color: rgba(40, 85, 27, 0.1);
+  }
+    .fa-chevron-up {
+      color: #00541A;
+    }
+  }
+  &.Economie {
+    color: #070D59;
+    &.background {
+   background-color: rgba(9, 20, 89, 0.1);
+  }
+    .fa-chevron-up {
+      color: #070D59;
+    }
+  }
+  &.Numérique {
+    color: #E0BB20;
+    &.background {
+    background-color: rgba(224, 187, 44, 0.1);
+  }
+    .fa-chevron-up {
+      color: #E0BB20;
+    }
+  }
+  &.Humanités {
+    color: #483D8B;
+    &.background {
+    background-color: rgba(72, 61, 139, 0.1);
+  }
+    .fa-chevron-up {
+      color: #483D8B;
+    }
+  }
+
 }
 
 .linebetween6 {
@@ -45,9 +91,19 @@
   border-width: 1px 0px 0px 0px;
   opacity: 0.15;
   color: black;
+  &.hidden {
+    display: none;
+  }
 }
 
 .sub-comment-submit .btn {
   width: 100%;
   max-width: 100%;
 }
+
+.reactions {
+  margin-left:auto;
+  margin-right:0;
+}
+
+

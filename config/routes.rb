@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   resources :articles, only: [ :index, :show, :create ]
 
   resources :comments, only: [:create, :index, :show] do
-    resources :sub_comments, only: [ :new, :create ]
+    resources :sub_comments, only: [ :new, :create ] do
+      resources :answers, only: [ :new, :create ]
+    end
   end
+
 
 
   resources :articles do

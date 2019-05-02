@@ -12,22 +12,46 @@
         <%end %>
       </div>
       <div class="user-infos-comment">
-         Proposé par
         <%= link_to user_path(sub_comment.user) do %>
          <%= sub_comment.user.first_name%> <%= sub_comment.user.last_name%>
         <% end %>
-        , le <%=sub_comment.date %>
+        , <%=sub_comment.date %>
       </div>
     </div>
   </div>
   <div class="text-sub-comment">
     <%= @comment.text %>
   </div>
-  <div class="footer-sub-comment">
+  <div class="footer-sub-comment <%= @comment.category.name %>" id="footer-<%= sub_comment.id  %>">
 
       <div class="arrow-sub-comment <%= sub_comment.comment.category.name %>" data-sub-comment-arrow="<%= sub_comment.id %>" ><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_sub_comment_path(sub_comment), method: :put, remote: true %></div>
       <div  data-sub-comment="<%= sub_comment.id %>"><%= sub_comment.stars %> </div>
+      <div class="reactions">
+        <%= sub_comment.answers.count %> réactions
+        <i data-id="<%= sub_comment.id %>" class="fas fa-chevron-up"></i>
+
+      </div>
   </div>
-  <div class="linebetween6"></div>
+  <div class="linebetween6" id="line-<%= sub_comment.id %>"></div>
 
 <%end %>
+<div class="background-color-answers <%= @comment.category.name %> hidden" id="sub-comment-<%=sub_comment.id %>">
+  <div class="answers-content" >
+
+    <div class="answers-cards">
+      <%sub_comment.answers.each do |answer| %>
+      <%= render 'shared/card_answer', answer: answer %>
+      <%end %>
+    </div>
+    <div class="sub-comments-form">
+      <%= simple_form_for([@comment, sub_comment, @answer]) do |form| %>
+        <%= form.input :text, label: :Contribution %>
+        <div class="sub-comment-submit">
+          <%= form.button :submit, "Répondre", class: "button-black" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="linebetween7"></div>
+</div>

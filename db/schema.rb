@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_100152) do
+ActiveRecord::Schema.define(version: 2019_05_02_124606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.text "text"
+    t.string "date"
+    t.date "precise_date"
+    t.integer "likes", default: 0
+    t.bigint "sub_comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["sub_comment_id"], name: "index_answers_on_sub_comment_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
 
   create_table "article_sub_categories", force: :cascade do |t|
     t.bigint "sub_category_id"
@@ -139,6 +152,8 @@ ActiveRecord::Schema.define(version: 2019_04_18_100152) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "sub_comments"
+  add_foreign_key "answers", "users"
   add_foreign_key "article_sub_categories", "articles"
   add_foreign_key "article_sub_categories", "sub_categories"
   add_foreign_key "articles", "categories"
