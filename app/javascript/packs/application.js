@@ -26,6 +26,10 @@ selectSubcategoryComment();
 
 // // openTheme();
 
+import { displayAnswers } from "./display_answers"
+
+displayAnswers();
+
 import { selectDate } from "./select_date";
 
 

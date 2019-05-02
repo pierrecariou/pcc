@@ -69,6 +69,8 @@ class CommentsController < ApplicationController
     authorize @comment
     @sub_comments = @comment.sub_comments
     @sub_comment = SubComment.new
+    @answers = @sub_comment.answers
+    @answer = Answer.new
   end
 
 

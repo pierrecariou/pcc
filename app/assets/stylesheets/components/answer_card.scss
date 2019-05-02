@@ -1,0 +1,37 @@
+.footer-answer {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.25;
+  color: #000000;
+}
+
+.answers-content {
+  width: 310px;
+  margin: 0 auto;
+}
+
+.background-color-answers {
+  &.Ecologie{
+    border-left: 1px solid rgb(40, 85, 27);
+    background-color: rgba(40, 85, 27, 0.1);
+  }
+  &.Economie {
+    border-left: 1px solid rgb(9, 20, 89);
+    background-color: rgba(9, 20, 89, 0.1);
+  }
+  &.Politique {
+    border-left: 1px solid rgb(95, 20, 15);
+    background-color: rgba(95, 20, 15, 0.1);
+  }
+  &.Numérique {
+    border-left: 1px solid rgb(224, 187, 44);
+    background-color: rgba(224, 187, 44, 0.1);
+  }
+  &.Humanités {
+    border-left: 1px solid rgb(72, 61, 139);
+    background-color: rgba(72, 61, 139, 0.1);
+  }
+  &.hidden {
+    display: none;
+  }
+}
