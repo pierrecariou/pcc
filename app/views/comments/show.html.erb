@@ -9,11 +9,14 @@
         Articles associés
         </div>
         <div class="linebetween"></div>
-        <% if @comment != nil %>
-        <p> <%= "Soyez le premier à partager un article" %> </p>
-        <% else  %>
+        <% @articles.each do |article| %>
+          <%= render "shared/card_article_show_comment", article: article  %>
+        <%end %>
 
-        <% end %>
+
+
+
+
       </div>
     </div>
     <div class="main-content">

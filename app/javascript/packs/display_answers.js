@@ -11,9 +11,13 @@ function displayAnswers() {
       const answers = document.getElementById("sub-comment-"+idSubComment.toString());
       const line = document.getElementById("line-"+idSubComment.toString());
       const footer = document.getElementById("footer-"+idSubComment.toString());
+      const chevronUp = document.getElementById("up-"+idSubComment.toString());
+      const chevronDown = document.getElementById("down-"+idSubComment.toString());
         answers.classList.toggle("hidden");
         line.classList.toggle("hidden");
-        footer.classList.toggle("background")
+        footer.classList.toggle("background");
+        chevronDown.classList.toggle("hidden");
+        chevronUp.classList.toggle("active");
     });
   });
 }

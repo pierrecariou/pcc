@@ -67,6 +67,11 @@ class CommentsController < ApplicationController
     @categories = Category.all
     @comment = Comment.find(params[:id])
     authorize @comment
+    sub_categories = []
+    @comment.sub_categories.each do |sub_category|
+    sub_categories << sub_category.name.to_s
+    end
+    @articles = Article.from_sub_categories(sub_categories)
     @sub_comments = @comment.sub_comments
     @sub_comment = SubComment.new
     @answers = @sub_comment.answers
