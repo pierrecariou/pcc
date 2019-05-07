@@ -1,0 +1,22 @@
+.article-img-comment {
+  overflow: hidden;
+  width: 150px;
+  height: 68px;
+  position: relative;
+  img {
+    width: 150px;
+    height: 68px;
+    object-fit: cover;
+  }
+}
+
+.title-card {
+  font-weight: bold;
+  font-size: 12px;
+  text-align: left;
+  color: #000000;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+
