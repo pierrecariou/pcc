@@ -26,6 +26,10 @@ selectSubcategoryComment();
 
 // // openTheme();
 
+import { proCon } from "./pro_con"
+
+proCon();
+
 import { displayAnswers } from "./display_answers"
 
 displayAnswers();

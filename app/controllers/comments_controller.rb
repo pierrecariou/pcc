@@ -112,7 +112,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:title, :text, :source, :upvotes, :category_id, :date, sub_category_ids: [])
+    params.require(:comment).permit(:title, :open_or_close, :text, :source, :upvotes, :category_id, :date, sub_category_ids: [])
   end
 end
 
