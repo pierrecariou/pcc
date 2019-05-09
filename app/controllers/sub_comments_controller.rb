@@ -41,6 +41,6 @@ class SubCommentsController < ApplicationController
   private
 
   def sub_comment_params
-    params.require(:sub_comment).permit(:title, :text, :source, :stars, :date)
+    params.require(:sub_comment).permit(:title, :state, :text, :source, :stars, :date)
   end
 end

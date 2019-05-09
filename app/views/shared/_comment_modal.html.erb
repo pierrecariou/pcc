@@ -8,6 +8,7 @@
 
           <%= simple_form_for Comment.new do |f| %>
               <%= f.input :title, label: 'Titre' %>
+              <%= f.input :open_or_close, as: :boolean, checked_value: true, unchecked_value: false, label: 'Débat fermé' %>
               <%= f.input :text, label: 'Texte' %>
               <%= f.input :source, label: 'Lien' %>
 

@@ -268,3 +268,24 @@ button.navbar-wagon-item-comment {
   margin-bottom: 30px;
   color: black;
 }
+
+.flex-pro-con {
+  .form-group {
+    display: inline;
+    .form-check {
+      display: inline;
+      margin-right: 10px;
+      .collection_radio_buttons {
+        cursor: pointer;
+        background-color: rgba(0, 0, 255, 0.4);
+        padding: 4px;
+        &.active {
+          background-color: rgba(0, 0, 255, 0.7);
+        }
+      }
+      .form-check-input {
+        display: none;
+      }
+    }
+  }
+}
