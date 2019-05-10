@@ -1,0 +1,16 @@
+#comment_open_or_close {
+  display: none;
+}
+
+.new-comment .form-check-label {
+  cursor: pointer;
+  border: solid;
+  border-width: 1px;
+  padding: 5px;
+  &:hover {
+    background-color: rgba(240, 52, 52, 0.2);
+  }
+  &.active {
+    background-color: rgba(240, 52, 52, 0.8);
+  }
+}

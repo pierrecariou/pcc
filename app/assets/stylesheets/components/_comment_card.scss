@@ -7,7 +7,8 @@
 }
 
 .comment-upvote {
-  width: 81px;
+margin-right: 81px;
+
 }
 
 .upvote-carre-comment {
@@ -65,24 +66,11 @@
   font-size: 14px;
   line-height: 1.29;
   color: #000000;
-  display: flex;
+  column-count: 2;
+  column-gap: 22px;
   margin-top: 18px;
   padding-bottom: 5px;
-  .text-left {
-    width: 338.5px;
 
- text-align: justify;
-
-  }
-  .text-right {
-    width: 338.5px;
-
-     text-align: justify;
-   }
-
- .space-in-between {
-  width: 22px;
- }
 
 
 }

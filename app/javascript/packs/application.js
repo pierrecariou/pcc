@@ -17,6 +17,10 @@ import  { selectSubcategoryComment } from "./select_category_comment";
 
 selectSubcategoryComment();
 
+import  { closeDebat } from "./close_debat";
+
+closeDebat();
+
 // import  { hideOtherDebates } from "./debat";
 
 // hideOtherDebates();

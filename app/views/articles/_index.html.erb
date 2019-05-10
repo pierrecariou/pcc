@@ -6,8 +6,18 @@
       <h2>Articles</h2>
       </div>
       <%end %>
+      <% if params[:query][:category_name] && params[:query][:sub_category_names] %>
+      <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from), category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }) do %>
+      <h2>Débats</h2>
+      <%end %>
+       <% elsif params[:query][:category_name] %>
+       <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from), category_name: params.dig(:query, :category_name) }) do %>
+      <h2>Débats</h2>
+      <%end %>
+       <%else %>
       <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from) }) do %>
       <h2>Débats</h2>
+      <%end %>
       <%end %>
     </div>
     <div class="dates">

@@ -64,19 +64,7 @@
             </div>
           </div>
           <div class="text-comment">
-            <div class="text-left">
-              <%if @comment.text.split.count < 25 %>
-                <%= @comment.text %>
-              <%else %>
-                <%= @comment.text.split.first(@comment.text.split.count/2).join(' ') %>
-              <%end %>
-            </div>
-            <div class="space-in-between"></div>
-            <div class="text-right">
-              <%if @comment.text.split.count > 25 %>
-                <%= @comment.text.split[@comment.text.split.count/2..-1].join(' ') %>
-              <%end %>
-            </div>
+            <%= @comment.text %>
           </div>
           <%end %>
         </div>

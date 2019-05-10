@@ -1,8 +1,18 @@
 <div class="main-content">
   <div class="flex-dates-filter">
     <div class="top-feed">
+      <% if params[:query][:category_name] && params[:query][:sub_category_names] %>
+      <%= link_to articles_path(query: { date_from: params.dig(:query, :date_from), category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }) do %>
+      <h2>Articles</h2>
+      <%end %>
+      <% elsif params[:query][:category_name] %>
+      <%= link_to articles_path(query: { date_from: params.dig(:query, :date_from), category_name: params.dig(:query, :category_name) }) do %>
+      <h2>Articles</h2>
+      <%end %>
+      <%else %>
       <%= link_to articles_path(query: { date_from: params.dig(:query, :date_from) }) do  %>
       <h2>Articles</h2>
+      <%end %>
       <%end %>
       <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from) }) do  %>
       <div class="active_debat_comment">
