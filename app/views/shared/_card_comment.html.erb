@@ -15,8 +15,13 @@
 <div class="comment-all">
 <%= link_to comment_path(comment) do %>
 <div class="comment-inner-text">
-  <div class="comment-title">
-    <%= comment.title %>
+  <div class="comment-title-flex">
+    <div class="comment-title">
+      <%= comment.title %>
+    </div>
+    <div class="comment-see">
+      Voir
+    </div>
   </div>
   <div class="flex-photo-info">
     <div class="photo-user-article">

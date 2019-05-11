@@ -71,17 +71,22 @@
 
       <div class="answers-title">
         <div class="title-reponses">
-        Réponses
+          <div class="titre-reponses">
+            Réponses
+          </div>
+          <div class="button-repondre">
+            Répondre
+          </div>
+          <div class="date-filter">
+            Trier par dates
+          </div>
+          <div class="upvotes-filter">
+            Trier par upvotes
+          </div>
         </div>
       </div>
       <div class="linebetween"></div>
       <div class="all-answers">
-        <% if @comment.sub_comments.first == nil%>
-        <%else %>
-          <% @comment.sub_comments.each do |sub_comment| %>
-            <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
-          <%end %>
-        <% end %>
       <div class="answers">
         <div class="sub-comments-form">
           <%if @comment.open_or_close  %>
@@ -108,6 +113,12 @@
           <%end %>
         </div>
       </div>
+        <% if @comment.sub_comments.first == nil%>
+        <%else %>
+          <% @comment.sub_comments.each do |sub_comment| %>
+            <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
+          <%end %>
+        <% end %>
     </div>
   </div>
 </div>

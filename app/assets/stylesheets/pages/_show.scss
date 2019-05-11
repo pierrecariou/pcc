@@ -220,7 +220,7 @@ button.navbar-wagon-item-comment {
 }
 
 .all-answers {
-  width: 375px;
+  width: 495px;
 
   // margin: 0 auto;
 }
@@ -251,8 +251,35 @@ button.navbar-wagon-item-comment {
 }
 
 .title-reponses {
+  display: flex;
+  align-items: center;
+}
+
+.titre-reponses {
   font-size: 24px;
   font-weight: bold;
+  color: #000000;
+  margin-right: 30px;
+}
+
+.button-repondre {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+}
+
+.date-filter {
+  margin-left:auto;
+  margin-right:0;
+  font-size: 12px;
+  color: #000000;
+  margin-right: 20px;
+}
+
+.upvotes-filter {
+  opacity: 0.3;
+  font-size: 12px;
   color: #000000;
 }
 
@@ -289,3 +316,18 @@ button.navbar-wagon-item-comment {
     }
   }
 }
+
+.sub-comments-form {
+  #sub_comment_source {
+    height: 39px;
+  }
+}
+
+.answers {
+  margin-bottom: 30.5px;
+  display: none;
+   &.active {
+    display: block;
+  }
+}
+

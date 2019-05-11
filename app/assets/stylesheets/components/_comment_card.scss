@@ -33,12 +33,25 @@ margin-right: 81px;
   }
 }
 
+.comment-title-flex {
+  display: flex;
+  align-items: center;
+}
+
 .comment-title {
   font-size: 24px;
   font-weight: bold;
   line-height: 1.29;
-  text-align: left;
   color: #000000;
+}
+
+.comment-see {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.29;
+  color: #000000;
+  margin-left:auto;
+  margin-right:0;
 }
 
 .flex-photo-info {
@@ -98,4 +111,9 @@ margin-right: 81px;
 
   }
 
+.user-infos-comment {
+  a:hover {
+    text-decoration: underline;
+  }
+}
 

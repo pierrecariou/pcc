@@ -1,8 +1,10 @@
 <div class="categories">
 </div>
 <div class="all-content">
-  <div class="sub_categories <%= @category&.name %>">
-    <%= render 'sub_categories/index_articles', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected, categories: @categories %>
+  <div class="sub_categories_boxes">
+    <div class="sub_categories <%= @category&.name %>">
+      <%= render 'sub_categories/index_articles', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected, categories: @categories %>
+    </div>
   </div>
     <%= render 'articles/index', articles: @articles %>
 </div>

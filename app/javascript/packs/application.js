@@ -21,6 +21,11 @@ import  { closeDebat } from "./close_debat";
 
 closeDebat();
 
+import  { buttonRepondre } from "./button_repondre";
+
+buttonRepondre();
+
+
 // import  { hideOtherDebates } from "./debat";
 
 // hideOtherDebates();

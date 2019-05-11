@@ -40,7 +40,7 @@ a.tablinks {
   }
 }
 
-.Politique {
+.sub_categories_boxes .Politique {
   &:hover, &.active, {
     color: #5E0606;
   }
@@ -55,7 +55,7 @@ a.tablinks {
   }
 }
 
-.Economie {
+.sub_categories_boxes .Economie {
   &:hover, &.active {
     color: #070D59;
   }
@@ -70,7 +70,7 @@ a.tablinks {
   }
 }
 
-.Ecologie {
+.sub_categories_boxes .Ecologie {
   &:hover, &.active {
     color: #00541A;
   }
@@ -85,7 +85,7 @@ a.tablinks {
   }
 }
 
-.Numérique {
+.sub_categories_boxes .Numérique {
   &:hover, &.active {
     color: #E0BB20;
   }
@@ -100,7 +100,7 @@ a.tablinks {
   }
 }
 
-.Humanités {
+.sub_categories_boxes .Humanités {
   &:hover, &.active {
     color: #483D8B;
   }
