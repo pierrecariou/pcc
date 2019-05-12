@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <div class="navbar-content">
     <div class="logo">
-      <%if params[:query] %>
+      <%if params[:query] && params[:query][:filter].nil? %>
       <%= link_to articles_path(query: { date_from: params.dig(:query, :date_from) }), class: "navbar-wagon-brand" do %>
         <%= image_tag "logopcc.png", height: 50 %>
       <h3 class="Penser-cest-chouette"><span id="a">P</span><span id="b">e</span><span id="c">n</span><span id="d">s</span>er c'est chouette</h3>
