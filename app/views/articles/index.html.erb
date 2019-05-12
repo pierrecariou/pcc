@@ -6,7 +6,7 @@
       <%= render 'sub_categories/index_articles', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected, categories: @categories %>
     </div>
   </div>
-    <%= render 'articles/index', articles: @articles %>
+    <%= render 'articles/index', articles: @articles, articles_root: @articles_root %>
 </div>
 
 

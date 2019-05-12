@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
       @category = Category.find_by_name("top")
     end
     @categories = Category.all
+    @articles_root = Article.from_date(-30.days.from_now)
   end
 
   def show

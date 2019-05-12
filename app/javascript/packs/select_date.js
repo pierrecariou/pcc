@@ -1,11 +1,11 @@
 const dates = document.querySelectorAll('.dates');
 
 function selectDate() {
-  const semaine = document.querySelector('.root');
+  const mois = document.querySelector('.mois.root');
   // jours.forEach((jour1) => {
-  if (semaine) {
+  if (mois) {
 
-  semaine.click();
+  mois.click();
   }
 };
 

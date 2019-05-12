@@ -1,6 +1,7 @@
 <div class="left-side-info left-side-info-index">
   <% categories.each do |category| %>
     <div class="tab">
+      <%if params[:query] %>
     <% if @category.nil? %>
       <%= link_to category.name, articles_path(query: { category_name: category.name, date_from: params.dig(:query, :date_from) }), class: "tablinks #{category.name} "   %>
     <% else %>
@@ -10,6 +11,17 @@
         <%= link_to category.name, articles_path(query: { category_name: category.name, date_from: params.dig(:query, :date_from) }), class: "tablinks #{category.name} "   %>
       <% end %>
     <% end  %>
+    <%else %>
+       <% if @category.nil? %>
+      <%= link_to category.name, articles_path(query: { category_name: category.name, date_from: -30.days.from_now}), class: "tablinks #{category.name} "   %>
+    <% else %>
+      <% if @category.name == category.name %>
+        <%= link_to category.name, articles_path(query: { category_name: category.name, date_from: -30.days.from_now }), class: "tablinks #{category.name} active"   %>
+         <% else %>
+        <%= link_to category.name, articles_path(query: { category_name: category.name, date_from: -30.days.from_now }), class: "tablinks #{category.name} "   %>
+      <% end %>
+    <% end  %>
+    <%end %>
 </div>
 
   <ul class="liste-subcategory tablink">
