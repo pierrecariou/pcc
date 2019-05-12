@@ -69,10 +69,18 @@ class CommentsController < ApplicationController
     authorize @comment
     sub_categories = []
     @comment.sub_categories.each do |sub_category|
-    sub_categories << sub_category.name.to_s
+      sub_categories << sub_category.name.to_s
     end
     @articles = Article.from_sub_categories(sub_categories)
-    @sub_comments = @comment.sub_comments
+    if params[:query] && params[:query][:filter] == "upvotes"
+      @sub_comments = @comment.sub_comments.sort_by(&:stars).reverse
+    elsif params[:query] && params[:query][:filter] == "pros_cons"
+      @sub_comments_pros = SubComment.where(state: "pour", comment_id: @comment.id)
+      @sub_comments_neutrals = SubComment.where(state: "neutre", comment_id: @comment.id)
+      @sub_comments_cons = SubComment.where(state: "contre", comment_id: @comment.id)
+    else
+      @sub_comments = @comment.sub_comments
+    end
     @sub_comment = SubComment.new
     @answers = @sub_comment.answers
     @answer = Answer.new

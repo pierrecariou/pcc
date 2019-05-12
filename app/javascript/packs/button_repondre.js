@@ -4,10 +4,11 @@ const form = document.querySelector(".answers")
 
 
 function buttonRepondre() {
-
-  btn.addEventListener('click', (event) => {
-      form.classList.toggle("active");
-  });
+  if (btn) {
+    btn.addEventListener('click', (event) => {
+        form.classList.toggle("active");
+    });
+  };
 }
 
 export {buttonRepondre};
