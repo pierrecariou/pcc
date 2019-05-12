@@ -43,10 +43,10 @@ import { displayAnswers } from "./display_answers"
 
 displayAnswers();
 
-import { selectDate } from "./select_date";
+// import { selectDate } from "./select_date";
 
 
-selectDate();
+// selectDate();
 
 
 import { openSubCategory } from "./tabs_sub_categories";
