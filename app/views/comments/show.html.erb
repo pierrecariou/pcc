@@ -7,7 +7,7 @@
       <div class="associated-articles-title">
       Articles associés
       </div>
-      <div class="linebetween"></div>
+      <div class="linebetween-10"></div>
       <% @articles.each do |article| %>
         <%= render "shared/card_article_show_comment", article: article  %>
       <%end %>
@@ -75,7 +75,7 @@
             Réponses
           </div>
           <div class="button-repondre">
-            Répondre
+            Créer une nouvelle réponse
           </div>
           <div class="date-filter">
             <% if params[:query] %>
@@ -87,9 +87,9 @@
           <div class="upvotes-filter">
 
               <% if  @comment.open_or_close && params[:query] %>
-               <%= link_to 'Trier par upvotes', comment_path(query: { filter: 'pros_cons' }), class: "active"  %>
+               <%= link_to 'Pour/neutre/contre', comment_path(query: { filter: 'pros_cons' }), class: "active"  %>
               <%elsif @comment.open_or_close  %>
-                <%= link_to 'Trier par upvotes', comment_path(query: { filter: 'pros_cons' })  %>
+                <%= link_to 'Pour/neutre/contre', comment_path(query: { filter: 'pros_cons' })  %>
               <%elsif  params[:query]%>
               <%= link_to 'Trier par upvotes', comment_path(query: { filter: 'upvotes' }), class: "active" %>
               <%else %>
@@ -99,7 +99,29 @@
           </div>
         </div>
       </div>
-      <div class="linebetween"></div>
+      <div class="linebetween-10"></div>
+      <% if params[:query] && params[:query][:filter] == "pros_cons" %>
+          <div class="pro-con-flex">
+          <div class="pros">
+            <div class="pro-title">Pour</div>
+            <% @sub_comments_pros.each do |sub_comment| %>
+          <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
+        <%end %>
+          </div>
+          <div class="neutrals">
+            <div class="neutral-title">Neutre</div>
+            <% @sub_comments_neutrals.each do |sub_comment| %>
+          <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
+        <%end %>
+          </div>
+          <div class="cons">
+            <div class="con-title">Contre</div>
+            <% @sub_comments_cons.each do |sub_comment| %>
+          <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
+        <%end %>
+          </div>
+        </div>
+      <% else%>
       <div class="all-answers">
       <div class="answers">
         <div class="sub-comments-form">
@@ -127,35 +149,13 @@
           <%end %>
         </div>
       </div>
-        <% if @comment.sub_comments.first == nil%>
-
-        <% elsif params[:query] && params[:query][:filter] == "pros_cons" %>
-          <div class="pro-con-flex">
-            <div class="pros">
-              <div class="pro-title">Pour</div>
-              <% @sub_comments_pros.each do |sub_comment| %>
-            <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
-          <%end %>
-            </div>
-            <div class="neutrals">
-              <div class="neutral-title">Neutre</div>
-              <% @sub_comments_neutrals.each do |sub_comment| %>
-            <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
-          <%end %>
-            </div>
-            <div class="cons">
-              <div class="con-title">Contre</div>
-              <% @sub_comments_cons.each do |sub_comment| %>
-            <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
-          <%end %>
-            </div>
-          </div>
-        <%else %>
+        <% if @comment.sub_comments.first != nil%>
           <% @sub_comments.each do |sub_comment| %>
             <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
           <%end %>
         <% end %>
     </div>
+    <%end %>
   </div>
 </div>
 

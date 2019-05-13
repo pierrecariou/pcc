@@ -37,7 +37,8 @@
 
 <%end %>
 <div class="background-color-answers <%= @comment.category.name %> hidden" id="sub-comment-<%=sub_comment.id %>">
-  <div class="answers-content" >
+  <% if params[:query] && params[:query][:filter] == "pros_cons" %>
+  <div class="answers-content-pros-cons" >
 
     <div class="answers-cards">
       <%sub_comment.answers.each do |answer| %>
@@ -54,6 +55,25 @@
     </div>
 
   </div>
+  <%else %>
+    <div class="answers-content" >
+
+    <div class="answers-cards">
+      <%sub_comment.answers.each do |answer| %>
+      <%= render 'shared/card_answer', answer: answer %>
+      <%end %>
+    </div>
+    <div class="sub-comments-form">
+      <%= simple_form_for([@comment, sub_comment, @answer]) do |form| %>
+        <%= form.input :text, label: :Contribution %>
+        <div class="sub-comment-submit">
+          <%= form.button :submit, "Répondre", class: "button-black" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+  <%end %>
   <div class="linebetween7"></div>
 </div>
 </div>

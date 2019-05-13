@@ -32,7 +32,7 @@
       <div class="article-comment">
        <%= article.description %>
       </div> -->
-  <div class="article-preview">
+  <div class="article-preview " id="article-preview-<%= article.category.name %>">
     <div class="article-img">
       <div class="upvote-carre <%= article.category.name %>">
          <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>

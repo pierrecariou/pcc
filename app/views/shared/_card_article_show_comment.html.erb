@@ -1,7 +1,7 @@
 <div class="flex-upvote">
 <div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join(" ") %>">
 
-  <div class="article-preview">
+  <div class="article-preview article-preview-comment">
     <div class="article-img-comment">
       <div class="upvote-carre <%= article.category.name %>">
          <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>

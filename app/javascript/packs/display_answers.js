@@ -7,6 +7,7 @@ function displayAnswers() {
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', (event) => {
+      console.log("yes");
       const idSubComment = event.currentTarget.dataset.id;
       const answers = document.getElementById("sub-comment-"+idSubComment.toString());
       const line = document.getElementById("line-"+idSubComment.toString());

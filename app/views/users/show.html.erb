@@ -8,7 +8,7 @@
         <% else %>
           <h2> Infos </h2>
         <% end %>
-        <div class="linebetween"></div>
+        <div class="linebetween-10"></div>
         <div class="profile-avatar">
           <%= image_tag @user.photo_url %>
         </div>
@@ -20,7 +20,7 @@
         <% if @user == current_user  %>
           <%= link_to 'Modifier mes infos',  edit_user_registration_path %>
         <% end %>
-        <div class="linebetween"></div>
+        <div class="linebetween-10"></div>
 
         <div class="profile-stat">
 
@@ -65,7 +65,7 @@
               <%= render "shared/card", article: article %>
             </div>
           <% end %>
-          <div class="linebetween"></div>
+          <div class="linebetween-10"></div>
         </div>
     </div>
 

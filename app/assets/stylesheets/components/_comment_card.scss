@@ -3,7 +3,34 @@
 }
 
 .comment-flex {
+  padding-top: 20px;
   display: flex;
+  .comment-all {
+    margin-bottom: 20px;
+  }
+}
+
+.comment-flex:hover {
+  &.Ecologie {
+  transition-duration: 0.2s;
+  background-color: rgba(40, 85, 27, 0.1);
+  }
+  &.Economie {
+    transition-duration: 0.2s;
+    background-color: rgba(9, 20, 89, 0.1);
+  }
+  &.Politique {
+    transition-duration: 0.2s;
+    background-color: rgba(95, 20, 15, 0.1);
+  }
+  &.Numérique {
+    transition-duration: 0.2s;
+    background-color: rgba(224, 187, 44, 0.1);
+  }
+  &.Humanités {
+    transition-duration: 0.2s;
+    background-color: rgba(72, 61, 139, 0.1);
+  }
 }
 
 .comment-upvote {

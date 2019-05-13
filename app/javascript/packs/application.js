@@ -50,13 +50,13 @@ displayAnswers();
 
 
 import { openSubCategory } from "./tabs_sub_categories";
+openSubCategory();
+
 import { submitForm } from "./submit_form";
 
 submitForm()
 
-if (document.querySelectorAll(".tab")) {
-  openSubCategory();
-}
+
 
 
 

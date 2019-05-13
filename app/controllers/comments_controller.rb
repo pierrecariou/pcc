@@ -75,9 +75,9 @@ class CommentsController < ApplicationController
     if params[:query] && params[:query][:filter] == "upvotes"
       @sub_comments = @comment.sub_comments.sort_by(&:stars).reverse
     elsif params[:query] && params[:query][:filter] == "pros_cons"
-      @sub_comments_pros = SubComment.where(state: "pour", comment_id: @comment.id)
-      @sub_comments_neutrals = SubComment.where(state: "neutre", comment_id: @comment.id)
-      @sub_comments_cons = SubComment.where(state: "contre", comment_id: @comment.id)
+      @sub_comments_pros = SubComment.where(state: "pour", comment_id: @comment.id).sort_by(&:stars).reverse
+      @sub_comments_neutrals = SubComment.where(state: "neutre", comment_id: @comment.id).sort_by(&:stars).reverse
+      @sub_comments_cons = SubComment.where(state: "contre", comment_id: @comment.id).sort_by(&:stars).reverse
     else
       @sub_comments = @comment.sub_comments
     end
