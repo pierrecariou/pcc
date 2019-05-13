@@ -1,6 +1,6 @@
 <div class="linebetween">
 </div>
-<div class="comment-flex">
+<div class="comment-flex <%= comment.category.name  %>">
 <div class=comment-upvote>
   <div class="upvote-carre-comment <%= comment.category.name %>">
     <% if comment.by_user_comment_upvotes.any? {|by_user_comment_upvote| by_user_comment_upvote.user_id == current_user.id}%>
@@ -15,14 +15,9 @@
 <div class="comment-all">
 <%= link_to comment_path(comment) do %>
 <div class="comment-inner-text">
-  <div class="comment-title-flex">
     <div class="comment-title">
       <%= comment.title %>
     </div>
-    <div class="comment-see">
-      Voir
-    </div>
-  </div>
   <div class="flex-photo-info">
     <div class="photo-user-article">
         <%= link_to user_path(comment.user) do %>

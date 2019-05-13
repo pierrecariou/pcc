@@ -13,7 +13,13 @@
 }
 
 .article-preview {
+  padding-top: 30px;
+  padding-bottom: 30px;
   // margin-bottom: 3Opx;
+}
+
+.article-preview-comment {
+  margin-top: -30px;
 }
 
 .article-comment {
@@ -51,7 +57,6 @@
 .article-preview {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
 }
 
 .article-img {
@@ -99,6 +104,34 @@
   transition-duration: 0.4s;
   color: #483D8B;
 }
+
+#article-preview-Ecologie:hover  {
+  background-color: rgba(40, 85, 27, 0.1);
+  transition-duration: 0.2s;
+}
+
+#article-preview-Politique:hover  {
+  background-color: rgba(95, 20, 15, 0.1);
+  transition-duration: 0.2s;
+}
+
+#article-preview-Economie:hover  {
+  background-color: rgba(9, 20, 89, 0.1);
+  transition-duration: 0.2s;
+}
+
+
+#article-preview-Numérique:hover  {
+  background-color: rgba(224, 187, 44, 0.1);
+  transition-duration: 0.2s;
+}
+
+
+#article-preview-Humanités:hover  {
+  background-color: rgba(72, 61, 139, 0.1);
+  transition-duration: 0.2s;
+}
+
 
 
 .debat-button {
@@ -160,8 +193,15 @@
   border-style: solid;
   border-width: 1px 0px 0px 0px;
   opacity: 0.15;
-  margin-bottom: 30px;
   color: black;
+}
+
+.linebetween-10 {
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
+  opacity: 0.15;
+  color: black;
+  margin-bottom: 30px;
 }
 
 .linebetween-6 {
