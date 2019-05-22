@@ -37,7 +37,7 @@
     </div>
     <div class="linebetween-6"></div>
 
-      <div class="comment-all">
+      <div class="comment-all comment-show <%=@comment.category.name %>">
         <%= link_to comment_path(@comment) do %>
           <div class="comment-inner-text">
             <div class="flex-photo-info">
@@ -74,8 +74,8 @@
           <div class="titre-reponses">
             Réponses
           </div>
-          <div class="button-repondre">
-            Créer une nouvelle réponse
+          <div class="button-repondre <%= @comment.category.name %>">
+            PARTICIPER
           </div>
           <div class="date-filter">
             <% if params[:query] %>

@@ -1,5 +1,5 @@
 .comment-all {
-  margin-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 .comment-flex {
@@ -148,6 +148,30 @@ margin-right: 81px;
   color: black;
   .avatar-article {
     margin-right: -13px;
+  }
+}
+
+.comment-show {
+  padding-top: 20px;
+  &.Ecologie {
+
+  background-color: rgba(40, 85, 27, 0.1);
+  }
+  &.Economie {
+
+    background-color: rgba(9, 20, 89, 0.1);
+  }
+  &.Politique {
+
+    background-color: rgba(95, 20, 15, 0.1);
+  }
+  &.Numérique {
+
+    background-color: rgba(224, 187, 44, 0.1);
+  }
+  &.Humanités {
+
+    background-color: rgba(72, 61, 139, 0.1);
   }
 }
 

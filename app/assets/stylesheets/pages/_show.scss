@@ -194,7 +194,6 @@ button.navbar-wagon-item-comment {
 }
 
 .left-side-info-show {
-  position: sticky;
   top: 80px;
 
 }
@@ -263,10 +262,29 @@ button.navbar-wagon-item-comment {
 }
 
 .button-repondre {
-  font-size: 16px;
-  font-weight: bold;
-  color: #000000;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: lighter;
+  padding: 6px 20px;
+  border-radius: 2px;
   cursor: pointer;
+    &.Politique {
+    background-color: #5E0606;
+  }
+  &.Ecologie {
+    background-color: #00541A;
+  }
+  &.Economie {
+    background-color: #070D59;
+  }
+  &.Numérique {
+    background-color: #E0BB20;
+  }
+  &.Humanités {
+    background-color: #483D8B;
+  }
 }
 
 .date-filter {
