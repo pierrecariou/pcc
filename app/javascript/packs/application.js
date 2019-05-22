@@ -43,6 +43,10 @@ import { displayAnswers } from "./display_answers"
 
 displayAnswers();
 
+import { displayComments } from "./display_comments"
+
+displayComments();
+
 // import { selectDate } from "./select_date";
 
 

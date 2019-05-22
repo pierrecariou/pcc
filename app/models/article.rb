@@ -14,6 +14,7 @@ class Article < ApplicationRecord
   has_many :article_sub_categories, dependent: :destroy
   has_many :sub_categories, through: :article_sub_categories
   has_many :by_user_upvotes
+  has_many :comment_articles
 
   # after_save :cache_vote_count
 

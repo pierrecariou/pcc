@@ -180,10 +180,6 @@ a.tablinks {
   opacity: 1;
 }
 
-.active_debat_comment h2 {
-  font-weight: bold;
-  opacity: 1;
-}
 
 .nothing-msg {
   margin-top: 30px;
@@ -196,6 +192,29 @@ padding-bottom: 30px;
 .black-band {
   background-color: black;
   height: 30px;
+    &.Ecologie {
+
+  background-color: rgba(40, 85, 27, 1);
+  }
+  &.Economie {
+
+    background-color: rgba(9, 20, 89, 1);
+  }
+  &.Politique {
+
+    background-color: rgba(95, 20, 15, 1);
+  }
+  &.Numérique {
+
+    background-color: rgba(224, 187, 44, 1);
+  }
+  &.Humanités {
+
+    background-color: rgba(72, 61, 139, 1);
+  }
+
+
+
   p {
     padding-top: 4px;
     color: white;
@@ -210,7 +229,7 @@ padding-bottom: 30px;
 
 @keyframes move {
   from {
-    margin-left: 100%;
+    margin-left: 90%;
     width: 300%;
   }
 
@@ -229,5 +248,24 @@ padding-bottom: 30px;
   to {
     margin-left: 0%;
     width: 100%;
+  }
+}
+
+.tab-button {
+  background-color: white;
+  width: 200px;
+  border-bottom: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+  &.active {
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  &:hover {
+    color: rgba(0, 0, 0, 0.8);
+  }
+  &:focus {
+    outline:0;
   }
 }

@@ -1,9 +1,7 @@
-// function updateStarsCount(newCount) {
-//   const stars = document.querySelector("[data-sub-coment='<%= @sub_comment.id %>']")
-//   const upArrow = document.querySelector("[data-sub-comment-arrow='<%= @sub_comment.id %>'] > a");
-//   stars.innerHTML = newCount
-//   upArrow.style.color = "yellow";
-// }
+function updateStarsCount(newCount) {
+  const stars = document.querySelector("[data-sub-comment='<%= @sub_comment.id %>']")
+  stars.innerHTML = newCount
+}
 
-// updateStarsCount('<%= @sub_comment.stars %>')
+updateStarsCount('<%= @sub_comment.stars %>')
 

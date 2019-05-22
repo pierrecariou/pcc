@@ -37,6 +37,17 @@
 
     <%= comment.text %>
   </div>
+  <div class="participants">
+    <%= comment.sub_comments.count %> réponses
+    <% users = [] %>
+    <% comment.sub_comments.each do |sub_comment| %>
+      <% users << sub_comment.user %>
+    <%end %>
+    <% users.uniq.each do |user| %>
+
+      <%=image_tag user.photo_url, class: "avatar-article" %>
+    <%end %>
+  </div>
    <div class="sub_categories_infos" >
         <div class="cat-info <%= comment.category.name %>">
         <%= comment.category.name %>

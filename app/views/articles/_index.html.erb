@@ -2,27 +2,27 @@
   <div class="flex-dates-filter">
     <div class="top-feed">
       <%= link_to articles_path(query: { date_from: params.dig(:query, :date_from) }) do  %>
-      <div class="active_debat_comment">
-      <h2>Articles</h2>
-      </div>
+
+      <button class="tablinks tab-button active" >Bibliothèque</button>
+
       <%end %>
       <% if params[:query] %>
       <% if params[:query][:category_name] && params[:query][:sub_category_names] %>
       <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from), category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }) do %>
-      <h2>Débats</h2>
+      <button class="tablinks tab-button" >Forum</button>
       <%end %>
        <% elsif params[:query][:category_name] %>
        <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from), category_name: params.dig(:query, :category_name) }) do %>
-      <h2>Débats</h2>
+      <button class="tablinks tab-button" >Forum</button>
       <%end %>
        <%else %>
       <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from) }) do %>
-      <h2>Débats</h2>
+      <button class="tablinks tab-button" >Forum</button>
       <%end %>
       <%end %>
       <%else %>
         <%= link_to comments_path(query: { date_from: -30.days.from_now}) do %>
-      <h2>Débats</h2>
+      <button class="tablinks tab-button" >Forum</button>
       <%end %>
       <%end %>
     </div>
