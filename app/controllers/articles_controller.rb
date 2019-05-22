@@ -26,29 +26,18 @@ class ArticlesController < ApplicationController
     end
     @categories = Category.all
     @articles_root = Article.from_date(-30.days.from_now)
+    @comment_article = CommentArticle.new
   end
 
   def show
     search = params[:query]
-    if search
-      if search[:debat_title]
-        @categories = Category.all
-        @comment_selected = Comment.find_by_title(search[:debat_title])
-        @article = Article.find(params[:id])
-        @sub_comments = @comment_selected.sub_comments
-        @sub_comment = SubComment.new
-        @comment = Comment.new
-      end
-    else
       @categories = Category.all
       @article = Article.find(params[:id])
-      @comment_selected = @article.comments.first
-      if @comment_selected
-        @sub_comments = @comment_selected.sub_comments
-      end
-      @sub_comment = SubComment.new
-      @comment = Comment.new
-    end
+      authorize @article
+      # @comment_selected = @article.comments.first
+      # if @comment_selected
+      #   @sub_comments = @comment_selected.sub_comments
+      # end
   end
 
   def new

@@ -34,15 +34,19 @@
       </div> -->
   <div class="article-preview " id="article-preview-<%= article.category.name %>">
     <div class="article-img">
-      <div class="upvote-carre <%= article.category.name %>">
          <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
-        <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
+      <div class="upvote-carre <%= article.category.name %> inactive">
+        <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= '<i class="fas fa-caret-up"></i>'.html_safe%></div>
         <div  class="card-up active" data-article="<%= article.id %>"><%= article.upvotes %> </div>
-      <% else %>
-           <div data-article-arrow="<%= article.id %>" class="inactive-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
-           <div  class="card-up" data-article="<%= article.id %>"><%= article.upvotes %> </div>
-           <%end %>
       </div>
+      <% else %>
+      <%= link_to like_article_path(article), method: :put, remote: true  do %>
+      <div class="upvote-carre <%= article.category.name %>" >
+           <div data-article-arrow="<%= article.id %>" class="inactive-arrow"><%=  '<i class="fas fa-caret-up"></i>'.html_safe%></div>
+           <div  class="card-up" data-article="<%= article.id %>"><%= article.upvotes %> </div>
+      </div>
+      <%end %>
+           <%end %>
       <a href="<%= article.URL %>" target="_blank"><img src="<%= article.image %>" height="150"></a>
     </div>
     <div class="article-info" >
@@ -71,6 +75,9 @@
             <%=link_to "#{article_sub_category.sub_category.name}", articles_path(query: { sub_category_names: [article_sub_category.sub_category.name], category_name: article_sub_category.sub_category.category.name, date_from: params.dig(:query, :date_from) }) %>
 
           <% end %>
+          <div class="article-comments <%= article.category.name %>" data-id="<%= article.id %>">
+            <%= article.comment_articles.count %> commentaires
+          </div>
 
       </div>
     </div>
@@ -94,8 +101,26 @@
   </div> -->
 </div>
 </div>
-
-
+<div class="comment-article-all hidden <%= article.category.name %>" id="comment-article-<%=article.id %>" >
+  <div class="comment-article-content">
+     <div class="answers-cards">
+        <%article.comment_articles.each do |comment_article| %>
+        <%= render 'shared/card_comment_article', comment_article: comment_article %>
+        <%end %>
+      </div>
+   <div class="sub-comments-form">
+        <%= simple_form_for([article, @comment_article]) do |form| %>
+          <%= form.input :text, label: :Contribution %>
+          <div class="sub-comment-submit">
+            <%= form.button :submit, "Répondre", class: "button-black" %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+  <div>
+    <i class="fas fa-times cross" data-id="<%= article.id %>"></i>
+  </div>
+</div>
 <!-- @articles[each] = article
 article.sub_categories.each
 sub_category.name -->

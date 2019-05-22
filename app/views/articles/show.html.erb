@@ -7,31 +7,9 @@
       <div class="left-side-info left-side-info-show">
         <h2>Participants</h2>
         <div class="linebetween-10"></div>
-        <% if @article.comments.blank? %>
+
         <p> <%= "Soyez le premier à participer" %> </p>
-        <% else  %>
-        <% users = [] %>
-        <% @article.comments.each do |comment| %>
-          <% users << comment.user %>
-        <% end %>
-        <% users.uniq.last(5).each do |user| %>
-          <div class="user">
-            <div class="photo">
-              <%= link_to user_path(user) do %>
-                <%=image_tag user.photo_url, class: "avatar_sidebar" %>
-            </div>
-            <div class="infos_user">
-              <ul>
-                <li class="user_name">
-                    <%=user.first_name %> <%=user.last_name  %>
-              <% end %>
-                </li>
-                <li class="info act"><%=user.activity%></li>
-              </ul>
-            </div>
-          </div>
-        <% end %>
-        <% end %>
+
       </div>
     </div>
     <div class="main-content">
@@ -42,94 +20,12 @@
         <%= render "shared/card", article: @article %>
       </div>
 
-      <div class="comment-section" >
-        <div class="current_user_info">
-          <div class="current_user_img">
-            <%= link_to user_path(current_user) do %>
-              <%=image_tag current_user.photo_url, class: "avatar_sidebar" %>
-            <% end %>
-          </div>
-          <div class="user-names">
-            <%= link_to user_path(current_user) do %>
-              <%= current_user.first_name %>
-              <%= current_user.last_name %>,
-              <%= current_user.activity %>
-            <% end %>
-          </div>
-        </div>
 
-          <div class="bar-button">
-            <button type="button" class="user-comment-button" data-toggle="modal" data-target=".modal_new_comment">Lancer un nouveau débat</button>
-          </div>
-
-      </div>
 
 
       <div class="linebetween3" id="anchor-comment" ></div>
 
-      <div class="all-debats">
-        <%@article.comments.each do |comment| %>
-          <%if comment.title == @comment_selected.title %>
-          <div class="flex-title-comment">
-            <p class="title-comment active"> <%=link_to comment.title, article_path(@article, query: { debat_title: comment.title }, anchor: 'comment-section-anchor') %></p>
-             <%=  '<i class="fas fa-caret-up"></i>'.html_safe%>
-            <p class="up"><%= comment.upvotes %></p>
-          </div>
-          <%else %>
-          <div class="flex-title-comment">
-            <p class="title-comment"> <%=link_to comment.title, article_path(@article, query: { debat_title: comment.title }, anchor: 'comment-section-anchor') %></p>
-            <%=  '<i class="fas fa-caret-up"></i>'.html_safe%>
-            <p class="up"><%= comment.upvotes %></p>
-            </div>
-          <%end %>
-        <%end %>
-      </div>
-      <div id="comments">
-            <%if @article.comments.any? %>
-            <%= render 'comments/show', comment_selected: @comment_selected %>
-            <%end %>
 
-          <div class="answers">
-             <%if @article.comments.any? %>
-               <div class="comment-section">
-          <div class="current_user_info">
-            <div class="current_user_img">
-              <%= link_to user_path(current_user) do %>
-                <%=image_tag current_user.photo_url, class: "avatar_sidebar" %>
-              <% end %>
-            </div>
-            <div class="user-names">
-              <%= link_to user_path(current_user) do %>
-                <%= current_user.first_name %>
-                <%= current_user.last_name %>,
-                <%= current_user.activity %>
-              <% end %>
-            </div>
-          </div>
-
-            <div class="bar-button">
-              <button type="button" class="user-sub-comment-button" data-toggle="modal" data-target=".modal_new_sub_comment">Répondre</button>
-            </div>
-        </div>
-        <%end %>
-        <div id="sub-comments">
-            <%if @sub_comments %>
-            <%@sub_comments.each do |sub_comment| %>
-              <%= render 'sub_comments/show', sub_comment: sub_comment  %>
-            <%end %>
-          <%end %>
-
-      </div>
-      <%if @article.comments.any? %>
-        <div class="linebetween4"></div>
-      <%end %>
-      </div>
-          <%= render 'shared/comment_modal', title: "Nouveau débat", article: @article, comment: @comment %>
-          <%if @article.comments.any? %>
-            <%= render 'shared/sub_comment_modal', title: "Ajouter une réponse", article: @article, comment: @comment, sub_comment: @sub_comment %>
-          <%end %>
-        <!-- Modal -->
-      </div>
     </div>
   </div>
   <div class="footer"></div>
