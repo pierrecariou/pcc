@@ -71,7 +71,7 @@
         <div class="cat-info <%= article.category.name %>">
         <%= article.category.name %>
         </div>
-          <% article.article_sub_categories.each do |article_sub_category| %>
+          <% article.article_sub_categories.first(2).each do |article_sub_category| %>
             <%=link_to "#{article_sub_category.sub_category.name}", articles_path(query: { sub_category_names: [article_sub_category.sub_category.name], category_name: article_sub_category.sub_category.category.name, date_from: params.dig(:query, :date_from) }) %>
 
           <% end %>
