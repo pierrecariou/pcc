@@ -17,9 +17,9 @@ import  { selectSubcategoryComment } from "./select_category_comment";
 
 selectSubcategoryComment();
 
-// import  { closeDebat } from "./close_debat";
+import  { closeDebat } from "./close_debat";
 
-// closeDebat();
+closeDebat();
 
 import  { buttonRepondre } from "./button_repondre";
 
