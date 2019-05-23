@@ -1,0 +1,84 @@
+<div class="linebetween">
+</div>
+<div class="comment-flex <%= comment.category.name  %>">
+<div class=comment-upvote>
+  <div class="upvote-carre-comment <%= comment.category.name %>">
+    <% if comment.by_user_comment_upvotes.any? {|by_user_comment_upvote| by_user_comment_upvote.user_id == current_user.id}%>
+    <div class="upvote-carre <%= comment.category.name %> inactive">
+        <div data-comment-arrow="<%= comment.id %>" class="up-arrow"><%='<i class="fas fa-caret-up"></i>'.html_safe%></div>
+        <div  class="card-up-comment active" data-comment="<%= comment.id %>"><%= comment.upvotes %> </div>
+    </div>
+      <% else %>
+       <%= link_to like_comment_path(comment), method: :put, remote: true  do %>
+      <div class="upvote-carre <%= comment.category.name %>">
+           <div data-comment-arrow="<%= comment.id %>" class="inactive-arrow"><%= '<i class="fas fa-caret-up"></i>'.html_safe%></div>
+           <div  class="card-up-comment" data-comment="<%= comment.id %>"><%= comment.upvotes %> </div>
+        </div>
+      <%end %>
+      <%end %>
+  </div>
+</div>
+<div class="comment-all">
+<%= link_to comment_path(comment) do %>
+<div class="comment-inner-text">
+    <div class="comment-title">
+      <%= comment.title %>
+    </div>
+  <div class="flex-photo-info">
+    <div class="photo-user-article">
+        <%= link_to user_path(comment.user) do %>
+          <%=image_tag comment.user.photo_url, class: "avatar-article" %>
+          <%end %>
+      </div>
+      <div class="user-infos-comment">
+         Proposé par
+        <%= link_to user_path(comment.user) do %>
+         <%= comment.user.first_name%> <%= comment.user.last_name%>
+        <% end %>
+        , le <%=comment.date %>
+      </div>
+    </div>
+  </div>
+  <div class="text-comment">
+
+    <%= comment.text %>
+  </div>
+  <%= link_to comment_path(comment) do %>
+    <div class="participants <%= comment.category.name %>">
+      <%= comment.sub_comments.count %> réponses
+      <% users = [] %>
+      <% comment.sub_comments.each do |sub_comment| %>
+        <% users << sub_comment.user %>
+      <%end %>
+      <% users.uniq.each do |user| %>
+
+        <%=image_tag user.photo_url, class: "avatar-article" %>
+      <%end %>
+    </div>
+  <%end %>
+   <div class="sub_categories_infos" >
+        <div class="cat-info <%= comment.category.name %>">
+        <%= comment.category.name %>
+        </div>
+          <% comment.comment_sub_categories.first(2).each do |comment_sub_category| %>
+            <%=link_to "#{comment_sub_category.sub_category.name}", comments_path(query: { sub_category_names: [comment_sub_category.sub_category.name], category_name: comment_sub_category.sub_category.category.name, date_from: params.dig(:query, :date_from) }) %>
+
+          <% end %>
+
+  </div>
+  <%end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

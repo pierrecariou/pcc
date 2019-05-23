@@ -1,5 +1,44 @@
-<% @comments.each do |comment| %>
-<%= comment.title %>
-<% end %>
+<div class="space">
+  <% if params[:query][:category_name] %>
+    <div class="black-band <%= @category&.name %> ">
+      <%if params[:query] && params[:query][:category_name] == "Humanités" %>
+      <p>"Pour vivre, une oeuvre d'art n'a pas besoin ni de beauté ni de laideur. Elle a besoin de vie."  Elmer Diktonius</p>
+      <%elsif params[:query] && params[:query][:category_name] == "Politique" %>
+      <p>"En politique avoir raison n'est rien, convaincre est tout."  Jérôme Leroy</p>
+      <%elsif params[:query] && params[:query][:category_name] == "Economie" %>
+      <p>"La finance, c'est la mort de l'économie."  Denis Robert</p>
+      <%elsif params[:query] && params[:query][:category_name] == "Ecologie" %>
+      <p>La Bible nous dit : Dieu donne le monde, l'univers et le cosmos à l'homme pour qu'il les régisse et les domine, ça nous donne l'écologie.  Monseigneur Lustiger</p>
+      <%elsif params[:query] && params[:query][:category_name] == "Numérique" %>
+      <p>Considérez les jeunes comme une classe à part en raison de leur importance numérique est un réflexe mercantile.  Gilbert Cesbron </p>
+      <%else %>
+      <p>"Pour vivre, une oeuvre d'art n'a pas besoin ni de beauté ni de laideur. Elle a besoin de vie."  Elmer Diktonius</p>
+      <%end %>
+    </div>
+  <%else %>
+    <% if @comments %>
+     <div class="black-band <%= @comments.first.category.name %>">
+        <p>"Pour vivre, une oeuvre d'art n'a pas besoin ni de beauté ni de laideur. Elle a besoin de vie."  Elmer Diktonius</p>
+    </div>
+    <%else %>
+     <div class="black-band Ecologie">
+        <p>"Pour vivre, une oeuvre d'art n'a pas besoin ni de beauté ni de laideur. Elle a besoin de vie."  Elmer Diktonius</p>
+    </div>
+    <%end %>
+  <%end %>
+</div>
+<div class="all-content">
+  <div class="sub_categories_boxes">
+    <div class="sub_categories <%= @category&.name %>">
+      <%= render 'sub_categories/index_comments', sub_categories: @sub_categories, category: @category, selected: @sub_categories_selected, categories: @categories %>
+    </div>
+  </div>
+    <%= render 'comments/index', comments: @comments %>
+</div>
+
+
+
+ <%= render "shared/new_modal", article: @article %>
+ <%= render "shared/comment_modal", comment: @comment %>
 
 

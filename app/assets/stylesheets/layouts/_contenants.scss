@@ -39,6 +39,9 @@
 }
 .sub_categories {
   margin-top: -50px;
+  .tab {
+     margin-bottom: 15px;
+  }
 }
 
 .container {
@@ -52,6 +55,7 @@
   flex-direction: column;
   // position: sticky !important;
   // top: 80px !important;
+  width: 150px;
   p {
     font-size: 16px;
   }
@@ -63,6 +67,10 @@
 
 .left-side-info h2 {
   margin-bottom: 8px;
+}
+
+.left-side-info a {
+  font-weight: 24px
 }
 
 .flex-cat-img {
@@ -83,7 +91,7 @@
 }
 
 .main-content h2 {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .user {

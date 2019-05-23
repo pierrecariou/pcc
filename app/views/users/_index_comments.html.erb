@@ -1,0 +1,32 @@
+<div class="left-side-info les-plus-actifs">
+  <h2>Actifs</h2>
+  <div class="linebetween-10"></div>
+  <%users = [] %>
+  <%@comments.first(15).each do |comment| %>
+   <%users << comment.user %>
+  <%end %>
+  <%users.uniq.first(5).each do |user| %>
+    <div class="user">
+      <div class="photo">
+        <%= link_to user_path(user) do %>
+          <%=image_tag user.photo_url, class: "avatar_sidebar" %>
+      </div>
+      <div class="infos_user">
+        <ul>
+          <li class="user_name">
+              <%=user.first_name %> <%=user.last_name  %>
+        <% end %>
+          </li>
+          <li class="info act"><%=user.activity%></li>
+          <li class="info count"><%=user.articles.count%>
+            <% if user.articles.count == 1 %>
+              partage
+            <%else %>
+              partages
+            <%end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+   <%end %>
+</div>

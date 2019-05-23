@@ -1,0 +1,79 @@
+<%if @comment.sub_comments %>
+
+  <div class="comment-all">
+    <div class="comment-inner-text">
+      <div class="title-sub-comment">
+        <%= sub_comment.title %>
+      </div>
+      <div class="flex-photo-info">
+      <div class="photo-user-article">
+        <%= link_to user_path(sub_comment.user) do %>
+          <%=image_tag sub_comment.user.photo_url, class: "avatar-article" %>
+        <%end %>
+      </div>
+      <div class="user-infos-comment">
+        <%= link_to user_path(sub_comment.user) do %>
+         <%= sub_comment.user.first_name%> <%= sub_comment.user.last_name%>
+        <% end %>
+        , <%=sub_comment.date %>
+      </div>
+    </div>
+  </div>
+  <div class="text-sub-comment">
+    <%= sub_comment.text %>
+  </div>
+  <div class="footer-sub-comment <%= @comment.category.name %>" id="footer-<%= sub_comment.id  %>">
+
+      <div class="arrow-sub-comment <%= sub_comment.comment.category.name %>" data-sub-comment-arrow="<%= sub_comment.id %>" ><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_sub_comment_path(sub_comment), method: :put, remote: true %></div>
+      <div  data-sub-comment="<%= sub_comment.id %>"><%= sub_comment.stars %> </div>
+      <div class="reactions" data-id="<%= sub_comment.id %>">
+        <%= sub_comment.answers.count %> réactions
+        <i  id="down-<%= sub_comment.id  %>" class="fas fa-chevron-down"></i>
+        <i  id="up-<%= sub_comment.id  %>" class="fas fa-chevron-up"></i>
+
+      </div>
+  </div>
+  <div class="linebetween6" id="line-<%= sub_comment.id %>"></div>
+
+<%end %>
+<div class="background-color-answers <%= @comment.category.name %> hidden" id="sub-comment-<%=sub_comment.id %>">
+  <% if params[:query] && params[:query][:filter] == "pros_cons" %>
+  <div class="answers-content-pros-cons" >
+
+    <div class="answers-cards">
+      <%sub_comment.answers.each do |answer| %>
+      <%= render 'shared/card_answer', answer: answer %>
+      <%end %>
+    </div>
+    <div class="sub-comments-form">
+      <%= simple_form_for([@comment, sub_comment, @answer]) do |form| %>
+        <%= form.input :text, label: :Contribution %>
+        <div class="sub-comment-submit">
+          <%= form.button :submit, "Répondre", class: "button-black" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+  <%else %>
+    <div class="answers-content" >
+
+    <div class="answers-cards">
+      <%sub_comment.answers.each do |answer| %>
+      <%= render 'shared/card_answer', answer: answer %>
+      <%end %>
+    </div>
+    <div class="sub-comments-form">
+      <%= simple_form_for([@comment, sub_comment, @answer]) do |form| %>
+        <%= form.input :text, label: :Contribution %>
+        <div class="sub-comment-submit">
+          <%= form.button :submit, "Répondre", class: "button-black" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+  <%end %>
+  <div class="linebetween7"></div>
+</div>
+</div>

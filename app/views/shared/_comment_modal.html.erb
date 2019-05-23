@@ -4,14 +4,52 @@
 
         <div class="new-comment">
 
-          <h2><%= title %></h2>
+          <h2> Lancer un débat </h2>
 
-          <%= render 'comments/form', article: article, comment: comment %>
+          <%= simple_form_for Comment.new do |f| %>
+              <%= f.input :title, label: 'Titre' %>
+              <p class="close-debate-explain"> Cochez cette case seulement si il est possible de se positionner par rapport au débat (pour, contre, ou neutre) : </p>
+              <%= f.input :open_or_close, as: :boolean, checked_value: true, unchecked_value: false, label: 'Débat fermé' %>
+              <%= f.input :text, label: 'Texte' %>
+              <%= f.input :source, label: 'Lien' %>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-        </div>
+              <div class="categories">
+                <% Category.all.each do |category| %>
+                    <%= render 'categories/box_comment', category: category, f: f %>
+                <% end %>
+              </div>
+           <div class="article-submit">
+                <%= f.submit 'Partager', class: "button-black" %>
+              </div>
+            <% end %>
+          </div>
     </div>
   </div>
 </div>
+
+
+<!--   <div class="modal fade modal-create-article" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+
+          <div class="new-article-form">
+
+            <h2>Partager un article</h2>
+
+            <%= simple_form_for Article.new do |f| %>
+              <%= f.input :URL, label: 'Lien de l\'article' %>
+
+              <div class="categories">
+                <% Category.all.each do |category| %>
+                    <%= render 'categories/box', category: category, f: f %>
+                <% end %>
+              </div>
+              <div class="article-submit">
+                <%= f.submit 'Partager', class: "button-black" %>
+              </div>
+            <% end %>
+
+          </div>
+      </div>
+    </div>
+  </div> -->

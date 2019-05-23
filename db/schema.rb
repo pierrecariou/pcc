@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_152922) do
+ActiveRecord::Schema.define(version: 2019_05_22_135155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.text "text"
+    t.string "date"
+    t.date "precise_date"
+    t.integer "likes", default: 0
+    t.bigint "sub_comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["sub_comment_id"], name: "index_answers_on_sub_comment_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
 
   create_table "article_sub_categories", force: :cascade do |t|
     t.bigint "sub_category_id"
@@ -43,6 +56,14 @@ ActiveRecord::Schema.define(version: 2019_03_25_152922) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "by_user_comment_upvotes", force: :cascade do |t|
+    t.integer "user_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_by_user_comment_upvotes_on_comment_id"
+  end
+
   create_table "by_user_upvotes", force: :cascade do |t|
     t.string "user_first_name"
     t.bigint "article_id"
@@ -57,17 +78,41 @@ ActiveRecord::Schema.define(version: 2019_03_25_152922) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comment_articles", force: :cascade do |t|
+    t.text "text"
+    t.string "date"
+    t.date "precise_date"
+    t.integer "likes", default: 0
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["article_id"], name: "index_comment_articles_on_article_id"
+    t.index ["user_id"], name: "index_comment_articles_on_user_id"
+  end
+
+  create_table "comment_sub_categories", force: :cascade do |t|
+    t.bigint "sub_category_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_sub_categories_on_comment_id"
+    t.index ["sub_category_id"], name: "index_comment_sub_categories_on_sub_category_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string "title"
     t.text "text"
     t.text "source"
     t.integer "upvotes", default: 0
     t.bigint "user_id"
-    t.bigint "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "date"
-    t.index ["article_id"], name: "index_comments_on_article_id"
+    t.date "precise_date"
+    t.bigint "category_id"
+    t.boolean "open_or_close"
+    t.index ["category_id"], name: "index_comments_on_category_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -98,6 +143,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_152922) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "state", default: "neutre"
     t.index ["comment_id"], name: "index_sub_comments_on_comment_id"
     t.index ["user_id"], name: "index_sub_comments_on_user_id"
   end
@@ -121,26 +167,19 @@ ActiveRecord::Schema.define(version: 2019_03_25_152922) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "votes", id: :serial, force: :cascade do |t|
-    t.string "votable_type"
-    t.integer "votable_id"
-    t.string "voter_type"
-    t.integer "voter_id"
-    t.boolean "vote_flag"
-    t.string "vote_scope"
-    t.integer "vote_weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
-  end
-
+  add_foreign_key "answers", "sub_comments"
+  add_foreign_key "answers", "users"
   add_foreign_key "article_sub_categories", "articles"
   add_foreign_key "article_sub_categories", "sub_categories"
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users"
+  add_foreign_key "by_user_comment_upvotes", "comments"
   add_foreign_key "by_user_upvotes", "articles"
-  add_foreign_key "comments", "articles"
+  add_foreign_key "comment_articles", "articles"
+  add_foreign_key "comment_articles", "users"
+  add_foreign_key "comment_sub_categories", "comments"
+  add_foreign_key "comment_sub_categories", "sub_categories"
+  add_foreign_key "comments", "categories"
   add_foreign_key "comments", "users"
   add_foreign_key "sub_categories", "categories"
   add_foreign_key "sub_comments", "comments"

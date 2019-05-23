@@ -1,0 +1,196 @@
+<div class="categories">
+  <%= render 'categories/index', categories: @categories %>
+</div>
+<div class="all-content">
+  <div class="sub_categories">
+    <div class="left-side-info left-side-info-show">
+      <div class="associated-articles-title">
+      Articles associés
+      </div>
+      <div class="linebetween-10"></div>
+      <% @articles.each do |article| %>
+        <%= render "shared/card_article_show_comment", article: article  %>
+      <%end %>
+
+
+
+
+
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="title-debate">
+      <div class=comment-upvote>
+        <div class="upvote-carre-comment <%= @comment.category.name %>">
+              <% if @comment.by_user_comment_upvotes.any? {|by_user_comment_upvote| by_user_comment_upvote.user_id == current_user.id}%>
+    <div class="upvote-carre <%= @comment.category.name %> inactive">
+        <div data-comment-arrow="<%= @comment.id %>" class="up-arrow"><%='<i class="fas fa-caret-up"></i>'.html_safe%></div>
+        <div  class="card-up-comment active" data-comment="<%= @comment.id %>"><%= @comment.upvotes %> </div>
+    </div>
+      <% else %>
+       <%= link_to like_comment_path(@comment), method: :put, remote: true  do %>
+      <div class="upvote-carre <%= @comment.category.name %>">
+           <div data-comment-arrow="<%= @comment.id %>" class="inactive-arrow"><%= '<i class="fas fa-caret-up"></i>'.html_safe%></div>
+           <div  class="card-up-comment" data-comment="<%= @comment.id %>"><%= @comment.upvotes %> </div>
+        </div>
+      <%end %>
+      <%end %>
+        </div>
+      </div>
+      <div class="comment-title">
+        <%= @comment.title %>
+      </div>
+    </div>
+    <div class="linebetween-6"></div>
+
+      <div class="comment-all comment-show <%=@comment.category.name %>">
+        <%= link_to comment_path(@comment) do %>
+          <div class="comment-inner-text">
+            <div class="flex-photo-info">
+              <div class="photo-user-article">
+                <%= link_to user_path(@comment.user) do %>
+                  <%=image_tag @comment.user.photo_url, class: "avatar-article" %>
+                <%end %>
+              </div>
+              <div class="user-infos-comment">
+                 Proposé par
+                <%= link_to user_path(@comment.user) do %>
+                 <%= @comment.user.first_name%> <%= @comment.user.last_name%>
+                <% end %>
+                , le <%=@comment.date %>
+              </div>
+              <div class="sub_categories_infos_comment" >
+                <div class="cat-info <%= @comment.category.name %>">
+                  <%= @comment.category.name %>
+                </div>
+                <% @comment.comment_sub_categories.each do |comment_sub_category| %>
+                  <%=link_to "#{comment_sub_category.sub_category.name}", comments_path(query: { sub_category_names: [comment_sub_category.sub_category.name], category_name: comment_sub_category.sub_category.category.name, date_from: -30.days.from_now}) %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="text-comment">
+            <%= @comment.text %>
+          </div>
+          <%end %>
+        </div>
+
+      <div class="answers-title">
+        <div class="title-reponses">
+          <div class="titre-reponses">
+            Réponses
+          </div>
+          <div class="button-repondre <%= @comment.category.name %>">
+            PARTICIPER
+          </div>
+          <div class="date-filter">
+            <% if params[:query] %>
+            <%= link_to 'Trier par dates', comment_path  %>
+            <%else %>
+            <%= link_to 'Trier par dates', comment_path, class: "active"  %>
+            <%end %>
+          </div>
+          <div class="upvotes-filter">
+
+              <% if  @comment.open_or_close && params[:query] %>
+               <%= link_to 'Pour/neutre/contre', comment_path(query: { filter: 'pros_cons' }), class: "active"  %>
+              <%elsif @comment.open_or_close  %>
+                <%= link_to 'Pour/neutre/contre', comment_path(query: { filter: 'pros_cons' })  %>
+              <%elsif  params[:query]%>
+              <%= link_to 'Trier par upvotes', comment_path(query: { filter: 'upvotes' }), class: "active" %>
+              <%else %>
+              <%= link_to 'Trier par upvotes', comment_path(query: { filter: 'upvotes' })%>
+              <%end %>
+
+          </div>
+        </div>
+      </div>
+      <div class="linebetween-10"></div>
+      <% if params[:query] && params[:query][:filter] == "pros_cons" %>
+           <div class="answers pros_con">
+        <div class="sub-comments-form">
+          <%if @comment.open_or_close  %>
+            <%= simple_form_for([@comment, @sub_comment]) do |form| %>
+              <%= form.input :title, label: :Titre %>
+              <%= form.input :text, label: :Contribution %>
+              <div class="flex-pro-con">
+                <%= form.input :state, as: :radio_buttons, collection: [ "pour", "neutre", "contre"], label: 'Positionnement' %>
+              </div>
+              <%= form.input :source, label: :Source, placeholder: "Collez ici le lien de votre source" %>
+            <div class="sub-comment-submit">
+              <%= form.button :submit, "Participez", class: "button-black" %>
+            </div>
+            <% end %>
+          <%else %>
+            <%= simple_form_for([@comment, @sub_comment]) do |form| %>
+              <%= form.input :title, label: :Titre %>
+              <%= form.input :text, label: :Contribution %>
+              <%= form.input :source, label: :Source, placeholder: "Collez ici le lien de votre source" %>
+              <div class="sub-comment-submit">
+                <%= form.button :submit, "Participez", class: "button-black" %>
+              </div>
+            <% end %>
+          <%end %>
+        </div>
+      </div>
+          <div class="pro-con-flex">
+          <div class="pros">
+            <div class="pro-title">Pour</div>
+            <% @sub_comments_pros.each do |sub_comment| %>
+          <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
+        <%end %>
+          </div>
+          <div class="neutrals">
+            <div class="neutral-title">Neutre</div>
+            <% @sub_comments_neutrals.each do |sub_comment| %>
+          <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
+        <%end %>
+          </div>
+          <div class="cons">
+            <div class="con-title">Contre</div>
+            <% @sub_comments_cons.each do |sub_comment| %>
+          <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
+        <%end %>
+          </div>
+        </div>
+      <% else%>
+      <div class="all-answers">
+      <div class="answers">
+        <div class="sub-comments-form">
+          <%if @comment.open_or_close  %>
+            <%= simple_form_for([@comment, @sub_comment]) do |form| %>
+              <%= form.input :title, label: :Titre %>
+              <%= form.input :text, label: :Contribution %>
+              <div class="flex-pro-con">
+                <%= form.input :state, as: :radio_buttons, collection: [ "pour", "neutre", "contre"], label: 'Positionnement' %>
+              </div>
+              <%= form.input :source, label: :Source, placeholder: "Collez ici le lien de votre source" %>
+            <div class="sub-comment-submit">
+              <%= form.button :submit, "Participez", class: "button-black" %>
+            </div>
+            <% end %>
+          <%else %>
+            <%= simple_form_for([@comment, @sub_comment]) do |form| %>
+              <%= form.input :title, label: :Titre %>
+              <%= form.input :text, label: :Contribution %>
+              <%= form.input :source, label: :Source, placeholder: "Collez ici le lien de votre source" %>
+              <div class="sub-comment-submit">
+                <%= form.button :submit, "Participez", class: "button-black" %>
+              </div>
+            <% end %>
+          <%end %>
+        </div>
+      </div>
+        <% if @comment.sub_comments.first != nil%>
+          <% @sub_comments.each do |sub_comment| %>
+            <%= render"shared/sub_comment_card", sub_comment: sub_comment %>
+          <%end %>
+        <% end %>
+    </div>
+    <%end %>
+  </div>
+</div>
+
+
+<%= render "shared/new_modal", article: @article %>
+<%= render "shared/comment_modal", comment: @comment %>

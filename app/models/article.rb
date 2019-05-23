@@ -11,10 +11,10 @@ class Article < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
-  has_many :comments, dependent: :destroy
   has_many :article_sub_categories, dependent: :destroy
   has_many :sub_categories, through: :article_sub_categories
   has_many :by_user_upvotes
+  has_many :comment_articles
 
   # after_save :cache_vote_count
 
@@ -26,9 +26,10 @@ class Article < ApplicationRecord
 
   scope :from_date, ->(date_from) { where("precise_date >= ?", date_from)}
 
-  validates :URL, presence: true
+  validates :URL, presence: true, uniqueness: true, :format => URI::regexp(%w(http https))
   # validates :URL, uniqueness: true
   validates :category, presence: true
+  validates :sub_categories, presence: true
 
 
   default_scope { order(upvotes: :desc) }

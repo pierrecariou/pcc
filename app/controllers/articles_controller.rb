@@ -26,29 +26,19 @@ class ArticlesController < ApplicationController
       @category = Category.find_by_name("top")
     end
     @categories = Category.all
+    @articles_root = Article.from_date(-30.days.from_now)
+    @comment_article = CommentArticle.new
   end
 
   def show
     search = params[:query]
-    if search
-      if search[:debat_title]
-        @categories = Category.all
-        @comment_selected = Comment.find_by_title(search[:debat_title])
-        @article = Article.find(params[:id])
-        @sub_comments = @comment_selected.sub_comments
-        @sub_comment = SubComment.new
-        @comment = Comment.new
-      end
-    else
       @categories = Category.all
       @article = Article.find(params[:id])
-      @comment_selected = @article.comments.first
-      if @comment_selected
-        @sub_comments = @comment_selected.sub_comments
-      end
-      @sub_comment = SubComment.new
-      @comment = Comment.new
-    end
+      authorize @article
+      # @comment_selected = @article.comments.first
+      # if @comment_selected
+      #   @sub_comments = @comment_selected.sub_comments
+      # end
   end
 
   def new
@@ -64,11 +54,12 @@ class ArticlesController < ApplicationController
     months = ["nil", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre" "décembre"]
     @article.date = Time.now.to_s.split()[0].split("-")[2] + " " + months[Time.now.to_s.split()[0].split("-")[1].to_i] + " " + Time.now.to_s.split()[0].split("-")[0]
     @article.precise_date = DateTime.now
-    scrap(@article.URL)
+    if @article.URL == (%w(http https))
+      scrap(@article.URL)
+    end
     cat = @article.sub_categories.map(&:category).first
     @article.category = cat
     authorize @article
-
     if @article.save
       redirect_to articles_path(query: { category_name: @article.category.name, date_from: -1.days.from_now }, anchor: 'new-article-anchor')
     else

@@ -1,0 +1,43 @@
+<div class="left-side-info left-side-info-index">
+  <% categories.each do |category| %>
+    <div class="tab">
+      <%if params[:query] %>
+    <% if @category.nil? %>
+      <%= link_to category.name, articles_path(query: { category_name: category.name, date_from: params.dig(:query, :date_from) }), class: "tablinks #{category.name} "   %>
+    <% else %>
+      <% if @category.name == category.name %>
+        <%= link_to category.name, articles_path(query: { category_name: category.name, date_from: params.dig(:query, :date_from) }), class: "tablinks #{category.name} active"   %>
+         <% else %>
+        <%= link_to category.name, articles_path(query: { category_name: category.name, date_from: params.dig(:query, :date_from) }), class: "tablinks #{category.name} "   %>
+      <% end %>
+    <% end  %>
+    <%else %>
+       <% if @category.nil? %>
+      <%= link_to category.name, articles_path(query: { category_name: category.name, date_from: -30.days.from_now}), class: "tablinks #{category.name} "   %>
+    <% else %>
+      <% if @category.name == category.name %>
+        <%= link_to category.name, articles_path(query: { category_name: category.name, date_from: -30.days.from_now }), class: "tablinks #{category.name} active"   %>
+         <% else %>
+        <%= link_to category.name, articles_path(query: { category_name: category.name, date_from: -30.days.from_now }), class: "tablinks #{category.name} "   %>
+      <% end %>
+    <% end  %>
+    <%end %>
+</div>
+
+  <ul class="liste-subcategory tablink">
+    <% if sub_categories == category.sub_categories %>
+  <div class="linebetween5"></div>
+      <%= simple_form_for :query, method: :get, html: {id: "sub-categories-form"}, html: {id: "sub-categories-form"} do |f| %>
+        <%= f.input :sub_category_names, collection: sub_categories, as: :check_boxes, value_method: :name, checked: selected&.pluck(:name), input_html: {} %>
+        <%= f.input :category_name, as: :hidden, input_html: { value: params.dig(:query, :category_name)} %>
+        <%= f.input :date_from, as: :hidden, input_html: { value: params.dig(:query, :date_from)} %>
+      <% end %>
+      <div class="linebetween4"></div>
+      <%else %>
+      <div class="linebetween4"></div>
+    <% end %>
+  </ul>
+  <% end %>
+
+</div>
+<%= render 'users/index', user: @user %>

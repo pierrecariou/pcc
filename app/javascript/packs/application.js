@@ -9,6 +9,23 @@ import  { selectSubcategory } from "./select_category";
 
 selectSubcategory();
 
+import  { selectCategoryComment } from "./select_category_comment";
+
+selectCategoryComment();
+
+import  { selectSubcategoryComment } from "./select_category_comment";
+
+selectSubcategoryComment();
+
+// import  { closeDebat } from "./close_debat";
+
+// closeDebat();
+
+import  { buttonRepondre } from "./button_repondre";
+
+buttonRepondre();
+
+
 // import  { hideOtherDebates } from "./debat";
 
 // hideOtherDebates();
@@ -18,20 +35,32 @@ selectSubcategory();
 
 // // openTheme();
 
-import { selectDate } from "./select_date";
+import { proCon } from "./pro_con"
+
+proCon();
+
+import { displayAnswers } from "./display_answers"
+
+displayAnswers();
+
+import { displayComments } from "./display_comments"
+
+displayComments();
+
+// import { selectDate } from "./select_date";
 
 
-selectDate();
+// selectDate();
 
 
 import { openSubCategory } from "./tabs_sub_categories";
+openSubCategory();
+
 import { submitForm } from "./submit_form";
 
 submitForm()
 
-if (document.querySelectorAll(".tab")) {
-  openSubCategory();
-}
+
 
 
 

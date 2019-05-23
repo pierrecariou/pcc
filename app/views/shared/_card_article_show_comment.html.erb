@@ -1,0 +1,31 @@
+<div class="flex-upvote">
+<div class="card listed-article" data-sub-categories="<%= article.sub_categories.pluck(:name).join(" ") %>">
+
+  <div class="article-preview article-preview-comment">
+    <div class="article-img-comment">
+      <div class="upvote-carre <%= article.category.name %>">
+         <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
+         <div class="upvote-carre <%= article.category.name %> inactive">
+        <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= '<i class="fas fa-caret-up"></i>'.html_safe%></div>
+        <div  class="card-up active" data-article="<%= article.id %>"><%= article.upvotes %> </div>
+        </div>
+      <% else %>
+       <%= link_to like_article_path(article), method: :put, remote: true  do %>
+      <div class="upvote-carre <%= article.category.name %> ">
+           <div data-article-arrow="<%= article.id %>" class="inactive-arrow"><%=  '<i class="fas fa-caret-up"></i>'.html_safe %></div>
+           <div  class="card-up" data-article="<%= article.id %>"><%= article.upvotes %> </div>
+         </div>
+           <%end %>
+          <%end %>
+      </div>
+
+      <a href="<%= article.URL %>" target="_blank"><img src="<%= article.image %>" height="150"></a>
+    </div>
+
+  </div>
+  <div class="title-card">
+    <%= article.title %>
+  </div>
+
+</div>
+</div>

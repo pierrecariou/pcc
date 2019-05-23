@@ -1,0 +1,25 @@
+  <div class="comment-all">
+    <div class="comment-inner-text">
+      <div class="flex-photo-info">
+      <div class="photo-user-article">
+        <%= link_to user_path(answer.user) do %>
+          <%=image_tag answer.user.photo_url, class: "avatar-article" %>
+        <%end %>
+      </div>
+      <div class="user-infos-comment">
+        <%= link_to user_path(answer.user) do %>
+         <%= answer.user.first_name%> <%= answer.user.last_name%>
+        <% end %>
+        , <%=answer.date %>
+      </div>
+    </div>
+  </div>
+  <div class="text-sub-comment">
+    <%= answer.text %>
+  </div>
+  <div class="footer-answer">
+    J'aime
+    (<%= answer.likes %>)
+  </div>
+</div>
+  <div class="linebetween8"></div>

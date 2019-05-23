@@ -1,0 +1,123 @@
+<div class="main-content">
+  <div class="flex-dates-filter">
+    <div class="top-feed">
+      <% if params[:query][:category_name] && params[:query][:sub_category_names] %>
+      <%= link_to articles_path(query: { date_from: params.dig(:query, :date_from), category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }) do %>
+      <button class="tablinks tab-button" >Bibliothèque</button>
+      <%end %>
+      <% elsif params[:query][:category_name] %>
+      <%= link_to articles_path(query: { date_from: params.dig(:query, :date_from), category_name: params.dig(:query, :category_name) }) do %>
+      <button class="tablinks tab-button" >Bibliothèque</button>
+      <%end %>
+      <%else %>
+      <%= link_to articles_path(query: { date_from: params.dig(:query, :date_from) }) do  %>
+      <button class="tablinks tab-button" >Bibliothèque</button>
+      <%end %>
+      <%end %>
+      <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from) }) do  %>
+      <div class="active_debat_comment">
+      <button class="tablinks tab-button active" >Forum</button>
+      </div>
+      <%end %>
+    </div>
+    <div class="dates">
+      <%if params[:query] %>
+        <% if params[:query][:category_name] && params[:query][:sub_category_names] %>
+          <%if params[:query][:date_from] > -7.days.from_now %>
+            <%=  link_to 'Jour', comments_path(query: { date_from: -1.days.from_now, category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }), :class => 'jour active'%>
+          <%else %>
+            <%=  link_to 'Jour', comments_path(query: { date_from: -1.days.from_now, category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }), :class => 'jour'%>
+          <%end %>
+          &nbsp;
+          <%if params[:query][:date_from] > -30.days.from_now && params[:query][:date_from] < -7.days.from_now%>
+            <%=  link_to 'Semaine', comments_path(query: { date_from: -7.days.from_now, category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }), :class => 'semaine active'%>
+          <%else %>
+            <%=  link_to 'Semaine', comments_path(query: { date_from: -7.days.from_now, category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names)}), :class => 'semaine' %>
+          <%end %>
+          &nbsp;
+          <%if params[:query][:date_from] > -365.days.from_now && params[:query][:date_from] < -30.days.from_now%>
+            <%=  link_to 'Mois', comments_path(query: { date_from: -30.days.from_now, category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }), :class => 'mois active'%>
+          <%else %>
+            <%=  link_to 'Mois', comments_path(query: { date_from: -30.days.from_now, category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }), :class => 'mois'%>
+          <%end %>
+          &nbsp;
+          <%if params[:query][:date_from] < -365.days.from_now %>
+            <%=  link_to 'Année', comments_path(query: { date_from: -365.days.from_now, category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }), :class => 'année active'%>
+          <%else %>
+            <%=  link_to 'Année', comments_path(query: { date_from: -365.days.from_now, category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }), :class => 'année'%>
+          <%end %>
+        <% elsif params[:query][:category_name] %>
+          <%if params[:query][:date_from] > -7.days.from_now %>
+            <%=  link_to 'Jour', comments_path(query: { date_from: -1.days.from_now, category_name: params.dig(:query, :category_name) }), :class => 'jour active' %>
+          <%else %>
+            <%=  link_to 'Jour', comments_path(query: { date_from: -1.days.from_now, category_name: params.dig(:query, :category_name) }), :class => 'jour' %>
+          <%end %>
+          &nbsp;
+          <%if params[:query][:date_from] > -30.days.from_now && params[:query][:date_from] < -7.days.from_now%>
+            <%=  link_to 'Semaine', comments_path(query: { date_from: -7.days.from_now, category_name: params.dig(:query, :category_name)}), :class => 'semaine active' %>
+          <%else %>
+            <%=  link_to 'Semaine', comments_path(query: { date_from: -7.days.from_now, category_name: params.dig(:query, :category_name) }), :class => 'semaine' %>
+          <%end %>
+          &nbsp;
+          <%if params[:query][:date_from] > -365.days.from_now && params[:query][:date_from] < -30.days.from_now%>
+            <%=  link_to 'Mois', comments_path(query: { date_from: -30.days.from_now, category_name: params.dig(:query, :category_name) }), :class => 'mois active'%>
+          <%else %>
+            <%=  link_to 'Mois', comments_path(query: { date_from: -30.days.from_now, category_name: params.dig(:query, :category_name) }), :class => 'mois'%>
+          <%end %>
+          &nbsp;
+          <%if params[:query][:date_from] < -365.days.from_now %>
+            <%=  link_to 'Année', comments_path(query: { date_from: -365.days.from_now, category_name: params.dig(:query, :category_name) }), :class => 'année active'%>
+          <%else %>
+            <%=  link_to 'Année', comments_path(query: { date_from: -365.days.from_now, category_name: params.dig(:query, :category_name) }), :class => 'année'%>
+          <%end %>
+        <%elsif  params[:query][:date_from]%>
+          <%if params[:query][:date_from] > -7.days.from_now %>
+            <%=  link_to 'Jour', comments_path(query: { date_from: -1.days.from_now }), :class => 'jour active'%>
+          <%else %>
+            <%=  link_to 'Jour', comments_path(query: { date_from: -1.days.from_now }), :class => 'jour'%>
+          <%end %>
+          &nbsp;
+          <%if params[:query][:date_from] > -30.days.from_now && params[:query][:date_from] < -7.days.from_now%>
+            <%=  link_to 'Semaine', comments_path(query: { date_from: -7.days.from_now }), :class => 'semaine active' %>
+          <%else %>
+            <%=  link_to 'Semaine', comments_path(query: { date_from: -7.days.from_now }), :class => 'semaine' %>
+          <%end %>
+          &nbsp;
+          <%if params[:query][:date_from] > -365.days.from_now && params[:query][:date_from] < -30.days.from_now%>
+            <%=  link_to 'Mois', comments_path(query: { date_from: -30.days.from_now }), :class => 'mois active'%>
+          <%else %>
+            <%=  link_to 'Mois', comments_path(query: { date_from: -30.days.from_now }), :class => 'mois'%>
+          <%end %>
+          &nbsp;
+          <%if params[:query][:date_from] < -365.days.from_now %>
+            <%=  link_to 'Année', comments_path(query: { date_from: -365.days.from_now }), :class => 'année active'%>
+          <%else %>
+            <%=  link_to 'Année', comments_path(query: { date_from: -365.days.from_now }), :class => 'année'%>
+          <%end %>
+        <%end %>
+      <%else %>
+
+
+       <%=  link_to 'Jour', comments_path(query: { date_from: -1.days.from_now }), :class => 'jour'%>
+
+        <%=  link_to 'Semaine', comments_path(query: { date_from: -7.days.from_now }), :class => 'semaine root' %>
+        <%=  link_to 'Mois', comments_path(query: { date_from: -30.days.from_now })%>
+
+        <%=  link_to 'Année', comments_path(query: { date_from: -365.days.from_now })%>
+      <%end %>
+    </div>
+  </div>
+   <%if !comments.empty? %>
+  <% comments.each do |comment| %>
+    <%= render "shared/card_comment", comment: comment%>
+  <%end %>
+  <%else %>
+    <div class="linebetween">
+    </div>
+    <div class="nothing-msg">
+      Aucun débat proposé pour le moment
+    </div>
+    <%end %>
+  <div  id="new-article-anchor">
+  </div>
+</div>

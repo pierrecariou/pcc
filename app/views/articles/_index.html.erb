@@ -1,7 +1,30 @@
 <div class="main-content">
   <div class="flex-dates-filter">
     <div class="top-feed">
-      <h2>Meilleurs articles</h2>
+      <%= link_to articles_path(query: { date_from: params.dig(:query, :date_from) }) do  %>
+
+      <button class="tablinks tab-button active" >Bibliothèque</button>
+
+      <%end %>
+      <% if params[:query] %>
+      <% if params[:query][:category_name] && params[:query][:sub_category_names] %>
+      <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from), category_name: params.dig(:query, :category_name), sub_category_names: params.dig(:query, :sub_category_names) }) do %>
+      <button class="tablinks tab-button" >Forum</button>
+      <%end %>
+       <% elsif params[:query][:category_name] %>
+       <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from), category_name: params.dig(:query, :category_name) }) do %>
+      <button class="tablinks tab-button" >Forum</button>
+      <%end %>
+       <%else %>
+      <%= link_to comments_path(query: { date_from: params.dig(:query, :date_from) }) do %>
+      <button class="tablinks tab-button" >Forum</button>
+      <%end %>
+      <%end %>
+      <%else %>
+        <%= link_to comments_path(query: { date_from: -30.days.from_now}) do %>
+      <button class="tablinks tab-button" >Forum</button>
+      <%end %>
+      <%end %>
     </div>
     <div class="dates">
       <%if params[:query] %>
@@ -83,15 +106,29 @@
 
        <%=  link_to 'Jour', articles_path(query: { date_from: -1.days.from_now }), :class => 'jour'%>
 
-        <%=  link_to 'Semaine', articles_path(query: { date_from: -7.days.from_now }), :class => 'semaine root' %>
-        <%=  link_to 'Mois', articles_path(query: { date_from: -30.days.from_now })%>
+        <%=  link_to 'Semaine', articles_path(query: { date_from: -7.days.from_now }), :class => 'semaine' %>
+        <%=  link_to 'Mois', articles_path(query: { date_from: -30.days.from_now }), :class => 'mois active'%>
 
         <%=  link_to 'Année', articles_path(query: { date_from: -365.days.from_now })%>
       <%end %>
     </div>
   </div>
-  <% articles.each do |article| %>
-    <%= render "shared/card", article: article %>
+  <%if !articles.empty? %>
+  <% if current_page?('/') %>
+   <% articles_root.each do |article| %>
+      <%= render "shared/card", article: article %>
+    <%end %>
+  <%else %>
+    <% articles.each do |article| %>
+      <%= render "shared/card", article: article %>
+    <%end %>
+  <%end %>
+  <%else %>
+    <div class="linebetween">
+    </div>
+    <div class="nothing-msg">
+      Aucun article partagé pour le moment
+    </div>
   <%end %>
   <div  id="new-article-anchor">
   </div>
