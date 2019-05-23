@@ -219,7 +219,7 @@ button.navbar-wagon-item-comment {
 }
 
 .all-answers {
-  width: 495px;
+  width: 60%;
 
   // margin: 0 auto;
 }
@@ -292,21 +292,29 @@ button.navbar-wagon-item-comment {
   margin-right:0;
   margin-right: 20px;
   a {
-    opacity: 0.4;
-    font-size: 12px;
+    opacity: 0.6;
+    font-size: 18px;
     color: #000000;
+    &:hover {
+      opacity: 1;
+    }
     &.active {
     font-weight: bold;
     opacity: 1;
+    font-size: 12px;
     }
   }
 }
 
 .upvotes-filter a {
-  opacity: 0.4;
-  font-size: 12px;
+  opacity: 0.6;
+  font-size: 18px;
   color: #000000;
+  &:hover {
+      opacity: 1;
+    }
  &.active {
+  font-size: 12px;
   font-weight: bold;
   opacity: 1;
   }
@@ -357,6 +365,9 @@ button.navbar-wagon-item-comment {
   display: none;
    &.active {
     display: block;
+  }
+  &.pros_con {
+    width: 60%;
   }
 }
 

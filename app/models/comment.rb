@@ -14,6 +14,11 @@ class Comment < ApplicationRecord
 
   scope :from_date, ->(date_from) { where("precise_date >= ?", date_from)}
 
+  validates :title, presence: true
+  validates :text, presence: true
+  validates :category, presence: true
+  validates :sub_categories, presence: true
+
 
 
 

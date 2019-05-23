@@ -1,15 +1,15 @@
-const btn = document.querySelector(".form-check-label.boolean")
+// const btn = document.querySelector(".form-check-label.boolean")
 
 
 
 
-function closeDebat() {
+// function closeDebat() {
 
 
-    btn.addEventListener('click', (event) => {
-      event.currentTarget.classList.toggle("active");
-    });
+//     btn.addEventListener('click', (event) => {
+//       event.currentTarget.classList.toggle("active");
+//     });
 
-}
+// }
 
-export {closeDebat};
+// export {closeDebat};

@@ -1,5 +1,5 @@
 .comment-all {
-  padding-bottom: 30px;
+
 }
 
 .comment-flex {
@@ -145,7 +145,28 @@ margin-right: 81px;
 }
 
 .participants {
+  margin-right: 64px;
+  position: absolute;
+  right: 0;
   color: black;
+  padding-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+    &.Politique {
+    color: #5E0606;
+  }
+  &.Ecologie {
+    color: #00541A;
+  }
+  &.Economie {
+    color: #070D59;
+  }
+  &.Numérique {
+      color: #E0BB20;
+  }
+  &.Humanités {
+    color: #483D8B;
+  }
   .avatar-article {
     margin-right: -13px;
   }
@@ -153,6 +174,7 @@ margin-right: 81px;
 
 .comment-show {
   padding-top: 20px;
+  padding-bottom: 30px;
   &.Ecologie {
 
   background-color: rgba(40, 85, 27, 0.1);
