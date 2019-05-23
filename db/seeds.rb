@@ -202,18 +202,18 @@ article10 = Article.new(
 scrap(article10.URL, article10)
 article10.save
 
-article11 = Article.new(
-   URL: 'https://www.lesechos.fr/idees-debats/sciences-prospective/030858673522-laurent-alexandre-leurope-a-completement-perdu-la-bataille-de-lia-2131052.php',
-   category: category_numerique,
-   sub_categories: [ sub_category_intelligence_artificielle ],
-   description: "Retour sur les conditions de travail dans les entrepôts d'Amazon.",
-   upvotes: 12,
-   user: user3,
-   date: "12 mars 2018",
-   precise_date: -300.days.from_now
- )
-scrap(article11.URL, article11)
-article11.save
+# article11 = Article.new(
+#    URL: 'https://www.lesechos.fr/idees-debats/sciences-prospective/030858673522-laurent-alexandre-leurope-a-completement-perdu-la-bataille-de-lia-2131052.php',
+#    category: category_numerique,
+#    sub_categories: [ sub_category_intelligence_artificielle ],
+#    description: "Retour sur les conditions de travail dans les entrepôts d'Amazon.",
+#    upvotes: 12,
+#    user: user3,
+#    date: "12 mars 2018",
+#    precise_date: -300.days.from_now
+#  )
+# scrap(article11.URL, article11)
+# article11.save
 
 # article12 = Article.new(
 #    URL: 'https://iatranshumanisme.com/2017/12/20/articles-plus-lus-2017/',
