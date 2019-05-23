@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll(".reactions > i")
+const buttons = document.querySelectorAll(".reactions")
 
 
 

@@ -3,6 +3,11 @@
   padding-bottom: 15px;
 }
 
+.new-article-form p {
+    font-size: 14px;
+    color: #EE5F5B;
+}
+
 .categories {
   display: flex;
   justify-content: space-between;
@@ -235,4 +240,9 @@
 
 .modal-lg {
   width: 1122px;
+}
+
+.error {
+  padding-left: 100px;
+  padding-right: 100px;
 }

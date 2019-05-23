@@ -5,44 +5,23 @@
     <div class="article-img-comment">
       <div class="upvote-carre <%= article.category.name %>">
          <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
-        <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
+         <div class="upvote-carre <%= article.category.name %> inactive">
+        <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= '<i class="fas fa-caret-up"></i>'.html_safe%></div>
         <div  class="card-up active" data-article="<%= article.id %>"><%= article.upvotes %> </div>
+        </div>
       <% else %>
-           <div data-article-arrow="<%= article.id %>" class="inactive-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put, remote: true %></div>
+       <%= link_to like_article_path(article), method: :put, remote: true  do %>
+      <div class="upvote-carre <%= article.category.name %> ">
+           <div data-article-arrow="<%= article.id %>" class="inactive-arrow"><%=  '<i class="fas fa-caret-up"></i>'.html_safe %></div>
            <div  class="card-up" data-article="<%= article.id %>"><%= article.upvotes %> </div>
+         </div>
            <%end %>
-      </div>
-      <a href="<%= article.URL %>" target="_blank"><img src="<%= article.image %>" height="150"></a>
-    </div>
-<!--     <div class="article-info" >
-      <h2 class="article-title <%= article.category.name %>"><a class="title" href="<%= article.URL %>"target="_blank"><%= article.title %></a></h2>
-      <div class="article-source">
-         <div class="photo-user-article">
-        <%= link_to user_path(article.user) do %>
-          <%=image_tag article.user.photo_url, class: "avatar-article" %>
           <%end %>
       </div>
-      <div class="user-infos">
-         Partagé par
-        <%= link_to user_path(article.user) do %>
-         <%= article.user.first_name%> <%= article.user.last_name%>
-        <% end %>
-        , le <%=article.date %>
-      </div>
-        <div class="source-article"><a href="<%= article.URL %>"target="_blank"><%= article.source %></a></div>
-      </div>
-      <p class="article-site_description" id="comment-section-anchor"><a href="<%= article.URL %>"target="_blank"><%= article.site_description %></a></p>
-      <div class="sub_categories_infos" >
-        <div class="cat-info <%= article.category.name %>">
-        <%= article.category.name %>
-        </div>
-          <% article.article_sub_categories.each do |article_sub_category| %>
-            <%=link_to "#{article_sub_category.sub_category.name}", articles_path(query: { sub_category_names: [article_sub_category.sub_category.name], category_name: article_sub_category.sub_category.category.name, date_from: params.dig(:query, :date_from) }) %>
 
-          <% end %>
+      <a href="<%= article.URL %>" target="_blank"><img src="<%= article.image %>" height="150"></a>
+    </div>
 
-      </div>
-    </div> -->
   </div>
   <div class="title-card">
     <%= article.title %>

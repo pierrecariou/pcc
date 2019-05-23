@@ -26,10 +26,10 @@
 
       <div class="arrow-sub-comment <%= sub_comment.comment.category.name %>" data-sub-comment-arrow="<%= sub_comment.id %>" ><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_sub_comment_path(sub_comment), method: :put, remote: true %></div>
       <div  data-sub-comment="<%= sub_comment.id %>"><%= sub_comment.stars %> </div>
-      <div class="reactions">
+      <div class="reactions" data-id="<%= sub_comment.id %>">
         <%= sub_comment.answers.count %> réactions
-        <i data-id="<%= sub_comment.id %>" id="down-<%= sub_comment.id  %>" class="fas fa-chevron-down"></i>
-        <i data-id="<%= sub_comment.id %>" id="up-<%= sub_comment.id  %>" class="fas fa-chevron-up"></i>
+        <i  id="down-<%= sub_comment.id  %>" class="fas fa-chevron-down"></i>
+        <i  id="up-<%= sub_comment.id  %>" class="fas fa-chevron-up"></i>
 
       </div>
   </div>

@@ -53,7 +53,9 @@ class ArticlesController < ApplicationController
     months = ["nil", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre" "décembre"]
     @article.date = Time.now.to_s.split()[0].split("-")[2] + " " + months[Time.now.to_s.split()[0].split("-")[1].to_i] + " " + Time.now.to_s.split()[0].split("-")[0]
     @article.precise_date = DateTime.now
-    scrap(@article.URL)
+    if @article.URL == (%w(http https))
+      scrap(@article.URL)
+    end
     cat = @article.sub_categories.map(&:category).first
     @article.category = cat
     if @article.save

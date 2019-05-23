@@ -19,7 +19,7 @@ class CommentArticlesController < ApplicationController
         format.js
       end
     else
-      raise
+
     end
   end
 

@@ -22,13 +22,19 @@
     <div class="title-debate">
       <div class=comment-upvote>
         <div class="upvote-carre-comment <%= @comment.category.name %>">
-          <% if @comment.by_user_comment_upvotes.any? {|by_user_comment_upvote| by_user_comment_upvote.user_id == current_user.id}%>
-            <div data-comment-arrow="<%= @comment.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_comment_path(@comment), method: :put, remote: true %></div>
-            <div  class="card-up-comment active" data-comment="<%= @comment.id %>"><%= @comment.upvotes %> </div>
-          <% else %>
-            <div data-comment-arrow="<%= @comment.id %>" class="inactive-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_comment_path(@comment), method: :put, remote: true %></div>
-            <div  class="card-up-comment" data-comment="<%= @comment.id %>"><%= @comment.upvotes %> </div>
-          <%end %>
+              <% if @comment.by_user_comment_upvotes.any? {|by_user_comment_upvote| by_user_comment_upvote.user_id == current_user.id}%>
+    <div class="upvote-carre <%= @comment.category.name %> inactive">
+        <div data-comment-arrow="<%= @comment.id %>" class="up-arrow"><%='<i class="fas fa-caret-up"></i>'.html_safe%></div>
+        <div  class="card-up-comment active" data-comment="<%= @comment.id %>"><%= @comment.upvotes %> </div>
+    </div>
+      <% else %>
+       <%= link_to like_comment_path(@comment), method: :put, remote: true  do %>
+      <div class="upvote-carre <%= @comment.category.name %>">
+           <div data-comment-arrow="<%= @comment.id %>" class="inactive-arrow"><%= '<i class="fas fa-caret-up"></i>'.html_safe%></div>
+           <div  class="card-up-comment" data-comment="<%= @comment.id %>"><%= @comment.upvotes %> </div>
+        </div>
+      <%end %>
+      <%end %>
         </div>
       </div>
       <div class="comment-title">
@@ -58,7 +64,7 @@
                   <%= @comment.category.name %>
                 </div>
                 <% @comment.comment_sub_categories.each do |comment_sub_category| %>
-                  <%=link_to "#{comment_sub_category.sub_category.name}", comments_path(query: { sub_category_names: [comment_sub_category.sub_category.name], category_name: comment_sub_category.sub_category.category.name, date_from: params.dig(:query, :date_from) }) %>
+                  <%=link_to "#{comment_sub_category.sub_category.name}", comments_path(query: { sub_category_names: [comment_sub_category.sub_category.name], category_name: comment_sub_category.sub_category.category.name, date_from: -30.days.from_now}) %>
                 <% end %>
               </div>
             </div>
@@ -101,6 +107,32 @@
       </div>
       <div class="linebetween-10"></div>
       <% if params[:query] && params[:query][:filter] == "pros_cons" %>
+           <div class="answers pros_con">
+        <div class="sub-comments-form">
+          <%if @comment.open_or_close  %>
+            <%= simple_form_for([@comment, @sub_comment]) do |form| %>
+              <%= form.input :title, label: :Titre %>
+              <%= form.input :text, label: :Contribution %>
+              <div class="flex-pro-con">
+                <%= form.input :state, as: :radio_buttons, collection: [ "pour", "neutre", "contre"], label: 'Positionnement' %>
+              </div>
+              <%= form.input :source, label: :Source, placeholder: "Collez ici le lien de votre source" %>
+            <div class="sub-comment-submit">
+              <%= form.button :submit, "Participez", class: "button-black" %>
+            </div>
+            <% end %>
+          <%else %>
+            <%= simple_form_for([@comment, @sub_comment]) do |form| %>
+              <%= form.input :title, label: :Titre %>
+              <%= form.input :text, label: :Contribution %>
+              <%= form.input :source, label: :Source, placeholder: "Collez ici le lien de votre source" %>
+              <div class="sub-comment-submit">
+                <%= form.button :submit, "Participez", class: "button-black" %>
+              </div>
+            <% end %>
+          <%end %>
+        </div>
+      </div>
           <div class="pro-con-flex">
           <div class="pros">
             <div class="pro-title">Pour</div>

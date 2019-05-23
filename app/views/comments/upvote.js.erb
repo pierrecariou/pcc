@@ -1,6 +1,6 @@
 function updateUpvotes(newCount) {
   const upvotes = document.querySelector("[data-comment='<%= @comment.id %>']")
-  const upArrow = document.querySelector("[data-comment-arrow='<%= @comment.id %>'] > a");
+  const upArrow = document.querySelector("[data-comment-arrow='<%= @comment.id %>'] > i");
   upvotes.innerHTML = newCount
   upvotes.style.marginTop = "13px"
   upArrow.style.display = "none";

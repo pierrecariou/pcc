@@ -4,7 +4,7 @@
       <%if params[:query] && params[:query][:filter].nil? %>
       <%= link_to articles_path(query: { date_from: params.dig(:query, :date_from) }), class: "navbar-wagon-brand" do %>
         <%= image_tag "logopcc.png", height: 50 %>
-      <h3 class="Penser-cest-chouette">Penser c'est chouette</h3>
+      <h3 class="Penser-cest-chouette">Démocrite</h3>
       <% end %>
       <%else %>
         <%= link_to articles_path(query: { date_from: -30.days.from_now }), class: "navbar-wagon-brand" do %>

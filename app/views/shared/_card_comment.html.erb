@@ -4,12 +4,18 @@
 <div class=comment-upvote>
   <div class="upvote-carre-comment <%= comment.category.name %>">
     <% if comment.by_user_comment_upvotes.any? {|by_user_comment_upvote| by_user_comment_upvote.user_id == current_user.id}%>
-        <div data-comment-arrow="<%= comment.id %>" class="up-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_comment_path(comment), method: :put, remote: true %></div>
+    <div class="upvote-carre <%= comment.category.name %> inactive">
+        <div data-comment-arrow="<%= comment.id %>" class="up-arrow"><%='<i class="fas fa-caret-up"></i>'.html_safe%></div>
         <div  class="card-up-comment active" data-comment="<%= comment.id %>"><%= comment.upvotes %> </div>
+    </div>
       <% else %>
-           <div data-comment-arrow="<%= comment.id %>" class="inactive-arrow"><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_comment_path(comment), method: :put, remote: true %></div>
+       <%= link_to like_comment_path(comment), method: :put, remote: true  do %>
+      <div class="upvote-carre <%= comment.category.name %>">
+           <div data-comment-arrow="<%= comment.id %>" class="inactive-arrow"><%= '<i class="fas fa-caret-up"></i>'.html_safe%></div>
            <div  class="card-up-comment" data-comment="<%= comment.id %>"><%= comment.upvotes %> </div>
-           <%end %>
+        </div>
+      <%end %>
+      <%end %>
   </div>
 </div>
 <div class="comment-all">
@@ -37,17 +43,19 @@
 
     <%= comment.text %>
   </div>
-  <div class="participants">
-    <%= comment.sub_comments.count %> réponses
-    <% users = [] %>
-    <% comment.sub_comments.each do |sub_comment| %>
-      <% users << sub_comment.user %>
-    <%end %>
-    <% users.uniq.each do |user| %>
+  <%= link_to comment_path(comment) do %>
+    <div class="participants <%= comment.category.name %>">
+      <%= comment.sub_comments.count %> réponses
+      <% users = [] %>
+      <% comment.sub_comments.each do |sub_comment| %>
+        <% users << sub_comment.user %>
+      <%end %>
+      <% users.uniq.each do |user| %>
 
-      <%=image_tag user.photo_url, class: "avatar-article" %>
-    <%end %>
-  </div>
+        <%=image_tag user.photo_url, class: "avatar-article" %>
+      <%end %>
+    </div>
+  <%end %>
    <div class="sub_categories_infos" >
         <div class="cat-info <%= comment.category.name %>">
         <%= comment.category.name %>

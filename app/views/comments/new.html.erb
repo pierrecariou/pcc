@@ -1,2 +1,25 @@
+      <div class="pcc-wrapper">
+     <div class=" container new-comment error">
+          <p>Remplir les champs étoilés</p>
+          <p>Choisir une ou plusieurs sous catégories</p>
 
+          <h2> Lancer un débat </h2>
+
+          <%= simple_form_for Comment.new do |f| %>
+              <%= f.input :title, label: 'Titre' %>
+              <%= f.input :open_or_close, as: :boolean, checked_value: true, unchecked_value: false, label: 'Débat fermé' %>
+              <%= f.input :text, label: 'Texte' %>
+              <%= f.input :source, label: 'Lien' %>
+
+              <div class="categories">
+                <% Category.all.each do |category| %>
+                    <%= render 'categories/box_comment', category: category, f: f %>
+                <% end %>
+              </div>
+           <div class="article-submit">
+                <%= f.submit 'Partager', class: "button-black" %>
+              </div>
+            <% end %>
+      </div>
+    </div>
 
