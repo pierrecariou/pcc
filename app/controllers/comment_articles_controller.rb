@@ -23,6 +23,20 @@ class CommentArticlesController < ApplicationController
     end
   end
 
+
+
+   def upvote
+    @comment_article = CommentArticle.find(params[:id])
+    authorize @comment_article
+    @comment_article.increment!(:likes)
+    if @comment_article.save
+      respond_to do |format|
+        format.html { redirect_to request.referrer }
+        format.js
+      end
+    end
+  end
+
   private
 
    def comment_article_params

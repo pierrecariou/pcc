@@ -8,4 +8,8 @@ class CommentArticlePolicy < ApplicationPolicy
   def create?
     true
   end
+
+   def upvote?
+    true
+  end
 end

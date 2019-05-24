@@ -18,8 +18,14 @@
     <%= comment_article.text %>
   </div>
   <div class="footer-answer">
+    <%= link_to like_comment_article_path(comment_article), method: :put, remote: true  do %>
+    <div data-comment-article-jaime='<%= comment_article.id %>' class="like-comment-article <%= comment_article.article.category.name%>">
     J'aime
+    </div>
+    <div data-comment-article='<%= comment_article.id %>'>
     (<%= comment_article.likes %>)
+    </div>
+    <%end %>
   </div>
 </div>
   <div class="linebetween8"></div>

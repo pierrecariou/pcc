@@ -27,6 +27,7 @@ class SubCommentsController < ApplicationController
 
    def upvote
     @sub_comment = SubComment.find(params[:id])
+    authorize @sub_comment
     @sub_comment.increment!(:stars)
     @comment = @sub_comment.comment
     @comment.increment!(:upvotes)
