@@ -1,0 +1,12 @@
+
+
+function displayComment(comment) {
+console.log("yolooooo");
+ const forms = document.querySelectorAll(".sub-comments-form");
+  forms.forEach((form) => {
+    if (form.classList.contains("<%= @comment_article.article.id %>")) {
+      form.insertAdjacentHTML('beforebegin', comment);
+    };
+  });
+};
+displayComment('<%= j render "shared/card_comment_article", comment_article: @comment_article %>');

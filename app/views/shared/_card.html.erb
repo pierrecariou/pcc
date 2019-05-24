@@ -111,8 +111,8 @@
         <%= render 'shared/card_comment_article', comment_article: comment_article %>
         <%end %>
       </div>
-   <div class="sub-comments-form">
-        <%= simple_form_for([article, @comment_article]) do |form| %>
+   <div class="sub-comments-form <%= article.id %>">
+        <%= simple_form_for([article, @comment_article], remote: true) do |form| %>
           <%= form.input :text, label: :Contribution %>
           <div class="sub-comment-submit">
             <%= form.button :submit, "Répondre", class: "button-black" %>
