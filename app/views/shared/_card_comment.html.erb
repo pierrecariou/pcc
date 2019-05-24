@@ -2,23 +2,21 @@
 </div>
 <div class="comment-flex <%= comment.category.name  %>">
 <div class=comment-upvote>
-  <div class="upvote-carre-comment <%= comment.category.name %> popup" data-id="<%= comment.id %>">
     <% if comment.by_user_comment_upvotes.any? {|by_user_comment_upvote| by_user_comment_upvote.user_id == current_user.id}%>
-    <div class="upvote-carre <%= comment.category.name %> inactive">
+    <div class="upvote-carre <%= comment.category.name %> inactive popup" data-id="<%= comment.id %>">
         <div data-comment-arrow="<%= comment.id %>" class="up-arrow"><%='<i class="fas fa-caret-up"></i>'.html_safe%></div>
         <div  class="card-up-comment active" data-comment="<%= comment.id %>"><%= comment.upvotes %> </div>
         <span class="popuptext" id="my-popup-<%= comment.id %>">votes positifs</span>
     </div>
       <% else %>
        <%= link_to like_comment_path(comment), method: :put, remote: true  do %>
-      <div class="upvote-carre <%= comment.category.name %> popup " data-id="<%= comment.id %>">
+      <div class="upvote-carre-comment <%= comment.category.name %> popup " data-id="<%= comment.id %>">
            <div data-comment-arrow="<%= comment.id %>" class="inactive-arrow"><%= '<i class="fas fa-caret-up"></i>'.html_safe%></div>
            <div  class="card-up-comment" data-comment="<%= comment.id %>"><%= comment.upvotes %> </div>
            <span class="popuptext" id="my-popup-<%= comment.id %>">votes positifs</span>
         </div>
       <%end %>
       <%end %>
-  </div>
 </div>
 <div class="comment-all">
 <%= link_to comment_path(comment) do %>
