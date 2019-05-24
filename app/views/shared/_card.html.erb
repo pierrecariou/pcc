@@ -35,15 +35,17 @@
   <div class="article-preview " id="article-preview-<%= article.category.name %>">
     <div class="article-img">
          <% if article.by_user_upvotes.any? {|by_user_upvote| by_user_upvote.user_first_name == current_user.first_name}%>
-      <div class="upvote-carre <%= article.category.name %> inactive">
+      <div class="upvote-carre <%= article.category.name %> inactive popup" data-id="<%= article.id %>" >
         <div data-article-arrow="<%= article.id %>" class="up-arrow"><%= '<i class="fas fa-caret-up"></i>'.html_safe%></div>
         <div  class="card-up active" data-article="<%= article.id %>"><%= article.upvotes %> </div>
+        <span class="popuptext" id="my-popup-<%= article.id %>">votes positifs</span>
       </div>
       <% else %>
       <%= link_to like_article_path(article), method: :put, remote: true  do %>
-      <div class="upvote-carre <%= article.category.name %>" >
+      <div class="upvote-carre <%= article.category.name %> popup" data-id="<%= article.id %>" >
            <div data-article-arrow="<%= article.id %>" class="inactive-arrow"><%=  '<i class="fas fa-caret-up"></i>'.html_safe%></div>
            <div  class="card-up" data-article="<%= article.id %>"><%= article.upvotes %> </div>
+           <span class="popuptext" id="my-popup-<%= article.id %>">votes positifs</span>
       </div>
       <%end %>
            <%end %>
@@ -109,8 +111,8 @@
         <%= render 'shared/card_comment_article', comment_article: comment_article %>
         <%end %>
       </div>
-   <div class="sub-comments-form">
-        <%= simple_form_for([article, @comment_article]) do |form| %>
+   <div class="sub-comments-form <%= article.id %>">
+        <%= simple_form_for([article, @comment_article], remote: true) do |form| %>
           <%= form.input :text, label: :Contribution %>
           <div class="sub-comment-submit">
             <%= form.button :submit, "Répondre", class: "button-black" %>

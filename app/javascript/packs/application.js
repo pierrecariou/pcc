@@ -25,6 +25,10 @@ import  { buttonRepondre } from "./button_repondre";
 
 buttonRepondre();
 
+import { popupUpvote } from "./popup_upvote"
+
+popupUpvote();
+
 
 // import  { hideOtherDebates } from "./debat";
 
