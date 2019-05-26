@@ -39,6 +39,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :answers do
+    member do
+      put "like", to: "answers#upvote"
+    end
+  end
+
 
   resources :users, only: [ :show ]
 end

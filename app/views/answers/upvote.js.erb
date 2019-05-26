@@ -1,0 +1,9 @@
+function updateLikesCount(newCount) {
+  console.log("like");
+  const likes = document.querySelector("[data-answer='<%= @answer.id %>']");
+  const jaime = document.querySelector("[data-answer-jaime='<%= @answer.id %>']");
+  likes.innerHTML = "("+newCount+")"
+  jaime.classList.add("active");
+}
+
+updateLikesCount('<%= @answer.likes %>')

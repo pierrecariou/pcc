@@ -24,6 +24,19 @@ class AnswersController < ApplicationController
     end
   end
 
+
+  def upvote
+    @answer = Answer.find(params[:id])
+    authorize @answer
+    @answer.increment!(:likes)
+    if @answer.save
+      respond_to do |format|
+        format.html { redirect_to request.referrer }
+        format.js
+      end
+    end
+  end
+
   private
 
    def answer_params
