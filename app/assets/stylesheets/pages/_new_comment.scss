@@ -4,22 +4,110 @@
 
 .new-comment .form-check-label {
   cursor: pointer;
-  border: solid;
-  border-width: 1px;
-  padding: 5px;
-  &:hover {
-    background-color: rgba(240, 52, 52, 0.2);
-  }
-  &.active {
-    background-color: rgba(240, 52, 52, 0.8);
-  }
+  // border: solid;
+  // border-width: 1px;
+  // padding: 5px;
+  // &:hover {
+  //   background-color: rgba(240, 52, 52, 0.2);
+  // }
+  // &.active {
+  //   background-color: rgba(240, 52, 52, 0.8);
+  // }
 }
 
 .new-comment h2 {
-      border-bottom: 1px solid #898989;
+    border-bottom: 1px solid #898989;
     padding-bottom: 15px;
 }
+
+
 .new-comment p {
+    font-size: 18px;
+    font-weight: 700;
+    color: black;
+
+
+
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700&subset=cyrillic');
+
+
+
+#form-comment .form-check-label {
+  text-transform:uppercase;
+
+  font-weight:bold;
+  float:right;
+}
+
+.impossible {
+  display: none;
+  &.active {
+    text-transform:uppercase;
+    margin-top: 8px;
+    margin-left: -97px;
     font-size: 14px;
-    color: #EE5F5B;
+    font-weight: lighter;
+    display: block;
+  color: red;
+  }
+}
+
+.possible {
+  display: none;
+  &.active {
+    text-transform:uppercase;
+    margin-top: 8px;
+  margin-left: -116px;
+    font-size: 14px;
+    font-weight: lighter;
+    display: block;
+  color: green;
+  }
+}
+
+
+#form-comment .form-check-label {
+  color: rgba(1, 1, 1, 0.5);
+
+      width: 138px;
+    height: 34px;
+  box-sizing:border-box;
+  border:1px solid;
+  float:left;
+  border-radius:100px;
+  position:relative;
+  cursor:pointer;
+  transition:.3s ease;
+  font-weight: thin;
+  font-size: 0px;
+  color: red;
+}
+ #form-comment input[type=checkbox]:checked + .boolean{
+  color: green;
+}
+ #form-comment input[type=checkbox]:checked + label:before{
+  left:102px;
+}
+
+
+
+#form-comment .form-check-label:before{
+  transition:.3s ease;
+  content:'';
+      width: 31px;
+    height: 24px;
+  position:absolute;
+  background:white;
+  left:2px;
+  top:4px;
+  box-sizing:border-box;
+  border:1px solid;
+  border-radius:100px;
+}
+
+.flex-check {
+  display: flex;
 }
