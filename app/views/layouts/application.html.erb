@@ -27,11 +27,11 @@
       <% unless params[:action] == "home" %>
         <%= render 'shared/navbar' %>
       <% end %>
-      <%= render 'shared/flashes' %>
+
       <div class="content-layout">
         <%= yield %>
       </div>
-      <%= render 'shared/footer' unless params[:action] == "home" %>
+      <%= render 'shared/footer' unless params[:action] == "new" || params[:action] == "create" %>
       <%= javascript_include_tag 'application' %>
       <%= javascript_pack_tag 'application' %>
     </div>

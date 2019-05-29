@@ -8,7 +8,7 @@
 
             <%= simple_form_for Article.new do |f| %>
               <%= f.input :URL, label: 'Lien de l\'article' %>
-             <!--  <%= f.input :description, label: 'Commentaire' %> -->
+              <%= f.input :description, label: 'Commentaire' %>
 
               <div class="categories">
                 <% Category.all.each do |category| %>
