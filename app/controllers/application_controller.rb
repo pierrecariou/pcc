@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+
+
   private
 
   def set_categories

@@ -23,6 +23,11 @@
   </head>
 
   <body>
+    <% unless params[:action] == "new" || params[:action] == "create"  %>
+      <% unless current_user.photo_url %>
+     <% current_user.photo_url = 'logopcc.png' %>
+     <% end %>
+   <%end %>
     <div class="pcc-wrapper">
       <% unless params[:action] == "home" %>
         <%= render 'shared/navbar' %>
