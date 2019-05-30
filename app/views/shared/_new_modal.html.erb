@@ -9,6 +9,9 @@
             <%= simple_form_for Article.new do |f| %>
               <%= f.input :URL, label: 'Lien de l\'article' %>
               <%= f.input :description, label: 'Commentaire' %>
+              <div class="new-comment">
+              <p>Sélectionnez une catégorie générale, puis une ou plusieurs sous catégories*</p>
+              </div>
 
               <div class="categories">
                 <% Category.all.each do |category| %>

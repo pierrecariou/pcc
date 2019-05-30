@@ -16,7 +16,7 @@
               </div>
               <%= f.input :text, label: 'Texte' %>
               <%= f.input :source, label: 'Lien' %>
-
+              <p>Sélectionnez une catégorie générale, puis une ou plusieurs sous catégories*</p>
               <div class="categories">
                 <% Category.all.each do |category| %>
                     <%= render 'categories/box_comment', category: category, f: f %>
