@@ -60,17 +60,13 @@
       <div class="article-source">
          <div class="photo-user-article">
         <%= link_to user_path(article.user) do %>
-        <%if article.user.photo_url == 'logopcc.png' %>
           <%=image_tag article.user.photo_url, class: "avatar-article" %>
-          <% else %>
-          <img src="<%= article.user.photo_url %>" class="avatar-article">
           <%end %>
       </div>
       <div class="user-infos">
          Partagé par
         <%= link_to user_path(article.user) do %>
          <%= article.user.first_name%> <%= article.user.last_name%>
-         <img src="" />
         <% end %>
         , le <%=article.date %>
       </div>
