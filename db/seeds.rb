@@ -29,9 +29,9 @@
 
 puts 'Creating users...'
 
-# user1 = User.create!(email: 'theodore.brossollet@gmail.com', password: 'loulou52', first_name: 'Théodore', last_name: 'Brossollet', pseudo: 'président', age: 24, activity: 'founder')
-# user2 = User.create!(email: 'pierrecariou@outlook.fr', password: 'u1nslb5c', first_name: 'Pierre', last_name: 'Cariou', pseudo: 'STesich', age: 24, activity: 'Developper')
-user3 = User.create!(email: 'numa.desborderies@gmail.com', password: 'sharkeur', first_name: 'Numa', last_name: 'Des Borderies', pseudo: 'LEshark', age: 40, activity: 'Compositeur')
+user1 = User.create!(email: 'theodore.brossollet@gmail.com', password: 'loulou52', first_name: 'Théodore', last_name: 'Brossollet', pseudo: 'président', age: 24, activity: 'founder')
+user2 = User.create!(email: 'pierrecariou@outlook.fr', password: 'u1nslb5c', first_name: 'Pierre', last_name: 'Cariou', pseudo: 'STesich', age: 24, activity: 'Developper')
+# user3 = User.create!(email: 'numa.desborderies@gmail.com', password: 'sharkeur', first_name: 'Numa', last_name: 'Des Borderies', pseudo: 'LEshark', age: 40, activity: 'Compositeur')
 # user4 = User.create!(email: 'hamza.amor@gmail.com', password: 'azerty', first_name: 'Hamza', last_name: 'Amor', pseudo: 'H-Amor', age: 25, activity: 'Etudiant', photo_url: 'hamza.png')
 # user5 = User.create!(email: 'julia.brouard@gmail.com', password: 'azerty', first_name: 'Julia', last_name: 'Brouard', pseudo: 'J-Brouard', age: 24, activity: 'Etudiante', photo_url: 'julia.jpg')
 # user6 = User.create!(email: 'emily.betham@gmail.com', password: 'azerty', first_name: 'Emily', last_name: 'Betham', pseudo: 'E-Betham', age: 23, activity: 'Etudiante', photo_url: 'emily.jpg')
