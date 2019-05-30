@@ -1,5 +1,1 @@
-class AddPhotoUrlToArticles < ActiveRecord::Migration[5.2]
-  def change
-    add_column :articles, :photo_url, :string
-  end
-end
+20190305101721_add_photo_url_to_articles.rb
