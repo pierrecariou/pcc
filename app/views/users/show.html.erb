@@ -17,8 +17,12 @@
         <div class="profile-user-name">
           <h4><%= @user.first_name %> <%= @user.last_name %></h4>
         </div>
-        <p> <%= @user.pseudo %> </p>
-        <p><%= @user.activity %></p>
+        <% if @user.pseudo %>
+          <p> <%= @user.pseudo %> </p>
+        <%end %>
+        <% if @user.activity %>
+          <p><%= @user.activity %></p>
+        <% end %>
         <% if @user == current_user  %>
           <%= link_to 'Modifier mes infos',  edit_user_registration_path %>
         <% end %>

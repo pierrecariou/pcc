@@ -29,16 +29,16 @@
 
 puts 'Creating users...'
 
-user1 = User.create!(email: 'theodore.brossollet@gmail.com', password: 'loulou52', first_name: 'Théodore', last_name: 'Brossollet', pseudo: 'président', age: 24, activity: 'founder')
-user2 = User.create!(email: 'pierrecariou@outlook.fr', password: 'u1nslb5c', first_name: 'Pierre', last_name: 'Cariou', pseudo: 'STesich', age: 24, activity: 'Developper')
+# user1 = User.create!(email: 'theodore.brossollet@gmail.com', password: 'loulou52', first_name: 'Théodore', last_name: 'Brossollet', pseudo: 'président', age: 24, activity: 'founder')
+# user2 = User.create!(email: 'pierrecariou@outlook.fr', password: 'u1nslb5c', first_name: 'Pierre', last_name: 'Cariou', pseudo: 'STesich', age: 24, activity: 'Developper')
 # user3 = User.create!(email: 'numa.desborderies@gmail.com', password: 'sharkeur', first_name: 'Numa', last_name: 'Des Borderies', pseudo: 'LEshark', age: 40, activity: 'Compositeur')
-# user4 = User.create!(email: 'hamza.amor@gmail.com', password: 'azerty', first_name: 'Hamza', last_name: 'Amor', pseudo: 'H-Amor', age: 25, activity: 'Etudiant', photo_url: 'hamza.png')
-# user5 = User.create!(email: 'julia.brouard@gmail.com', password: 'azerty', first_name: 'Julia', last_name: 'Brouard', pseudo: 'J-Brouard', age: 24, activity: 'Etudiante', photo_url: 'julia.jpg')
-# user6 = User.create!(email: 'emily.betham@gmail.com', password: 'azerty', first_name: 'Emily', last_name: 'Betham', pseudo: 'E-Betham', age: 23, activity: 'Etudiante', photo_url: 'emily.jpg')
-# user7 = User.create!(email: 'germain.loret@gmail.com', password: 'azerty', first_name: 'Germain', last_name: 'Loret', pseudo: 'G-loret', age: 32, activity: 'Developpeur', photo_url: 'germain.jpg')
-# user8 = User.create!(email: 'theodore.brossollet@gmail.com', password: 'azerty', first_name: 'Theodore', last_name: 'Brossollet', pseudo: 'T-Brossollet', age: 58, activity: 'Etudiant', photo_url: 'Brossollet.jpg')
-# user9 = User.create!(email: 'michel.cymes@gmail.com', password: 'azerty', first_name: 'Michel', last_name: 'Cymes', pseudo: 'M-Cymes', age: 44, activity: 'Medecin', photo_url: 'Cymes.jpg')
-# user10 = User.create!(email: 'loic.massy@gmail.com', password: 'azerty', first_name: 'Loïc', last_name: 'Massy', pseudo: 'L-Massy', age: 24, activity: 'Agriculteur', photo_url: 'loic.jpg')
+ User.create!(email: 'pierre.gelinotte@free.fr', password: '6H4sk46p', first_name: 'Pierre', last_name: 'Gelinotte')
+ User.create!(email: 'eugarin@hotmail.fr', password: 'kp4knAgx', first_name: 'Eugénie', last_name: 'Garin')
+ User.create!(email: 'Victor.levavasseur@edhec.com', password: '0x0ZaJ0F', first_name: 'Victor', last_name: 'Le Vavasseur')
+User.create!(email: 'morganedesaintvincent@hotmail.fr', password: '4EhMgx3W', first_name: 'Morgane', last_name: 'De Saint Vincent')
+ User.create!(email: 'paul.belloy@hotmail.fr', password: 'oB6ADdk9', first_name: 'Paul', last_name: 'Belloy')
+User.create!(email: 'louismi.quercia@hotmail.fr', password: 'lQw3Pl2a', first_name: 'Louis Michel', last_name: 'Quercia')
+ User.create!(email: 'Ernest.prot@gmail.com', password: 'eQmqmW93', first_name: 'Ernest', last_name: 'Prot')
 
 
 
