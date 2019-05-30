@@ -19,6 +19,10 @@
 .top-feed {
   display: flex;
   justify-content: space-between;
+  button {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+  }
 }
 
 
