@@ -1,5 +1,5 @@
 <div class="left-side-info les-plus-actifs">
-  <h2>Actifs</h2>
+  <h2>Les plus influents</h2>
   <div class="linebetween-10"></div>
   <%users = [] %>
   <%@articles.first(15).each do |article| %>
@@ -19,7 +19,7 @@
           </li>
           <% if user.activity %>
             <li class="info act"><%=user.activity%></li>
-            <%end %>
+          <%end %>
           <li class="info count"><%=user.articles.count%>
             <% if user.articles.count == 1 %>
               partage

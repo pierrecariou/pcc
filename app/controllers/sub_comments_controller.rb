@@ -28,13 +28,19 @@ class SubCommentsController < ApplicationController
    def upvote
     @sub_comment = SubComment.find(params[:id])
     authorize @sub_comment
-    @sub_comment.increment!(:stars)
-    @comment = @sub_comment.comment
-    @comment.increment!(:upvotes)
-    if @sub_comment.save && @comment.save
-      respond_to do |format|
-        format.html { redirect_to request.referrer }
-        format.js
+     unless @sub_comment.by_user_sub_comment_upvotes.any? {|by_user_sub_comment_upvote| by_user_sub_comment_upvote.user == current_user}
+      new_upvote = ByUserSubCommentUpvote.create
+      new_upvote.sub_comment = @sub_comment
+      new_upvote.user = current_user
+      new_upvote.save
+      @sub_comment.increment!(:stars)
+      @comment = @sub_comment.comment
+      @comment.increment!(:upvotes)
+      if @sub_comment.save && @comment.save
+        respond_to do |format|
+          format.html { redirect_to request.referrer }
+          format.js
+        end
       end
     end
   end

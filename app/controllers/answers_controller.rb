@@ -28,11 +28,17 @@ class AnswersController < ApplicationController
   def upvote
     @answer = Answer.find(params[:id])
     authorize @answer
-    @answer.increment!(:likes)
-    if @answer.save
-      respond_to do |format|
-        format.html { redirect_to request.referrer }
-        format.js
+    unless @answer.by_user_answer_upvotes.any? {|by_user_answer_upvote| by_user_answer_upvote.user == current_user}
+      new_upvote = ByUserAnswerUpvote.create
+      new_upvote.answer = @answer
+      new_upvote.user = current_user
+      new_upvote.save
+      @answer.increment!(:likes)
+      if @answer.save
+        respond_to do |format|
+          format.html { redirect_to request.referrer }
+          format.js
+        end
       end
     end
   end
