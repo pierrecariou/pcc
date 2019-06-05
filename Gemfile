@@ -12,6 +12,9 @@ ruby '2.5.3'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary'
+gem 'figaro'
 
 
 gem 'bootsnap', require: false

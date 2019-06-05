@@ -17,7 +17,7 @@
     <div class="avatar">
 
 
-      <%= link_to image_tag(article.user.photo_url), user_path(article.user) %>
+      <%= link_to cl_image_tag(article.user.photo), user_path(article.user) %>
 
     </div>
     <div class="user-input">
@@ -60,7 +60,7 @@
       <div class="article-source">
          <div class="photo-user-article">
         <%= link_to user_path(article.user) do %>
-          <%=image_tag article.user.photo_url, class: "avatar-article" %>
+          <%=cl_image_tag article.user.photo, class: "avatar-article" %>
           <%end %>
       </div>
       <div class="user-infos">
@@ -121,7 +121,7 @@
             <div class="flex-photo-info">
             <div class="photo-user-article">
               <%= link_to user_path(article.user) do %>
-                <%=image_tag article.user.photo_url, class: "avatar-article" %>
+                <%=cl_image_tag article.user.photo, class: "avatar-article" %>
               <%end %>
             </div>
             <div class="user-infos-comment">

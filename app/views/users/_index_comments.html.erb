@@ -9,7 +9,7 @@
     <div class="user">
       <div class="photo">
         <%= link_to user_path(user) do %>
-          <%=image_tag user.photo_url, class: "avatar_sidebar" %>
+          <%=cl_image_tag user.photo, class: "avatar_sidebar" %>
       </div>
       <div class="infos_user">
         <ul>
