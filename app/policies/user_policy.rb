@@ -12,4 +12,9 @@ class UserPolicy < ApplicationPolicy
    def update?
     true
   end
+
+
+   def remove_photo?
+    true
+  end
 end

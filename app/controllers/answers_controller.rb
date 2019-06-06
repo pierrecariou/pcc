@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-    def new
+  def new
     @user = current_user
     @answer = Answer.new
     authorize @answer

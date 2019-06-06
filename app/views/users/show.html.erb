@@ -12,10 +12,15 @@
         <% end %>
         <div class="linebetween-10"></div>
         <div class="profile-avatar">
-          <%= cl_image_tag @user.photo %>
+
+          <%= cl_image_tag @user.photo, height: 150, width: 150, crop: :fill, gravity: :face %>
         </div>
         <%if @user == current_user %>
-   <div class="photo-form">
+        <% if @user[:photo] != "https://res.cloudinary.com/pensercestchouette/image/upload/v1559772286/b12q9dcyzpcgwfwejhcn.png" %>
+          <%= link_to '<i class="fas fa-times"></i>'.html_safe, remove_user_path(@user), data: { confirm: "Etes-vous certain de vouloir supprimer votre photo?" }, method: :put  %>
+        <%end %>
+
+   <div class="photo-form" data-id="<%= @user.id %>">
       <%= simple_form_for(@user) do |form| %>
       <div class="change-picture">
   <button class="btn">Modifier ma photo</button>

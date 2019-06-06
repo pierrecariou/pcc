@@ -14,6 +14,17 @@ class UsersController < ApplicationController
   end
 
 
+  def remove_photo
+    @user = User.find(params[:id])
+    authorize @user
+    @user[:photo] = "https://res.cloudinary.com/pensercestchouette/image/upload/v1559772286/b12q9dcyzpcgwfwejhcn.png"
+    @user.save
+
+
+    redirect_to user_path(@user)
+  end
+
+
   private
 
   def user_params

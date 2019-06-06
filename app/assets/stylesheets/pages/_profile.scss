@@ -54,9 +54,12 @@
   overflow: hidden;
   display: inline-block;
   cursor: pointer;
+  .btn {
+    margin-left: -10px;
+  }
   &:hover .btn {
-  text-decoration: underline;
-}
+    text-decoration: underline;
+  }
 }
 
 
