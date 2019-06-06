@@ -32,13 +32,13 @@ puts 'Creating users...'
 # user1 = User.create!(email: 'theodore.brossollet@gmail.com', password: 'loulou52', first_name: 'Théodore', last_name: 'Brossollet', pseudo: 'président', age: 24, activity: 'founder')
 # user2 = User.create!(email: 'pierrecariou@outlook.fr', password: 'u1nslb5c', first_name: 'Pierre', last_name: 'Cariou', pseudo: 'STesich', age: 24, activity: 'Developper')
 # user3 = User.create!(email: 'numa.desborderies@gmail.com', password: 'sharkeur', first_name: 'Numa', last_name: 'Des Borderies', pseudo: 'LEshark', age: 40, activity: 'Compositeur')
- User.create!(email: 'pierre.gelinotte@free.fr', password: '6H4sk46p', first_name: 'Pierre', last_name: 'Gelinotte')
- User.create!(email: 'eugarin@hotmail.fr', password: 'kp4knAgx', first_name: 'Eugénie', last_name: 'Garin')
- User.create!(email: 'Victor.levavasseur@edhec.com', password: '0x0ZaJ0F', first_name: 'Victor', last_name: 'Le Vavasseur')
-User.create!(email: 'morganedesaintvincent@hotmail.fr', password: '4EhMgx3W', first_name: 'Morgane', last_name: 'De Saint Vincent')
- User.create!(email: 'paul.belloy@hotmail.fr', password: 'oB6ADdk9', first_name: 'Paul', last_name: 'Belloy')
-User.create!(email: 'louismi.quercia@hotmail.fr', password: 'lQw3Pl2a', first_name: 'Louis Michel', last_name: 'Quercia')
- User.create!(email: 'Ernest.prot@gmail.com', password: 'eQmqmW93', first_name: 'Ernest', last_name: 'Prot')
+#  User.create!(email: 'pierre.gelinotte@free.fr', password: '6H4sk46p', first_name: 'Pierre', last_name: 'Gelinotte')
+#  User.create!(email: 'eugarin@hotmail.fr', password: 'kp4knAgx', first_name: 'Eugénie', last_name: 'Garin')
+#  User.create!(email: 'Victor.levavasseur@edhec.com', password: '0x0ZaJ0F', first_name: 'Victor', last_name: 'Le Vavasseur')
+# User.create!(email: 'morganedesaintvincent@hotmail.fr', password: '4EhMgx3W', first_name: 'Morgane', last_name: 'De Saint Vincent')
+#  User.create!(email: 'paul.belloy@hotmail.fr', password: 'oB6ADdk9', first_name: 'Paul', last_name: 'Belloy')
+# User.create!(email: 'louismi.quercia@hotmail.fr', password: 'lQw3Pl2a', first_name: 'Louis Michel', last_name: 'Quercia')
+#  User.create!(email: 'Ernest.prot@gmail.com', password: 'eQmqmW93', first_name: 'Ernest', last_name: 'Prot')
 
 
 

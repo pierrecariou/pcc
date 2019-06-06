@@ -27,7 +27,7 @@
   <div class="flex-photo-info">
     <div class="photo-user-article">
         <%= link_to user_path(comment.user) do %>
-          <%=cl_image_tag comment.user.photo, class: "avatar-article" %>
+          <%=cl_image_tag comment.user.photo, height: 30, width: 30, crop: :fill, gravity: :face, class: "avatar-article" %>
           <%end %>
       </div>
       <div class="user-infos-comment">
@@ -52,7 +52,7 @@
       <%end %>
       <% users.uniq.each do |user| %>
 
-        <%=cl_image_tag user.photo, class: "avatar-article" %>
+        <%=cl_image_tag user.photo, height: 30, width: 30, crop: :fill, gravity: :face, class: "avatar-article" %>
       <%end %>
     </div>
   <%end %>

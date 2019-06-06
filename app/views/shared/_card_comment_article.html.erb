@@ -3,7 +3,7 @@
       <div class="flex-photo-info">
       <div class="photo-user-article">
         <%= link_to user_path(comment_article.user) do %>
-          <%=cl_image_tag comment_article.user.photo, class: "avatar-article" %>
+          <%=cl_image_tag comment_article.user.photo, height: 30, width: 30, crop: :fill, gravity: :face, class: "avatar-article" %>
         <%end %>
       </div>
       <div class="user-infos-comment">

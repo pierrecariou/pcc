@@ -45,6 +45,12 @@ Rails.application.routes.draw do
     end
   end
 
+   resources :users do
+    member do
+      put "remove", to: "users#remove_photo"
+    end
+  end
+
 
   resources :users, only: [ :show, :update]
 end
