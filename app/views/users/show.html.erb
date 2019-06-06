@@ -12,8 +12,23 @@
         <% end %>
         <div class="linebetween-10"></div>
         <div class="profile-avatar">
-          <%= image_tag @user.photo_url %>
+          <%= cl_image_tag @user.photo %>
         </div>
+        <%if @user == current_user %>
+   <div class="photo-form">
+      <%= simple_form_for(@user) do |form| %>
+      <div class="change-picture">
+  <button class="btn">Modifier ma photo</button>
+        <%= form.input :photo%>
+        <%= form.input :photo_cache, as: :hidden%>
+
+</div>
+        <!-- <div class="photo-submit">
+          <%= form.button :submit, "Modifier", class: "button-black" %>
+        </div> -->
+      <% end %>
+    </div>
+        <%end %>
         <div class="profile-user-name">
           <h4><%= @user.first_name %> <%= @user.last_name %></h4>
         </div>
@@ -23,9 +38,9 @@
         <% if @user.activity %>
           <p><%= @user.activity %></p>
         <% end %>
-       <!--  <% if @user == current_user  %>
+         <% if @user == current_user  %>
           <%= link_to 'Modifier mes infos',  edit_user_registration_path %>
-        <% end %> -->
+        <% end %>
         <div class="linebetween-10"></div>
 
         <div class="profile-stat">
