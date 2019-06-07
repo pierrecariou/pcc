@@ -73,6 +73,7 @@
             <%= @comment.text %>
           </div>
           <%end %>
+          <div class="source-comment"><a href="<%= @comment.source %>"target="_blank"><%= URI.parse(@comment.source.strip).host %></a></div>
         </div>
 
       <div class="answers-title">

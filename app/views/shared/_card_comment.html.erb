@@ -1,3 +1,4 @@
+
 <div class="linebetween">
 </div>
 <div class="comment-flex <%= comment.category.name  %>">
@@ -43,6 +44,7 @@
 
     <%= comment.text %>
   </div>
+  <div class="source-comment"><a href="<%= comment.source %>"target="_blank"><%= URI.parse(comment.source.strip).host %></a></div>
   <%= link_to comment_path(comment) do %>
     <div class="participants <%= comment.category.name %>">
       <%= comment.sub_comments.count %> réponses
