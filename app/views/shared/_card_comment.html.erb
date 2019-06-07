@@ -61,7 +61,11 @@
         <%= comment.category.name %>
         </div>
           <% comment.comment_sub_categories.first(2).each do |comment_sub_category| %>
+          <% unless params[:action] == "show" %>
             <%=link_to "#{comment_sub_category.sub_category.name}", comments_path(query: { sub_category_names: [comment_sub_category.sub_category.name], category_name: comment_sub_category.sub_category.category.name, date_from: params.dig(:query, :date_from) }) %>
+            <%else %>
+            <%=link_to "#{comment_sub_category.sub_category.name}", comments_path(query: { sub_category_names: [comment_sub_category.sub_category.name], category_name: comment_sub_category.sub_category.category.name, date_from: -30.days.from_now}) %>
+            <%end %>
 
           <% end %>
 
