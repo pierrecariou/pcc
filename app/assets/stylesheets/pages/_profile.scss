@@ -71,3 +71,12 @@
   opacity: 0;
   cursor: pointer;
 }
+
+.u-partages {
+  margin-top: 20px;
+  display: flex;
+ button {
+      border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+}

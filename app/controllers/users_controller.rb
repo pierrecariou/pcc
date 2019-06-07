@@ -6,6 +6,11 @@ class UsersController < ApplicationController
     @comment_article = CommentArticle.new
   end
 
+   def edit
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
    def update
     @user = User.find(params[:id])
     authorize @user
@@ -28,7 +33,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:photo)
+    params.require(:user).permit(:photo, :first_name, :last_name, :pseudo, :age, :activity)
   end
 
 end
