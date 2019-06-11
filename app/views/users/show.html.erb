@@ -51,22 +51,30 @@
         <div class="profile-stat">
 
           <div class="profile-stat-partages">
-            <% if @user.articles.size <= 1  %>
-              <h4><%= @user.articles.size %></h4> <p>Partage</p>
-            <% else %>
+            <% unless params[:query] %>
               <h4><%= @user.articles.size %></h4> <p>Partages</p>
-            <% end %>
+            <%else %>
+              <h4><%= @user.comments.size + @user.sub_comments.size%></h4> <p>Contributions</p>
+            <%end %>
           </div>
 
           <div class="profile-stat-upvotes">
+            <% unless params[:query] %>
             <% upvotes = @user.articles.map do |article| %>
               <% article.upvotes %>
             <% end %>
-            <% if upvotes.sum <= 1  %>
-              <h4><%= upvotes.sum %></h4> <p>Upvote</p>
-            <% else %>
               <h4><%= upvotes.sum %></h4> <p>Upvotes</p>
-            <% end %>
+            <%else %>
+            <% upvotes = @user.comments.map do |comment| %>
+              <% comment.upvotes %>
+           <% end %>
+            <% stars =  @user.sub_comments.map do |sub_comment|%>
+            <%sub_comment.stars %>
+            <%end %>
+
+              <h4><%= upvotes.sum.to_i + stars.sum.to_i %></h4> <p>Upvotes</p>
+
+            <%end %>
           </div>
 
         </div>
