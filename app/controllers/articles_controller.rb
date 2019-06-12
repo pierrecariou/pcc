@@ -54,13 +54,14 @@ class ArticlesController < ApplicationController
     months = ["nil", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre" "décembre"]
     @article.date = Time.now.to_s.split()[0].split("-")[2] + " " + months[Time.now.to_s.split()[0].split("-")[1].to_i] + " " + Time.now.to_s.split()[0].split("-")[0]
     @article.precise_date = DateTime.now
-    if @article.URL == (%w(http https))
+    if @article.URL =~ URI::regexp(%w(http https))
       scrap(@article.URL)
     end
     cat = @article.sub_categories.map(&:category).first
     @article.category = cat
     authorize @article
     if @article.save
+      # flash[:success] = "Post successfully created"
       redirect_to articles_path(query: { category_name: @article.category.name, date_from: -1.days.from_now }, anchor: 'new-article-anchor')
     else
       render :new
@@ -101,9 +102,8 @@ class ArticlesController < ApplicationController
     @article.title = html_doc.css('html > head > title').text
     @article.site_description = html_doc.xpath('/html/head/meta[@name="description"]/@content').to_s
     head_image = html_doc.xpath('/html/head/meta[@property="og:image"]/@content').to_s
-    first_body_image = html_doc.search('img').first.attribute('src').value if !html_doc.search('img').first.attribute('src').nil?
-    image = head_image.empty? ? first_body_image : head_image
-    @article.image = image
+
+    @article.image = head_image
     @article.source = URI.parse(url.strip).host
   end
 end

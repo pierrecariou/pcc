@@ -17,7 +17,7 @@
     <div class="avatar">
 
 
-      <%= link_to image_tag(article.user.photo_url), user_path(article.user) %>
+      <%= link_to cl_image_tag(article.user.photo), user_path(article.user) %>
 
     </div>
     <div class="user-input">
@@ -49,14 +49,18 @@
       </div>
       <%end %>
            <%end %>
+      <% if article.image != nil && article.image != "" %>
       <a href="<%= article.URL %>" target="_blank"><img src="<%= article.image %>" height="150"></a>
+      <%else %>
+      <a href="<%= article.URL %>" target="_blank"><%= image_tag "logopcc.png", height: 150 %> </a>
+      <%end %>
     </div>
     <div class="article-info" >
       <h2 class="article-title <%= article.category.name %>"><a class="title" href="<%= article.URL %>"target="_blank"><%= article.title %></a></h2>
       <div class="article-source">
          <div class="photo-user-article">
         <%= link_to user_path(article.user) do %>
-          <%=image_tag article.user.photo_url, class: "avatar-article" %>
+          <%=cl_image_tag article.user.photo, height: 30, width: 30, crop: :fill, gravity: :face , class: "avatar-article" %>
           <%end %>
       </div>
       <div class="user-infos">
@@ -74,11 +78,19 @@
         <%= article.category.name %>
         </div>
           <% article.article_sub_categories.first(2).each do |article_sub_category| %>
+        <% unless params[:action] == "show" %>
             <%=link_to "#{article_sub_category.sub_category.name}", articles_path(query: { sub_category_names: [article_sub_category.sub_category.name], category_name: article_sub_category.sub_category.category.name, date_from: params.dig(:query, :date_from) }) %>
+        <%else %>
+        <%=link_to "#{article_sub_category.sub_category.name}", articles_path(query: { sub_category_names: [article_sub_category.sub_category.name], category_name: article_sub_category.sub_category.category.name, date_from: -30.days.from_now }) %>
+        <%end %>
 
           <% end %>
           <div class="article-comments <%= article.category.name %>" data-id="<%= article.id %>">
+            <% if article.description %>
+            <%= article.comment_articles.count + 1 %> commentaires
+            <% else %>
             <%= article.comment_articles.count %> commentaires
+            <%end %>
           </div>
 
       </div>
@@ -107,6 +119,33 @@
 <div class="comment-article-all hidden <%= article.category.name %>" id="comment-article-<%=article.id %>" >
   <div class="comment-article-content">
      <div class="answers-cards">
+<% if article.description %>
+        <div class="comment-all">
+          <div class="comment-inner-text">
+            <div class="flex-photo-info">
+            <div class="photo-user-article">
+              <%= link_to user_path(article.user) do %>
+                <%=cl_image_tag article.user.photo, height: 30, width: 30, crop: :fill, gravity: :face, class: "avatar-article" %>
+              <%end %>
+            </div>
+            <div class="user-infos-comment">
+              <%= link_to user_path(article.user) do %>
+               <%= article.user.first_name%> <%= article.user.last_name%>
+              <% end %>
+              , <%=article.date %>
+            </div>
+          </div>
+        </div>
+        <div class="text-sub-comment">
+          <%= article.description %>
+        </div>
+        <div class="footer-answer">
+
+        </div>
+      </div>
+  <div class="linebetween8"></div>
+  <%end %>
+
         <%article.comment_articles.each do |comment_article| %>
         <%= render 'shared/card_comment_article', comment_article: comment_article %>
         <%end %>

@@ -1,0 +1,9 @@
+function updateLikesCount(newCount) {
+  console.log("like");
+  const likes = document.querySelector("[data-comment-article='<%= @comment_article.id %>']");
+  const jaime = document.querySelector("[data-comment-article-jaime='<%= @comment_article.id %>']");
+  likes.innerHTML = "("+newCount+")"
+  jaime.classList.add("active");
+}
+
+updateLikesCount('<%= @comment_article.likes %>')

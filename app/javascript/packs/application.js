@@ -62,7 +62,11 @@ openSubCategory();
 
 import { submitForm } from "./submit_form";
 
-submitForm()
+submitForm();
+
+import { submitForm2 } from "./submit_form";
+
+submitForm2();
 
 
 

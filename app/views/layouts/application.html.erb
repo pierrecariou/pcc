@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140787074-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140787074-1');
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <meta property="og:title" content="<%= meta_title %>" />
@@ -9,7 +19,7 @@
     <meta property="og:image" content="<%= meta_image %>" />
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
-    <title>Penser c'est chouette - 1er réseau social d'échange d'informations et de débat: Ecologie, Politique, Economie, Numérique, Humanités</title>
+    <title>Penser c'est chouette - Le réseau social de la dialectique: Ecologie, Politique, Economie, Numérique, Humanités</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -20,18 +30,18 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
-  </head>
+    </head>
 
   <body>
     <div class="pcc-wrapper">
       <% unless params[:action] == "home" %>
         <%= render 'shared/navbar' %>
       <% end %>
-      <%= render 'shared/flashes' %>
+
       <div class="content-layout">
         <%= yield %>
       </div>
-      <%= render 'shared/footer' unless params[:action] == "home" %>
+      <%= render 'shared/footer' unless params[:action] == "new" || params[:action] == "create" %>
       <%= javascript_include_tag 'application' %>
       <%= javascript_pack_tag 'application' %>
     </div>

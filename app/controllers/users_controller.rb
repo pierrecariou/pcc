@@ -10,4 +10,36 @@ class UsersController < ApplicationController
     @comment_article = CommentArticle.new
   end
 
+   def edit
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
+   def update
+    @user = User.find(params[:id])
+    authorize @user
+    @user.update(user_params)
+    redirect_to user_path(@user)
+  end
+
+
+  def remove_photo
+    @user = User.find(params[:id])
+    authorize @user
+    @user[:photo] = "https://res.cloudinary.com/pensercestchouette/image/upload/v1559772286/b12q9dcyzpcgwfwejhcn.png"
+    @user.save
+
+
+    redirect_to user_path(@user)
+  end
+
+
+  private
+
+  def user_params
+    params.require(:user).permit(:photo, :first_name, :last_name, :pseudo, :age, :activity)
+  end
+
 end
+
+

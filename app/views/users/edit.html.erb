@@ -1,0 +1,14 @@
+<div class="update-infos">
+  <h2>Infos personnelles</h2>
+
+<%= simple_form_for @user do |f| %>
+              <%= f.input :first_name, label: 'Prénom' %>
+              <%= f.input :last_name, label: 'Nom' %>
+              <%= f.input :pseudo, label: 'Pseudo' %>
+              <%= f.input :age, label: 'Age' %>
+              <%= f.input :activity, label: 'Activité' %>
+
+                <%= f.submit 'Modifier mes infos', class: "button-black" %>
+            <% end %>
+
+</div>

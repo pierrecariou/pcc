@@ -23,6 +23,26 @@ class CommentArticlesController < ApplicationController
     end
   end
 
+
+
+   def upvote
+    @comment_article = CommentArticle.find(params[:id])
+    authorize @comment_article
+      unless @comment_article.by_user_comment_article_upvotes.any? {|by_user_comment_article_upvote| by_user_comment_article_upvote.user == current_user}
+        new_upvote = ByUserCommentArticleUpvote.create
+        new_upvote.comment_article = @comment_article
+        new_upvote.user = current_user
+        new_upvote.save
+      @comment_article.increment!(:likes)
+      if @comment_article.save
+        respond_to do |format|
+          format.html { redirect_to request.referrer }
+          format.js
+        end
+      end
+    end
+  end
+
   private
 
    def comment_article_params

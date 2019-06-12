@@ -1,9 +1,20 @@
+.footer-answer a {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.25;
+  color: #000000;
+  display: flex;
+}
+
 .footer-answer {
   font-size: 16px;
   font-weight: bold;
   line-height: 1.25;
   color: #000000;
+  display: flex;
 }
+
+
 
 .answers-content {
   width: 384px;
@@ -17,26 +28,50 @@
 
 .background-color-answers {
   &.Ecologie{
-    border-left: 1px solid rgb(40, 85, 27);
+    // border-left: 1px solid rgb(40, 85, 27);
     background-color: rgba(40, 85, 27, 0.1);
   }
   &.Economie {
-    border-left: 1px solid rgb(9, 20, 89);
+    // border-left: 1px solid rgb(9, 20, 89);
     background-color: rgba(9, 20, 89, 0.1);
   }
   &.Politique {
-    border-left: 1px solid rgb(95, 20, 15);
+    // border-left: 1px solid rgb(95, 20, 15);
     background-color: rgba(95, 20, 15, 0.1);
   }
   &.Numérique {
-    border-left: 1px solid rgb(224, 187, 44);
+    // border-left: 1px solid rgb(224, 187, 44);
     background-color: rgba(224, 187, 44, 0.1);
   }
   &.Humanités {
-    border-left: 1px solid rgb(72, 61, 139);
+    // border-left: 1px solid rgb(72, 61, 139);
     background-color: rgba(72, 61, 139, 0.1);
   }
   &.hidden {
     display: none;
   }
+}
+
+
+.like-answer.active {
+  &.Politique {
+    color: #5E0606;
+  }
+  &.Ecologie {
+    color: #00541A;
+  }
+  &.Economie {
+    color: #070D59;
+  }
+  &.Numérique {
+      color: #E0BB20;
+  }
+  &.Humanités {
+    color: #483D8B;
+  }
+}
+
+
+.like-answer {
+  margin-right: 5px;
 }

@@ -1,0 +1,12 @@
+function displayAnswer(answer) {
+console.log("yolooooo");
+ const forms = document.querySelectorAll(".sub-comments-form");
+  forms.forEach((form) => {
+    if (form.classList.contains("<%= @answer.sub_comment.id %>")) {
+      form.insertAdjacentHTML('beforebegin', answer);
+    };
+  });
+};
+
+displayAnswer('<%= j render "shared/card_answer", answer: @answer %>');
+

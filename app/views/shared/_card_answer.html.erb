@@ -18,8 +18,23 @@
     <%= answer.text %>
   </div>
   <div class="footer-answer">
+     <% if answer.by_user_answer_upvotes.any? {|by_user_answer_upvote| by_user_answer_upvote.user == current_user}%>
+     <div data-answer-jaime='<%= answer.id %>' class="like-answer active <%= answer.sub_comment.comment.category.name%>">
     J'aime
+    </div>
+    <div data-answer='<%= answer.id %>'>
     (<%= answer.likes %>)
+    </div>
+     <%else %>
+      <%= link_to like_answer_path(answer), method: :put, remote: true  do %>
+    <div data-answer-jaime='<%= answer.id %>' class="like-answer <%= answer.sub_comment.comment.category.name%>">
+    J'aime
+    </div>
+    <div data-answer='<%= answer.id %>'>
+    (<%= answer.likes %>)
+    </div>
+    <%end %>
+    <%end %>
   </div>
 </div>
   <div class="linebetween8"></div>

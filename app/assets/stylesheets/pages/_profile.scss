@@ -3,6 +3,7 @@
   width: 150px;
   border-radius: 50%;
   border: solid 1px rgba(0,0,0,0.1);
+  object-fit: cover;
 }
 
 .profile-user-name h4 {
@@ -15,7 +16,6 @@
 
 .profile-left-side-info {
   top: 73px;
-  padding-right: 80px;
 }
 
 .profile-left-side-info p {
@@ -45,4 +45,38 @@
 //   top: -20px;
 // }
 
+.file.optional label {
+  display: none;
+}
 
+.change-picture {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+  .btn {
+    margin-left: -10px;
+  }
+  &:hover .btn {
+    text-decoration: underline;
+  }
+}
+
+
+.change-picture input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.u-partages {
+  margin-top: 20px;
+  display: flex;
+ button {
+      border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+}

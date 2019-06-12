@@ -1,24 +1,23 @@
+
 <div class="linebetween">
 </div>
 <div class="comment-flex <%= comment.category.name  %>">
 <div class=comment-upvote>
-  <div class="upvote-carre-comment <%= comment.category.name %> popup" data-id="<%= comment.id %>">
     <% if comment.by_user_comment_upvotes.any? {|by_user_comment_upvote| by_user_comment_upvote.user_id == current_user.id}%>
-    <div class="upvote-carre <%= comment.category.name %> inactive">
+    <div class="upvote-carre <%= comment.category.name %> inactive popup" data-id="<%= comment.id %>">
         <div data-comment-arrow="<%= comment.id %>" class="up-arrow"><%='<i class="fas fa-caret-up"></i>'.html_safe%></div>
         <div  class="card-up-comment active" data-comment="<%= comment.id %>"><%= comment.upvotes %> </div>
         <span class="popuptext" id="my-popup-<%= comment.id %>">votes positifs</span>
     </div>
       <% else %>
        <%= link_to like_comment_path(comment), method: :put, remote: true  do %>
-      <div class="upvote-carre <%= comment.category.name %> popup " data-id="<%= comment.id %>">
+      <div class="upvote-carre-comment <%= comment.category.name %> popup " data-id="<%= comment.id %>">
            <div data-comment-arrow="<%= comment.id %>" class="inactive-arrow"><%= '<i class="fas fa-caret-up"></i>'.html_safe%></div>
            <div  class="card-up-comment" data-comment="<%= comment.id %>"><%= comment.upvotes %> </div>
            <span class="popuptext" id="my-popup-<%= comment.id %>">votes positifs</span>
         </div>
       <%end %>
       <%end %>
-  </div>
 </div>
 <div class="comment-all">
 <%= link_to comment_path(comment) do %>
@@ -29,7 +28,7 @@
   <div class="flex-photo-info">
     <div class="photo-user-article">
         <%= link_to user_path(comment.user) do %>
-          <%=image_tag comment.user.photo_url, class: "avatar-article" %>
+          <%=cl_image_tag comment.user.photo, height: 30, width: 30, crop: :fill, gravity: :face, class: "avatar-article" %>
           <%end %>
       </div>
       <div class="user-infos-comment">
@@ -45,6 +44,7 @@
 
     <%= comment.text %>
   </div>
+  <div class="source-comment"><a href="<%= comment.source %>"target="_blank"><%= URI.parse(comment.source.strip).host %></a></div>
   <%= link_to comment_path(comment) do %>
     <div class="participants <%= comment.category.name %>">
       <%= comment.sub_comments.count %> réponses
@@ -54,7 +54,7 @@
       <%end %>
       <% users.uniq.each do |user| %>
 
-        <%=image_tag user.photo_url, class: "avatar-article" %>
+        <%=cl_image_tag user.photo, height: 30, width: 30, crop: :fill, gravity: :face, class: "avatar-article" %>
       <%end %>
     </div>
   <%end %>
@@ -63,7 +63,11 @@
         <%= comment.category.name %>
         </div>
           <% comment.comment_sub_categories.first(2).each do |comment_sub_category| %>
+          <% unless params[:action] == "show" %>
             <%=link_to "#{comment_sub_category.sub_category.name}", comments_path(query: { sub_category_names: [comment_sub_category.sub_category.name], category_name: comment_sub_category.sub_category.category.name, date_from: params.dig(:query, :date_from) }) %>
+            <%else %>
+            <%=link_to "#{comment_sub_category.sub_category.name}", comments_path(query: { sub_category_names: [comment_sub_category.sub_category.name], category_name: comment_sub_category.sub_category.category.name, date_from: -30.days.from_now}) %>
+            <%end %>
 
           <% end %>
 

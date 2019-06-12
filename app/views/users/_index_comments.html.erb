@@ -1,5 +1,5 @@
 <div class="left-side-info les-plus-actifs">
-  <h2>Actifs</h2>
+  <h2>Les plus influents</h2>
   <div class="linebetween-10"></div>
   <%users = [] %>
   <%@comments.first(15).each do |comment| %>
@@ -9,7 +9,7 @@
     <div class="user">
       <div class="photo">
         <%= link_to user_path(user) do %>
-          <%=image_tag user.photo_url, class: "avatar_sidebar" %>
+          <%=cl_image_tag user.photo, height: 50, width: 50, crop: :fill, gravity: :face, class: "avatar_sidebar" %>
       </div>
       <div class="infos_user">
         <ul>
@@ -17,7 +17,9 @@
               <%=user.first_name %> <%=user.last_name  %>
         <% end %>
           </li>
-          <li class="info act"><%=user.activity%></li>
+          <% if user.activity %>
+            <li class="info act"><%=user.activity%></li>
+          <%end %>
           <li class="info count"><%=user.articles.count%>
             <% if user.articles.count == 1 %>
               partage

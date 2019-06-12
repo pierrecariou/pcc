@@ -1,21 +1,49 @@
-<h2 class="connexion">Connexion</h2>
+<div class="sign-in">
+  <div class="logo">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                label: "Mot de passe",
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
+
+<!-- <p>Bienvenue sur Penser c’est chouette, le réseau social de la dialectique.</p>
+
+<p>Ce site a pour objectif de faire émerger une intelligence collective.</p>
+
+<p>Il permet de collectionner les meilleurs références autour de 5 thèmes : l’écologie, la politique, l’économie, le numérique et les humanités.</p>
+
+<p>Vous avez la charge de remplir la bibliothèque de contenus enrichissants et de répondre cordialement sur le Forum. Tout contrevenant à ces principes sera exclu. </p>
+
+<p>Chouette navigation</p> -->
+<p>Cher Beta-testeur,</p>
+
+<p>C’est avec excitation que nous vous accueillons ici. Nous avons mis tout notre petit coeur à construire cette première version du réseau social de la Dialectique. </p>
+<p>Pour en faire un site super chouette, on a besoin de vos retours, de tous vos retours, petits et grands. Alors partagez des articles, lancez et participez à des débats, dites nous tout, ce qui vous plaît, ce qui vous déplaît, ce qui vous manque et ce que vous ne comprenez pas.</p>
+<p>Pour nous faire part de vos retours, vous pouvez écrire :</p>
+<p>- par message facebook à Théodore Brossollet et Pierre Cariou</p>
+<p>- par mail à l’adresse pensercestchouette@gmail.com
+<p>- directement ur le <a href="https://www.facebook.com/groups/629625257508416/ ">groupe facebook</a> dédié</p><p>Chouette navigation!</p>
+
   </div>
+  <div class="sign-in-form">
 
-  <div class="form-actions">
-    <%= f.button :submit, "Connexion" %>
+
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,
+                    label: "Mot de passe",
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Connexion", class: "button-repondre" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+
+
+

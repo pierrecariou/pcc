@@ -1,3 +1,5 @@
+
+
 <div class="all-content all-content-profile">
 
     <div class="left-side-info">
@@ -10,37 +12,69 @@
         <% end %>
         <div class="linebetween-10"></div>
         <div class="profile-avatar">
-          <%= image_tag @user.photo_url %>
+
+          <%= cl_image_tag @user.photo, height: 150, width: 150, crop: :fill, gravity: :face %>
         </div>
+        <%if @user == current_user %>
+        <% if @user[:photo] != "https://res.cloudinary.com/pensercestchouette/image/upload/v1559772286/b12q9dcyzpcgwfwejhcn.png" %>
+          <%= link_to '<i class="fas fa-times"></i>'.html_safe, remove_user_path(@user), data: { confirm: "Etes-vous certain de vouloir supprimer votre photo?" }, method: :put  %>
+        <%end %>
+
+   <div class="photo-form" data-id="<%= @user.id %>">
+      <%= simple_form_for(@user) do |form| %>
+      <div class="change-picture">
+  <button class="btn">Modifier ma photo</button>
+        <%= form.input :photo%>
+        <%= form.input :photo_cache, as: :hidden%>
+
+</div>
+        <!-- <div class="photo-submit">
+          <%= form.button :submit, "Modifier", class: "button-black" %>
+        </div> -->
+      <% end %>
+    </div>
+        <%end %>
         <div class="profile-user-name">
           <h4><%= @user.first_name %> <%= @user.last_name %></h4>
         </div>
-        <p> <%= @user.pseudo %> </p>
-        <p><%= @user.activity %></p>
-        <% if @user == current_user  %>
-          <%= link_to 'Modifier mes infos',  edit_user_registration_path %>
+        <% if @user.pseudo %>
+          <p> <%= @user.pseudo %> </p>
+        <%end %>
+        <% if @user.activity %>
+          <p><%= @user.activity %></p>
+        <% end %>
+         <% if @user == current_user  %>
+          <%= link_to 'Changer mon password',  edit_user_registration_path %>
         <% end %>
         <div class="linebetween-10"></div>
 
         <div class="profile-stat">
 
           <div class="profile-stat-partages">
-            <% if @user.articles.size <= 1  %>
-              <h4><%= @user.articles.size %></h4> <p>Partage</p>
-            <% else %>
+            <% unless params[:query] %>
               <h4><%= @user.articles.size %></h4> <p>Partages</p>
-            <% end %>
+            <%else %>
+              <h4><%= @user.comments.size + @user.sub_comments.size%></h4> <p>Contributions</p>
+            <%end %>
           </div>
 
           <div class="profile-stat-upvotes">
+            <% unless params[:query] %>
             <% upvotes = @user.articles.map do |article| %>
               <% article.upvotes %>
             <% end %>
-            <% if upvotes.sum <= 1  %>
-              <h4><%= upvotes.sum %></h4> <p>Upvote</p>
-            <% else %>
               <h4><%= upvotes.sum %></h4> <p>Upvotes</p>
-            <% end %>
+            <%else %>
+            <% upvotes = @user.comments.map do |comment| %>
+              <% comment.upvotes %>
+           <% end %>
+            <% stars =  @user.sub_comments.map do |sub_comment|%>
+            <%sub_comment.stars %>
+            <%end %>
+
+              <h4><%= upvotes.sum.to_i + stars.sum.to_i %></h4> <p>Upvotes</p>
+
+            <%end %>
           </div>
 
         </div>
@@ -49,29 +83,55 @@
     </div>
 
     <div class="main-content">
-        <% if @user == current_user  %>
         <div class="u-partages">
-          <h2>Mes précédents partages</h2>
-          </div>
-        <% else %>
-        <div class="u-partages">
-          <h2> Ses précédents partages</h2>
-          </div>
-        <% end %>
+          <%if params[:query] %>
+          <%= link_to user_path(@user) do %>
+            <button class="tablinks tab-button" >Partages</button>
+          <%end %>
+          <%= link_to user_path(query: { filter: 'comments' }) do %>
+            <button class="tablinks tab-button active" >Contributions</button>
+          <%end %>
+          <%else %>
+            <%= link_to user_path(@user) do %>
+            <button class="tablinks tab-button active">Partages</button>
+          <%end %>
+          <%= link_to user_path(query: { filter: 'comments' }) do %>
+            <button class="tablinks tab-button" >Contributions</button>
+          <%end %>
+          <%end %>
 
+          </div>
+
+      <% unless params[:query]%>
         <div class="card listed-article">
-          <% @user.articles.each do |article| %>
+          <% @user.articles.sort_by(&:date).reverse.each do |article| %>
             <div class="card">
               <%= render "shared/card", article: article %>
             </div>
           <% end %>
           <div class="linebetween-10"></div>
         </div>
+        <%else %>
+           <div class="card listed-article">
+            <% comments = @user.comments %>
+            <% @user.sub_comments.each do |sub_comment| %>
+            <% comments << sub_comment.comment %>
+            <%end %>
+          <% comments.sort_by(&:date).reverse.each do |comment| %>
+            <div class="card">
+              <%= render "shared/card_comment", comment: comment %>
+            </div>
+          <% end %>
+          <div class="linebetween-10"></div>
+        </div>
+
+        <%end %>
     </div>
 
 </div>
 
 <%= render "shared/new_modal", article: @article %>
+<%= render "shared/comment_modal", comment: @comment %>
 
 
 

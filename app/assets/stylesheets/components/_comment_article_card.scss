@@ -1,0 +1,22 @@
+.like-comment-article.active {
+  &.Politique {
+    color: #5E0606;
+  }
+  &.Ecologie {
+    color: #00541A;
+  }
+  &.Economie {
+    color: #070D59;
+  }
+  &.Numérique {
+      color: #E0BB20;
+  }
+  &.Humanités {
+    color: #483D8B;
+  }
+}
+
+
+.like-comment-article {
+  margin-right: 5px;
+}

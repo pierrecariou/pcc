@@ -3,7 +3,7 @@
       <div class="flex-photo-info">
       <div class="photo-user-article">
         <%= link_to user_path(comment_article.user) do %>
-          <%=image_tag comment_article.user.photo_url, class: "avatar-article" %>
+          <%=cl_image_tag comment_article.user.photo, height: 30, width: 30, crop: :fill, gravity: :face, class: "avatar-article" %>
         <%end %>
       </div>
       <div class="user-infos-comment">
@@ -18,8 +18,23 @@
     <%= comment_article.text %>
   </div>
   <div class="footer-answer">
+     <% if comment_article.by_user_comment_article_upvotes.any? {|by_user_comment_article_upvote| by_user_comment_article_upvote.user == current_user}%>
+      <div data-comment-article-jaime='<%= comment_article.id %>' class="like-comment-article active <%= comment_article.article.category.name%>">
     J'aime
+    </div>
+    <div data-comment-article='<%= comment_article.id %>'>
     (<%= comment_article.likes %>)
+    </div>
+    <%else %>
+    <%= link_to like_comment_article_path(comment_article), method: :put, remote: true  do %>
+    <div data-comment-article-jaime='<%= comment_article.id %>' class="like-comment-article <%= comment_article.article.category.name%>">
+    J'aime
+    </div>
+    <div data-comment-article='<%= comment_article.id %>'>
+    (<%= comment_article.likes %>)
+    </div>
+    <%end %>
+    <%end %>
   </div>
 </div>
   <div class="linebetween8"></div>

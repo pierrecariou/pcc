@@ -13,8 +13,8 @@
 }
 
 .article-preview {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   // margin-bottom: 3Opx;
 }
 
@@ -215,6 +215,7 @@
   padding-bottom: 0;
   .avatar {
     img {
+      object-fit: cover;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -427,9 +428,11 @@ margin-right: 10px
   border-radius: 50px;
   margin-right: 10px;
   opacity: 1;
+  object-fit: cover;
 }
 
 .upvote-carre {
+  border-radius: 2px;
   cursor: pointer;
   height: 50px;
   width: 50px;
@@ -588,4 +591,8 @@ margin-right: 10px
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
+}
+
+.photo-user-article img {
+  object-fit: cover;
 }

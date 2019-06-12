@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_135155) do
+ActiveRecord::Schema.define(version: 2019_06_05_224404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,12 +56,39 @@ ActiveRecord::Schema.define(version: 2019_05_22_135155) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "by_user_answer_upvotes", force: :cascade do |t|
+    t.bigint "answer_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_by_user_answer_upvotes_on_answer_id"
+    t.index ["user_id"], name: "index_by_user_answer_upvotes_on_user_id"
+  end
+
+  create_table "by_user_comment_article_upvotes", force: :cascade do |t|
+    t.bigint "comment_article_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_article_id"], name: "index_by_user_comment_article_upvotes_on_comment_article_id"
+    t.index ["user_id"], name: "index_by_user_comment_article_upvotes_on_user_id"
+  end
+
   create_table "by_user_comment_upvotes", force: :cascade do |t|
     t.integer "user_id"
     t.bigint "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["comment_id"], name: "index_by_user_comment_upvotes_on_comment_id"
+  end
+
+  create_table "by_user_sub_comment_upvotes", force: :cascade do |t|
+    t.bigint "sub_comment_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sub_comment_id"], name: "index_by_user_sub_comment_upvotes_on_sub_comment_id"
+    t.index ["user_id"], name: "index_by_user_sub_comment_upvotes_on_user_id"
   end
 
   create_table "by_user_upvotes", force: :cascade do |t|
@@ -161,8 +188,8 @@ ActiveRecord::Schema.define(version: 2019_05_22_135155) do
     t.string "pseudo"
     t.integer "age"
     t.string "activity"
-    t.string "photo"
-    t.string "photo_url"
+    t.string "photo", default: "https://res.cloudinary.com/pensercestchouette/image/upload/v1559772286/b12q9dcyzpcgwfwejhcn.png"
+    t.string "photo_url", default: "logopcc.png"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -173,7 +200,13 @@ ActiveRecord::Schema.define(version: 2019_05_22_135155) do
   add_foreign_key "article_sub_categories", "sub_categories"
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users"
+  add_foreign_key "by_user_answer_upvotes", "answers"
+  add_foreign_key "by_user_answer_upvotes", "users"
+  add_foreign_key "by_user_comment_article_upvotes", "comment_articles"
+  add_foreign_key "by_user_comment_article_upvotes", "users"
   add_foreign_key "by_user_comment_upvotes", "comments"
+  add_foreign_key "by_user_sub_comment_upvotes", "sub_comments"
+  add_foreign_key "by_user_sub_comment_upvotes", "users"
   add_foreign_key "by_user_upvotes", "articles"
   add_foreign_key "comment_articles", "articles"
   add_foreign_key "comment_articles", "users"

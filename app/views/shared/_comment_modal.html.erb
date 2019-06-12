@@ -5,14 +5,18 @@
         <div class="new-comment">
 
           <h2> Lancer un débat </h2>
-
+<div id="form-comment">
           <%= simple_form_for Comment.new do |f| %>
               <%= f.input :title, label: 'Titre' %>
-              <p class="close-debate-explain"> Cochez cette case seulement si il est possible de se positionner par rapport au débat (pour, contre, ou neutre) : </p>
-              <%= f.input :open_or_close, as: :boolean, checked_value: true, unchecked_value: false, label: 'Débat fermé' %>
+              <p class="close-debate-explain"> Est-il possible de se positionner par rapport au débat (pour, contre, neutre) ?  </p>
+              <div class="flex-check">
+              <%= f.input :open_or_close, input_html: { class: 'special' }, label_html: {class: 'special-text'}, as: :boolean, checked_value: true, unchecked_value: false, label: ' ' %>
+              <p class='impossible active'>impossible</p>
+              <p class='possible'>possible</p>
+              </div>
               <%= f.input :text, label: 'Texte' %>
               <%= f.input :source, label: 'Lien' %>
-
+              <p>Sélectionnez une catégorie générale, puis une ou plusieurs sous catégories*</p>
               <div class="categories">
                 <% Category.all.each do |category| %>
                     <%= render 'categories/box_comment', category: category, f: f %>
@@ -22,6 +26,7 @@
                 <%= f.submit 'Partager', class: "button-black" %>
               </div>
             <% end %>
+          </div>
           </div>
     </div>
   </div>

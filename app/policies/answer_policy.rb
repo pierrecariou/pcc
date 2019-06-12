@@ -8,4 +8,8 @@ class AnswerPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def upvote?
+    true
+  end
 end

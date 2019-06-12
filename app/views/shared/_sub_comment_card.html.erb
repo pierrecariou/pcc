@@ -22,6 +22,7 @@
   <div class="text-sub-comment">
     <%= sub_comment.text %>
   </div>
+ <div class="source-comment"><a href="<%= sub_comment.source %>"target="_blank"><%= URI.parse(sub_comment.source.strip).host %></a></div>
   <div class="footer-sub-comment <%= @comment.category.name %>" id="footer-<%= sub_comment.id  %>">
 
       <div class="arrow-sub-comment <%= sub_comment.comment.category.name %>" data-sub-comment-arrow="<%= sub_comment.id %>" ><%= link_to '<i class="fas fa-caret-up"></i>'.html_safe, like_sub_comment_path(sub_comment), method: :put, remote: true %></div>
@@ -63,8 +64,8 @@
       <%= render 'shared/card_answer', answer: answer %>
       <%end %>
     </div>
-    <div class="sub-comments-form">
-      <%= simple_form_for([@comment, sub_comment, @answer]) do |form| %>
+    <div class="sub-comments-form <%= sub_comment.id %>">
+      <%= simple_form_for([@comment, sub_comment, @answer], remote: true) do |form| %>
         <%= form.input :text, label: :Contribution %>
         <div class="sub-comment-submit">
           <%= form.button :submit, "Répondre", class: "button-black" %>

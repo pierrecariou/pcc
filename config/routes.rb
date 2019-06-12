@@ -21,6 +21,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :comment_articles do
+    member do
+      put "like", to: "comment_articles#upvote"
+    end
+  end
+
   resources :comments do
     member do
       put "like", to: "comments#upvote"
@@ -33,5 +39,18 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [ :show ]
+  resources :answers do
+    member do
+      put "like", to: "answers#upvote"
+    end
+  end
+
+   resources :users do
+    member do
+      put "remove", to: "users#remove_photo"
+    end
+  end
+
+
+  resources :users, only: [ :show, :edit, :update]
 end

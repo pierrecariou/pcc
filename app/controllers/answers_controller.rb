@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-    def new
+  def new
     @user = current_user
     @answer = Answer.new
     authorize @answer
@@ -21,6 +21,25 @@ class AnswersController < ApplicationController
       end
     else
       raise
+    end
+  end
+
+
+  def upvote
+    @answer = Answer.find(params[:id])
+    authorize @answer
+    unless @answer.by_user_answer_upvotes.any? {|by_user_answer_upvote| by_user_answer_upvote.user == current_user}
+      new_upvote = ByUserAnswerUpvote.create
+      new_upvote.answer = @answer
+      new_upvote.user = current_user
+      new_upvote.save
+      @answer.increment!(:likes)
+      if @answer.save
+        respond_to do |format|
+          format.html { redirect_to request.referrer }
+          format.js
+        end
+      end
     end
   end
 
