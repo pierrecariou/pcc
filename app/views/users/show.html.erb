@@ -43,8 +43,18 @@
         <% if @user.activity %>
           <p><%= @user.activity %></p>
         <% end %>
+        <p data-toggle="modal" data-target=".modal-followers"><%= @user.follower_relationships.count %> influencés</p>
+        <p><%= @user.following_relationships.count%> influences</p>
          <% if @user == current_user  %>
           <%= link_to 'Changer mon password',  edit_user_registration_path %>
+        <%elsif Follow.find_by(follower_id: current_user.id, following_id: @user.id).present? %>
+          <%= link_to unfollow_user_path(@user),  method: :post do %>
+          <button class="button-follow-show"><div class="flex-button-follow"><i class="fas fa-check"></i> suivi</div></button>
+          <%end %>
+        <%else %>
+         <%= link_to follow_user_path(@user), method: :post do %>
+          <button class="button-follow-show suivre">suivre</button>
+          <%end %>
         <% end %>
         <div class="linebetween-10"></div>
 
@@ -129,6 +139,7 @@
     </div>
 
 </div>
+<%= render "shared/modal_followers", user: @user %>
 
 <%= render "shared/new_modal", article: @article %>
 <%= render "shared/comment_modal", comment: @comment %>

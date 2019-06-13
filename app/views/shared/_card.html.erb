@@ -65,11 +65,17 @@
       </div>
       <div class="user-infos">
          Partagé par
-        <%= link_to user_path(article.user) do %>
+
+        <%= link_to(user_path(article.user), class: "user-infos-popup", :data => {:id => "#{article.id}"} ) do %>
          <%= article.user.first_name%> <%= article.user.last_name%>
         <% end %>
+
         , le <%=article.date %>
       </div>
+        <span class="popupuser" id="my-user-popup-<%= article.id %>" data-id="<%= article.id %>">
+
+          <%=  render 'shared/card_user', user: article.user%>
+        </span>
         <div class="source-article"><a href="<%= article.URL %>"target="_blank"><%= article.source %></a></div>
       </div>
       <p class="article-site_description" id="comment-section-anchor"><a href="<%= article.URL %>"target="_blank"><%= article.site_description %></a></p>

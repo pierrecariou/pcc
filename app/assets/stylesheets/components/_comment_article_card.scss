@@ -20,3 +20,55 @@
 .like-comment-article {
   margin-right: 5px;
 }
+
+
+.popupuser-comment {
+     font-size: 14px;
+    font-weight: lighter;
+    padding: 8px 10px;
+    border-radius: 4px;
+    position: absolute;
+    display: none;
+    background-color: white;
+    color: black;
+    text-align: center;
+    left: 6%;
+    margin-top: 32px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Popup arrow */
+ .popupuser-comment::after {
+    content: "";
+    position: absolute;
+    /* top: 100%; */
+
+    /* margin-left: 12px; */
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    /* margin-top: 20px; */
+    top: -10px;
+    right: 80%;
+    /* background-color: white; */
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popupuser-comment.show {
+  display: block;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+
