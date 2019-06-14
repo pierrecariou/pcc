@@ -20,7 +20,7 @@
           <% if user.activity %>
             <li class="info act"><%=user.activity%></li>
           <%end %>
-          <li class="info count"><%=user.articles.count%>
+          <li class="info count"><%=user.comments.count + user.sub_comments.count%>
             <% if user.articles.count == 1 %>
               contribution
             <%else %>
