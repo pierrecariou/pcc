@@ -37,16 +37,28 @@
         <div class="profile-user-name">
           <h4><%= @user.first_name %> <%= @user.last_name %></h4>
         </div>
-        <% if @user.pseudo %>
+       <!--  <% if @user.pseudo %>
           <p> <%= @user.pseudo %> </p>
-        <%end %>
+        <%end %> -->
         <% if @user.activity %>
           <p><%= @user.activity %></p>
         <% end %>
-        <p data-toggle="modal" data-target=".modal-followers"><%= @user.follower_relationships.count %> influencés</p>
-        <p><%= @user.following_relationships.count%> influences</p>
+        <div class="infos-follows">
+          <%if  @user.follower_relationships.count == 0 %>
+          <p class="user-follows"><%= @user.follower_relationships.count%> abonnés</p>
+          <%else %>
+        <p data-toggle="modal" data-target=".modal-followers" class="user-follows"><%= @user.follower_relationships.count%> abonnés</p>
+        <%end %>
+        <%if @user.following_relationships.count == 0%>
+        <p class="user-follows" ><%= @user.following_relationships.count%> abonnements</p>
+        <%else %>
+        <p class="user-follows" data-toggle="modal" data-target=".modal-following"><%= @user.following_relationships.count%> abonnements</p>
+        <%end %>
+        </div>
          <% if @user == current_user  %>
+         <div class="change-password">
           <%= link_to 'Changer mon password',  edit_user_registration_path %>
+          </div>
         <%elsif Follow.find_by(follower_id: current_user.id, following_id: @user.id).present? %>
           <%= link_to unfollow_user_path(@user),  method: :post do %>
           <button class="button-follow-show"><div class="flex-button-follow"><i class="fas fa-check"></i> suivi</div></button>
@@ -60,20 +72,23 @@
 
         <div class="profile-stat">
 
-          <div class="profile-stat-partages">
+          <div class="profile-stat-partages infos-follows">
             <% unless params[:query] %>
-              <h4><%= @user.articles.size %></h4> <p>Partages</p>
+            <p><%= @user.articles.size %> Partages</p>
+
             <%else %>
-              <h4><%= @user.comments.size + @user.sub_comments.size%></h4> <p>Contributions</p>
+            <p><%= @user.comments.size + @user.sub_comments.size%> Contributions</p>
+
             <%end %>
           </div>
 
-          <div class="profile-stat-upvotes">
+          <div class="profile-stat-upvotes infos-follows">
             <% unless params[:query] %>
             <% upvotes = @user.articles.map do |article| %>
               <% article.upvotes %>
             <% end %>
-              <h4><%= upvotes.sum %></h4> <p>Upvotes</p>
+            <p><%= upvotes.sum %> Upvotes</p>
+
             <%else %>
             <% upvotes = @user.comments.map do |comment| %>
               <% comment.upvotes %>
@@ -81,9 +96,7 @@
             <% stars =  @user.sub_comments.map do |sub_comment|%>
             <%sub_comment.stars %>
             <%end %>
-
-              <h4><%= upvotes.sum.to_i + stars.sum.to_i %></h4> <p>Upvotes</p>
-
+            <p><%= upvotes.sum.to_i + stars.sum.to_i %> Upvotes</p>
             <%end %>
           </div>
 
@@ -140,7 +153,7 @@
 
 </div>
 <%= render "shared/modal_followers", user: @user %>
-
+<%= render "shared/modal_following", user: @user %>
 <%= render "shared/new_modal", article: @article %>
 <%= render "shared/comment_modal", comment: @comment %>
 

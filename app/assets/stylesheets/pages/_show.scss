@@ -489,3 +489,25 @@ label[for=sub_comment_state_contre] {
   .flex-button-follow {
     display: flex;
   }
+
+  .infos-follows {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .user-follows {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+.profile-left-side-info {
+  .fas {
+    color: rgba(1, 1, 1, 0.5);
+  }
+  .change-password a{
+    color: rgba(1, 1, 1, 0.5);
+    font-size: 14px;
+  }
+}

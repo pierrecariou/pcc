@@ -2,11 +2,6 @@
   .linebetweeen {
     margin-bottom: 10px;
   }
-  .user {
-    margin-bottom: 0px;
-    min-width: 250px;
-    align-items: center;
-  }
   .button-follow {
   margin-top: 10px;
   padding: 3px 10px;
@@ -25,6 +20,24 @@
       margin-top: 3px;
       margin-right: 5px;
       margin-left: -5px;
+    }
+  }
+  .user {
+    margin-bottom: 0px;
+    min-width: 250px;
+    align-items: center;
+    &.profile {
+      display: flex;
+      .button-follow {
+        margin-top: 0px;
+        padding: 10px 26px;
+        width: 95px;
+      }
+      .infos_user {
+        width: 180px;
+        margin-top: 9px;
+
+      }
     }
   }
   .avatar_sidebar {
@@ -49,5 +62,13 @@
 
   .user_name {
     font-style: normal;
+  }
+}
+
+.modal-dialog.profile {
+  width: 448px;
+  margin: 90px auto;
+  .modal-content {
+    padding: 35px 35px;
   }
 }

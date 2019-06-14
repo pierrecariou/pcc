@@ -1,10 +1,10 @@
     <div class="card_user_popup">
-    <div class="user">
+    <div class="user profile">
       <div class="photo">
         <%= link_to user_path(user) do %>
           <%=cl_image_tag user.photo, height: 70, width: 70, crop: :fill, gravity: :face, class: "avatar_sidebar" %>
       </div>
-      <div class="infos_user">
+      <div class="infos_user profile">
         <ul>
           <li class="user_name">
               <%=user.first_name %> <%=user.last_name  %>
@@ -24,17 +24,17 @@
           </li>
         </ul>
       </div>
-    </div>
-    <% unless user.id == current_user.id %>
-      <div class="linebetween"></div>
+      <% unless user.id == current_user.id %>
         <%if Follow.find_by(follower_id: current_user.id, following_id: user.id).present? %>
           <%= link_to unfollow_user_path(user),  method: :post, remote: :true do %>
-          <button class="button-follow button-follow-<%=user.id%>"> <div class="flex-button-follow"><i class="fas fa-check"></i> suivi</div></button>
+          <button class="button-follow button-follow-<%=user.id%>"><div class="flex-button-follow"><i class="fas fa-check"></i> suivi</div></button>
           <%end %>
         <%else %>
-         <%= link_to follow_user_path(user), method: :post, remote: :true  do %>
-          <button class="button-follow suivre button-follow-<%=user.id %>" >suivre</button>
+         <%= link_to follow_user_path(user), method: :post, remote: :true do %>
+          <button class="button-follow suivre button-follow-<%=user.id %>">suivre</button>
           <%end %>
         <% end %>
-      <%end %>
+        <%end %>
+    </div>
+      <div class="linebetween"></div>
     </div>

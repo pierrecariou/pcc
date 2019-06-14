@@ -1,0 +1,13 @@
+function unfollowUser(user) {
+  const buttons = document.querySelectorAll(".button-follow-<%=@user.id%>")
+  buttons.forEach((button) => {
+  button.classList.toggle("suivre");
+  button.innerHTML = "suivre";
+  button.disabled = true;
+  });
+  // button.insertAdjacentHTML('afterbegin',
+  //   '<i class="fas fa-check"></i>');
+}
+
+unfollowUser('<%= @user%>')
+

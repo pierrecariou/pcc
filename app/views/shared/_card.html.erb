@@ -72,10 +72,17 @@
 
         , le <%=article.date %>
       </div>
+      <%if article.user.id == current_user.id %>
+      <span class="popupuser myself" id="my-user-popup-<%= article.id %>" data-id="<%= article.id %>">
+
+          <%=  render 'shared/card_user', user: article.user%>
+        </span>
+      <%else %>
         <span class="popupuser" id="my-user-popup-<%= article.id %>" data-id="<%= article.id %>">
 
           <%=  render 'shared/card_user', user: article.user%>
         </span>
+      <%end %>
         <div class="source-article"><a href="<%= article.URL %>"target="_blank"><%= article.source %></a></div>
       </div>
       <p class="article-site_description" id="comment-section-anchor"><a href="<%= article.URL %>"target="_blank"><%= article.site_description %></a></p>
