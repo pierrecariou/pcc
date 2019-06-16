@@ -659,19 +659,21 @@ margin-right: 10px
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-// .speech-bubble:after {
-//   content: '';
-//   position: absolute;
-//   top: 0;
-//   left: 309px;
-//   width: 0;
-//   height: 0;
-//   border: 7px solid transparent;
-//   border-bottom-color: white;
-//   border-top: 0;
-//   border-left: 0;
-// // margin-left: -4.5px;
-//   margin-top: -7px;
-//   top: 143px;
-// }
+.speech-bubble:after {
+     position: relative;
+    content: '';
+    top: 0;
+    left: -13px;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-bottom-color: white;
+    border-top: 0;
+    border-left: 0;
+    /* margin-top: -7px; */
+    /* margin-bottom: 20px; */
+    padding-top: 20px;
+    top: -34px;
+
+}
 
