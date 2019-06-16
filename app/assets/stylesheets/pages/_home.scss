@@ -49,35 +49,35 @@
   }
 }
 
-.speech-bubble {
-  background: #f5f5f5;
-  border-radius: .4em;
-  height: 110px;
-  padding: 20px 25px;
-  position:relative;
-  font-size: 22.5px;
-  font-style: italic;
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 50%;
-    left: 0;
-    width: 0;
-    height: 0;
-    border: 20px solid transparent;
-    border-top-color: #f5f5f5;
-    border-bottom: 0;
-    border-left: 0;
-    margin-left: -14px;
-    margin-bottom: -20px;
-    transform: rotateY(185deg);
-  }
-  h3 {
-    vertical-align: middle;
-    margin: 0;
-    font-style: italic;
-  }
-}
+// .speech-bubble {
+//   background: #f5f5f5;
+//   border-radius: .4em;
+//   height: 110px;
+//   padding: 20px 25px;
+//   position:relative;
+//   font-size: 22.5px;
+//   font-style: italic;
+//   &:after {
+//     content: '';
+//     position: absolute;
+//     bottom: 50%;
+//     left: 0;
+//     width: 0;
+//     height: 0;
+//     border: 20px solid transparent;
+//     border-top-color: #f5f5f5;
+//     border-bottom: 0;
+//     border-left: 0;
+//     margin-left: -14px;
+//     margin-bottom: -20px;
+//     transform: rotateY(185deg);
+//   }
+//   h3 {
+//     vertical-align: middle;
+//     margin: 0;
+//     font-style: italic;
+//   }
+// }
 
 #hanna-quote {
   background: #f5f5f5;

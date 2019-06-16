@@ -86,7 +86,7 @@
         <div class="source-article"><a href="<%= article.URL %>"target="_blank"><%= article.source %></a></div>
       </div>
       <%if article.description.present? %>
-      <p class="article-site_description" id="comment-section-anchor"><a href="<%= article.URL %>"target="_blank"><%= article.description %></a></p>
+      <p class="article-site_description speech-bubble" id="comment-section-anchor"><a href="<%= article.URL %>"target="_blank"><%= article.description %></a></p>
       <%else %>
       <p class="article-site_description" id="comment-section-anchor"><a href="<%= article.URL %>"target="_blank"><%= article.site_description %></a></p>
       <%end %>

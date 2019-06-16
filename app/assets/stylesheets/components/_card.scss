@@ -650,3 +650,27 @@ margin-right: 10px
 }
 
 
+.speech-bubble {
+  position: relative;
+  // border: 1px solid rgba(1, 1, 1, 0.4);
+
+  border-radius: 1.7em;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-bottom-color: white;
+  border-top: 0;
+  border-left: 0;
+// margin-left: -4.5px;
+  margin-top: -7px;
+}
+
