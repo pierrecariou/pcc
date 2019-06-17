@@ -71,6 +71,9 @@ margin-right: 81px;
   font-weight: bold;
   line-height: 1.29;
   color: #000000;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .comment-see {
@@ -177,6 +180,9 @@ margin-right: 81px;
   }
   .avatar-article {
     margin-right: -13px;
+  }
+  &:hover {
+    text-decoration: underline;
   }
 }
 
