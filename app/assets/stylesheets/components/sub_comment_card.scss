@@ -24,7 +24,7 @@
 }
 
 .text-sub-comment {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.29;
   color: #000000;
   display: flex;
@@ -138,4 +138,6 @@ color: rgba(1, 1, 1, 0.15);
   }
 }
 
-
+#sub_comment_text {
+  height: 402px;
+}

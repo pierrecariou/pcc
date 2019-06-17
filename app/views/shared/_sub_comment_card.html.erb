@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="text-sub-comment">
-    <%= sub_comment.text %>
+    <%= simple_format sub_comment.text %>
   </div>
  <div class="source-comment"><a href="<%= sub_comment.source %>"target="_blank"><%= URI.parse(sub_comment.source.strip).host %></a></div>
   <div class="footer-sub-comment <%= @comment.category.name %>" id="footer-<%= sub_comment.id  %>">
