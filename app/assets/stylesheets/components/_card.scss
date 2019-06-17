@@ -178,7 +178,7 @@
 .article-site_description {
   margin: 0;
   color: #000000;
-  font-size: 14px;
+  font-size: 15px;
   text-align: justify;
   text-justify: inter-word;
   a {
@@ -502,6 +502,9 @@ margin-right: 10px
 }
 .comment-article-content {
   width: 60%;
+  .text-sub-comment {
+    font-size: 15px;
+  }
 }
 
 .article-comments {
