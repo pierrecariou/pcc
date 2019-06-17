@@ -37,6 +37,10 @@ import { popupUserComment } from "./popup_user_comment"
 
 popupUserComment();
 
+import { seeComment } from "./see_comment"
+
+seeComment();
+
 // import { removePopupUser } from "./popup_user"
 
 

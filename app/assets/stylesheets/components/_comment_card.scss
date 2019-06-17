@@ -103,7 +103,7 @@ margin-right: 81px;
 }
 
 .text-comment {
- font-size: 18px;
+ font-size: 16px;
     line-height: 1.29;
     font-weight: lighter;
     color: #000000;
@@ -115,6 +115,9 @@ margin-right: 81px;
     padding-bottom: 5px;
     text-align: justify;
     width: 80%;
+  .inactive {
+    display: none;
+  }
 
 
 
@@ -226,5 +229,13 @@ margin-right: 81px;
     left: 15%;
     margin-top: 38px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+.see-comments {
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
   }
 }
