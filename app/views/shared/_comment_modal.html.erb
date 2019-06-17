@@ -4,6 +4,7 @@
 
         <div class="new-comment">
 
+
           <h2> Lancer un débat </h2>
 <div id="form-comment">
           <%= simple_form_for Comment.new do |f| %>
@@ -14,7 +15,7 @@
               <p class='impossible active'>impossible</p>
               <p class='possible'>possible</p>
               </div>
-              <%= f.input :text, label: 'Texte' %>
+              <%= f.input :text, label: 'Texte', as: :text%>
               <%= f.input :source, label: 'Lien' %>
               <p>Sélectionnez une catégorie générale, puis une ou plusieurs sous catégories*</p>
               <div class="categories">

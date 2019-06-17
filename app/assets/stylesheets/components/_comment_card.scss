@@ -103,13 +103,18 @@ margin-right: 81px;
 }
 
 .text-comment {
-  font-size: 14px;
-  line-height: 1.29;
-  color: #000000;
-  column-count: 2;
-  column-gap: 22px;
-  margin-top: 18px;
-  padding-bottom: 5px;
+ font-size: 18px;
+    line-height: 1.29;
+    font-weight: lighter;
+    color: #000000;
+    -webkit-column-count: 2;
+    column-count: 2;
+
+    column-gap: 22px;
+    margin-top: 18px;
+    padding-bottom: 5px;
+    text-align: justify;
+    // width: 80%;
 
 
 

@@ -26,8 +26,19 @@
 
             <button type="button" class="user-comment-button btn btn-link" data-toggle="modal" data-target=".modal_new_comment">Lancer un débat</button>
 
-            <!-- <i class="fas fa-bell bell"></i> -->
+         <!--    <div class="dropdown">
+            <i class="fas fa-bell bell avatar dropdown-toggle", id="navbar-wagon-menu", data-toggle="dropdown"></i>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <%current_user.articles.each do |article| %>
+              <%if article.comment_articles %>
+              <%article.comment_articles.each do |comment| %>
+              <li><%= comment.user.first_name %></li>
+              <%end %>
+              <%end %>
+              <%end %>
 
+            </ul>
+            </div> -->
 
 
       <!-- Avatar with dropdown menu -->
