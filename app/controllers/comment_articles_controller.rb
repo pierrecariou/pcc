@@ -14,6 +14,24 @@ class CommentArticlesController < ApplicationController
     months = ["nil", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre" "décembre"]
     @comment_article.date = Time.now.to_s.split()[0].split("-")[2] + " " + months[Time.now.to_s.split()[0].split("-")[1].to_i] + " " + Time.now.to_s.split()[0].split("-")[0]
     if @comment_article.save
+    if current_user.id != @article.user.id
+      notification = Notification.new(id_notif_type_concerned: @article.id, notif_type: "new_comment_article", notif_user_id: current_user.id, message: "#{current_user.first_name} #{current_user.last_name} a commenté votre article #{@article.title}")
+      notification.user = @article.user
+      notification.save
+      @article.user.red_circle_number += 1
+      @article.user.save
+    end
+    users = []
+       @article.comment_articles.each do |comment_article|
+        if current_user.id != comment_article.user.id && @article.user.id != comment_article.user.id && !users.include?(comment_article.user.id)
+          users << comment_article.user.id
+          notification = Notification.new(id_notif_type_concerned: @article.id, notif_type: "new_comment_article", notif_user_id: current_user.id, message: "#{current_user.first_name} #{current_user.last_name} a commenté l'article #{@article.title}")
+          notification.user = comment_article.user
+          notification.save
+          comment_article.user.red_circle_number += 1
+          comment_article.user.save
+        end
+      end
       respond_to do |format|
         format.html {redirect_to request.referrer}
         format.js
@@ -35,6 +53,13 @@ class CommentArticlesController < ApplicationController
         new_upvote.save
       @comment_article.increment!(:likes)
       if @comment_article.save
+          if current_user.id != @comment_article.user.id
+          notification = Notification.new(id_notif_type_concerned: @comment_article.article.id, notif_type: "upvote_comment_article", notif_user_id: current_user.id, message: "#{current_user.first_name} #{current_user.last_name} aime votre commentaire de l'article #{@comment_article.article.title}")
+          notification.user = @comment_article.user
+          notification.save
+          @comment_article.user.red_circle_number += 1
+          @comment_article.user.save
+        end
         respond_to do |format|
           format.html { redirect_to request.referrer }
           format.js

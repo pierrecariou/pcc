@@ -13,6 +13,13 @@ class SubCommentsController < ApplicationController
     months = ["nil", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre" "décembre"]
     @sub_comment.date = Time.now.to_s.split()[0].split("-")[2] + " " + months[Time.now.to_s.split()[0].split("-")[1].to_i] + " " + Time.now.to_s.split()[0].split("-")[0]
     if @sub_comment.save
+    if current_user.id != @comment.user.id
+      notification = Notification.new(id_notif_type_concerned: @comment.id, notif_type: "new_sub_comment", notif_user_id: current_user.id, message: "#{current_user.first_name} #{current_user.last_name} a participé à votre débat #{@comment.title}")
+      notification.user = @comment.user
+      notification.save
+      @comment.user.red_circle_number += 1
+      @comment.user.save
+    end
       respond_to do |format|
         format.html {redirect_to comment_path(@comment)}
         format.js
@@ -37,6 +44,13 @@ class SubCommentsController < ApplicationController
       @comment = @sub_comment.comment
       @comment.increment!(:upvotes)
       if @sub_comment.save && @comment.save
+         if current_user.id != @sub_comment.user.id
+          notification = Notification.new(id_notif_type_concerned: @sub_comment.comment.id, notif_type: "upvote_sub_comment", notif_user_id: current_user.id, message: "#{current_user.first_name} #{current_user.last_name} a donné un vote positif à votre contribution #{@sub_comment.title}")
+          notification.user = @sub_comment.user
+          notification.save
+          @sub_comment.user.red_circle_number += 1
+          @sub_comment.user.save
+        end
         respond_to do |format|
           format.html { redirect_to request.referrer }
           format.js

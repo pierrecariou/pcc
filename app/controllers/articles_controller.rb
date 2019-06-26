@@ -59,6 +59,13 @@ class ArticlesController < ApplicationController
     cat = @article.sub_categories.map(&:category).first
     @article.category = cat
     if @article.save
+    @article.user.followers.each do |follower|
+      notification = Notification.new(id_notif_type_concerned: @article.id, notif_type: "new_article", notif_user_id: current_user.id, message: "#{@article.user.first_name} #{@article.user.last_name} a partagé un nouvel article: '#{@article.title}'")
+      notification.user = follower
+      notification.save
+      follower.red_circle_number += 1
+      follower.save
+    end
       # flash[:success] = "Post successfully created"
       redirect_to articles_path(query: { category_name: @article.category.name, date_from: -1.days.from_now }, anchor: 'new-article-anchor')
     else
@@ -75,6 +82,13 @@ class ArticlesController < ApplicationController
       new_upvote.article = @article
       new_upvote.save
       @article.increment!(:upvotes)
+      if current_user.id != @article.user.id
+        notification = Notification.new(id_notif_type_concerned: @article.id, notif_type: "upvote_article", notif_user_id: current_user.id, message: "#{current_user.first_name} #{current_user.last_name} a donné un vote positif à votre article #{@article.title}")
+        notification.user = @article.user
+        notification.save
+        @article.user.red_circle_number += 1
+        @article.user.save
+      end
       if @article.save
         respond_to do |format|
           format.html { redirect_to request.referrer }

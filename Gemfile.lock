@@ -247,7 +247,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootsnap
-  bootstrap-sass (~> 3.3)
+  bootstrap-sass (~> 3.4.1)
   carrierwave (~> 1.2)
   cloudinary
   devise

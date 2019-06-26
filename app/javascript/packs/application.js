@@ -41,6 +41,10 @@ import { seeComment } from "./see_comment"
 
 seeComment();
 
+import { openNotifs } from "./open_notifs"
+
+openNotifs();
+
 // import { removePopupUser } from "./popup_user"
 
 

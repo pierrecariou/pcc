@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_123306) do
+ActiveRecord::Schema.define(version: 2019_06_25_160335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,6 +153,18 @@ ActiveRecord::Schema.define(version: 2019_06_13_123306) do
     t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.boolean "status_active", default: true
+    t.string "message"
+    t.integer "id_notif_type_concerned"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "notif_type"
+    t.integer "notif_user_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -200,6 +212,7 @@ ActiveRecord::Schema.define(version: 2019_06_13_123306) do
     t.string "activity"
     t.string "photo", default: "https://res.cloudinary.com/pensercestchouette/image/upload/v1559772286/b12q9dcyzpcgwfwejhcn.png"
     t.string "photo_url", default: "logopcc.png"
+    t.integer "red_circle_number", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -224,6 +237,7 @@ ActiveRecord::Schema.define(version: 2019_06_13_123306) do
   add_foreign_key "comment_sub_categories", "sub_categories"
   add_foreign_key "comments", "categories"
   add_foreign_key "comments", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "sub_categories", "categories"
   add_foreign_key "sub_comments", "comments"
   add_foreign_key "sub_comments", "users"

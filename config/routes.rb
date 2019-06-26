@@ -51,8 +51,16 @@ Rails.application.routes.draw do
    resources :users do
     member do
       put "remove", to: "users#remove_photo"
+      put "update_number", to: "users#circle_number_update"
     end
   end
+
+     resources :notifications do
+    member do
+      put "inactive", to: "notifications#status_inactive"
+    end
+  end
+
 
 
   resources :users, only: [ :show, :edit, :update]

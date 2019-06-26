@@ -57,6 +57,13 @@ class CommentsController < ApplicationController
     # article_comment.image = image
     # article_comment.source = URI.parse(article_comment.URL.strip).host
     if @comment.save
+    @comment.user.followers.each do |follower|
+      notification = Notification.new(id_notif_type_concerned: @comment.id, notif_type: "new_comment", notif_user_id: current_user.id, message: "#{@comment.user.first_name} #{@comment.user.last_name} a créé un nouveau débat: '#{@comment.title}'")
+      notification.user = follower
+      notification.save
+      follower.red_circle_number += 1
+      follower.save
+    end
       redirect_to comments_path(query: { category_name: @comment.category.name, date_from: -1.days.from_now })
     else
       render :new
@@ -96,6 +103,13 @@ class CommentsController < ApplicationController
       new_upvote.comment = @comment
       new_upvote.save
       @comment.increment!(:upvotes)
+      if current_user.id != @comment.user.id
+        notification = Notification.new(id_notif_type_concerned: @comment.id, notif_type: "upvote_comment", notif_user_id: current_user.id, message: "#{current_user.first_name} #{current_user.last_name} a donné un vote positif à votre débat #{@comment.title}")
+        notification.user = @comment.user
+        notification.save
+        @comment.user.red_circle_number += 1
+        @comment.user.save
+      end
       if @comment.save
         respond_to do |format|
           format.html { redirect_to request.referrer }

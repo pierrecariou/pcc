@@ -29,6 +29,19 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def circle_number_update
+    @user = User.find(params[:id])
+    authorize @user
+    @user.red_circle_number = 0
+
+    if @user.save
+      respond_to do |format|
+        format.html { redirect_to request.referrer }
+        format.js
+      end
+    end
+  end
+
 
   private
 

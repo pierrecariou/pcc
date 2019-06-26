@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   mount_uploader :photo, PhotoUploader
   has_many :articles
+  has_many :notifications
   has_many :comments
   has_many :sub_comments
   has_many :answers
