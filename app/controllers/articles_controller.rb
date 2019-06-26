@@ -24,6 +24,10 @@ class ArticlesController < ApplicationController
       @sub_categories = []
       @category = Category.find_by_name("top")
     end
+    if current_user.red_circle_number == nil
+      current_user.red_circle_number = 0
+      current_user.save
+    end
     @categories = Category.all
     @articles_root = Article.from_date(-30.days.from_now)
     @comment_article = CommentArticle.new

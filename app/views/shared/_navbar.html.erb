@@ -29,7 +29,7 @@
           <div class="dropdown">
             <%= link_to update_number_user_path(current_user), method: :put, remote: true do %>
               <i class="fas fa-bell bell ", id="bell"></i>
-              <%if current_user.red_circle_number != 0 %>
+              <%if current_user.red_circle_number != 0 && current_user.red_circle_number != nil %>
                 <div class="red-circle">
                 <%= current_user.red_circle_number %>
 
