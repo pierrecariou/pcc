@@ -24,8 +24,11 @@ class ArticlesController < ApplicationController
       @sub_categories = []
       @category = Category.find_by_name("top")
     end
-    if current_user.red_circle_number == nil
-      current_user.red_circle_number = 0
+    unless current_user.notifications.first.present?
+      notification = Notification.new(notif_user_id: current_user.id, notif_type: "nothing", message: "Content de vous voir #{current_user.first_name} #{current_user.last_name}! Nous vous souhaitons la bienvenue sur penser c'est chouette. Le site est actuellement en bêta, donc n'hésitez pas à nous faire part de vos remarques. Chouette navigation")
+      notification.user = current_user
+      notification.save
+      current_user.red_circle_number += 1
       current_user.save
     end
     @categories = Category.all
