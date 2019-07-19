@@ -1,0 +1,76 @@
+.notifications {
+  min-width: 430px;
+  font-size: 13px;
+  display: none;
+  right: 21px;
+  padding-bottom: 0;
+  &.active {
+    display: block;
+  }
+}
+
+.flex-notif {
+  color: black;
+  display: flex;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgba(1, 1, 1, 0.1);
+  align-items: center;
+  min-height: 65px;
+  max-height: 98px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(1, 1, 1, 0.15);
+  }
+  &.inactive {
+    background-color: white;
+    &:hover {
+    background-color: rgba(1, 1, 1, 0.05);
+  }
+  }
+  .avatar {
+    margin-left: 5px;
+  }
+  .notif-infos {
+    padding-left: 10px;
+
+
+
+    .notif-msg {
+    }
+    .time-from {
+      font-style: italic;
+      opacity: 0.8;
+    }
+  }
+}
+
+.red-circle {
+  background-color: red;
+  color: white;
+  width: 15px;
+  height: 15px;
+  border-radius: 50px;
+  font-size: 10px;
+  text-align: center;
+  margin-top: -26px;
+  margin-left: 10px;
+  position: absolute;
+}
+
+.title-notifs {
+      margin-left: 10px;
+    margin-bottom: 3px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.scroll {
+  overflow: scroll;
+  min-height: 70px;
+  max-height: 490px;
+}
+
+.no-notifs {
+  padding: 10px;
+}

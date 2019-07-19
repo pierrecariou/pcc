@@ -29,6 +29,27 @@ import { popupUpvote } from "./popup_upvote"
 
 popupUpvote();
 
+import { popupUser } from "./popup_user"
+
+popupUser();
+
+import { popupUserComment } from "./popup_user_comment"
+
+popupUserComment();
+
+import { seeComment } from "./see_comment"
+
+seeComment();
+
+import { openNotifs } from "./open_notifs"
+
+openNotifs();
+
+// import { removePopupUser } from "./popup_user"
+
+
+// setTimeout(removePopupUser, 5000);
+
 
 // import  { hideOtherDebates } from "./debat";
 

@@ -1,0 +1,10 @@
+<div class=" modal modal-followers" tabindex="-1" role="dialog" >
+    <div class="modal-dialog profile" role="document">
+      <div class="modal-content profile">
+
+  <% @user.followers.each do |follower| %>
+  <%= render 'shared/card_user_profile', user: follower%>
+  <%end %>
+</div>
+</div>
+</div>

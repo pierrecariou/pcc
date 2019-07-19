@@ -219,7 +219,7 @@ button.navbar-wagon-item-comment {
 }
 
 .all-answers {
-  width: 60%;
+  width: 70%;
 
   // margin: 0 auto;
 }
@@ -426,4 +426,88 @@ label[for=sub_comment_state_contre] {
         }
 }
 
+.comment-show {
+  .popupuser {
+    left: 8%;
+  }
+}
 
+.follow-button {
+  text-transform: uppercase;
+  border-color: #4090db;
+  color: #4090db;
+  margin-left: 20px;
+  &:visited, &:focus, &:hover {
+    border-color: #2D6396;
+    color: #2D6396;
+  }
+}
+
+.unfollow-button {
+  text-transform: uppercase;
+  border-color: #66bd2b;
+  background-color: #66bd2b;
+  color: white;
+  margin-left: 20px;
+  &:visited, &:focus, &:hover {
+    border-color: #47821F;
+    background-color: #47821F;
+    color: white;
+  }
+}
+
+
+  .button-follow-show {
+    margin-bottom: 15px;
+    margin-top: 0px;
+    padding: 5px 18px;
+    border: solid 1px #000000;
+    background-color: white;
+    color: black;
+    opacity: 1;
+    font-size: 17px;
+    font-weight: lighter;
+    font-style: normal;
+    border-radius: 4px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+    margin-left: 19%;
+    width: 85px;
+    &.suivre {
+      background-color: black;
+      color: white;
+    }
+    i {
+      margin-top: 3px;
+      margin-right: 7px;
+      margin-left: -7px;
+    }
+  }
+
+  .flex-button-follow {
+    display: flex;
+  }
+
+  .infos-follows {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .user-follows {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+.profile-left-side-info {
+  .fas {
+    color: rgba(1, 1, 1, 0.5);
+  }
+  .change-password a{
+    color: rgba(1, 1, 1, 0.5);
+    font-size: 14px;
+  }
+}

@@ -26,7 +26,7 @@ gem 'rails', '5.2.2'
 gem 'redis'
 
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass', '~> 3.3'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'font-awesome-sass', '~> 5.5.0'
 gem 'sassc-rails'
 gem 'simple_form'
@@ -39,6 +39,8 @@ gem 'rubysl-open-uri'
 
 gem 'pg_search'
 gem 'pundit'
+
+
 
 
 group :development do

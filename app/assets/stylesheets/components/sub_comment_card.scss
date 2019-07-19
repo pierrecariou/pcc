@@ -24,7 +24,7 @@
 }
 
 .text-sub-comment {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.29;
   color: #000000;
   display: flex;
@@ -102,8 +102,7 @@
  margin-bottom: 30px;
   border-style: solid;
   border-width: 1px 0px 0px 0px;
-  opacity: 0.15;
-  color: black;
+color: rgba(1, 1, 1, 0.15);
   &.hidden {
     display: none;
   }
@@ -139,4 +138,6 @@
   }
 }
 
-
+#sub_comment_text {
+  height: 160px;
+}

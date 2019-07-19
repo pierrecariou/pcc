@@ -54,11 +54,15 @@
               </div>
               <div class="user-infos-comment">
                  Proposé par
-                <%= link_to user_path(@comment.user) do %>
+                <%= link_to(user_path(@comment.user), class: "user-infos-popup", :data => {:id => "#{@comment.id}"} ) do %>
                  <%= @comment.user.first_name%> <%= @comment.user.last_name%>
                 <% end %>
                 , le <%=@comment.date %>
               </div>
+               <span class="popupuser" id="my-user-popup-<%= @comment.id %>" data-id="<%= @comment.id %>">
+
+                <%=  render 'shared/card_user', user: @comment.user%>
+              </span>
               <div class="sub_categories_infos_comment" >
                 <div class="cat-info <%= @comment.category.name %>">
                   <%= @comment.category.name %>
@@ -70,7 +74,7 @@
             </div>
           </div>
           <div class="text-comment">
-            <%= @comment.text %>
+            <%= simple_format @comment.text %>
           </div>
           <%end %>
           <div class="source-comment"><a href="<%= @comment.source %>"target="_blank"><%= URI.parse(@comment.source.strip).host %></a></div>

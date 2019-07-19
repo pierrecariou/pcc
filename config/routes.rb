@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post ':user_name/follow_user', to: 'relationships#follow_user', as: :follow_user
+  post ':user_name/unfollow_user', to: 'relationships#unfollow_user', as: :unfollow_user
+
   devise_for :users
 
   root to: 'articles#index', date_from: -7.days.from_now
@@ -48,8 +51,16 @@ Rails.application.routes.draw do
    resources :users do
     member do
       put "remove", to: "users#remove_photo"
+      put "update_number", to: "users#circle_number_update"
     end
   end
+
+     resources :notifications do
+    member do
+      put "inactive", to: "notifications#status_inactive"
+    end
+  end
+
 
 
   resources :users, only: [ :show, :edit, :update]

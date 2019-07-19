@@ -7,11 +7,15 @@
         <%end %>
       </div>
       <div class="user-infos-comment">
-        <%= link_to user_path(comment_article.user) do %>
+        <%= link_to(user_path(comment_article.user), class: "user-infos-popup-comment", :data => {:id => "#{comment_article.id}"} ) do%>
          <%= comment_article.user.first_name%> <%= comment_article.user.last_name%>
         <% end %>
         , <%=comment_article.date %>
       </div>
+      <span class="popupuser-comment" id="my-user-popup-comment-<%= comment_article.id %>" data-id="<%= comment_article.id %>">
+
+          <%=  render 'shared/card_user', user: comment_article.user%>
+        </span>
     </div>
   </div>
   <div class="text-sub-comment">

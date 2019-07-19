@@ -26,8 +26,82 @@
 
             <button type="button" class="user-comment-button btn btn-link" data-toggle="modal" data-target=".modal_new_comment">Lancer un débat</button>
 
-            <!-- <i class="fas fa-bell bell"></i> -->
+          <div class="dropdown">
+            <%= link_to update_number_user_path(current_user), method: :put, remote: true do %>
+              <i class="fas fa-bell bell ", id="bell"></i>
+              <%if current_user.red_circle_number != 0 && current_user.red_circle_number != nil %>
+                <div class="red-circle">
+                <%= current_user.red_circle_number %>
 
+                </div>
+              <%end %>
+            <%end %>
+            <div class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu notifications">
+            <div class="title-notifs">Notifications</div>
+            <div class="scroll">
+              <%unless current_user.notifications.first.present? %>
+              <div class="no-notifs">
+                Aucune notification pour le moment. N'hésitez pas à partager, commenter et suivre des personnes.
+                </div>
+              <%end %>
+            <% current_user.notifications.order(created_at: :desc).each do |notification| %>
+              <%if notification.notif_user_id.present? %>
+                <%if notification.status_active? %>
+                  <%= link_to inactive_notification_path(notification), method: :put do %>
+                    <div class="flex-notif">
+                          <div>
+                            <%=cl_image_tag User.find(notification.notif_user_id).photo, height: 50, width: 50, crop: :fill, gravity: :face, class: "avatar" %>
+                          </div>
+                      <div class="notif-infos">
+                        <div class="notif-msg">
+                          <%= notification.message %>
+                        </div>
+                        <div class="time-from">
+                          <%  time_diff = (Time.current - notification.created_at)%>
+                          <% if (time_diff / 1.minute).round < 60 %>
+                           <%= (time_diff / 1.minute).round %> minutes
+                          <% elsif (time_diff / 1.hour).round < 24 %>
+                            <%= (time_diff / 1.hour).round %> heures
+                          <%else %>
+                            <%= (time_diff / 1.day).round%> jours
+                          <%end %>
+                        </div>
+
+                      </div>
+                    </div>
+                  <%end %>
+                  <div class="linebetween"></div>
+                <%else %>
+                  <%= link_to inactive_notification_path(notification), method: :put  do %>
+                    <div class="flex-notif inactive">
+                      <div>
+                        <%=cl_image_tag User.find(notification.notif_user_id).photo, height: 50, width: 50, crop: :fill, gravity: :face, class: "avatar" %>
+                      </div>
+                      <div class="notif-infos">
+                        <div class="notif-msg">
+                          <%= notification.message %>
+                        </div>
+                        <div class="time-from">
+                          <%  time_diff = (Time.current - notification.created_at)%>
+                          <% if (time_diff / 1.minute).round < 60 %>
+                            <%= (time_diff / 1.minute).round %> minutes
+                          <% elsif (time_diff / 1.hour).round < 24 %>
+                            <%= (time_diff / 1.hour).round %> heures
+                          <%else %>
+                            <%= (time_diff / 1.day).round%> jours
+                          <%end %>
+                        </div>
+
+                      </div>
+                    </div>
+                  <%end %>
+                  <div class="linebetween"></div>
+                <%end %>
+              <%end %>
+            <%end %>
+            </div>
+            </div>
+            </div>
 
 
       <!-- Avatar with dropdown menu -->

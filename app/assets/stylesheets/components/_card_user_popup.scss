@@ -1,0 +1,74 @@
+.card_user_popup {
+  .linebetweeen {
+    margin-bottom: 10px;
+  }
+  .button-follow {
+  margin-top: 10px;
+  padding: 3px 10px;
+  border: solid 1px #000000;
+  background-color: white;
+  color: black;
+  font-size: 14px;
+  font-weight: lighter;
+  font-style: normal;
+  border-radius: 4px;
+  &.suivre {
+  background-color: black;
+  color: white;
+  }
+  i {
+      margin-top: 3px;
+      margin-right: 5px;
+      margin-left: -5px;
+    }
+  }
+  .user {
+    margin-bottom: 0px;
+    min-width: 250px;
+    align-items: center;
+    &.profile {
+      display: flex;
+      .button-follow {
+        margin-top: 0px;
+        padding: 10px 26px;
+        width: 95px;
+      }
+      .infos_user {
+        width: 180px;
+        margin-top: 9px;
+
+      }
+    }
+  }
+  .avatar_sidebar {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  }
+  .photo {
+    margin-bottom: 8px;
+    padding: 0px 10px;
+  }
+
+  .infos_user {
+    margin-top: 5px;
+  }
+
+  .count {
+    font-style: normal;
+    opacity: 1;
+  }
+
+  .user_name {
+    font-style: normal;
+  }
+}
+
+.modal-dialog.profile {
+  width: 448px;
+  margin: 90px auto;
+  .modal-content {
+    padding: 35px 35px;
+  }
+}

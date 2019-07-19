@@ -33,16 +33,26 @@
       </div>
       <div class="user-infos-comment">
          Proposé par
-        <%= link_to user_path(comment.user) do %>
+        <%= link_to(user_path(comment.user), class: "user-infos-popup", :data => {:id => "#{comment.id}"} ) do %>
          <%= comment.user.first_name%> <%= comment.user.last_name%>
         <% end %>
         , le <%=comment.date %>
       </div>
+      <span class="popupuser" id="my-user-popup-<%= comment.id %>" data-id="<%= comment.id %>">
+
+          <%=  render 'shared/card_user', user: comment.user%>
+        </span>
     </div>
   </div>
   <div class="text-comment">
-
-    <%= comment.text %>
+    <%if comment.text.split(" ").count > 100 %>
+      <div class="active" id="text-comment-<%=comment.id%>">
+      <span><%=comment.text.split(" ").first(100).join(" ") + "..."%></span><span class="see-comments" data-id="<%=comment.id%>">(voir plus)</span>
+      </div>
+      <div class="inactive" id="text-comment-inactive-<%=comment.id%>"><%= simple_format comment.text%></div>
+    <%else %>
+    <%= simple_format comment.text%>
+    <%end %>
   </div>
   <div class="source-comment"><a href="<%= comment.source %>"target="_blank"><%= URI.parse(comment.source.strip).host %></a></div>
   <%= link_to comment_path(comment) do %>

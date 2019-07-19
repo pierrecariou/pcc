@@ -1,0 +1,20 @@
+function followUser(user) {
+  // const button = document.getElementById("button-follow-<%=@user.id%>")
+  // button.classList.toggle("suivre");
+  // button.innerHTML = "suivi";
+  // button.insertAdjacentHTML('afterbegin',
+  //   '<i class="fas fa-check"></i>');
+  // button.disabled = true;
+  const buttons = document.querySelectorAll(".button-follow-<%=@user.id%>")
+  buttons.forEach((button) => {
+console.log('button');
+  button.classList.toggle("suivre");
+  button.innerHTML = "suivi";
+  button.insertAdjacentHTML('afterbegin',
+    '<i class="fas fa-check"></i>');
+  button.disabled = true;
+  });
+}
+
+followUser('<%= @user%>')
+

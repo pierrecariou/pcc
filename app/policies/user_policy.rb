@@ -23,4 +23,8 @@ class UserPolicy < ApplicationPolicy
    def remove_photo?
     true
   end
+
+  def circle_number_update?
+    true
+  end
 end
