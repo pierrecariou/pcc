@@ -1,4 +1,4 @@
-<h2>Inscription</h2>
+<div class="sign-up">
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -8,6 +8,14 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+	<%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "first_name" }%>
+	<%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "last_name" }%>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -20,8 +28,11 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "S'inscrire" %>
+    <%= f.button :submit, "S'inscrire", class: "button-repondre" %>
   </div>
-<% end %>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+	<div class="sign-links">
+		<%= render "devise/shared/links" %>
+	</div>
+</div>

@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.3'
-
-
+ruby '2.5.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -38,7 +36,6 @@ gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
 gem 'rubysl-open-uri'
 
 gem 'pg_search'
-gem 'pundit'
 
 
 

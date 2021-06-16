@@ -5,8 +5,11 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+#	def configure_permitted_parameters
+#		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation,:first_name) }
+#	end
 
-  include Pundit
+  #include Pundit
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -20,7 +23,7 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
-
+	
 
   private
 

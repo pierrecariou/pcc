@@ -1,0 +1,6 @@
+production:
+  cloud_name: "pensercestchouette"
+  api_key: "998636914622459"
+  api_secret: "EJiZqCSzJ3J2DWR58n3-T2kuWbA"
+  secure: true
+  cdn_subdomain: true
