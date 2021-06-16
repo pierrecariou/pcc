@@ -19,26 +19,26 @@ puts 'Cleaning database.....'
    article.source = URI.parse(url).host
  end
 
- Comment.destroy_all
- Article.destroy_all
- User.destroy_all
- Category.destroy_all
- SubCategory.destroy_all
- SubComment.destroy_all
+ #Comment.destroy_all
+ #Article.destroy_all
+ #User.destroy_all
+ #Category.destroy_all
+ #SubCategory.destroy_all
+ #SubComment.destroy_all
 
 
 puts 'Creating users...'
 
-user1 = User.create!(email: 'baptisteiss@gmail.com', password: 'loulou39', first_name: 'Théo', last_name: 'Baptiste', pseudo: 'président', age: 24, activity: 'founder')
-user2 = User.create!(email: 'pierrecariou@outlook.fr', password: 'password!', first_name: 'Pierre', last_name: 'Cariou', pseudo: 'STesich', age: 24, activity: 'Developper')
-user3 = User.create!(email: 'numa.desborderies@gmail.com', password: 'sendinblue', first_name: 'Numa', last_name: 'Des Borderies', pseudo: 'LEshark', age: 40, activity: 'Compositeur')
-user4 = User.create!(email: 'pierre.gelinotte@free.fr', password: '6H4sk46p', first_name: 'Pierre', last_name: 'Gelinotte')
-user5 = User.create!(email: 'eugarin@hotmail.fr', password: 'kp4knAgx', first_name: 'Eugénie', last_name: 'Garin')
-user6 = User.create!(email: 'Bob@gmail.com', password: 'Iambob', first_name: 'Bob', last_name: 'Clark')
-user7 = User.create!(email: 'morganedesaintvincent@hotmail.fr', password: '4EhMgx3W', first_name: 'Morgane', last_name: 'De Saint Vincent')
-user8 = User.create!(email: 'paul.belloy@hotmail.fr', password: 'oB6ADdk9', first_name: 'Paul', last_name: 'Belloy')
-user9 = User.create!(email: 'louismi.quercia@hotmail.fr', password: 'lQw3Pl2a', first_name: 'Louis Michel', last_name: 'Quercia')
-user10 = User.create!(email: 'Ernest.prot@gmail.com', password: 'eQmqmW93', first_name: 'Ernest', last_name: 'Prot')
+user1 = User.create!(email: 'dede@gmail.com', password: 'loulou39', first_name: 'Théo', last_name: 'Baptiste', pseudo: 'président', age: 24, activity: 'founder')
+user2 = User.create!(email: 'fefwfwf@outlook.fr', password: 'password!', first_name: 'Pierre', last_name: 'Carre', pseudo: 'STesich', age: 24, activity: 'Developper')
+user3 = User.create!(email: 'grwgrwg@gmail.com', password: 'sendinblue', first_name: 'Manu', last_name: 'Picard', pseudo: 'LEshark', age: 40, activity: 'Compositeur')
+user4 = User.create!(email: 'fejifjwifj@free.fr', password: '6H4sk46p', first_name: 'Pierre', last_name: 'Gelin')
+user5 = User.create!(email: 'efewfwe@hotmail.fr', password: 'kp4knAgx', first_name: 'Eugéne', last_name: 'Garnier')
+user6 = User.create!(email: 'fewefwefewfd@gmail.com', password: 'Iambob', first_name: 'Bob', last_name: 'Clark')
+user7 = User.create!(email: 'mfemfmwemf@hotmail.fr', password: '4EhMgx3W', first_name: 'Morgane', last_name: 'Millour')
+user8 = User.create!(email: 'fnewjfewfb@hotmail.fr', password: 'oB6ADdk9', first_name: 'Gustave', last_name: 'Bignan')
+user9 = User.create!(email: 'ffbewufbew@hotmail.fr', password: 'lQw3Pl2a', first_name: 'Louis Michel', last_name: 'Liot')
+user10 = User.create!(email: 'fewnjefibwefbeh@gmail.com', password: 'eQmqmW93', first_name: 'Remi', last_name: 'Delacourt')
 
 # User.create!(email: 'MBF@MBF-AVOCATS.COM', password: 'hfv87jfez', first_name: 'Maryanne', last_name: 'Bine-Fisher')
 # User.create!(email: 'sim.mertens@gmail.com', password: 'Q38nv9cOR', first_name: 'Simons', last_name: 'Mertens')
@@ -141,49 +141,48 @@ user10 = User.create!(email: 'Ernest.prot@gmail.com', password: 'eQmqmW93', firs
 # User.create!(email: 'mayzoff@gmail.com', password: 'gpvgpv01', first_name: 'Maybelline', last_name: 'Skvortzoff')
 
 
+# puts 'Creating categories...'
+# category_ecologie = Category.create!(name: 'Ecologie')
+# category_politique = Category.create!(name: 'Politique')
+# category_economie = Category.create!(name: 'Economie')
+# category_numerique = Category.create!(name: 'Numérique')
+# category_humanites = Category.create!(name: 'Humanités')
 
- puts 'Creating categories...'
- category_ecologie = Category.create!(name: 'Ecologie')
- category_politique = Category.create!(name: 'Politique')
- category_economie = Category.create!(name: 'Economie')
- category_numerique = Category.create!(name: 'Numérique')
- category_humanites = Category.create!(name: 'Humanités')
+# puts 'creating sub_categories'
+# sub_category_energie = SubCategory.create!(name: 'Energie', category: category_ecologie)
+# sub_category_climat = SubCategory.create!(name: 'Climat', category: category_ecologie)
+# sub_category_biodiversite = SubCategory.create!(name: 'Biodiversité', category: category_ecologie)
+# sub_category_transition = SubCategory.create!(name: 'Transition', category: category_ecologie)
+# sub_category_pollution = SubCategory.create!(name: 'Pollution', category: category_ecologie)
+# sub_category_agriculture = SubCategory.create!(name: 'Agriculture', category: category_ecologie)
 
- puts 'creating sub_categories'
- sub_category_energie = SubCategory.create!(name: 'Energie', category: category_ecologie)
- sub_category_climat = SubCategory.create!(name: 'Climat', category: category_ecologie)
- sub_category_biodiversite = SubCategory.create!(name: 'Biodiversité', category: category_ecologie)
- sub_category_transition = SubCategory.create!(name: 'Transition', category: category_ecologie)
- sub_category_pollution = SubCategory.create!(name: 'Pollution', category: category_ecologie)
- sub_category_agriculture = SubCategory.create!(name: 'Agriculture', category: category_ecologie)
+# sub_category_finance = SubCategory.create!(name: 'Finance', category: category_economie)
+# sub_category_business = SubCategory.create!(name: 'Business', category: category_economie)
+# sub_category_commerce_international = SubCategory.create!(name: 'Commerce International', category: category_economie)
+# sub_category_inegalites = SubCategory.create!(name: 'Rapports sociaux', category: category_economie)
+# sub_category_economie_politique = SubCategory.create!(name: 'Economie politique', category: category_economie)
+# sub_category_theorie = SubCategory.create!(name: 'Théories', category: category_economie)
 
- sub_category_finance = SubCategory.create!(name: 'Finance', category: category_economie)
- sub_category_business = SubCategory.create!(name: 'Business', category: category_economie)
- sub_category_commerce_international = SubCategory.create!(name: 'Commerce International', category: category_economie)
- sub_category_inegalites = SubCategory.create!(name: 'Rapports sociaux', category: category_economie)
- sub_category_economie_politique = SubCategory.create!(name: 'Economie politique', category: category_economie)
- sub_category_theorie = SubCategory.create!(name: 'Théories', category: category_economie)
+# sub_category_politique_internationale = SubCategory.create!(name: 'Politique Internationale', category: category_politique)
+# sub_category_union_europeenne = SubCategory.create!(name: 'Union Européenne', category: category_politique)
+# sub_category_geopolitique = SubCategory.create!(name: 'Géopolitique', category: category_politique)
+# sub_category_vie_politique = SubCategory.create!(name: 'Vie politique', category: category_politique)
+# sub_category_reformes = SubCategory.create!(name: 'Réformes', category: category_politique)
+# sub_category_theorie = SubCategory.create!(name: 'Théorie', category: category_politique)
 
- sub_category_politique_internationale = SubCategory.create!(name: 'Politique Internationale', category: category_politique)
- sub_category_union_europeenne = SubCategory.create!(name: 'Union Européenne', category: category_politique)
- sub_category_geopolitique = SubCategory.create!(name: 'Géopolitique', category: category_politique)
- sub_category_vie_politique = SubCategory.create!(name: 'Vie politique', category: category_politique)
- sub_category_reformes = SubCategory.create!(name: 'Réformes', category: category_politique)
- sub_category_theorie = SubCategory.create!(name: 'Théorie', category: category_politique)
+# sub_category_intelligence_artificielle = SubCategory.create!(name: 'Intelligence Artificielle', category: category_numerique)
+# sub_category_gafa = SubCategory.create!(name: 'GAFA/BATX', category: category_numerique)
+# sub_category_startup = SubCategory.create!(name: 'Startup', category: category_numerique)
+# sub_category_transhumanisme = SubCategory.create!(name: 'Transhumanisme', category: category_numerique)
+# sub_category_technologie = SubCategory.create!(name: 'Technologie', category: category_numerique)
+# sub_category_futurologie = SubCategory.create!(name: 'Futurologie', category: category_numerique)
 
- sub_category_intelligence_artificielle = SubCategory.create!(name: 'Intelligence Artificielle', category: category_numerique)
- sub_category_gafa = SubCategory.create!(name: 'GAFA/BATX', category: category_numerique)
- sub_category_startup = SubCategory.create!(name: 'Startup', category: category_numerique)
- sub_category_transhumanisme = SubCategory.create!(name: 'Transhumanisme', category: category_numerique)
- sub_category_technologie = SubCategory.create!(name: 'Technologie', category: category_numerique)
- sub_category_futurologie = SubCategory.create!(name: 'Futurologie', category: category_numerique)
-
- sub_category_philosophie = SubCategory.create!(name: 'Philosophie', category: category_humanites)
- sub_category_histoire = SubCategory.create!(name: 'Histoire', category: category_humanites)
- sub_category_art = SubCategory.create!(name: 'Art', category: category_humanites)
- sub_category_societe = SubCategory.create!(name: 'Société', category: category_humanites)
- sub_category_psychologie = SubCategory.create!(name: 'Psychologie', category: category_humanites)
- sub_category_science = SubCategory.create!(name: 'Science', category: category_humanites)
+# sub_category_philosophie = SubCategory.create!(name: 'Philosophie', category: category_humanites)
+# sub_category_histoire = SubCategory.create!(name: 'Histoire', category: category_humanites)
+# sub_category_art = SubCategory.create!(name: 'Art', category: category_humanites)
+# sub_category_societe = SubCategory.create!(name: 'Société', category: category_humanites)
+# sub_category_psychologie = SubCategory.create!(name: 'Psychologie', category: category_humanites)
+# sub_category_science = SubCategory.create!(name: 'Science', category: category_humanites)
 
  puts 'Creating articles...'
 
