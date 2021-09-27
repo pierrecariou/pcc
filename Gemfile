@@ -32,7 +32,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'onebox', '~> 1.8', '>= 1.8.8'
 
-gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
+gem 'nokogiri', '~> 1.12'
 gem 'rubysl-open-uri'
 
 gem 'pg_search'
